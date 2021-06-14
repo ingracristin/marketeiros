@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct MarketeirosApp: App {
+    private let notificationService = UserNotificationService.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

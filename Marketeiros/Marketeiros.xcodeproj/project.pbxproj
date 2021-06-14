@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
+		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
 		EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */; };
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
+		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36126779A9A00DB7644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +37,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE590B8326779DA4000101AF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AE590B8526779DC2000101AF /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AE590B8526779DC2000101AF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AE590B8626779E2B000101AF /* SocialNetworkService.swift */,
+				AE590B8826779E7F000101AF /* UserNotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		EF30C35326779A9A00DB7644 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +73,7 @@
 		EF30C35E26779A9A00DB7644 /* Marketeiros */ = {
 			isa = PBXGroup;
 			children = (
+				AE590B8326779DA4000101AF /* Domain */,
 				EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */,
 				EF30C36126779A9A00DB7644 /* ContentView.swift */,
 				EF30C36326779A9A00DB7644 /* Assets.xcassets */,
@@ -140,6 +162,8 @@
 			files = (
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
+				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
+				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
