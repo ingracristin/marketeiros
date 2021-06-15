@@ -40,6 +40,7 @@
 		AE590B8326779DA4000101AF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AE5B704F2678EB1A00AFF32E /* Models */,
 				AE590B8526779DC2000101AF /* Services */,
 			);
 			path = Domain;
@@ -52,6 +53,43 @@
 				AE590B8826779E7F000101AF /* UserNotificationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AE5B704A2678EAD400AFF32E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AE5B704B2678EAE000AFF32E /* Scenes */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AE5B704B2678EAE000AFF32E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AE5B704D2678EAF900AFF32E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AE5B704E2678EB0700AFF32E /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AE5B704E2678EB0700AFF32E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AE5B704F2678EB1A00AFF32E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		EF30C35326779A9A00DB7644 = {
@@ -73,6 +111,8 @@
 		EF30C35E26779A9A00DB7644 /* Marketeiros */ = {
 			isa = PBXGroup;
 			children = (
+				AE5B704D2678EAF900AFF32E /* Data */,
+				AE5B704A2678EAD400AFF32E /* UI */,
 				AE590B8326779DA4000101AF /* Domain */,
 				EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */,
 				EF30C36126779A9A00DB7644 /* ContentView.swift */,
