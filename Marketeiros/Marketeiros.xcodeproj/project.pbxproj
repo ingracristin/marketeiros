@@ -16,6 +16,8 @@
 		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
 		AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */; };
 		AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */; };
+		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
+		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
 		EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */; };
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
+		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
+		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
 		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36126779A9A00DB7644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */,
 				AE3A8370267998540016F435 /* BottonSheet.swift */,
 				AE3A8372267998AC0016F435 /* BlurView.swift */,
+				AE647215267B942E009E5789 /* BottonSheetListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */,
+				AE647213267B93F5009E5789 /* TextViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,12 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				AE3A8373267998AC0016F435 /* BlurView.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
+				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */,

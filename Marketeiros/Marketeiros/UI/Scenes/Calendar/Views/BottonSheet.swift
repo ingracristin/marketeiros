@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BottomSheet : View {
     @Binding var offset : CGFloat
+    @Binding var date : Date
     var value : CGFloat
     
     var body: some View {
@@ -20,12 +21,12 @@ struct BottomSheet : View {
                 .padding(.bottom,5)
             
             ScrollView(.vertical, showsIndicators: false, content: {
+                Text(Calendar.current.getDescriptionOf(date: date))
                 LazyVStack(alignment: .leading, spacing: 15, content: {
-                ForEach(1...15, id: \.self) { count in
-                    Text("Compromisso")
-                    Divider()
-                        .padding(.top,10)
-                } })
+                    ForEach(1...15, id: \.self) { count in
+                        BottonSheetListCell()
+                    }
+                })
                 .padding()
                 .padding(.top)
             })
@@ -37,6 +38,6 @@ struct BottomSheet : View {
 
 struct BottonSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(offset: .constant(0), value: 400)
+        BottomSheet(offset: .constant(0), date: .constant(.init()), value: 400)
     }
 }
