@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
+		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
 		AE3A8371267998540016F435 /* BottonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8370267998540016F435 /* BottonSheet.swift */; };
 		AE3A8373267998AC0016F435 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8372267998AC0016F435 /* BlurView.swift */; };
 		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
+		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
 		AE3A8370267998540016F435 /* BottonSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheet.swift; sourceTree = "<group>"; };
 		AE3A8372267998AC0016F435 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				795AB137267A30A3006308B5 /* BoardView.swift */,
 				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
+				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
+				795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */,
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 			);
