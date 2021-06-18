@@ -35,10 +35,11 @@ struct BoardView: View {
                         }
                     }).frame(height: reader.size.height * 0.2285)
                 }
+                Spacer(minLength: 28)
                 HStack{
                     Text("Cartões de Ideias")
-                        .fontWeight(.bold)
-                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .font(.title)
                     Spacer()
                     Button(action: {}, label: {
                         Text("nova ideia")
@@ -52,7 +53,7 @@ struct BoardView: View {
                 }
                 ScrollView(.horizontal){
                     LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
-                        ForEach(1...2, id: \.self) { count in
+                        ForEach(1...10, id: \.self) { count in
                             IdeaCell()
                                 .frame(width: reader.size.width - 40, height: reader.size.height * 0.1228, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
                                 .cornerRadius(14)
