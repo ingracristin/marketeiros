@@ -11,29 +11,32 @@ struct CalendarPageView: View {
     @State private var date = Date()
     @State var offset : CGFloat = 0
     //let aux : CGFloat = 400
-    let aux : CGFloat = UIScreen.main.bounds.height * 0.4464
+    let aux : CGFloat = UIScreen.main.bounds.height * 0.41
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             VStack {
                 HStack {
-                    Text("\(Calendar.current.getMonthFrom(date: date))")
-                        .fontWeight(.medium)
+                    Text("Calendar")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                     Spacer()
                     Button(action: {}, label: {
                         Text("Add Event")
                             .foregroundColor(.white)
                             .font(.caption)
                             .fontWeight(.semibold)
+                            .padding(5)
                             .background(RoundedRectangle(cornerRadius: 10))
                     })
-                }.padding(.horizontal,23)
-                DatePicker("Eita", selection: $date, displayedComponents: .date).datePickerStyle(GraphicalDatePickerStyle()).padding()
-            }
+                }
+                //.padding(.top,30)
+                DatePicker("Eita", selection: $date, displayedComponents: .date).datePickerStyle(GraphicalDatePickerStyle())
+            }.padding(.horizontal,25)
             
             GeometryReader { reader in
                 VStack {
-                    BottomSheet(offset: $offset, value: (-reader.frame(in: .global).height + aux))
+                    BottomSheet(offset: $offset, date: $date, value: (-reader.frame(in: .global).height + aux))
                         .offset(y: reader.frame(in: .global).height - aux)
                         .offset(y: offset) .gesture(DragGesture().onChanged({ (value) in
                             withAnimation {

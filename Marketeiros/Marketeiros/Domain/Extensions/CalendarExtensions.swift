@@ -42,8 +42,71 @@ extension Calendar {
         self.dateComponents([.weekday], from: date).weekday! - 1
     }
     
+    func getMonthDayOf(date : Date) -> Int {
+        self.component(.day, from: date)
+    }
+    
     func getMonthFrom(date : Date) -> String {
         let monthIndex = self.component(.month, from: date) - 1
         return self.monthSymbols[monthIndex]
     }
+    
+    func getWeekDayDescriptionFrom(date : Date) -> String {
+        let dayIndex = self.component(.weekday, from: date)
+        return self.weekdaySymbols[dayIndex]
+    }
+    
+    func getDescriptionOf(date : Date) -> String {
+        let components = self.dateComponents([.weekday,.day,.month], from: date)
+        let weekDayIndex = components.weekday! - 1
+        let monthIndex = components.month! - 1
+        return "\(self.weekdaySymbols[weekDayIndex]), \(components.day!) of \(self.monthSymbols[monthIndex])"
+    }
+    
+//    func getDescriptionOf(date : Date, with dateComponents : [Calendar.Component]) -> String {
+//        let components = self.dateComponents(Set(dateComponents), from: date)
+//        let componentsList = components.description.split(separator: " ")
+//        var description = ""
+//
+//        for component in dateComponents {
+//            switch component {
+//            case .era:
+//                <#code#>
+//            case .year:
+//                <#code#>
+//            case .month:
+//                <#code#>
+//            case .day:
+//                description += componentsList[]
+//            case .hour:
+//                <#code#>
+//            case .minute:
+//                <#code#>
+//            case .second:
+//                <#code#>
+//            case .weekday:
+//                <#code#>
+//            case .weekdayOrdinal:
+//                <#code#>
+//            case .quarter:
+//                <#code#>
+//            case .weekOfMonth:
+//                <#code#>
+//            case .weekOfYear:
+//                <#code#>
+//            case .yearForWeekOfYear:
+//                <#code#>
+//            case .nanosecond:
+//                <#code#>
+//            case .calendar:
+//                <#code#>
+//            case .timeZone:
+//                <#code#>
+//            @unknown default:
+//                <#code#>
+//            }
+//        }
+//
+//        return components.description
+//    }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
+		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
+		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
 		AE3A8371267998540016F435 /* BottonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8370267998540016F435 /* BottonSheet.swift */; };
 		AE3A8373267998AC0016F435 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8372267998AC0016F435 /* BlurView.swift */; };
 		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
@@ -14,6 +17,8 @@
 		AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */; };
 		AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */; };
 		EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DD162267A5277005A3A1C /* ProfileView.swift */; };
+		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
+		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
 		EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */; };
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
@@ -22,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
+		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
 		AE3A8370267998540016F435 /* BottonSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheet.swift; sourceTree = "<group>"; };
 		AE3A8372267998AC0016F435 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
@@ -29,6 +37,8 @@
 		AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		EF1DD162267A5277005A3A1C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
+		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
 		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36126779A9A00DB7644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +59,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		795AB134267A3078006308B5 /* BoardView */ = {
+			isa = PBXGroup;
+			children = (
+				795AB136267A308D006308B5 /* View Models */,
+				795AB135267A3085006308B5 /* View */,
+			);
+			path = BoardView;
+			sourceTree = "<group>";
+		};
+		795AB135267A3085006308B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				795AB137267A30A3006308B5 /* BoardView.swift */,
+				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
+				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		795AB136267A308D006308B5 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		AE590B8326779DA4000101AF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				EF1DD15C267A5234005A3A1C /* Profile */,
+				795AB134267A3078006308B5 /* BoardView */,
 				AE5B70502678EC9E00AFF32E /* Calendar */,
 			);
 			path = Scenes;
@@ -122,6 +159,7 @@
 				AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */,
 				AE3A8370267998540016F435 /* BottonSheet.swift */,
 				AE3A8372267998AC0016F435 /* BlurView.swift */,
+				AE647215267B942E009E5789 /* BottonSheetListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */,
+				AE647213267B93F5009E5789 /* TextViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,13 +298,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */,
+				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
+				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
 				AE3A8373267998AC0016F435 /* BlurView.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
+				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
+				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
+				795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */,
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 			);
