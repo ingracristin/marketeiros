@@ -6,8 +6,49 @@
 //
 
 import SwiftUI
+struct FullScreenModalView: View {
+    @Environment(\.presentationMode) var presentationMode
 
+    var body: some View {
+        VStack(){
+            HStack(){
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Cancelar")
+                    
+                })
+                Spacer()
+                Text("tururu")
+                Spacer()
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Text("Ok")
+                })
+                
+            }.padding()
+            Button("Dismiss Modal") {
+                
+            }
+            Spacer()
+        }
+       
+        
+    }
+}
+
+struct uh: View {
+    @State private var isPresented = false
+
+    var body: some View {
+        Button("Present!") {
+            isPresented.toggle()
+        }
+        .fullScreenCover(isPresented: $isPresented, content: FullScreenModalView.init)
+    }
+}
 struct ProfileView: View {
+    
+    @State var isShow = false
     var body: some View {
         
         VStack(){
@@ -28,17 +69,45 @@ struct ProfileView: View {
                         
                     Spacer()
                     
-                    Button("r") {
-                    }
-                    .background(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
-                    .cornerRadius(10)
-                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+                    Button(action: {}, label: {
+                        Text("Add Event")
+                            .foregroundColor(.white)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .padding(5)
+                            .background(RoundedRectangle(cornerRadius: 10))
+                            .accentColor(.gray)
+                    })
                     
                         
                 }.padding(.horizontal)
                 VStack(){
                     ForEach(0..<2, id:\.self){ index in 
                         AcountListCellSwiftUIView()
+                    }
+                }
+                HStack(){
+                    Text("Time").font(.system(size: 24, weight: Font.Weight.bold, design: Font.Design.rounded))
+                    Image("i")
+                      
+                    
+                        
+                    Spacer()
+                    Button(action: {
+                        isShow.toggle()
+                    }, label: {
+                        Text("Add Event")
+                            .foregroundColor(.white)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .padding(5)
+                            .background(RoundedRectangle(cornerRadius: 10))
+                            .accentColor(.gray)
+                    })
+                }.padding(.horizontal)
+                VStack(){
+                    ForEach(0..<2, id:\.self){ index in
+                        ListTeamsUIView()
                     }
                 }
                
@@ -52,7 +121,9 @@ struct ProfileView: View {
             
         }.navigationBarItems(trailing: Button(action: {}, label: {
             Image(systemName: "gearshape").foregroundColor(.black)
-        })).navigationTitle("Perfil")
+        })).navigationTitle("Perfil").sheet(isPresented: $isShow, content: {
+            FullScreenModalView()
+        })
         
         
     }
@@ -62,6 +133,7 @@ struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             ProfileView()
+            
         }
         
     }

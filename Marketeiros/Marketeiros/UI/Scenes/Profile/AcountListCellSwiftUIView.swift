@@ -27,7 +27,7 @@ struct AcountListCellSwiftUIView: View {
             }.padding(.horizontal,25)
 
            
-            
+
         }
     }
 }
