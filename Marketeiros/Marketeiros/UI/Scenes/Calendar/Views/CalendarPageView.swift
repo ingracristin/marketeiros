@@ -10,6 +10,7 @@ import SwiftUI
 struct CalendarPageView: View {
     @State private var date = Date()
     @State var offset : CGFloat = 0
+    @State var isShowing = false
     //let aux : CGFloat = 400
     let aux : CGFloat = UIScreen.main.bounds.height * 0.39
     
@@ -19,7 +20,9 @@ struct CalendarPageView: View {
                 VStack {
                     HStack(alignment: .lastTextBaseline,spacing:0) {
                         Spacer()
-                        Button(action: {}) {
+                        Button(action: {
+                            
+                        }) {
                             Image(systemName: "slider.horizontal.3")
                                 .frame(height: 40)
                         }
@@ -31,7 +34,9 @@ struct CalendarPageView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                         Spacer()
-                        Button(action: {}, label: {
+                        Button(action: {
+                            isShowing.toggle()
+                        }, label: {
                             Text("Add Event")
                                 .foregroundColor(.white)
                                 .font(.caption)
@@ -40,9 +45,11 @@ struct CalendarPageView: View {
                                 .background(RoundedRectangle(cornerRadius: 10))
                         })
                     }
+                    
                     DatePicker("Eita", selection: $date, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
-                }.padding(.horizontal,25)
+                }
+                .padding(.horizontal,25)
                 
                 GeometryReader { reader in
                     VStack {
@@ -79,10 +86,14 @@ struct CalendarPageView: View {
                                     }
                                 }
                             }))
+                            .ignoresSafeArea(.container, edges: .bottom)
                     }
                 }
             }
             .navigationBarHidden(true)
+            .sheet(isPresented: $isShowing, content: {
+                AddNewEventView()
+            })
         }
     }
 }
