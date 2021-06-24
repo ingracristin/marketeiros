@@ -49,6 +49,7 @@ struct uh: View {
 struct ProfileView: View {
     
     @State var isShow = false
+    @State private var showingPopover = false
     var body: some View {
         
         VStack(){
@@ -89,8 +90,6 @@ struct ProfileView: View {
                 HStack(){
                     Text("Time").font(.system(size: 24, weight: Font.Weight.bold, design: Font.Design.rounded))
                     Image("i")
-                      
-                    
                         
                     Spacer()
                     Button(action: {
@@ -122,7 +121,7 @@ struct ProfileView: View {
         }.navigationBarItems(trailing: Button(action: {}, label: {
             Image(systemName: "gearshape").foregroundColor(.black)
         })).navigationTitle("Perfil").sheet(isPresented: $isShow, content: {
-            FullScreenModalView()
+            NewColaboratorSheet()
         })
         
         

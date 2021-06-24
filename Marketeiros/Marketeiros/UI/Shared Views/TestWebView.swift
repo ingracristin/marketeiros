@@ -12,7 +12,7 @@ import HTMLKit
 
 struct TestWebView: UIViewRepresentable {
     let coordinator = Coordinator()
-    let urlString = "https://www.instagram.com/ivanportales/"
+    let urlString = "https://www.instagram.com/ingracristin/"
     var viewModel : ViewModel
     
     init(vm : ViewModel) {
