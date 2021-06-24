@@ -33,6 +33,7 @@
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
 		EF30C36726779A9A00DB7644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */; };
 		EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */; };
+		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
 		EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF30C36826779A9B00DB7644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewColaboratorView.swift; sourceTree = "<group>"; };
+		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
 		EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcountListCellSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EFA0B8FF2684E023009545B2 /* Notifications */,
 				EF1DD15C267A5234005A3A1C /* Profile */,
 				795AB134267A3078006308B5 /* BoardView */,
 				AE5B70502678EC9E00AFF32E /* Calendar */,
@@ -285,6 +288,14 @@
 				EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFA0B8FF2684E023009545B2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				EFA0B9002684E037009545B2 /* NotificationsUIView.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +434,7 @@
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
+				EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */,
 				AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
