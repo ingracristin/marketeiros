@@ -40,6 +40,7 @@
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
 		EF30C36726779A9A00DB7644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */; };
+		EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */; };
 		EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */; };
 		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
 		EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */; };
@@ -83,6 +84,7 @@
 		EF30C36326779A9A00DB7644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF30C36826779A9B00DB7644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUIView.swift; sourceTree = "<group>"; };
 		EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewColaboratorView.swift; sourceTree = "<group>"; };
 		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
 		EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcountListCellSwiftUIView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EF745777268A1A11004A6C60 /* CreatePost */,
 				AED6CF7F26897EA700870BB2 /* LoginScene */,
 				EFA0B8FF2684E023009545B2 /* Notifications */,
 				EF1DD15C267A5234005A3A1C /* Profile */,
@@ -322,6 +325,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		EF745777268A1A11004A6C60 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */,
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
 		EFA0B8FF2684E023009545B2 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +460,7 @@
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
 				AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */,
 				EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */,
+				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
