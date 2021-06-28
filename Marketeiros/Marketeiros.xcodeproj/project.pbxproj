@@ -12,6 +12,7 @@
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
+		79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */; };
 		AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */; };
 		AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC322683BA9C00258D8B /* AsyncImage.swift */; };
 		AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC342683BC4800258D8B /* UserProfileGridView.swift */; };
@@ -52,6 +53,7 @@
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
+		79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBoardView.swift; sourceTree = "<group>"; };
 		973B31595F71E5ED16B930A4 /* Pods-Marketeiros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.release.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.release.xcconfig"; sourceTree = "<group>"; };
 		AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventView.swift; sourceTree = "<group>"; };
 		AE37BC322683BA9C00258D8B /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				795AB137267A30A3006308B5 /* BoardView.swift */,
 				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
 				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
@@ -450,6 +453,7 @@
 				AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */,
 				EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
+				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,

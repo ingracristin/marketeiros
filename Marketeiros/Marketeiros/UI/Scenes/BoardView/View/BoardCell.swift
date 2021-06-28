@@ -8,45 +8,44 @@
 import SwiftUI
 
 struct BoardCell: View {
-    init(){
-        
-    }
+    
     
     var body: some View {
         
-        GeometryReader{ reader in
-            VStack(spacing: 0){
-                HStack{
-                    Text("Board 1")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Spacer()
-                    Button(action: {}, label: {
-                        Text("...")
-                            .foregroundColor(.black)
-                            .font(.body)
-                            .fontWeight(.bold)
-                        
-                        
-                    })
-                }
-                HStack{
-                    Circle()
-                        .fill(Color.gray)
-                        .frame(width: reader.size.width * 0.15, height: reader.size.width * 0.15)
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/){
-                        Image(systemName: "plus.circle").resizable()
-                            .foregroundColor(Color(#colorLiteral(red: 0.6730545163, green: 0.658370316, blue: 0.6585103273, alpha: 1)))
-                    }.frame(width: reader.size.width * 0.15, height: reader.size.width * 0.15)
-                    Spacer()
-                }
+        GeometryReader(){ reader in
+            ZStack(alignment: .bottomLeading){
+                Image("test").resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+                    .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
+            
+                    Rectangle()
+                        .foregroundColor(Color(#colorLiteral(red: 0.3098039216, green: 0.3058823529, blue: 0.3058823529, alpha: 1)))
+                        .opacity(0.7)
+                        .frame(height: reader.size.height * 0.33)
                 
-                
-                Spacer()
+                VStack(alignment: .leading){
+                    Text("Nome quadro")
+                        .foregroundColor(.white)
+                        .font(.title)
                     
+                    Text("pode ser uma bio aqui")
+                        .foregroundColor(.white)
+                        
+                    
+                }.frame(height: reader.size.height * 0.33)
+                .padding(.init(top: 0, leading: 20, bottom: 5, trailing: 0))
+               
+                
+                
+                   
+                
+                
+                
+                
             }
-            .padding()
-            .background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
+                
+            
         }
     }
 }

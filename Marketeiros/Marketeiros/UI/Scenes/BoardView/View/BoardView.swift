@@ -28,14 +28,15 @@ struct BoardView: View {
                 }
                 
                 ScrollView(.horizontal){
-                    LazyHStack(alignment: .top, spacing: 10, content: {
-                        ForEach(1...10, id: \.self) { count in
-                            BoardCell().frame(width: reader.size.width * 0.3671, height: reader.size.height * 0.2285, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .cornerRadius(14)
+                    LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
+                        ForEach(1...2, id: \.self) { count in
+                            BoardCell()
+                                .frame(width: reader.size.width - 40, height: reader.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
+                                .cornerRadius(20)
                         }
-                    }).frame(height: reader.size.height * 0.2285)
+                    })
                 }
-                Spacer(minLength: 28)
+                
                 HStack{
                     Text("Cartões de Ideias")
                         .fontWeight(.semibold)
@@ -51,7 +52,7 @@ struct BoardView: View {
                     .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
                     .cornerRadius(12)
                 }
-                ScrollView(.horizontal){
+                ScrollView(.vertical){
                     LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
                         ForEach(1...10, id: \.self) { count in
                             IdeaCell()
