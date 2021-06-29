@@ -37,6 +37,7 @@
 		CCDA2B977807C095FAD79017 /* Pods_Marketeiros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */; };
 		EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */; };
 		EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DD162267A5277005A3A1C /* ProfileView.swift */; };
+		EF2481CA268B68850010AA77 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2481C9268B68850010AA77 /* ImagePicker.swift */; };
 		EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */; };
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketeiros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsUIView.swift; sourceTree = "<group>"; };
 		EF1DD162267A5277005A3A1C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EF2481C9268B68850010AA77 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36126779A9A00DB7644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */,
+				EF2481C9268B68850010AA77 /* ImagePicker.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				792CCD25267CE77300E5BDE9 /* BlurBoardView.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
+				EF2481CA268B68850010AA77 /* ImagePicker.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AED6CF8126897ED200870BB2 /* LoginSceneView.swift in Sources */,

@@ -13,6 +13,17 @@ struct CreatePostUIView: View {
     @State var hastagPost: String = ""
     @State var markPost: String = ""
     @State private var showGreeting = true
+    
+    @State private var image: Image?
+    
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+    }
+
+    
     var body: some View {
         ScrollView(){
             HStack{
@@ -36,9 +47,25 @@ struct CreatePostUIView: View {
             Spacer()
         
             VStack(spacing: 10){
-                Image("retangulinho")
-                    .resizable()
-                    .frame(width: 380, height: 305)
+                ZStack {
+                    Rectangle()
+                        .fill(Color.secondary)
+                    
+
+                    if image != nil {
+                        image?
+                            .resizable()
+                            .frame(width: 390, height: 300)
+                            .scaledToFit()
+                    } else {
+                        Text("Tap to select a picture")
+                            .foregroundColor(.black)
+                            .font(.headline)
+                    }
+                }
+                .onTapGesture {
+                    self.showingImagePicker = true
+                }
                 Spacer()
                 HStack{
                     Text("Título")
@@ -97,11 +124,12 @@ struct CreatePostUIView: View {
                 HStack(){
                     Toggle("Instagram", isOn: $showGreeting)
                 }.padding(.horizontal,31)
-                HStack(){
-                    Toggle("Facebook", isOn: $showGreeting)
-                }.padding(.horizontal,31)
+            
             }
         }.padding(.vertical,20)
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: self.$inputImage)
+        }
         
         
     }
