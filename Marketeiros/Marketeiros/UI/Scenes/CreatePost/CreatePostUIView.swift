@@ -49,7 +49,9 @@ struct CreatePostUIView: View {
             VStack(spacing: 10){
                 ZStack {
                     Rectangle()
+                       
                         .fill(Color.secondary)
+                        .frame(width: 390, height: 300)
                     
 
                     if image != nil {
