@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct NewBoardSheet: View {
-    @State var boardName: String = ""
-    @State var selectdRole: String = "Editor"
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel : NewBoardViewModel
+    
+    init(callback: @escaping (Board) -> ()) {
+        viewModel = NewBoardViewModel(callback: callback)
+    }
+    
     var body: some View {
         GeometryReader{ reader in
-            VStack(alignment: .leading ,spacing:25){
+            VStack(alignment: .center ,spacing:25){
                 Capsule()
                     .fill(Color.gray.opacity(0.5))
                     .frame(width: 50, height: 5)
@@ -23,17 +28,18 @@ struct NewBoardSheet: View {
                         Text("Cancelar")
                             .foregroundColor(.red)
                             .font(.body)
-                        
                     })
                     Spacer()
                     Text("Novo quadro")
                         .foregroundColor(.black)
                     Spacer()
-                    Button(action: {}, label: {
+                    Button(action: {
+                        viewModel.createBoard()
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
                         Text("Adicionar")
                             .foregroundColor(.gray)
                             .font(.body)
-                        
                     })
                 }
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
@@ -43,7 +49,7 @@ struct NewBoardSheet: View {
                         
                         Spacer()
                     }
-                    TextField("", text: $boardName)
+                    TextField("", text: viewModel.bindings.title)
                         .frame(height:reader.size.height * 0.052)
                         .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                         .cornerRadius(8)
@@ -53,19 +59,15 @@ struct NewBoardSheet: View {
                     Text("Bio do quadro").fontWeight(.semibold)
                         .font(.callout)
                     
-                    TextEditor(text: $boardName)
+                    TextEditor(text: viewModel.bindings.description)
                         .colorMultiply(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                         .cornerRadius(8)
                         .frame(height: reader.size.height * 0.1317)
-                    
                 }
                 
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
-                    
                     Text("Imagem do quadro").fontWeight(.semibold)
                         .font(.callout)
-                    
-                    
                     Button(action: {}, label: {
                         ZStack(alignment: .center){
                             Rectangle()
@@ -78,35 +80,18 @@ struct NewBoardSheet: View {
                                 Text("Adicione uma capa")
                             }.foregroundColor(Color(#colorLiteral(red: 0.3106196523, green: 0.3057384491, blue: 0.3057644367, alpha: 1)))
                         }
-                        
                     })
                     .frame(height:reader.size.height * 0.2512)
                     .cornerRadius(8)
-                        
-                    
-                    
                 }
-                
-                
-                    
-                    
-                
-                
             }.background(BlurView(style: .systemMaterial))
             .padding(.horizontal,20)
         }
-        
-    }
-    func editorSelect(){
-        selectdRole = "Editor"
-    }
-    func readerSelect(){
-        selectdRole = "Leitor"
     }
 }
 
 struct NewBoardSheet_Previews: PreviewProvider {
     static var previews: some View {
-        NewBoardSheet()
+        NewBoardSheet(callback: {_ in})
     }
 }

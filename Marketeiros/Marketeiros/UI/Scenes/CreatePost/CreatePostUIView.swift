@@ -8,54 +8,48 @@
 import SwiftUI
 
 struct CreatePostUIView: View {
-    @State var titlePost: String = ""
-    @State var legendPost: String = ""
-    @State var hastagPost: String = ""
-    @State var markPost: String = ""
-    @State private var showGreeting = true
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel: CreatePostViewModel
     
-    @State private var image: Image?
-    
-    @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
-    func loadImage() {
-        guard let inputImage = inputImage else { return }
-        image = Image(uiImage: inputImage)
+    init(board: Board) {
+        viewModel = .init(board: board)
     }
-
     
     var body: some View {
         ScrollView(){
             HStack{
-                Button(action: {}, label: {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
                     Text("setinha")
                         .foregroundColor(.blue)
                         .font(.body)
-                    
                 })
                 Spacer()
                 Text("Criar post")
                     .foregroundColor(.black)
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    viewModel.addPostToBoard()
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
                     Text("Salvar")
                         .foregroundColor(.blue)
                         .font(.body)
-                    
                 })
-            }.padding(.horizontal)
+            }
+            .padding(.horizontal)
+            
             Spacer()
         
             VStack(spacing: 10){
                 ZStack {
                     Rectangle()
-                       
                         .fill(Color.secondary)
                         .frame(width: 390, height: 300)
-                    
 
-                    if image != nil {
-                        image?
+                    if viewModel.states.inputImage != nil {
+                        Image(uiImage: viewModel.states.inputImage!)
                             .resizable()
                             .frame(width: 390, height: 300)
                             .scaledToFit()
@@ -66,15 +60,17 @@ struct CreatePostUIView: View {
                     }
                 }
                 .onTapGesture {
-                    self.showingImagePicker = true
+                    viewModel.toggleImagePicker()
                 }
+                
                 Spacer()
+                
                 HStack{
                     Text("Título")
                     Spacer()
                     
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: $titlePost)
+                        TextField("E-mail do convidado", text: viewModel.bindings.titlePost)
                             .padding()
                             .frame(width: 253, height: 50)
                             .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
@@ -86,7 +82,7 @@ struct CreatePostUIView: View {
                     Text("Legenda")
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("Legswddwendas", text: $legendPost)
+                        TextField("Legswddwendas", text: viewModel.bindings.legendPost)
                             .padding()
                             //.frame(height:reader.size.height * 0.052)
                             .frame(width: 253, height: 100)
@@ -99,7 +95,7 @@ struct CreatePostUIView: View {
                     Text("Hastags")
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("#", text: $hastagPost)
+                        TextField("#", text: viewModel.bindings.hastagPost)
                             .padding()
                             .frame(width: 253, height: 50)
                             .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
@@ -111,34 +107,41 @@ struct CreatePostUIView: View {
                     Text("Marcados")
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: $markPost)
+                        TextField("E-mail do convidado", text: viewModel.bindings.markedPost)
                             .padding()
                             .frame(width: 253, height: 50)
                             .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                             .cornerRadius(8)
                     }
                 }.padding(.horizontal,20)
-                Spacer()
+
                 HStack(){
-                    Toggle("Agendar", isOn: $showGreeting)
-                    
-                }.padding(.horizontal,31)
-                HStack(){
-                    Toggle("Instagram", isOn: $showGreeting)
-                }.padding(.horizontal,31)
-            
+                    Toggle("Agendar", isOn: viewModel.bindings.showGreeting)
+                }
+                .padding(20)
+                
+                VStack {
+                    DatePicker("Agendar", selection: viewModel.bindings.scheduleDate)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 25)
+                                        .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1))))
+                        .isHidden(!viewModel.states.showGreeting)
+                }
+                .frame(height: (viewModel.states.showGreeting) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .animation(.easeOut)
+                .padding()
             }
-        }.padding(.vertical,20)
-        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-            ImagePicker(image: self.$inputImage)
         }
-        
-        
+        .padding(.vertical,20)
+        .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
+            ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
+        }
     }
 }
 
 struct CreatePostUIView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePostUIView()
+        CreatePostUIView(board: .init(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
     }
 }

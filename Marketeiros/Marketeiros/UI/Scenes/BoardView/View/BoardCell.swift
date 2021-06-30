@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct BoardCell: View {
-    
+    let board : Board
     
     var body: some View {
-        
-        GeometryReader(){ reader in
-            ZStack(alignment: .bottomLeading){
-                Image("test").resizable()
+        GeometryReader() { reader in
+            ZStack(alignment: .bottomLeading) {
+                Image("test")
+                    .resizable()
                     .aspectRatio(contentMode: .fill)
                     .clipped()
                     .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
@@ -25,33 +25,22 @@ struct BoardCell: View {
                         .frame(height: reader.size.height * 0.33)
                 
                 VStack(alignment: .leading){
-                    Text("Nome quadro")
+                    Text(board.title)
                         .foregroundColor(.white)
                         .font(.title)
-                    
-                    Text("pode ser uma bio aqui")
+                    Text(board.description)
                         .foregroundColor(.white)
-                        
                     
-                }.frame(height: reader.size.height * 0.33)
+                }
+                .frame(height: reader.size.height * 0.33)
                 .padding(.init(top: 0, leading: 20, bottom: 5, trailing: 0))
-               
-                
-                
-                   
-                
-                
-                
-                
             }
-                
-            
         }
     }
 }
 
 struct BoardCell_Previews: PreviewProvider {
     static var previews: some View {
-        BoardCell()
+        BoardCell(board: .init(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
     }
 }

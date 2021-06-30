@@ -6,15 +6,12 @@
 //
 
 import SwiftUI
-//
-//  testeSwiftUIView.swift
-//  Marketeiros
-//
-//  Created by Ingra Cristina on 28/06/21.
-//
-
 
 struct ImagePicker: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var image: UIImage?
+    @Binding var imagePath: String
+    
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         let parent: ImagePicker
 
@@ -26,16 +23,18 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let uiImage = info[.originalImage] as? UIImage {
                 parent.image = uiImage
             }
-
+            if let imagePath = info[.referenceURL] as? String {
+                parent.imagePath = imagePath
+            }
+            
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
     
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var image: UIImage?
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator

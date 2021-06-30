@@ -77,7 +77,6 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         print(request)
         
         notificationCenter.add(request)
-
     }
     
     func setUserNotificationIn(minutes : Int, withData dictInfo : [String : Any]) {

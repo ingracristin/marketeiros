@@ -6,27 +6,37 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct Post: Codable {
+struct Post: Codable, BoardItemSavable {
     var photoPath: String
+    var title: String
     var description: String
     var hashtags: [String]
+    var markedAccountsOnPost: [String]
     var dateOfPublishing: Date
     
     func toJson() -> [String:Any] {
         return [
             "photoPath": self.photoPath,
+            "title": self.title,
             "description": self.description,
             "hashtags": self.hashtags,
+            "markedAccountsOnPost": self.markedAccountsOnPost,
             "dateOfPublishing": self.dateOfPublishing
         ]
     }
     
-    static func from(json: [String: Any], with date: Date) -> Post {
+    static func from(json: [String: Any]) -> Post {
+        let firebaseDate = json["dateOfPublishing"] as! Timestamp
+        let date = Date(timeIntervalSince1970: TimeInterval(firebaseDate.seconds))
+        
         return Post(
             photoPath: json["photoPath"] as! String,
+            title: json["title"] as! String,
             description: json["description"] as! String,
             hashtags: json["hashtags"] as! [String],
+            markedAccountsOnPost: json["markedAccountsOnPost"] as! [String],
             dateOfPublishing: date)
     }
 }

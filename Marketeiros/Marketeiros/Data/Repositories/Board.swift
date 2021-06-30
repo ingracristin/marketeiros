@@ -7,9 +7,17 @@
 
 import Foundation
 
-struct Board: Codable {
+protocol BoardItemSavable {
+    associatedtype T
+    func toJson() -> [String: Any]
+    static func from(json: [String: Any]) -> T
+}
+
+struct Board: Codable, BoardItemSavable {
     var uid: String
+    var imagePath: String
     var title: String
+    var description: String
     var instagramAccount: String
     var ownerUid: String
     var colaboratorsUids: [String]
@@ -21,6 +29,8 @@ struct Board: Codable {
         return [
             "uid": self.uid,
             "title": self.title,
+            "description": self.description,
+            "imagePath": self.imagePath,
             "instagramAccount": self.instagramAccount,
             "ownerUid": self.ownerUid,
             "colaboratorsUids": self.colaboratorsUids,
@@ -33,7 +43,9 @@ struct Board: Codable {
     static func from(json: [String: Any]) -> Board {
         return Board(
             uid: json["uid"] as! String,
+            imagePath: json["imagePath"] as! String,
             title: json["title"] as! String,
+            description: json["description"] as! String,
             instagramAccount: json["instagramAccount"] as! String,
             ownerUid: json["ownerUid"] as! String,
             colaboratorsUids: json["colaboratorsUids"] as! [String],

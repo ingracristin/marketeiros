@@ -120,7 +120,8 @@ struct ProfileView: View {
             
         }.navigationBarItems(trailing: Button(action: {}, label: {
             Image(systemName: "gearshape").foregroundColor(.black)
-        })).navigationTitle("Perfil").sheet(isPresented: $isShow, content: {
+        })).navigationTitle("Perfil")
+        .sheet(isPresented: $isShow, content: {
             NewColaboratorSheet()
         })
         

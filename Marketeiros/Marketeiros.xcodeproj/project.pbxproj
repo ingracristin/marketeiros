@@ -7,25 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		792CCD25267CE77300E5BDE9 /* BlurBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD24267CE77300E5BDE9 /* BlurBoardView.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
 		79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */; };
+		AE21A9FF268BC0BF00AF3797 /* NewBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */; };
+		AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */; };
 		AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */; };
 		AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC322683BA9C00258D8B /* AsyncImage.swift */; };
 		AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC342683BC4800258D8B /* UserProfileGridView.swift */; };
 		AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC362683BC9A00258D8B /* TestViewModel.swift */; };
 		AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC382683BCE000258D8B /* TestWebView.swift */; };
 		AE3A8371267998540016F435 /* BottonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8370267998540016F435 /* BottonSheet.swift */; };
-		AE3A8373267998AC0016F435 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8372267998AC0016F435 /* BlurView.swift */; };
 		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
 		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
 		AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */; };
 		AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */; };
 		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
 		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
+		AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */; };
+		AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5207268B834000E14EBD /* ViewExtension.swift */; };
+		AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5209268B8C7100E14EBD /* BlurView.swift */; };
+		AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */; };
+		AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */; };
 		AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserRepository.swift */; };
 		AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7526897D2A00870BB2 /* BoardRepository.swift */; };
 		AED6CF7826897D5E00870BB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7726897D5E00870BB2 /* User.swift */; };
@@ -37,7 +42,6 @@
 		CCDA2B977807C095FAD79017 /* Pods_Marketeiros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */; };
 		EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */; };
 		EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DD162267A5277005A3A1C /* ProfileView.swift */; };
-		EF2481CA268B68850010AA77 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2481C9268B68850010AA77 /* ImagePicker.swift */; };
 		EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */; };
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
@@ -50,26 +54,31 @@
 
 /* Begin PBXFileReference section */
 		70C384D510A910D381C9127C /* Pods-Marketeiros.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.debug.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.debug.xcconfig"; sourceTree = "<group>"; };
-		792CCD24267CE77300E5BDE9 /* BlurBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBoardView.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
 		79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBoardView.swift; sourceTree = "<group>"; };
 		973B31595F71E5ED16B930A4 /* Pods-Marketeiros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.release.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.release.xcconfig"; sourceTree = "<group>"; };
+		AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/NewBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoardListViewModel.swift; path = "Marketeiros/UI/Shared Views/BoardListViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventView.swift; sourceTree = "<group>"; };
 		AE37BC322683BA9C00258D8B /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		AE37BC342683BC4800258D8B /* UserProfileGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGridView.swift; sourceTree = "<group>"; };
 		AE37BC362683BC9A00258D8B /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		AE37BC382683BCE000258D8B /* TestWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWebView.swift; sourceTree = "<group>"; };
 		AE3A8370267998540016F435 /* BottonSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheet.swift; sourceTree = "<group>"; };
-		AE3A8372267998AC0016F435 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
 		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
+		AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
+		AE8A5207268B834000E14EBD /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		AE8A5209268B8C7100E14EBD /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InsideBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/InsideBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AED6CF7326897CE400870BB2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		AED6CF7526897D2A00870BB2 /* BoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRepository.swift; sourceTree = "<group>"; };
 		AED6CF7726897D5E00870BB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Marketeiros/Data/Repositories/User.swift; sourceTree = SOURCE_ROOT; };
@@ -81,7 +90,6 @@
 		CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketeiros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsUIView.swift; sourceTree = "<group>"; };
 		EF1DD162267A5277005A3A1C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		EF2481C9268B68850010AA77 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36126779A9A00DB7644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,11 +143,10 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				795AB137267A30A3006308B5 /* BoardView.swift */,
+				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
 				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
-				792CCD24267CE77300E5BDE9 /* BlurBoardView.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
 			);
 			path = View;
@@ -148,6 +155,9 @@
 		795AB136267A308D006308B5 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */,
+				AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */,
+				AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -159,6 +169,8 @@
 				AE37BC342683BC4800258D8B /* UserProfileGridView.swift */,
 				AE37BC362683BC9A00258D8B /* TestViewModel.swift */,
 				AE37BC382683BCE000258D8B /* TestWebView.swift */,
+				AE8A5209268B8C7100E14EBD /* BlurView.swift */,
+				AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -195,12 +207,12 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				EF745777268A1A11004A6C60 /* CreatePost */,
 				AED6CF7F26897EA700870BB2 /* LoginScene */,
+				795AB134267A3078006308B5 /* BoardView */,
+				EF745777268A1A11004A6C60 /* CreatePost */,
+				AE5B70502678EC9E00AFF32E /* Calendar */,
 				EFA0B8FF2684E023009545B2 /* Notifications */,
 				EF1DD15C267A5234005A3A1C /* Profile */,
-				795AB134267A3078006308B5 /* BoardView */,
-				AE5B70502678EC9E00AFF32E /* Calendar */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -246,7 +258,6 @@
 			children = (
 				AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */,
 				AE3A8370267998540016F435 /* BottonSheet.swift */,
-				AE3A8372267998AC0016F435 /* BlurView.swift */,
 				AE647215267B942E009E5789 /* BottonSheetListCell.swift */,
 				AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */,
 			);
@@ -265,8 +276,17 @@
 			children = (
 				AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */,
 				AE647213267B93F5009E5789 /* TextViewExtension.swift */,
+				AE8A5207268B834000E14EBD /* ViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AE8A5204268B7D8800E14EBD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AED6CF7F26897EA700870BB2 /* LoginScene */ = {
@@ -333,8 +353,8 @@
 		EF745777268A1A11004A6C60 /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
+				AE8A5204268B7D8800E14EBD /* ViewModel */,
 				EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */,
-				EF2481C9268B68850010AA77 /* ImagePicker.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -469,16 +489,16 @@
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
+				AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */,
+				AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
+				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
-				AE3A8373267998AC0016F435 /* BlurView.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
-				792CCD25267CE77300E5BDE9 /* BlurBoardView.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
-				EF2481CA268B68850010AA77 /* ImagePicker.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AED6CF8126897ED200870BB2 /* LoginSceneView.swift in Sources */,
@@ -487,6 +507,8 @@
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
+				AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */,
+				AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */,
 				795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */,
 				AED6CF7826897D5E00870BB2 /* User.swift in Sources */,
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
@@ -494,8 +516,10 @@
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
+				AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */,
 				EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */,
 				AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */,
+				AE21A9FF268BC0BF00AF3797 /* NewBoardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
