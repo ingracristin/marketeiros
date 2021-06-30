@@ -46,18 +46,24 @@ class NewBoardViewModel : ObservableObject {
     func createBoard() {
         guard let user = AuthService.current.user else {return}
         var board = Board(
-            uid: "",
-            imagePath: "",
+            uid: " ",
+            imagePath: " ",
             title: states.title,
             description: states.description,
-            instagramAccount: "",
+            instagramAccount: " ",
             ownerUid: user.uid,
-            colaboratorsUids: [""],
-            postsGridUid: "",
-            ideasGridUid: "",
-            moodGridUid: "")
+            colaboratorsUids: [" "],
+            postsGridUid: " ",
+            ideasGridUid: " ",
+            moodGridUid: " ")
         
-        let newBoard = BoardsRepository.current.create(board: &board)
-        callback(newBoard)
+        let newBoard = BoardsRepository.current.create(board: &board) { [weak self] result in
+            switch result {
+            case.failure(let message):
+                print(message)
+            case .success(_):
+                self!.callback(board)
+            }
+        }
     }
 }

@@ -76,7 +76,11 @@ struct BoardView: View {
                     viewModel.add(board: board)
                 }
             })
-        }).navigationBarHidden(true)
+        })
+        .navigationBarHidden(true)
+        .onAppear {
+            viewModel.getAllBoards()
+        }
     }
 }
 

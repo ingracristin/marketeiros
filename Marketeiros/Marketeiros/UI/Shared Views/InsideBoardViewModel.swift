@@ -6,11 +6,29 @@
 //
 
 import Foundation
+import SwiftUI
 
 class InsideBoardViewModel: ObservableObject {
     @Published private(set) var posts = [Post]()
-    
+    @Published private(set) var states = States()
     let board: Board
+    
+    struct States {
+        var selectedIndex = 0
+        var addPostScreenShowing = false
+    }
+    
+    var bindings: (
+        selectedIndex: Binding<Int>,
+        addPostScreenShowing: Binding<Bool>
+    ) {(
+        selectedIndex: Binding(
+            get: {self.states.selectedIndex},
+            set: {self.states.selectedIndex = $0}),
+        addPostScreenShowing: Binding(
+            get: {self.states.addPostScreenShowing},
+            set: {self.states.addPostScreenShowing = $0})
+    )}
     
     init(board: Board) {
         self.board = board

@@ -40,8 +40,6 @@ struct CreatePostUIView: View {
             }
             .padding(.horizontal)
             
-            Spacer()
-        
             VStack(spacing: 10){
                 ZStack {
                     Rectangle()

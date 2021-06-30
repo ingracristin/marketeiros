@@ -42,15 +42,15 @@ struct Board: Codable, BoardItemSavable {
     
     static func from(json: [String: Any]) -> Board {
         return Board(
-            uid: json["uid"] as! String,
-            imagePath: json["imagePath"] as! String,
-            title: json["title"] as! String,
-            description: json["description"] as! String,
-            instagramAccount: json["instagramAccount"] as! String,
-            ownerUid: json["ownerUid"] as! String,
-            colaboratorsUids: json["colaboratorsUids"] as! [String],
-            postsGridUid: json["postsGridUid"] as! String,
-            ideasGridUid: json["ideasGridUid"] as! String,
-            moodGridUid: json["moodGridUid"] as! String)
+            uid: json["uid"] as? String ?? "",
+            imagePath: json["imagePath"] as? String ?? "" ,
+            title: json["title"] as? String ?? "",
+            description: json["description"] as? String ?? "",
+            instagramAccount: json["instagramAccount"] as? String ?? "",
+            ownerUid: json["ownerUid"] as? String ?? "",
+            colaboratorsUids: json["colaboratorsUids"] as? [String] ?? [""],
+            postsGridUid: json["postsGridUid"] as? String ?? "",
+            ideasGridUid: json["ideasGridUid"] as? String ?? "",
+            moodGridUid: json["moodGridUid"] as? String ?? "")
     }
 }

@@ -57,11 +57,20 @@ class BoardsRepository {
         }
     }
     
-    func create(board : inout Board) -> Board {
-        let docRef = collection.addDocument(data: board.toJson())
+    func create(board : inout Board, completion: @escaping (Result<Bool,BoardsRepositoryErrors>) -> ()){
+        let docRef = collection.addDocument(data: board.toJson()) { error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.boardsCollectionError(err.localizedDescription)))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(.success(true))
+                }
+            }
+        }
         docRef.updateData(["uid": docRef.documentID])
         board.uid = docRef.documentID
-        return board
     }
 }
 

@@ -16,7 +16,8 @@ struct LoginSceneView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: BoardView(), isActive: $isLoggedIn) { EmptyView() }
+                NavigationLink(destination: BoardView(), isActive: $isLoggedIn) { EmptyView()
+                }
                 
                 Button {
                     AuthService.current.signInAnom { result in

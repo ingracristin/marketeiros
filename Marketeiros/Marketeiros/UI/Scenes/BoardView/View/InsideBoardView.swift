@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InsideBoardView: View {
     @State var selectedView = 0
+    @State var eita = false
     @ObservedObject var viewModel: InsideBoardViewModel
     
     init(board: Board) {
@@ -23,6 +24,9 @@ struct InsideBoardView: View {
     
     var body: some View {
         GeometryReader(){ reader in
+            NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: $eita) {
+                EmptyView()
+            }
             VStack(spacing: 20){
                 Picker("View", selection: $selectedView, content: {
                     Text("Grid").tag(0)
@@ -45,10 +49,12 @@ struct InsideBoardView: View {
         .navigationTitle(viewModel.board.title)
         .toolbar{
             ToolbarItemGroup(placement: .bottomBar){
-                Button(action: {}, label: {
+                Button(action: {
+                    eita.toggle()
+                }, label: {
                     Image(systemName: "plus").foregroundColor(.black)
                 })
-                
+
                 Spacer()
                 
                 Button(action: {}, label: {
@@ -74,7 +80,7 @@ struct InsideBoardView: View {
                 })
             }
         }.onAppear {
-            //viewModel.setListenerOnPosts()
+            viewModel.setListenerOnPosts()
         }
     }
 }

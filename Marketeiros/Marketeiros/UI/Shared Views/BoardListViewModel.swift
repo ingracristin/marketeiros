@@ -47,6 +47,17 @@ class BoardListViewModel: ObservableObject {
         }
     }
     
+//    func addListenerOnBoards() {
+//        BoardsRepository.current.setListener(on: boar, of: <#T##User#>, completion: <#T##(Result<[Board], BoardsRepository.BoardsRepositoryErrors>) -> ()#>) { [weak self] result in
+//            switch result {
+//            case.failure(let message):
+//                print(message) // é bom botar essa message pra aparece num alert
+//            case .success(let boardsList):
+//                self!.boards = boardsList
+//            }
+//        }
+//    }
+//    
     func toggleSheetView () {
         bindings.newBoardIsShowing.wrappedValue.toggle()
     }
