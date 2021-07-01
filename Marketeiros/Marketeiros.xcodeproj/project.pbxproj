@@ -46,6 +46,7 @@
 		EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C36126779A9A00DB7644 /* ContentView.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
 		EF30C36726779A9A00DB7644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */; };
+		EF41ADBF268CBE4E0067BD78 /* MoodBoardUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41ADBE268CBE4E0067BD78 /* MoodBoardUIView.swift */; };
 		EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */; };
 		EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */; };
 		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
@@ -96,6 +97,7 @@
 		EF30C36326779A9A00DB7644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF30C36826779A9B00DB7644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF41ADBE268CBE4E0067BD78 /* MoodBoardUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardUIView.swift; sourceTree = "<group>"; };
 		EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUIView.swift; sourceTree = "<group>"; };
 		EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewColaboratorView.swift; sourceTree = "<group>"; };
 		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
 				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
+				EF41ADBE268CBE4E0067BD78 /* MoodBoardUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				AED6CF7826897D5E00870BB2 /* User.swift in Sources */,
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
+				EF41ADBF268CBE4E0067BD78 /* MoodBoardUIView.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
