@@ -87,6 +87,6 @@ struct InsideBoardView: View {
 
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        InsideBoardView(board: .init(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+        InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
     }
 }
