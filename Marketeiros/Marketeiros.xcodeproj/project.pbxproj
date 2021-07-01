@@ -10,6 +10,7 @@
 		79098F8D268DF4D20033B758 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F8C268DF4D20033B758 /* SearchView.swift */; };
 		79098F8F268DF8A90033B758 /* EditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F8E268DF8A90033B758 /* EditSheet.swift */; };
 		79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F90268E12EF0033B758 /* RenameSheet.swift */; };
+		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
 		79182450268B728400429C9C /* IdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918244F268B728400429C9C /* IdeaView.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
@@ -61,6 +62,7 @@
 		79098F8C268DF4D20033B758 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		79098F8E268DF8A90033B758 /* EditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSheet.swift; sourceTree = "<group>"; };
 		79098F90268E12EF0033B758 /* RenameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameSheet.swift; sourceTree = "<group>"; };
+		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7918244F268B728400429C9C /* IdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaView.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */,
 				AE647213267B93F5009E5789 /* TextViewExtension.swift */,
 				AE8A5207268B834000E14EBD /* ViewExtension.swift */,
+				79098F92268E189B0033B758 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
+				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,

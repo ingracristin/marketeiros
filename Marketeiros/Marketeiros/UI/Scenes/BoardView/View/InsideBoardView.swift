@@ -10,6 +10,7 @@ import SwiftUI
 struct InsideBoardView: View {
     @State var selectedView = 0
     @State var eita = false
+    @State var averageColorOn = false
     @ObservedObject var viewModel: InsideBoardViewModel
     
     init(board: Board) {
@@ -17,9 +18,9 @@ struct InsideBoardView: View {
     }
     
     let layout = [
-        GridItem(.flexible(),spacing: 1),
-        GridItem(.flexible(),spacing: 1),
-        GridItem(.flexible(),spacing: 1)
+        GridItem(.flexible(),spacing: 2),
+        GridItem(.flexible(),spacing: 2),
+        GridItem(.flexible(),spacing: 2)
     ]
     
     var body: some View {
@@ -36,11 +37,18 @@ struct InsideBoardView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 ScrollView(){
-                    LazyVGrid(columns: layout, spacing: 1){
+                    LazyVGrid(columns: layout, spacing: 2){
                         ForEach(1...18, id: \.self){ _ in
-                            Rectangle()
-                                .frame(height:reader.size.height * 0.15)
-                                .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
+                            ZStack{
+                                Rectangle()
+                                    .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
+                                Image("test")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Rectangle()
+                                    .foregroundColor(Color(UIImage(named:"test")?.averageColor ?? .clear)).opacity(0.7).isHidden(!averageColorOn)
+                            }.frame(width: ((reader.size.width - 21)/3) - 2.0,height:((reader.size.width - 21)/3) - 2.0)
+                            
                         }
                     }
                 }
@@ -57,8 +65,10 @@ struct InsideBoardView: View {
 
                 Spacer()
                 
-                Button(action: {}, label: {
-                    Image(systemName: "eyedropper").foregroundColor(.black)
+                Button(action: {
+                    self.averageColorOn.toggle()
+                }, label: {
+                    Image(systemName: "paintpalette").foregroundColor(.black)
                 })
                 
                 Spacer()
