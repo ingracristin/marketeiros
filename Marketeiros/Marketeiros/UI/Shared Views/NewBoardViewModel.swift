@@ -21,13 +21,15 @@ class NewBoardViewModel : ObservableObject {
         var description: String = ""
         var photoPath: String = ""
         var inputImage: UIImage?
+        var alertViewShowing = false
     }
     
     var bindings: (
         title: Binding<String>,
         description: Binding<String>,
         photoPath: Binding<String>,
-        inputImage: Binding<UIImage?>)
+        inputImage: Binding<UIImage?>,
+        alertViewShowing: Binding<Bool>)
     {(
         title: Binding(
             get: {self.states.title},
@@ -40,7 +42,10 @@ class NewBoardViewModel : ObservableObject {
             set: {self.states.photoPath = $0}),
         inputImage: Binding(
             get: {self.states.inputImage},
-            set: {self.states.inputImage = $0})
+            set: {self.states.inputImage = $0}),
+        alertViewShowing: Binding(
+            get: {self.states.alertViewShowing},
+            set: {self.states.alertViewShowing = $0})
         )}
     
     func createBoard() {
@@ -57,12 +62,12 @@ class NewBoardViewModel : ObservableObject {
             ideasGridUid: " ",
             moodGridUid: " ")
         
-        let newBoard = BoardsRepository.current.create(board: &board) { [weak self] result in
+        BoardsRepository.current.create(board: &board) { [weak self] result in
             switch result {
             case.failure(let message):
                 print(message)
             case .success(_):
-                self!.callback(board)
+                self?.callback(board)
             }
         }
     }

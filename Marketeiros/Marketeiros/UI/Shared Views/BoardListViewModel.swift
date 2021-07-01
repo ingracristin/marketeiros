@@ -36,6 +36,7 @@ class BoardListViewModel: ObservableObject {
     
     func getAllBoards() {
         guard let user = AuthService.current.user else {return}
+        //let user = User(uid: "2F361KHcKpNBMLuqLT2CLrtnp3k1", email: "dasda", name: "dasda")
         
         BoardsRepository.current.getAllBoards(of: user) { [weak self] result in
             switch result {
@@ -47,6 +48,16 @@ class BoardListViewModel: ObservableObject {
         }
     }
     
+    func toggleSheetView () {
+        bindings.newBoardIsShowing.wrappedValue.toggle()
+    }
+    
+    func add(board: Board) {
+        boards.append(board)
+    }
+    
+    // acho que não vai dar pra ouvir os listener, já que o self das views geralmente é destruído pra se reconstruir de novo
+    // pode ser que antes da função de listener executar eu possa fazer um test em self, se ele for nil a função n faz nada, senão ele segue o rumo dele normal, pode ser hein. hmmmmmm
 //    func addListenerOnBoards() {
 //        BoardsRepository.current.setListener(on: boar, of: <#T##User#>, completion: <#T##(Result<[Board], BoardsRepository.BoardsRepositoryErrors>) -> ()#>) { [weak self] result in
 //            switch result {
@@ -57,12 +68,5 @@ class BoardListViewModel: ObservableObject {
 //            }
 //        }
 //    }
-//    
-    func toggleSheetView () {
-        bindings.newBoardIsShowing.wrappedValue.toggle()
-    }
-    
-    func add(board: Board) {
-        boards.append(board)
-    }
+//
 }

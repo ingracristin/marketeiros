@@ -114,18 +114,17 @@ class AuthService {
         }
     }
     
-    //    func verifyAuthentication(completion: @escaping (User?) -> ()) {
-    //        auth.addStateDidChangeListener { (nAuth, user) in
-    //            if let user = user {
-    //                let loggedUser = User(uid: user.uid, email: user.email!, name: user.displayName ?? "")
-    //                completion(loggedUser)
-    //
-    //            } else {
-    //                completion(nil)
-    //            }
-    //        }
-    //    }
-        
+    func verifyAuthentication(completion: @escaping (User?) -> ()) {
+        auth.addStateDidChangeListener { (nAuth, user) in
+            if let user = user {
+                let loggedUser = User(uid: user.uid, email: user.email ?? "", name: user.displayName ?? "")
+                completion(loggedUser)
+
+            } else {
+                completion(nil)
+            }
+        }
+    }
 }
 
 /*let errors = [

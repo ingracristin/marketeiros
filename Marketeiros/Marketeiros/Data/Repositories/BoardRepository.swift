@@ -17,8 +17,9 @@ class BoardsRepository {
     enum BoardsRepositoryErrors: Error {
         case boardCreationError(String)
         case boardsCollectionError(String)
-        case errorAddingPostToBoard(String)
+        case errorAddingItemToBoard(String)
         case errorGettingItemsOfBoard(String)
+        case errorDeletingItemsFromBoard(String)
     }
  
     func getAllBoards(of user: User, completion: @escaping (Result<[Board],BoardsRepositoryErrors>) -> ()) {
@@ -76,11 +77,27 @@ class BoardsRepository {
 
 // Generic functions do all of the boards subitens
 extension BoardsRepository {
-    func add<T: BoardItemSavable>(item: T, to board: Board, on itemCollection: Collections) {
-        collection.document(board.uid).collection(itemCollection.rawValue).addDocument(data: item.toJson())
+    func add<T: BoardItemSavable>(item: inout T, to board: Board, on itemCollection: Collections) {
+        let docRef = collection.document(board.uid).collection(itemCollection.rawValue).addDocument(data: item.toJson())
+        docRef.updateData(["uid": docRef.documentID])
+        item.uid = docRef.documentID
+    }
+    
+    func delete<T: BoardItemSavable>(item: T, to board: Board, on itemCollection: Collections, completion: @escaping (Result<Bool, BoardsRepositoryErrors>) -> ()) {
+        collection.document(board.uid).collection(itemCollection.rawValue).document().delete { error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.errorDeletingItemsFromBoard(err.localizedDescription)))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(.success(true))
+                }
+            }
+        }
     }
 
-    func getAllItens<T: BoardItemSavable>(of board: Board, on itemCollection: Collections, completion: @escaping (Result<[T], BoardsRepositoryErrors>) -> ()) {
+    func getAllItens<T: BoardItemSavable>(of board: Board, on itemCollection: Collections, ofItemType: T.Type, completion: @escaping (Result<[T], BoardsRepositoryErrors>) -> ()) {
         get(collection: itemCollection, of: board).getDocuments { snapshot, error in
             if let err = error {
                 DispatchQueue.main.async {
@@ -122,39 +139,3 @@ extension BoardsRepository {
         return collection.document(board.uid).collection(itemCollection.rawValue)
     }
 }
-
-// Posts related functions
-//extension BoardsRepository {
-//    func add(post: Post, to board: Board) {
-//        collection.document(board.uid).collection(Collections.posts.rawValue).addDocument(data: post.toJson())
-//    }
-//
-//    func getAllPosts(of board: Board, completion: @escaping (Result<[Post], BoardsRepositoryErrors>) -> ()) {
-//        postsCollection(for: board).getDocuments { [weak self] snapshot, error in
-//            if let err = error {
-//                DispatchQueue.main.async {
-//                    completion(.failure(.errorGettingPostsOfBoard(err.localizedDescription)))
-//                }
-//            } else {
-//                var posts = [Post]()
-//                for doc in snapshot!.documents {
-//                    posts.append(self!.convert(json: doc.data()))
-//                }
-//                DispatchQueue.main.async {
-//                    completion(.success(posts))
-//                }
-//            }
-//        }
-//    }
-//
-//    private func convert(json: [String: Any]) -> Post {
-//        let firebaseDate = json["dateOfPublishing"] as! Timestamp
-//        let date = Date(timeIntervalSince1970: TimeInterval(firebaseDate.seconds))
-//
-//        return Post.from(json: json,with: date)
-//    }
-//
-//    private func postsCollection(for board: Board) -> CollectionReference {
-//        return collection.document(board.uid).collection(Collections.posts.rawValue)
-//    }
-//}

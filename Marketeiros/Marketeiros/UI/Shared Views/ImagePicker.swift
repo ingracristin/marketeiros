@@ -23,8 +23,8 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let uiImage = info[.originalImage] as? UIImage {
                 parent.image = uiImage
             }
-            if let imagePath = info[.referenceURL] as? String {
-                parent.imagePath = imagePath
+            if let imagePath = info[.referenceURL] as? URL {
+                parent.imagePath = imagePath.absoluteString
             }
             
             parent.presentationMode.wrappedValue.dismiss()

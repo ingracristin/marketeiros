@@ -24,7 +24,9 @@ struct NewBoardSheet: View {
                     .padding(.top)
                     .padding(.bottom,5)
                 HStack{
-                    Button(action: {}, label: {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
                         Text("Cancelar")
                             .foregroundColor(.red)
                             .font(.body)
@@ -54,8 +56,7 @@ struct NewBoardSheet: View {
                         .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                         .cornerRadius(8)
                 }
-                VStack(alignment:.leading, spacing: reader.size.height * 0.02){
-                    
+                VStack(alignment:.leading, spacing: reader.size.height * 0.02) {
                     Text("Bio do quadro").fontWeight(.semibold)
                         .font(.callout)
                     

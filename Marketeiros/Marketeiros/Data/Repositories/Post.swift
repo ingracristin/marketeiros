@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 struct Post: Codable, BoardItemSavable {
+    var uid: String
     var photoPath: String
     var title: String
     var description: String
@@ -18,6 +19,7 @@ struct Post: Codable, BoardItemSavable {
     
     func toJson() -> [String:Any] {
         return [
+            "uid": self.uid,
             "photoPath": self.photoPath,
             "title": self.title,
             "description": self.description,
@@ -32,27 +34,31 @@ struct Post: Codable, BoardItemSavable {
         let date = Date(timeIntervalSince1970: TimeInterval(firebaseDate.seconds))
         
         return Post(
-            photoPath: json["photoPath"] as! String,
-            title: json["title"] as! String,
-            description: json["description"] as! String,
-            hashtags: json["hashtags"] as! [String],
-            markedAccountsOnPost: json["markedAccountsOnPost"] as! [String],
+            uid: json["uid"] as? String ?? "",
+            photoPath: json["photoPath"] as? String ?? "",
+            title: json["title"] as? String ?? "",
+            description: json["description"] as? String ?? "",
+            hashtags: json["hashtags"] as? [String] ?? [""],
+            markedAccountsOnPost: json["markedAccountsOnPost"] as? [String] ?? [""],
             dateOfPublishing: date)
     }
 }
 
 struct Paste: Codable {
+    var uid: String
     var title: String
     var icon: String
     var ideas: [Idea]
 }
 
 struct Idea: Codable {
+    var uid: String
     var tag: String
     var title: String
     var description: String
 }
 
 struct IdeaImage: Codable {
+    var uid: String
     var imagePath: String
 }

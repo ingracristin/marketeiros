@@ -31,6 +31,7 @@
 		AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */; };
 		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
 		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
+		AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE799667268E778F00AD80F4 /* ImagesRepository.swift */; };
 		AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */; };
 		AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5207268B834000E14EBD /* ViewExtension.swift */; };
 		AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5209268B8C7100E14EBD /* BlurView.swift */; };
@@ -85,6 +86,7 @@
 		AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
+		AE799667268E778F00AD80F4 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
 		AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		AE8A5207268B834000E14EBD /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		AE8A5209268B8C7100E14EBD /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				AED6CF7326897CE400870BB2 /* UserRepository.swift */,
 				AED6CF7526897D2A00870BB2 /* BoardRepository.swift */,
+				AE799667268E778F00AD80F4 /* ImagesRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
+				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
@@ -700,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -723,7 +727,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

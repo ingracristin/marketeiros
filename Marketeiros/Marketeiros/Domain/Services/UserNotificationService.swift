@@ -9,7 +9,6 @@ import Foundation
 import UserNotifications
 
 class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
-    
     var notificationCenter : UNUserNotificationCenter
     static let shared = UserNotificationService()
     
@@ -20,12 +19,11 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         static let categoryId = "myCategory"
     }
     
-    private init(notificationCenter :  UNUserNotificationCenter = .current()) {
+    private init(notificationCenter:  UNUserNotificationCenter = .current()) {
         self.notificationCenter = notificationCenter
-        print("das")
     }
     
-    func setUserNotificationOn(weekDays : [Int], hour : Int,minute : Int) {
+    func setUserNotificationOn(weekDays: [Int], hour: Int,minute : Int) {
         let content = UNMutableNotificationContent()
         content.title = Constants.appName
         content.body = Constants.notificationBody
@@ -53,7 +51,7 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         }
     }
     
-    func setUserNotificationIn(minutes : Int) {
+    func setUserNotificationIn(minutes: Int) {
         let category = UNNotificationCategory(
             identifier: "myCategory",
             actions: [
@@ -79,9 +77,9 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         notificationCenter.add(request)
     }
     
-    func setUserNotificationIn(minutes : Int, withData dictInfo : [String : Any]) {
+    func setUserNotificationIn(minutes: Int, withData dictInfo: [String : Any]) {
         let category = UNNotificationCategory(
-            identifier: "myCategory",
+            identifier: Constants.categoryId,
             actions: [
                 .init(identifier: "Postar", title: "Postar", options: .foreground),
                 //.init(identifier: "op2", title: "Opcao 2", options: .destructive)
@@ -102,6 +100,34 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(60 * minutes), repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        notificationCenter.add(request)
+    }
+    
+    func setUserNotification(on date: Date, withData dictInfo: [String : Any]) {
+        let category = UNNotificationCategory(
+            identifier: "myCategory",
+            actions: [
+                .init(identifier: "Postar", title: "Postar", options: .foreground),
+                .init(identifier: "Cancel", title: "Cancel", options: .destructive)
+            ],
+            intentIdentifiers: [],
+            options: []
+        )
+        
+        notificationCenter.setNotificationCategories([category])
+        
+        let content = UNMutableNotificationContent()
+        content.title = Constants.appName
+        content.subtitle = Constants.notificationSubtitle
+        content.sound = UNNotificationSound.default
+        content.userInfo = dictInfo
+        content.categoryIdentifier = Constants.categoryId
+        
+        let components = Calendar.current.dateComponents([.day,.hour,.month,.minute,.year], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components , repeats: false)
+    
+        let request = UNNotificationRequest(identifier: dictInfo["uid"] as! String, content: content, trigger: trigger)
         
         notificationCenter.add(request)
     }
@@ -152,12 +178,12 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let postData = response.notification.request.content.userInfo as! [String : Any]
         
-        switch response.actionIdentifier {
-            case "Postar":
-                SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: postData)
-            default:
-                print("porra nenhuma")
+        if response.actionIdentifier == "Cancelar" {
+            completionHandler()
+            return
         }
+        
+        SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: postData)
         completionHandler()
     }
 }

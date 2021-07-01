@@ -7,6 +7,25 @@
 
 import SwiftUI
 
+struct AppButtonView: View {
+    var label: String
+    var action: () -> ()
+    
+    var body: some View {
+        Button(action: {
+            action()
+        }, label: {
+            Text(label)
+                .foregroundColor(.white)
+                .font(.caption)
+                .fontWeight(.semibold)
+                .padding(5)
+                .background(RoundedRectangle(cornerRadius: 10)
+                                .accentColor(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1))))
+        })
+    }
+}
+
 struct BoardView: View {
     @ObservedObject var viewModel = BoardListViewModel()
     
@@ -19,17 +38,9 @@ struct BoardView: View {
                             .fontWeight(.semibold)
                             .font(.title2)
                         Spacer()
-                        Button(action: {
+                        AppButtonView(label: "Add Quadro") {
                             viewModel.toggleSheetView()
-                        }, label: {
-                            Text("Criar quadro")
-                                .foregroundColor(Color(#colorLiteral(red: 0.3960410953, green: 0.3961022794, blue: 0.3960276842, alpha: 1)))
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                            
-                        }).frame(width: reader.size.width * 0.2125, height: reader.size.height * 0.0295, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
-                        .cornerRadius(12)
+                        }
                     }
                     
                     LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: [], content: {
@@ -49,18 +60,9 @@ struct BoardView: View {
                             .fontWeight(.semibold)
                             .font(.title2)
                         Spacer()
-                        Button(action: {
+                        AppButtonView(label: "Add Ideia") {
                             viewModel.toggleSheetView()
-                        }, label: {
-                            Text("Criar quadro")
-                                .foregroundColor(Color(#colorLiteral(red: 0.3960410953, green: 0.3961022794, blue: 0.3960276842, alpha: 1)))
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                            
-                        })
-                        .frame(width: reader.size.width * 0.2125, height: reader.size.height * 0.0295, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
-                        .cornerRadius(12)
+                        }
                     }
 
                     IdeaCell()
@@ -77,7 +79,7 @@ struct BoardView: View {
                 }
             })
         })
-        .navigationBarHidden(true)
+        .navigationTitle(Text("Home"))
         .onAppear {
             viewModel.getAllBoards()
         }

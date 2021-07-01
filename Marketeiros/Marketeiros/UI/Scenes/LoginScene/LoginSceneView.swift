@@ -16,39 +16,45 @@ struct LoginSceneView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: BoardView(), isActive: $isLoggedIn) { EmptyView()
-                }
-                
-                Button {
-                    AuthService.current.signInAnom { result in
-                        switch result {
-                        case .success(let user):
-                            UserRepository.current.initialize(user: user) { result in
-                                switch result {
-                                case .failure(.initializationError(let message)):
-                                    errorMessage = message
-                                case . success(_):
-                                    isLoggedIn.toggle()
+                if isLoggedIn {
+                    BoardView()
+                } else  {
+                    Button {
+                        AuthService.current.signInAnom { result in
+                            switch result {
+                            case .success(let user):
+                                UserRepository.current.initialize(user: user) { result in
+                                    switch result {
+                                    case .failure(.initializationError(let message)):
+                                        errorMessage = message
+                                    case . success(_):
+                                        isLoggedIn.toggle()
+                                    }
                                 }
+                            case .failure(.authenticationError(let message)):
+                                errorMessage = message
+                                existError.toggle()
+                            default:
+                                errorMessage = "Unknown Error"
+                                existError.toggle()
                             }
-                        case .failure(.authenticationError(let message)):
-                            errorMessage = message
-                            existError.toggle()
-                        default:
-                            errorMessage = "Unknown Error"
-                            existError.toggle()
                         }
+                    } label: {
+                        Text("Sign In anom")
                     }
-                } label: {
-                    Text("Sign In anom")
                 }
             }
             .alert(isPresented: $existError) {
                 Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .cancel())
             }
             .onAppear {
-                guard let user = AuthService.current.user else { return }
-                isLoggedIn.toggle()
+                AuthService.current.verifyAuthentication { user in
+                    if let _ = user {
+                        isLoggedIn = true
+                    } else {
+                        isLoggedIn = false
+                    }
+                }
             }
         }
     }

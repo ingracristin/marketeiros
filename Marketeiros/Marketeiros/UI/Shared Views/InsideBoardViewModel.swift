@@ -34,13 +34,17 @@ class InsideBoardViewModel: ObservableObject {
         self.board = board
     }
     
-    func setListenerOnPosts() {
-        BoardsRepository.current.setListener(on: .posts, of: board, ofItemType: Post.self) { [weak self] result in
+    func toggleAddPostView() {
+        states.addPostScreenShowing.toggle()
+    }
+    
+    func getAllPosts() {
+        BoardsRepository.current.getAllItens(of: board, on: .posts,ofItemType: Post.self) { result in
             switch result {
             case .failure(let message):
                 print(message)
             case .success(let postsList):
-                self!.posts = postsList
+                self.posts = postsList
             }
         }
     }

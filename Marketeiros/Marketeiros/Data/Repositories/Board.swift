@@ -9,6 +9,7 @@ import Foundation
 
 protocol BoardItemSavable {
     associatedtype T
+    var uid : String {get set}
     func toJson() -> [String: Any]
     static func from(json: [String: Any]) -> T
 }

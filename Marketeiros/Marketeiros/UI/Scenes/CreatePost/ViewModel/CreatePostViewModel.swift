@@ -20,9 +20,11 @@ class CreatePostViewModel : ObservableObject {
         var scheduleDate = Date()
         var showGreeting = false
         var showingImagePicker = false
+        var showingAlertView = false
         var image: Image?
         var imagePath: String = ""
         var inputImage: UIImage?
+        var percentage: Double = 0
     }
     
     var bindings: (
@@ -35,7 +37,9 @@ class CreatePostViewModel : ObservableObject {
         image: Binding<Image?>,
         showingImagePicker: Binding<Bool>,
         inputImage: Binding<UIImage?>,
-        imagePath: Binding<String>)
+        imagePath: Binding<String>,
+        showingAlertView: Binding<Bool>,
+        percentage: Binding<Double>)
     {(
         titlePost: Binding(
             get: {self.states.titlePost},
@@ -66,15 +70,24 @@ class CreatePostViewModel : ObservableObject {
             set: {self.states.inputImage = $0}),
         imagePath: Binding(
             get: {self.states.imagePath},
-            set: {self.states.imagePath = $0})
+            set: {self.states.imagePath = $0}),
+        showingAlertView: Binding(
+            get: {self.states.showingAlertView},
+            set: {self.states.showingAlertView = $0}),
+        percentage: Binding(
+            get: {self.states.percentage},
+            set: {self.states.percentage = $0})
     )}
     
     init(board: Board) {
         self.board = board
     }
     
-    func addPostToBoard() {
-        let post = Post(
+    func addPostToBoard(completionHadler: @escaping (String?) -> ()) {
+        guard let image = states.inputImage?.jpeg(.high) else {return}
+        
+        var post = Post(
+            uid: "",
             photoPath: states.imagePath,
             title: states.titlePost,
             description: states.legendPost,
@@ -82,7 +95,31 @@ class CreatePostViewModel : ObservableObject {
             markedAccountsOnPost: [states.markedAccountsOnPost],
             dateOfPublishing: states.scheduleDate)
         
-        BoardsRepository.current.add(item: post, to: board, on: .posts)
+        BoardsRepository.current.add(item: &post, to: board, on: .posts)
+        
+        UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing, withData: [
+            "imagePath": post.photoPath,
+            "description": post.description,
+            "uid": post.uid
+        ])
+        
+        states.showingAlertView.toggle()
+        ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
+            print(percentage)
+            self?.states.percentage = percentage
+        } completion: { result in
+            switch result {
+            case .failure(let message):
+                completionHadler(message.localizedDescription)
+            case .success(_):
+                completionHadler(nil)
+            }
+            self.states.showingAlertView.toggle()
+        }
+    }
+    
+    func requestUserNotification() {
+        UserNotificationService.shared.askUserNotificationPermission()
     }
     
     func loadImage() {

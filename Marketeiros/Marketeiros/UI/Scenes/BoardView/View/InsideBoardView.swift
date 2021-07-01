@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct InsideBoardView: View {
-    @State var selectedView = 1
-    @State var eita = false
+    @State var selectedView = 0
     @State var averageColorOn = false
     @ObservedObject var viewModel: InsideBoardViewModel
     
@@ -30,13 +29,13 @@ struct InsideBoardView: View {
         GridItem(.flexible(),spacing: 1)
     ]
     
-    
     var body: some View {
-        GeometryReader(){ reader in
-            NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: $eita) {
+        GeometryReader() { reader in
+            NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: viewModel.bindings.addPostScreenShowing){
                 EmptyView()
             }
-            VStack(spacing: 20){
+            
+            VStack(spacing: 20) {
                 Picker("View", selection: $selectedView, content: {
                     Text("Grid").tag(0)
                     Text("Ideias").tag(1)
@@ -45,9 +44,9 @@ struct InsideBoardView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 ScrollView(){
-<<<<<<< HEAD
-                    LazyVGrid(columns: layout, spacing: 2){
-                        ForEach(1...18, id: \.self){ _ in
+                    LazyVGrid(columns: layout, spacing: 2) {
+                    if (selectedView == 0){
+                        ForEach(1...8, id: \.self) { _ in
                             ZStack{
                                 Rectangle()
                                     .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
@@ -55,88 +54,79 @@ struct InsideBoardView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                 Rectangle()
-                                    .foregroundColor(Color(UIImage(named:"test")?.averageColor ?? .clear)).opacity(0.7).isHidden(!averageColorOn)
+                                    .foregroundColor(Color(UIImage(named:"test")?
+                                                            .averageColor ?? .clear))
+                                    .opacity(0.7).isHidden(!averageColorOn)
                             }.frame(width: ((reader.size.width - 21)/3) - 2.0,height:((reader.size.width - 21)/3) - 2.0)
-=======
-                    if(selectedView == 0){
-                        LazyVGrid(columns: layout, spacing: 1){
-                            ForEach(1...18, id: \.self){ _ in
-                                Rectangle()
-                                    .frame(height:reader.size.height * 0.15)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                            }
                         }
-                    }else if(selectedView == 1){
+                    } else if (selectedView == 1) {
                         ForEach(1...9, id: \.self){ index in
-                            
-                                if(index % 2 == 0){
-                                    LazyVGrid(columns: moodLayou, spacing: 15){
+                            if (index % 2 == 0){
+                                LazyVGrid(columns: moodLayou, spacing: 15) {
+                                    Rectangle()
+                                        .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
+                                        .frame(width: 340, height: 195)
+                                        .cornerRadius(15)
+                                }
+                            } else {
+                                LazyVGrid(columns: moodLayout, spacing: 10) {
+                                    ForEach(1...2, id: \.self){ _ in
                                         Rectangle()
                                             .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                            .frame(width: 340, height: 195)
+                                            .frame(width: 150, height: 195)
                                             .cornerRadius(15)
-                                        
                                     }
-                                }else{
-                                    LazyVGrid(columns: moodLayout, spacing: 10){
-                                        ForEach(1...2, id: \.self){ _ in
-                                            Rectangle()
-                                                .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                                .frame(width: 150, height: 195)
-                                                .cornerRadius(15)
-                                        }
-                                    }
-                                    
                                 }
->>>>>>> main
-                            
+                                
+                            }
                         }
-                        
                     }
-                    
                 }
-            }.padding(.horizontal,20)
-        }
-        .navigationTitle(viewModel.board.title)
-        .toolbar{
-            ToolbarItemGroup(placement: .bottomBar){
-                Button(action: {
-                    eita.toggle()
-                }, label: {
-                    Image(systemName: "plus").foregroundColor(.black)
-                })
-
-                Spacer()
-                
-                Button(action: {
-                    self.averageColorOn.toggle()
-                }, label: {
-                    Image(systemName: "paintpalette").foregroundColor(.black)
-                })
-                
-                Spacer()
-                
-                Button(action: {}, label: {
-                    Image(systemName: "repeat").foregroundColor(.black)
-                })
-                
-                Spacer()
-                
-                Button(action: {}, label: {
-                    Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
-                })
-                
-                Spacer()
-                
-                Button(action: {}, label: {
-                    Image(systemName: "trash").foregroundColor(.black)
-                })
+                }//.padding(.horizontal,20)
             }
-        }.onAppear {
-            viewModel.setListenerOnPosts()
+            .navigationTitle(viewModel.board.title)
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button(action: {
+                        viewModel.toggleAddPostView()
+                    }, label: {
+                        Image(systemName: "plus").foregroundColor(.black)
+                    })
+
+                    Spacer()
+                    
+                    Button(action: {
+                        self.averageColorOn.toggle()
+                    }, label: {
+                        Image(systemName: "paintpalette").foregroundColor(.black)
+                    })
+                    
+                    Spacer()
+                    
+                    Button(action: {}, label: {
+                        Image(systemName: "repeat").foregroundColor(.black)
+                    })
+                    
+                    Spacer()
+                    
+                    Button(action: {}, label: {
+                        Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
+                    })
+                    
+                    Spacer()
+                    
+                    Button(action: {}, label: {
+                        Image(systemName: "trash").foregroundColor(.black)
+                    })
+                }
+            }.onAppear {
+                viewModel.getAllPosts()
+            }
+            .padding(.horizontal,20)
         }
     }
 }
+
 
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {

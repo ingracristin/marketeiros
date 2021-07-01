@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import UserNotifications
 
 @main
 struct MarketeirosApp: App {
@@ -16,6 +17,9 @@ struct MarketeirosApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear(perform: {
+                    UNUserNotificationCenter.current().delegate = UserNotificationService.shared
+                })
         }
     }
 }
