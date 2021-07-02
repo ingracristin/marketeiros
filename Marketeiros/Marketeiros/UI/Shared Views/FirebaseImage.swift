@@ -14,10 +14,14 @@ struct FirebaseImage<Placeholder: View> : View {
     var averageColorOn: Binding<Bool>
     private let placeholder: Placeholder
     private let image: (UIImage) -> Image
+    private let width: CGFloat
+    private let height: CGFloat
     
     init(
         post: Post,
         board: Board,
+        widthImg: CGFloat,
+        heightImg: CGFloat,
         averageColorOn: Binding<Bool>,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image
@@ -26,11 +30,16 @@ struct FirebaseImage<Placeholder: View> : View {
         self.placeholder = placeholder()
         self.image = image
         self.imageLoader = Loader(post: post, board: board, cache: Environment(\.imageCache).wrappedValue)
+        self.width = widthImg
+        self.height = heightImg
+    
     }
     
     init(
         board: Board,
         averageColorOn: Binding<Bool>,
+        widthImg: CGFloat,
+        heightImg: CGFloat,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
     ) {
@@ -38,6 +47,8 @@ struct FirebaseImage<Placeholder: View> : View {
         self.image = image
         self.imageLoader = Loader(board: board)
         self.averageColorOn = averageColorOn
+        self.width = widthImg
+        self.height = heightImg
     }
     
     var body: some View {
@@ -45,12 +56,11 @@ struct FirebaseImage<Placeholder: View> : View {
             ZStack {
                 Image(uiImage: image)
                     .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                
-                RoundedRectangle(cornerRadius: 25)
+                    .scaledToFill()
+            Rectangle()
                     .foregroundColor(Color(image.averageColor ?? .clear))
-                    .opacity(0.8).isHidden(!averageColorOn.wrappedValue)
-            }
+                    .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
+            }.frame(width: self.width, height: self.height, alignment: .center)
         } else {
             placeholder
         }

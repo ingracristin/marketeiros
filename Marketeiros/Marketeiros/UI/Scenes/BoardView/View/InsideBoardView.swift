@@ -16,9 +16,7 @@ struct InsideBoardView: View {
         viewModel = InsideBoardViewModel(board: board)
     }
     
-    let layout = [
-        GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))
-    ]
+    
     let moodLayout = [
         GridItem(.flexible(),spacing: 0.5),
         GridItem(.flexible(),spacing: 0.5)
@@ -29,6 +27,14 @@ struct InsideBoardView: View {
     
     var body: some View {
         GeometryReader() { reader in
+            
+            let layout = [
+                GridItem(.fixed(((reader.size.width - 50) / 3))),
+                GridItem(.fixed(((reader.size.width - 50) / 3))),
+                GridItem(.fixed(((reader.size.width - 50) / 3))),
+                
+            ]
+            
             NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: viewModel.bindings.addPostScreenShowing){
                 EmptyView()
             }
@@ -42,45 +48,46 @@ struct InsideBoardView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 ScrollView(){
-                    LazyVGrid(columns: layout, spacing: 2) {
-                    if (selectedView == 0){
-                        ForEach(viewModel.posts, id: \.uid) { post in
-                            NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
-                                ZStack {
-                                    FirebaseImage(post: post, board: viewModel.board, averageColorOn: $averageColorOn) {
-                                        RoundedRectangle(cornerRadius: 25)
-                                            .foregroundColor(.gray)
-                                    } image: {
-                                        Image(uiImage: $0)
-                                                                            
+                    LazyVGrid(columns: layout, spacing: 1) {
+                        if (selectedView == 0){
+                            ForEach(viewModel.posts, id: \.uid) { post in
+                                NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
+                                    ZStack {
+                                        FirebaseImage(post: post, board: viewModel.board,widthImg:((reader.size.width - 50) / 3),heightImg:((reader.size.width - 50) / 3), averageColorOn: $averageColorOn) {
+                                            Rectangle()
+                                                .foregroundColor(.gray)
+                                        } image: {
+                                            Image(uiImage: $0)
+                                                
+                                            
+                                        }
+                                        .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
                                     }
-                                    .frame(width: 100, height: 100, alignment: .center)
                                 }
                             }
-                        }
-                    } else if (selectedView == 1) {
-                        ForEach(1...9, id: \.self){ index in
-                            if (index % 2 == 0){
-                                LazyVGrid(columns: moodLayou, spacing: 15) {
-                                    Rectangle()
-                                        .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                        .frame(width: 340, height: 195)
-                                        .cornerRadius(15)
-                                }
-                            } else {
-                                LazyVGrid(columns: moodLayout, spacing: 10) {
-                                    ForEach(1...2, id: \.self){ _ in
+                        } else if (selectedView == 1) {
+                            ForEach(1...9, id: \.self){ index in
+                                if (index % 2 == 0){
+                                    LazyVGrid(columns: moodLayou, spacing: 15) {
                                         Rectangle()
                                             .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                            .frame(width: 150, height: 195)
+                                            .frame(width: 340, height: 195)
                                             .cornerRadius(15)
                                     }
+                                } else {
+                                    LazyVGrid(columns: moodLayout, spacing: 10) {
+                                        ForEach(1...2, id: \.self){ _ in
+                                            Rectangle()
+                                                .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
+                                                .frame(width: 150, height: 195)
+                                                .cornerRadius(15)
+                                        }
+                                    }
+                                    
                                 }
-                                
                             }
                         }
                     }
-                }
                 }//.padding(.horizontal,20)
             }
             .navigationTitle(viewModel.board.title)
@@ -91,7 +98,7 @@ struct InsideBoardView: View {
                     }, label: {
                         Image(systemName: "plus").foregroundColor(.black)
                     })
-
+                    
                     Spacer()
                     
                     Button(action: {
@@ -129,6 +136,6 @@ struct InsideBoardView: View {
 
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        InsideBoardView(board: .init(uid: "ingracristin", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+        InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
     }
 }
