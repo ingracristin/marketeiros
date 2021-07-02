@@ -68,8 +68,10 @@ final class Loader : ObservableObject {
                 print("")
             case .success(let newImage):
                 DispatchQueue.main.async {
-                    self!.image = newImage
-                    self!.uid = post.uid
+                    if let self = self {
+                        self.image = newImage
+                        self.uid = post.uid
+                    }
                 }
             }
         }

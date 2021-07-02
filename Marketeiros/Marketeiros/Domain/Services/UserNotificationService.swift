@@ -186,4 +186,8 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: postData)
         completionHandler()
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        <#code#>
+    }
 }
