@@ -45,16 +45,19 @@ struct InsideBoardView: View {
                     LazyVGrid(columns: layout, spacing: 2) {
                     if (selectedView == 0){
                         ForEach(viewModel.posts, id: \.uid) { post in
-                            FirebaseImage(post: post, board: viewModel.board) {
-                                RoundedRectangle(cornerRadius: 25)
-                                    .foregroundColor(.gray)
-                            } image: {
-                                Image(uiImage: $0)
-                                    .resizable()
-                                    .frame(width: 100, height: 100, alignment: .center) as! Image
+                            NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
+                                ZStack {
+                                    FirebaseImage(post: post, board: viewModel.board, averageColorOn: $averageColorOn) {
+                                        RoundedRectangle(cornerRadius: 25)
+                                            .foregroundColor(.gray)
+                                    } image: {
+                                        Image(uiImage: $0)
+                                                                            
+                                    }
+                                    .frame(width: 100, height: 100, alignment: .center)
+                                    
+                                }
                             }
-                            .frame(width: 100, height: 100, alignment: .center)
-                           
                         }
                     } else if (selectedView == 1) {
                         ForEach(1...9, id: \.self){ index in

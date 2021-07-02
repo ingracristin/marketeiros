@@ -10,7 +10,8 @@ import SwiftUI
 
 class PostDetailsViewModel: ObservableObject {
     @Published private(set) var states = States()
-    var post : Post
+    var post: Post
+    var board: Board
     
     struct States {
         var titlePost = ""
@@ -79,13 +80,22 @@ class PostDetailsViewModel: ObservableObject {
             set: {self.states.percentage = $0})
     )}
     
-    init(post: Post) {
+    init(post: Post, board: Board) {
         self.post = post
+        self.board = board
         states.titlePost = post.title
         states.legendPost = post.description
-        //states.inputImage = ImagesRepository.getInMemoryImageOf(uid: post.uid)
         states.markedAccountsOnPost = post.markedAccountsOnPost.first ?? ""
         states.hashtag = post.hashtags.first ?? ""
+        
+        ImagesRepository.current.getImage(of: post, ofBoard: board) { result in
+            switch result {
+            case .failure(let message):
+                print("")
+            case .success(let newImage):
+                self.states.inputImage = newImage
+            }
+        }
     }
     
     func saveChangesToPost(completionHadler: @escaping (String?) -> ()) {

@@ -11,15 +11,18 @@ import SwiftUI
 
 struct FirebaseImage<Placeholder: View> : View {
     @ObservedObject private var imageLoader : Loader
+    var averageColorOn: Binding<Bool>
     private let placeholder: Placeholder
     private let image: (UIImage) -> Image
     
     init(
         post: Post,
         board: Board,
+        averageColorOn: Binding<Bool>,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image
     ) {
+        self.averageColorOn = averageColorOn
         self.placeholder = placeholder()
         self.image = image
         self.imageLoader = Loader(post: post, board: board, cache: Environment(\.imageCache).wrappedValue)
@@ -27,19 +30,27 @@ struct FirebaseImage<Placeholder: View> : View {
     
     init(
         board: Board,
+        averageColorOn: Binding<Bool>,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
     ) {
         self.placeholder = placeholder()
         self.image = image
         self.imageLoader = Loader(board: board)
+        self.averageColorOn = averageColorOn
     }
     
     var body: some View {
         if let image = imageLoader.image {
-            Image(uiImage: image)
-                .resizable()
-                .frame(width: 100, height: 100, alignment: .center)
+            ZStack {
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(Color(image.averageColor ?? .clear))
+                    .opacity(0.8).isHidden(!averageColorOn.wrappedValue)
+            }
         } else {
             placeholder
         }
@@ -73,6 +84,7 @@ final class Loader : ObservableObject {
                 DispatchQueue.main.async {
                     self!.image = newImage
                     self!.uid = board.uid
+
                 }
             }
         }

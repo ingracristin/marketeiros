@@ -11,8 +11,8 @@ struct PostDetailsView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: PostDetailsViewModel
     
-    init(post: Post) {
-        viewModel = .init(post: post)
+    init(post: Post, board: Board) {
+        viewModel = .init(post: post, board: board)
     }
     
     var body: some View {
@@ -151,10 +151,10 @@ struct PostDetailsView: View {
 
 
 
-struct PostDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            PostDetailsView(post: .T(uid: "Teu cu", photoPath: "Teu cu", title: "Teu cu", description: "Teu cu", hashtags: ["Teu cu"], markedAccountsOnPost: ["Teu cu"], dateOfPublishing: Date()))
-        }
-    }
-}
+//struct PostDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            PostDetailsView(post: .T(uid: "Teu cu", photoPath: "Teu cu", title: "Teu cu", description: "Teu cu", hashtags: ["Teu cu"], markedAccountsOnPost: ["Teu cu"], dateOfPublishing: Date()))
+//        }
+//    }
+//}
