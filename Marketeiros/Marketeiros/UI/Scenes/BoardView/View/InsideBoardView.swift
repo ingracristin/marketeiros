@@ -17,9 +17,7 @@ struct InsideBoardView: View {
     }
     
     let layout = [
-        GridItem(.flexible(),spacing: 2),
-        GridItem(.flexible(),spacing: 2),
-        GridItem(.flexible(),spacing: 2)
+        GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))
     ]
     let moodLayout = [
         GridItem(.flexible(),spacing: 0.5),
@@ -46,18 +44,16 @@ struct InsideBoardView: View {
                 ScrollView(){
                     LazyVGrid(columns: layout, spacing: 2) {
                     if (selectedView == 0){
-                        ForEach(1...8, id: \.self) { _ in
-                            ZStack{
-                                Rectangle()
-                                    .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                Image("test")
+                        ForEach(viewModel.posts, id: \.uid) { post in
+                            FirebaseImage(post: post, board: viewModel.board) {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .foregroundColor(.gray)
+                            } image: {
+                                Image(uiImage: $0)
                                     .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                Rectangle()
-                                    .foregroundColor(Color(UIImage(named:"test")?
-                                                            .averageColor ?? .clear))
-                                    .opacity(0.7).isHidden(!averageColorOn)
-                            }.frame(width: ((reader.size.width - 21)/3) - 2.0,height:((reader.size.width - 21)/3) - 2.0)
+                            }
+                            .frame(width: 100, height: 100, alignment: .center)
+                           
                         }
                     } else if (selectedView == 1) {
                         ForEach(1...9, id: \.self){ index in

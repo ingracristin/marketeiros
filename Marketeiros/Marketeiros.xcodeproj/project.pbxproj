@@ -17,6 +17,9 @@
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
 		79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */; };
+		AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B5D268EC0B400327D39 /* PostDetailsView.swift */; };
+		AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B5F268EC0D000327D39 /* PostDetailsViewModel.swift */; };
+		AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B61268EC0FC00327D39 /* FirebaseImage.swift */; };
 		AE21A9FF268BC0BF00AF3797 /* NewBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */; };
 		AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */; };
 		AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */; };
@@ -72,6 +75,9 @@
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
 		79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBoardView.swift; sourceTree = "<group>"; };
 		973B31595F71E5ED16B930A4 /* Pods-Marketeiros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.release.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.release.xcconfig"; sourceTree = "<group>"; };
+		AE119B5D268EC0B400327D39 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
+		AE119B5F268EC0D000327D39 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
+		AE119B61268EC0FC00327D39 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
 		AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/NewBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoardListViewModel.swift; path = "Marketeiros/UI/Shared Views/BoardListViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventView.swift; sourceTree = "<group>"; };
@@ -204,6 +210,23 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		AE119B5B268EC06B00327D39 /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				AE119B5C268EC09300327D39 /* View Models */,
+				AE119B5D268EC0B400327D39 /* PostDetailsView.swift */,
+			);
+			path = PostDetails;
+			sourceTree = "<group>";
+		};
+		AE119B5C268EC09300327D39 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE119B5F268EC0D000327D39 /* PostDetailsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		AE37BC312683BA8700258D8B /* Shared Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +236,7 @@
 				AE37BC382683BCE000258D8B /* TestWebView.swift */,
 				AE8A5209268B8C7100E14EBD /* BlurView.swift */,
 				AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */,
+				AE119B61268EC0FC00327D39 /* FirebaseImage.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -250,10 +274,11 @@
 			isa = PBXGroup;
 			children = (
 				AED6CF7F26897EA700870BB2 /* LoginScene */,
+				795AB134267A3078006308B5 /* BoardView */,
 				EF745777268A1A11004A6C60 /* CreatePost */,
 				EFA0B8FF2684E023009545B2 /* Notifications */,
 				EF1DD15C267A5234005A3A1C /* Profile */,
-				795AB134267A3078006308B5 /* BoardView */,
+				AE119B5B268EC06B00327D39 /* PostDetails */,
 				7918244C268B723100429C9C /* IdeaScene */,
 				AE5B70502678EC9E00AFF32E /* Calendar */,
 			);
@@ -539,6 +564,7 @@
 				79098F8D268DF4D20033B758 /* SearchView.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
+				AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */,
 				EF30C36226779A9A00DB7644 /* ContentView.swift in Sources */,
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
@@ -553,6 +579,7 @@
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */,
 				79182450268B728400429C9C /* IdeaView.swift in Sources */,
+				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
@@ -566,6 +593,7 @@
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 				EF41ADBF268CBE4E0067BD78 /* MoodBoardUIView.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
+				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
 				AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */,
