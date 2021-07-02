@@ -23,6 +23,7 @@ enum ImagesAcessibilityAtributes : String {
 class ImagesRepository {
     static let current = ImagesRepository()
     private let storageRoot = Storage.storage().reference()
+    private let cache = NSCache<NSString,UIImage>()
     
     private init() {}
     
@@ -51,6 +52,11 @@ class ImagesRepository {
     }
     
     private func getImage(of path: String, completion: @escaping (Result<UIImage, ImagesRepositoryErrors>) -> ()) {
+        if let cachedImage = cache.object(forKey: path as NSString) {
+            completion(.success(cachedImage))
+            return
+        }
+        
         let imageRef = storageRoot.child(path)
         
         imageRef.getData(maxSize: .max) { (imageData, error) in
@@ -59,8 +65,9 @@ class ImagesRepository {
                     completion(.failure(.errorGettingImageFromPost(errorMessage)))
                 }
             } else {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     let image = UIImage(data: imageData!)!
+                    self!.cache.setObject(image, forKey: path as NSString)
                     completion(.success(image))
                 }
             }

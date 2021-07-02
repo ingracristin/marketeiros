@@ -18,11 +18,11 @@ struct FirebaseImage<Placeholder: View> : View {
         post: Post,
         board: Board,
         @ViewBuilder placeholder: () -> Placeholder,
-        @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
+        @ViewBuilder image: @escaping (UIImage) -> Image
     ) {
         self.placeholder = placeholder()
         self.image = image
-        self.imageLoader = Loader(post: post, board: board)
+        self.imageLoader = Loader(post: post, board: board, cache: Environment(\.imageCache).wrappedValue)
     }
     
     init(
@@ -47,29 +47,32 @@ struct FirebaseImage<Placeholder: View> : View {
 }
 
 final class Loader : ObservableObject {
-    @Published var image : UIImage!
+    @Published var image : UIImage?
+    var uid: String = ""
 
-    init(post: Post, board: Board) {
-        ImagesRepository.current.getImage(of: post, ofBoard: board) { result in
+    init(post: Post, board: Board, cache: ImageCache) {
+        ImagesRepository.current.getImage(of: post, ofBoard: board) {[weak self] result in
             switch result {
             case .failure(_):
                 print("")
             case .success(let newImage):
                 DispatchQueue.main.async {
-                    self.image = newImage
+                    self!.image = newImage
+                    self!.uid = post.uid
                 }
             }
         }
     }
     
     init(board: Board) {
-        ImagesRepository.current.getImage(of: board) { result in
+        ImagesRepository.current.getImage(of: board) { [weak self] result in
             switch result {
             case .failure(_):
                 print("")
             case .success(let newImage):
                 DispatchQueue.main.async {
-                    self.image = newImage
+                    self!.image = newImage
+                    self!.uid = board.uid
                 }
             }
         }
