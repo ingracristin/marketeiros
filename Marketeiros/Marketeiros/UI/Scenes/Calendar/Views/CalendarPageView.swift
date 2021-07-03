@@ -12,7 +12,8 @@ struct CalendarPageView: View {
     @State var offset : CGFloat = 0
     @State var isShowing = false
     //let aux : CGFloat = 400
-    let aux : CGFloat = UIScreen.main.bounds.height * 0.39
+    let aux : CGFloat = UIScreen.main.bounds.height * 0.32
+    @ObservedObject var viewModel = CalendarPageViewModel()
     
     var body: some View {
         NavigationView {
@@ -53,7 +54,7 @@ struct CalendarPageView: View {
                 
                 GeometryReader { reader in
                     VStack {
-                        BottomSheet(offset: $offset, date: $date, value: (-reader.frame(in: .global).height + aux))
+                        BottomSheet(offset: $offset, date: $date, notifications: viewModel.getNotificationOnWeek(of: date), value: (-reader.frame(in: .global).height + aux))
                             .offset(y: reader.frame(in: .global).height - aux)
                             .offset(y: offset) .gesture(DragGesture().onChanged({ (value) in
                                 withAnimation {
@@ -94,6 +95,9 @@ struct CalendarPageView: View {
             .sheet(isPresented: $isShowing, content: {
                 AddNewEventView()
             })
+            .onAppear {
+                viewModel.getScheduledNotifications()
+            }
         }
     }
 }

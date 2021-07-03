@@ -8,6 +8,12 @@
 import Foundation
 import UserNotifications
 
+struct ScheduledNotification {
+    var uid: String
+    var title: String
+    var date: Date
+}
+
 class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
     var notificationCenter : UNUserNotificationCenter
     static let shared = UserNotificationService()
@@ -21,6 +27,17 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
     
     private init(notificationCenter:  UNUserNotificationCenter = .current()) {
         self.notificationCenter = notificationCenter
+        let category = UNNotificationCategory(
+            identifier: "myCategory",
+            actions: [
+                .init(identifier: "Postar", title: "Postar", options: .foreground),
+                .init(identifier: "Cancel", title: "Cancel", options: .destructive)
+            ],
+            intentIdentifiers: [],
+            options: []
+        )
+        
+        notificationCenter.setNotificationCategories([category])
     }
     
     func setUserNotificationOn(weekDays: [Int], hour: Int,minute : Int) {
@@ -105,18 +122,6 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
     }
     
     func setUserNotification(on date: Date, withData dictInfo: [String : Any]) {
-        let category = UNNotificationCategory(
-            identifier: "myCategory",
-            actions: [
-                .init(identifier: "Postar", title: "Postar", options: .foreground),
-                .init(identifier: "Cancel", title: "Cancel", options: .destructive)
-            ],
-            intentIdentifiers: [],
-            options: []
-        )
-        
-        notificationCenter.setNotificationCategories([category])
-        
         let content = UNMutableNotificationContent()
         content.title = Constants.appName
         content.subtitle = Constants.notificationSubtitle
@@ -127,9 +132,11 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         let components = Calendar.current.dateComponents([.day,.hour,.month,.minute,.year], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components , repeats: false)
     
-        let request = UNNotificationRequest(identifier: dictInfo["uid"] as! String, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
-        notificationCenter.add(request)
+        notificationCenter.add(request) { erro in
+            print(erro?.localizedDescription)
+        }
     }
     
     func getNotificationsDaysHourMinute(completion: @escaping ([Int],Int,Int) -> ()) {
@@ -148,6 +155,22 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
             }
 
             completion(days,hour,minute)
+        })
+    }
+    
+    func getScheduledNotifications(completion: @escaping ([ScheduledNotification]) -> ()) {
+        var scheduledNotifications = [ScheduledNotification]()
+        
+        notificationCenter.getPendingNotificationRequests(completionHandler: { notifications in
+            if !notifications.isEmpty {
+                for notification in notifications {
+                    let trigger = notification.trigger as! UNCalendarNotificationTrigger
+                    let date = trigger.nextTriggerDate()
+                    scheduledNotifications.append(.init(uid: notification.identifier, title: notification.content.title, date: date!))
+                }
+            }
+
+            completion(scheduledNotifications)
         })
     }
     
@@ -186,6 +209,4 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: postData)
         completionHandler()
     }
-    
-    
 }

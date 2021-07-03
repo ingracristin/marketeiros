@@ -45,5 +45,3 @@ struct ImagePicker: UIViewControllerRepresentable {
 
     }
 }
-
-

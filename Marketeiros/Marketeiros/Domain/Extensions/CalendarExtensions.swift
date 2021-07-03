@@ -17,6 +17,20 @@ extension Calendar {
         return firstDateWeek == secondDateWeek
     }
     
+    func isDate(_ firstDate: Date, inCurrentWeekAndDayOf secondDate: Date = .init()) -> Bool? {
+        let firstDateComponents = self.dateComponents([.weekOfYear,.day], from: firstDate)
+        let secondDateComponents = self.dateComponents([.weekOfYear,.day], from: secondDate)
+
+        guard
+            let firstDateWeek = firstDateComponents.weekOfYear,
+            let secondDateWeek = secondDateComponents.weekOfYear,
+            let firstDateDay = firstDateComponents.day,
+            let secondDateDay = secondDateComponents.day
+              else { return nil }
+        
+        return (firstDateWeek == secondDateWeek) && (firstDateDay == secondDateDay)
+    }
+    
     func isDate(_ firstDate: Date, inCurrentWeekOf index : Int) -> Bool? {
         let firstDateComponents = self.dateComponents([.weekOfYear], from: firstDate)
         guard let firstDateWeek = firstDateComponents.weekOfYear else { return nil }
@@ -49,6 +63,12 @@ extension Calendar {
     func getMonthFrom(date : Date) -> String {
         let monthIndex = self.component(.month, from: date) - 1
         return self.monthSymbols[monthIndex]
+    }
+    
+    func getHourAndMinuteFrom(date : Date) -> String {
+        let hour = self.component(.hour, from: date)
+        let minute = self.component(.minute, from: date)
+        return "\(hour):\(minute)"
     }
     
     func getWeekDayDescriptionFrom(date : Date) -> String {

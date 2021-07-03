@@ -17,7 +17,7 @@ struct LoginSceneView: View {
         NavigationView {
             VStack {
                 if isLoggedIn {
-                    BoardView()
+                    TabBarScene()
                 } else  {
                     Button {
                         AuthService.current.signInAnom { result in

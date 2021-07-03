@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BottonSheetListCell: View {
+    var notification: ScheduledNotification
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Color(.lightGray)
@@ -15,14 +17,14 @@ struct BottonSheetListCell: View {
             HStack {
                 VStack {
                     Spacer()
-                    Text("17:00")
+                    Text(getHourOf(date: notification.date))
                     Spacer()
                 }
                 VStack {
-                    Text("Titulo")
+                    Text(notification.title)
                         .cellTitle()
                         .fixedSize(horizontal: true, vertical: false)
-                    Text("Titulo")
+                    Text(notification.uid)
                         .cellSubTitle()
                     ColaboratorsView()
                 }
@@ -30,6 +32,10 @@ struct BottonSheetListCell: View {
             }
             .padding(.horizontal, 30)
         }
+    }
+    
+    private func getHourOf(date: Date) -> String {
+        return Calendar.current.getHourAndMinuteFrom(date: date)
     }
 }
 
@@ -49,6 +55,6 @@ struct ColaboratorsView: View {
 
 struct BottonSheetListCell_Previews: PreviewProvider {
     static var previews: some View {
-        BottonSheetListCell()
+        BottonSheetListCell(notification: .init(uid: "", title: "", date: .init()))
     }
 }
