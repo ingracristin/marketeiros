@@ -13,11 +13,18 @@ struct TabBarScene: View {
             BoardView()
                 .tabItem {
                     Label("Quadros", systemImage: "square.grid.2x2.fill")
-                }        .navigationTitle(Text("Home"))
+                }
+                .navigationTitle(Text("Home"))
             CalendarPageView()
                 .tabItem {
                     Label("Calendário", systemImage: "calendar")
-                }.navigationBarHidden(true)
+                }
+                .navigationBarHidden(true)
+            ProfileView()
+                .tabItem {
+                    Label("Perfil", systemImage: "person.fill")
+                }
+                .navigationBarHidden(true)
         }
     }
 }

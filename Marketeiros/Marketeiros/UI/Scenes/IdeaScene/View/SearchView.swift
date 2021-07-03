@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SearchView: View {
-    
     let layout = [
         GridItem(.flexible(),spacing: 15),
         GridItem(.flexible(),spacing: 15)
@@ -19,12 +18,10 @@ struct SearchView: View {
     
     var body: some View {
         GeometryReader{ reader in
-            
             VStack{
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                        
                         TextField("Busque ideias...", text: $searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         }, onCommit: {
@@ -51,7 +48,6 @@ struct SearchView: View {
                         .foregroundColor(Color(.systemBlue))
                     }
                 }
-                
                 .navigationBarHidden(showCancelButton)
                 ScrollView(){
                     LazyVGrid(columns: layout, spacing: 15){
@@ -67,12 +63,8 @@ struct SearchView: View {
                                     Text("📒 🙂")
                                     Text("loren ipsun hsjd ksdk jsdk sjd hsj hsnks jsnd hshdk shdnks hsdk shdks dhks")
                                 }.padding(.horizontal,20)
-                                
                             }
-                            
-                            
                         }
-                        
                     }
                 }
             }.padding(.horizontal,20)

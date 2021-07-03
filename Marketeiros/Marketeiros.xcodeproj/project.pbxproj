@@ -275,15 +275,15 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AEFFA800269025E800A86786 /* MainTabBar */,
 				AED6CF7F26897EA700870BB2 /* LoginScene */,
+				AEFFA800269025E800A86786 /* MainTabBar */,
 				795AB134267A3078006308B5 /* BoardView */,
 				EF745777268A1A11004A6C60 /* CreatePost */,
-				EFA0B8FF2684E023009545B2 /* Notifications */,
-				EF1DD15C267A5234005A3A1C /* Profile */,
 				AE119B5B268EC06B00327D39 /* PostDetails */,
 				7918244C268B723100429C9C /* IdeaScene */,
 				AE5B70502678EC9E00AFF32E /* Calendar */,
+				EF1DD15C267A5234005A3A1C /* Profile */,
+				EFA0B8FF2684E023009545B2 /* Notifications */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

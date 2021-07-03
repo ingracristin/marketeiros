@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct IdeaView: View {
-    
     let layout = [
-        GridItem(.flexible(),spacing: 15),
-        GridItem(.flexible(),spacing: 15)
+        GridItem(.fixed(170),spacing: 15),
+        GridItem(.fixed(170),spacing: 15)
     ]
     
-    
     var body: some View {
-        GeometryReader{ reader in
-            VStack(alignment: .leading){
+        GeometryReader { reader in
+            VStack(alignment: .leading) {
                 Text("Pastas")
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -33,21 +31,19 @@ struct IdeaView: View {
                                     .font(.caption)
                                     .fontWeight(.regular)
                             }
-                            
-                            
-                        })
-                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        }).frame(width:150, height:50)
+//                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
                         .cornerRadius(12)
                         ForEach(1...10, id: \.self) { count in
                             Button(action: {}, label: {
-                                ZStack(alignment: .center){
+                                ZStack(alignment: .center) {
                                     Rectangle()
-                                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .frame(width:150, height:50)
                                         .foregroundColor(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
                                         .cornerRadius(12)
-                                    
-                                    HStack{
+                                    HStack {
                                         Text("⭐️")
                                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                         Text("Produtos")
@@ -57,69 +53,62 @@ struct IdeaView: View {
                                     }
                                 }
                             })
-                            
                         }
-                    }).fixedSize()
+                    }).frame(height: 70)
                 }
-                
+                //.fixedSize()
                 Text("Cartões de ideias")
                     .font(.title2)
                     .fontWeight(.semibold)
                 
-                ScrollView(){
-                    LazyVGrid(columns: layout, spacing: 15){
-                        ForEach(1...18, id: \.self){ cell in
-                            
-                            if(cell == 1){
+                ScrollView() {
+                    LazyVGrid(columns: layout, spacing: 15) {
+                        ForEach(1...18, id: \.self) { cell in
+                            if(cell == 1) {
                                 Button(action: {}, label: {
-                                    VStack(spacing: 5){
+                                    VStack(spacing: 5) {
                                             Image(systemName: "sparkles.rectangle.stack.fill")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .foregroundColor(.black)
-                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                                
-                                            
+//                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             Text("Adicionar ideia")
                                                 .foregroundColor(Color(#colorLiteral(red: 0.3098039216, green: 0.3058823529, blue: 0.3058823529, alpha: 1)))
                                                 .font(.body)
                                                 .fontWeight(.regular)
-                                            
                                         }
-                      
                                 })
-                                .frame(width: reader.size.width * 0.4293, height: reader.size.height * 0.1908)
+//                                .frame(width: reader.size.width * 0.4293, height: reader.size.height * 0.1908)
                                 .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
                                 .cornerRadius(22)
-                            }else{
-                                ZStack{
+                            } else {
+                                ZStack {
                                     Rectangle()
-                                        .frame(width: reader.size.width * 0.4293, height: reader.size.height * 0.1908)
+//                                        .frame(width: reader.size.width * 0.4293, height: reader.size.height * 0.1908)
                                         .foregroundColor(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
                                         .cornerRadius(22)
                                     
-                                    VStack(alignment: .leading, spacing: 10){
+                                    VStack(alignment: .leading, spacing: 10) {
                                         Text("📒 🙂")
                                         Text("loren ipsun hsjd ksdk jsdk sjd hsj hsnks jsnd hshdk shdnks hsdk shdks dhks")
                                     }.padding(.horizontal,20)
-                                    
                                 }
-                                
-                                
                             }
-                            
                         }
                     }
                 }
-                
-                
-            }.padding(.horizontal,20)
+            }
         }
     }
 }
 
 struct SceneView_Previews: PreviewProvider {
     static var previews: some View {
-        IdeaView()
+        NavigationView {
+            TabView {
+                IdeaView()
+                    .padding()
+            }
+        }
     }
 }

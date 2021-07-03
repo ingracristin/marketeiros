@@ -72,7 +72,8 @@ struct BoardView: View {
                 }
             }
             .padding(.horizontal,20)
-        }.sheet(isPresented: viewModel.bindings.newBoardIsShowing, content: {
+        }
+        .sheet(isPresented: viewModel.bindings.newBoardIsShowing, content: {
             NewBoardSheet(callback: { board in 
                 DispatchQueue.main.async {
                     viewModel.add(board: board)

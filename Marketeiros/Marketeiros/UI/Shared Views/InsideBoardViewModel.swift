@@ -48,4 +48,15 @@ class InsideBoardViewModel: ObservableObject {
             }
         }
     }
+    
+    func deleteBoard(completion: @escaping (Bool) -> ()) {
+        BoardsRepository.current.delete(board: board) { result in
+            switch result {
+            case .failure(_):
+                completion(false)
+            case .success(_):
+                completion(true)
+            }
+        }
+    }
 }

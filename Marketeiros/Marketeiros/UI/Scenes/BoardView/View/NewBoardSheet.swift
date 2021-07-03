@@ -48,7 +48,6 @@ struct NewBoardSheet: View {
                     HStack(spacing: 0){
                         Text("Nome do quadro").fontWeight(.semibold)
                             .font(.callout)
-                        
                         Spacer()
                     }
                     TextField("", text: viewModel.bindings.title)

@@ -31,8 +31,6 @@ struct FullScreenModalView: View {
             }
             Spacer()
         }
-       
-        
     }
 }
 
@@ -47,25 +45,44 @@ struct uh: View {
     }
 }
 struct ProfileView: View {
-    
     @State var isShow = false
     @State private var showingPopover = false
+    
     var body: some View {
-        
-        VStack(){
+        VStack() {
+            HStack(alignment: .lastTextBaseline,spacing:0) {
+                Spacer()
+                Button(action: {
+                    
+                }) {
+                    AppButtonView(label: "Sign Out") {
+                        AuthService.current.signOut { result in
+                            print(result)
+                        }
+                    }
+                }
+            }
+            .padding(.bottom,10)
             
-            HStack(){
+            HStack {
+                Text("Calendar")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            
+            HStack() {
                 Image("bolinha")
-                VStack(){
+                VStack() {
                     Text("Ingra Cristina")
                     Text("@ingracristicvn")
                 }
                 Spacer()
-            }.padding()
+            }
+            //.padding()
             
-            VStack(){
-                
-                HStack(){
+            VStack() {
+                HStack() {
                     Text("Contas").font(.system(size: 24, weight: Font.Weight.bold, design: Font.Design.rounded))
                         
                     Spacer()
@@ -79,9 +96,8 @@ struct ProfileView: View {
                             .background(RoundedRectangle(cornerRadius: 10))
                             .accentColor(.gray)
                     })
-                    
-                        
-                }.padding(.horizontal)
+                }
+                //.padding(.horizontal)
                 VStack(){
                     ForEach(0..<2, id:\.self){ index in 
                         AcountListCellSwiftUIView()
@@ -103,29 +119,22 @@ struct ProfileView: View {
                             .background(RoundedRectangle(cornerRadius: 10))
                             .accentColor(.gray)
                     })
-                }.padding(.horizontal)
+                }
+                //.padding(.horizontal)
                 VStack(){
                     ForEach(0..<2, id:\.self){ index in
                         ListTeamsUIView()
                     }
                 }
-               
-                
-                
             }
             Spacer()
-            
-          
             Spacer()
-            
-        }.navigationBarItems(trailing: Button(action: {}, label: {
-            Image(systemName: "gearshape").foregroundColor(.black)
-        })).navigationTitle("Perfil")
+        }
+        .navigationTitle("Perfil")
         .sheet(isPresented: $isShow, content: {
             NewColaboratorSheet()
         })
-        
-        
+        .padding(.horizontal,25)
     }
 }
 
@@ -133,8 +142,6 @@ struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             ProfileView()
-            
         }
-        
     }
 }

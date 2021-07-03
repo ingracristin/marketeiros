@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct InsideBoardView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel: InsideBoardViewModel
     @State var selectedView = 0
     @State var averageColorOn = false
-    @ObservedObject var viewModel: InsideBoardViewModel
     
     init(board: Board) {
         viewModel = InsideBoardViewModel(board: board)
     }
-    
     
     let moodLayout = [
         GridItem(.flexible(),spacing: 0.5),
@@ -27,12 +27,10 @@ struct InsideBoardView: View {
     
     var body: some View {
         GeometryReader() { reader in
-            
             let layout = [
                 GridItem(.fixed(((reader.size.width - 50) / 3))),
                 GridItem(.fixed(((reader.size.width - 50) / 3))),
                 GridItem(.fixed(((reader.size.width - 50) / 3))),
-                
             ]
             
             NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: viewModel.bindings.addPostScreenShowing){
@@ -47,9 +45,9 @@ struct InsideBoardView: View {
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
-                ScrollView(){
-                    LazyVGrid(columns: layout, spacing: 1) {
-                        if (selectedView == 0){
+                if (selectedView == 0) {
+                    ScrollView(){
+                        LazyVGrid(columns: layout, spacing: 1) {
                             ForEach(viewModel.posts, id: \.uid) { post in
                                 NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
                                     ZStack {
@@ -58,37 +56,16 @@ struct InsideBoardView: View {
                                                 .foregroundColor(.gray)
                                         } image: {
                                             Image(uiImage: $0)
-                                                
-                                            
                                         }
                                         .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
                                     }
                                 }
                             }
-                        } else if (selectedView == 1) {
-                            ForEach(1...9, id: \.self){ index in
-                                if (index % 2 == 0){
-                                    LazyVGrid(columns: moodLayou, spacing: 15) {
-                                        Rectangle()
-                                            .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                            .frame(width: 340, height: 195)
-                                            .cornerRadius(15)
-                                    }
-                                } else {
-                                    LazyVGrid(columns: moodLayout, spacing: 10) {
-                                        ForEach(1...2, id: \.self){ _ in
-                                            Rectangle()
-                                                .foregroundColor(Color(#colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 1)))
-                                                .frame(width: 150, height: 195)
-                                                .cornerRadius(15)
-                                        }
-                                    }
-                                    
-                                }
-                            }
                         }
                     }
-                }//.padding(.horizontal,20)
+                } else if (selectedView == 1) {
+                    IdeaView()
+                } 
             }
             .navigationTitle(viewModel.board.title)
             .toolbar {
@@ -121,18 +98,22 @@ struct InsideBoardView: View {
                     
                     Spacer()
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        viewModel.deleteBoard { result in
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }, label: {
                         Image(systemName: "trash").foregroundColor(.black)
                     })
                 }
-            }.onAppear {
+            }
+            .onAppear {
                 viewModel.getAllPosts()
             }
             .padding(.horizontal,20)
         }
     }
 }
-
 
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {

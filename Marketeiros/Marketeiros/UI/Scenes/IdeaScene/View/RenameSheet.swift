@@ -32,7 +32,6 @@ struct RenameSheet: View {
             TextField("",text: $name)
                 .padding(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 20))
                 .background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
-                
         }
     }
 }

@@ -40,9 +40,7 @@ struct EditSheet: View {
                                 .foregroundColor(Color(#colorLiteral(red: 0.3960410953, green: 0.3961022794, blue: 0.3960276842, alpha: 1)))
                                 .font(.body)
                                 .fontWeight(.regular)
-                        }
-                        
-                        
+                        } 
                     })
                     
                     Button(action: {}, label: {
@@ -54,8 +52,6 @@ struct EditSheet: View {
                                 .font(.body)
                                 .fontWeight(.regular)
                         }
-                        
-                        
                     })
                     
                     Button(action: {}, label: {
@@ -67,13 +63,8 @@ struct EditSheet: View {
                                 .font(.body)
                                 .fontWeight(.regular)
                         }
-                        
-                        
                     })
                 }.padding(.horizontal,35)
-                
-                
-                
             }
         }
     }
