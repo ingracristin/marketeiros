@@ -16,6 +16,8 @@
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
+		79747F60269348B7004BAAC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79747F5F269348B7004BAAC9 /* LoginView.swift */; };
+		79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79747F61269362EB004BAAC9 /* RegisterView.swift */; };
 		79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */; };
 		AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B5D268EC0B400327D39 /* PostDetailsView.swift */; };
 		AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B5F268EC0D000327D39 /* PostDetailsViewModel.swift */; };
@@ -74,6 +76,8 @@
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
+		79747F5F269348B7004BAAC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		79747F61269362EB004BAAC9 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBoardView.swift; sourceTree = "<group>"; };
 		973B31595F71E5ED16B930A4 /* Pods-Marketeiros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.release.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.release.xcconfig"; sourceTree = "<group>"; };
 		AE119B5D268EC0B400327D39 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
@@ -367,6 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				AED6CF8026897ED200870BB2 /* LoginSceneView.swift */,
+				79747F5F269348B7004BAAC9 /* LoginView.swift */,
+				79747F61269362EB004BAAC9 /* RegisterView.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */,
 				79182450268B728400429C9C /* IdeaView.swift in Sources */,
+				79747F60269348B7004BAAC9 /* LoginView.swift in Sources */,
 				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */,
@@ -602,6 +609,7 @@
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 				EF41ADBF268CBE4E0067BD78 /* MoodBoardUIView.swift in Sources */,
+				79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */,
 				AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
@@ -744,7 +752,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -767,7 +775,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
