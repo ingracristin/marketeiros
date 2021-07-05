@@ -2,29 +2,36 @@
 //  MoodBoardView.swift
 //  Marketeiros
 //
-//  Created by Ingra Cristina on 02/07/21.
+//  Created by Ingra Cristina on 05/07/21.
 //
 
 import SwiftUI
 
 struct MoodBoardView: View {
     var body: some View {
-        var gridItems = [GridCell]()
-        for i in 0 ..< 30 {
-            let randomH = CGFloat.random(in: 180 ... 300)
-            gridItems.append(GridCell(height: randomH))
+        VStack{
+            Text("Voce ainda nao tem nada aqui mano")
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Spacer()
+                Button(action: {
+                    MoodHalfModalView(offset: .constant(10))
+                }, label: {
+                    Image(systemName: "plus").foregroundColor(.black)
+                })
+               
+            }
         }
         
-        return ScrollView{
-            PinterestGrid(gridItems: gridItems, numOfColumns: 2, spacing: 20, horizontalPadding: 20)
-        }
+        
         
     }
 }
 
 struct MoodBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationView{
             MoodBoardView()
         }
         

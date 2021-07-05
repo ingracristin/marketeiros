@@ -10,7 +10,7 @@ import SwiftUI
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: InsideBoardViewModel
-    @State var selectedView = 0
+    @State var selectedView = 2
     @State var averageColorOn = false
     
     init(board: Board) {
@@ -65,50 +65,69 @@ struct InsideBoardView: View {
                     }
                 } else if (selectedView == 1) {
                     IdeaView()
+                        .toolbar {
+                            ToolbarItemGroup(placement: .bottomBar) {
+                                Button(action: {
+                                    viewModel.toggleAddPostView()
+                                }, label: {
+                                    Image(systemName: "plus").foregroundColor(.black)
+                                })
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    self.averageColorOn.toggle()
+                                }, label: {
+                                    Image(systemName: "paintpalette").foregroundColor(.black)
+                                })
+                                
+                                Spacer()
+                                
+                                Button(action: {}, label: {
+                                    Image(systemName: "repeat").foregroundColor(.black)
+                                })
+                                
+                                Spacer()
+                                
+                                Button(action: {}, label: {
+                                    Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
+                                })
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    viewModel.deleteBoard { result in
+                                        presentationMode.wrappedValue.dismiss()
+                                    }
+                                }, label: {
+                                    Image(systemName: "trash").foregroundColor(.black)
+                                })
+                            }
+                        }
                 } else if (selectedView == 2){
-                    MoodBoardView()
+                    MoodBoardGridView()
+                        .toolbar {
+                            ToolbarItemGroup(placement: .bottomBar) {
+                                
+                                Button(action: {
+                                    self.averageColorOn.toggle()
+                                }, label: {
+                                    Image(systemName: "paintpalette").foregroundColor(.black)
+                                })
+                                Spacer()
+                                Button(action: {
+                                    viewModel.toggleAddPostView()
+                                }, label: {
+                                    Image(systemName: "plus").foregroundColor(.black)
+                                })
+                                
+                            }
+                        }
+                    
                 }
             }
             .navigationTitle(viewModel.board.title)
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button(action: {
-                        viewModel.toggleAddPostView()
-                    }, label: {
-                        Image(systemName: "plus").foregroundColor(.black)
-                    })
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        self.averageColorOn.toggle()
-                    }, label: {
-                        Image(systemName: "paintpalette").foregroundColor(.black)
-                    })
-                    
-                    Spacer()
-                    
-                    Button(action: {}, label: {
-                        Image(systemName: "repeat").foregroundColor(.black)
-                    })
-                    
-                    Spacer()
-                    
-                    Button(action: {}, label: {
-                        Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
-                    })
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        viewModel.deleteBoard { result in
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }, label: {
-                        Image(systemName: "trash").foregroundColor(.black)
-                    })
-                }
-            }
+            
             .onAppear {
                 viewModel.getAllPosts()
             }

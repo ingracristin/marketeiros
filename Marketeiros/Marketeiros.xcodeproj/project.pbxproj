@@ -53,9 +53,11 @@
 		CCDA2B977807C095FAD79017 /* Pods_Marketeiros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */; };
 		EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */; };
 		EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DD162267A5277005A3A1C /* ProfileView.swift */; };
-		EF2D04F32693446800B9D7E5 /* MoodBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F22693446700B9D7E5 /* MoodBoardView.swift */; };
+		EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */; };
 		EF2D04F62693446D00B9D7E5 /* PinterestGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */; };
 		EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */; };
+		EF2D05022693566100B9D7E5 /* MoodHalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */; };
+		EF2D050626935FF200B9D7E5 /* MoodBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */; };
 		EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */; };
 		EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36326779A9A00DB7644 /* Assets.xcassets */; };
 		EF30C36726779A9A00DB7644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */; };
@@ -114,9 +116,11 @@
 		CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketeiros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsUIView.swift; sourceTree = "<group>"; };
 		EF1DD162267A5277005A3A1C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		EF2D04F22693446700B9D7E5 /* MoodBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodBoardView.swift; sourceTree = "<group>"; };
+		EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodBoardGridView.swift; sourceTree = "<group>"; };
 		EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestGrid.swift; sourceTree = "<group>"; };
 		EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardItemDetailsView.swift; sourceTree = "<group>"; };
+		EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodHalfModalView.swift; sourceTree = "<group>"; };
+		EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardView.swift; sourceTree = "<group>"; };
 		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36326779A9A00DB7644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,13 +201,15 @@
 			isa = PBXGroup;
 			children = (
 				EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */,
-				EF2D04F22693446700B9D7E5 /* MoodBoardView.swift */,
+				EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */,
 				795AB137267A30A3006308B5 /* BoardView.swift */,
 				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
 				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
 				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
+				EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */,
+				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
+				EF2D050626935FF200B9D7E5 /* MoodBoardView.swift in Sources */,
 				EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */,
 				AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */,
 				AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */,
@@ -601,7 +608,7 @@
 				79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				79098F8F268DF8A90033B758 /* EditSheet.swift in Sources */,
-				EF2D04F32693446800B9D7E5 /* MoodBoardView.swift in Sources */,
+				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
 				AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */,
 				AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */,
@@ -614,6 +621,7 @@
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
 				AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */,
+				EF2D05022693566100B9D7E5 /* MoodHalfModalView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
 				AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */,

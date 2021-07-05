@@ -9,12 +9,30 @@ import SwiftUI
 
 struct MoodBoardItemDetailsView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack{
+            Text("Hello, World!")
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "trash").foregroundColor(.black)
+                })
+               
+            }
+        }
+        
+        
     }
+    
 }
 
 struct MoodBoardItemDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        MoodBoardItemDetailsView()
+        NavigationView{
+            MoodBoardItemDetailsView()
+        }
     }
 }
