@@ -65,7 +65,9 @@ struct InsideBoardView: View {
                     }
                 } else if (selectedView == 1) {
                     IdeaView()
-                } 
+                } else if (selectedView == 2){
+                    MoodBoardView()
+                }
             }
             .navigationTitle(viewModel.board.title)
             .toolbar {
@@ -117,6 +119,9 @@ struct InsideBoardView: View {
 
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+        NavigationView {
+            InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+        }
+        
     }
 }
