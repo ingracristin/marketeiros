@@ -56,13 +56,15 @@ struct FirebaseImage<Placeholder: View> : View {
             ZStack {
                 Image(uiImage: image)
                     .resizable()
-                    .scaledToFill()
-            Rectangle()
-                    .foregroundColor(Color(image.averageColor ?? .clear))
-                    .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
-            }.frame(width: self.width, height: self.height, alignment: .center)
+                    .scaledToFit()
+                    .frame(width: self.width, height: self.height, alignment: .center)
+                Rectangle()
+                        .foregroundColor(Color(image.averageColor ?? .clear))
+                        .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
+            }
         } else {
             placeholder
+                .frame(width: self.width, height: self.height, alignment: .center)
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct CellTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.system(size: 16, weight: .medium, design: .default))
+            .font(Font.system(size: 20, weight: .medium, design: .default))
     }
 }
 
@@ -19,6 +19,13 @@ struct CellSubTitle: ViewModifier {
         content
             .font(Font.system(size: 14, weight: .regular, design: .default))
             .foregroundColor(.gray)
+    }
+}
+
+struct NavBarTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.coconBold(sized: 34))
     }
 }
 

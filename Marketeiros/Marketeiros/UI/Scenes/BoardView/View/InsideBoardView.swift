@@ -62,48 +62,47 @@ struct InsideBoardView: View {
                                 }
                             }
                         }
+                    }.toolbar {
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            Button(action: {
+                                viewModel.toggleAddPostView()
+                            }, label: {
+                                Image(systemName: "plus").foregroundColor(.black)
+                            })
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                self.averageColorOn.toggle()
+                            }, label: {
+                                Image(systemName: "paintpalette").foregroundColor(.black)
+                            })
+                            
+                            Spacer()
+                            
+                            Button(action: {}, label: {
+                                Image(systemName: "repeat").foregroundColor(.black)
+                            })
+                            
+                            Spacer()
+                            
+                            Button(action: {}, label: {
+                                Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
+                            })
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                viewModel.deleteBoard { result in
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                            }, label: {
+                                Image(systemName: "trash").foregroundColor(.black)
+                            })
+                        }
                     }
                 } else if (selectedView == 1) {
-                    IdeaView()
-                        .toolbar {
-                            ToolbarItemGroup(placement: .bottomBar) {
-                                Button(action: {
-                                    viewModel.toggleAddPostView()
-                                }, label: {
-                                    Image(systemName: "plus").foregroundColor(.black)
-                                })
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    self.averageColorOn.toggle()
-                                }, label: {
-                                    Image(systemName: "paintpalette").foregroundColor(.black)
-                                })
-                                
-                                Spacer()
-                                
-                                Button(action: {}, label: {
-                                    Image(systemName: "repeat").foregroundColor(.black)
-                                })
-                                
-                                Spacer()
-                                
-                                Button(action: {}, label: {
-                                    Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
-                                })
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    viewModel.deleteBoard { result in
-                                        presentationMode.wrappedValue.dismiss()
-                                    }
-                                }, label: {
-                                    Image(systemName: "trash").foregroundColor(.black)
-                                })
-                            }
-                        }
+                    IdeaView()    
                 } else if (selectedView == 2){
                     MoodBoardGridView()
                         .toolbar {
