@@ -56,7 +56,7 @@ struct FirebaseImage<Placeholder: View> : View {
             ZStack {
                 Image(uiImage: image)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(width: self.width, height: self.height, alignment: .center)
                 Rectangle()
                         .foregroundColor(Color(image.averageColor ?? .clear))
