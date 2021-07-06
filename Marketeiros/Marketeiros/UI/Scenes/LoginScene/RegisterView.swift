@@ -59,7 +59,7 @@ struct RegisterView: View {
                 HStack{
                     Capsule()
                         .fill(Color.gray.opacity(0.5))
-                        .frame(width: reader.size.width * 0.3093, height: 5)
+                        .frame(width: reader.size.width * 0.3093, height: 2)
                     
                     Spacer()
                     Text("ou")
@@ -68,7 +68,7 @@ struct RegisterView: View {
 
                     Capsule()
                         .fill(Color.gray.opacity(0.5))
-                        .frame(width: reader.size.width * 0.3093, height: 5)
+                        .frame(width: reader.size.width * 0.3093, height: 2)
                         
                 }.padding(.horizontal,20)
                 
@@ -97,15 +97,19 @@ struct RegisterView: View {
                         .cornerRadius(18)
                 }.padding(.horizontal,20)
                 
-                Spacer().frame(height: 60)
+                Text("Ao criar uma conta você concorda com os termos de serviço e política de privacidade do aplicativo.")
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 35)
+                    .foregroundColor(Color(#colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)))
+                
                 Button(action: {}, label: {
                     Text("Criar")
                         .font(.title)
                         .bold()
                         .foregroundColor(.white)
-                }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                }).padding(.init(top: 5, leading: 20, bottom: 5, trailing: 20))
                 .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
-                .cornerRadius(13)
+                .cornerRadius(20)
                 
             }
         }    }

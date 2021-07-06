@@ -57,7 +57,7 @@ struct LoginView: View {
                 HStack{
                     Capsule()
                         .fill(Color.gray.opacity(0.5))
-                        .frame(width: reader.size.width * 0.3093, height: 5)
+                        .frame(width: reader.size.width * 0.3093, height: 2)
                     
                     Spacer()
                     Text("ou")
@@ -66,7 +66,7 @@ struct LoginView: View {
 
                     Capsule()
                         .fill(Color.gray.opacity(0.5))
-                        .frame(width: reader.size.width * 0.3093, height: 5)
+                        .frame(width: reader.size.width * 0.3093, height: 2)
                         
                 }.padding(.horizontal,20)
                 
