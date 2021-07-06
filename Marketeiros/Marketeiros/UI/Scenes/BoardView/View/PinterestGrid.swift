@@ -10,6 +10,7 @@ import SwiftUI
 struct GridCell: Identifiable {
     let id = UUID()
     let height: CGFloat
+    let image: UIImage
 }
 
 struct PinterestGrid: View {
@@ -58,8 +59,9 @@ struct PinterestGrid: View {
                 LazyVStack(spacing: spacing){
                     ForEach(column.gridItems) { gridItem in
                         NavigationLink(destination: MoodBoardItemDetailsView()) {
-                            Rectangle()
-                           .foregroundColor(.gray)
+                            Image(uiImage: gridItem.image)
+                                .resizable()
+                                
                            .frame(height: gridItem.height)
                            .cornerRadius(10)
                         }
@@ -74,6 +76,6 @@ struct PinterestGrid: View {
 
 struct PinterestGrid_Previews: PreviewProvider {
     static var previews: some View {
-        PinterestGrid(gridItems: [GridCell(height: 200)], numOfColumns: 4)
+        PinterestGrid(gridItems: [GridCell(height: 200, image: UIImage(named: "bolinha")!)], numOfColumns: 4)
     }
 }

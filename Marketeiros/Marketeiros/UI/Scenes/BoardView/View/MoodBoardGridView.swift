@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MoodBoardGridView: View {
+    @Binding var imagesList: [UIImage]
     var body: some View {
-        var gridItems = [GridCell]()
-        for i in 0 ..< 30 {
+        var gridItems: [GridCell] = []
+        for image in imagesList {
             let randomH = CGFloat.random(in: 180 ... 300)
-            gridItems.append(GridCell(height: randomH))
+            gridItems.append(GridCell(height: randomH, image: image))
         }
         
         return ScrollView{
@@ -25,7 +26,8 @@ struct MoodBoardGridView: View {
 struct MoodBoardGridView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MoodBoardGridView()
+            MoodBoardGridView(imagesList: .constant([]))
+            
         }
         
     }

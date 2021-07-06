@@ -9,35 +9,48 @@ import SwiftUI
 
 struct MoodBoardView: View {
     var flag: Bool = false
+    @State var imagesList = [UIImage]()
+    @State var showingActionSheet = false
+    @State var imageGalery = false
+    @State var uiImage: UIImage? = UIImage(named: "bolinha")!
+    @State var localeImage: String = ""
     var body: some View {
-        ZStack{
-            VStack{
-                Spacer()
-                MoodHalfModalView(offset: .constant(10))
-                    .frame(height: 120)
-            }
             
+        ScrollView {
             VStack{
+                MoodBoardGridView(imagesList: $imagesList)
                 Text("Voce ainda nao tem nada aqui mano")
-            }
+                    .toolbar {
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            Spacer()
+                            Button(action: {
+                                showingActionSheet = true
+                                    
+                                
+                            }, label: {
+                                Image(systemName: "plus").foregroundColor(.black)
+                            })
+                           
+                        }
+                    }
+            }.actionSheet(isPresented: $showingActionSheet, content: {
+                .init(title: Text("das"), message: Text("dasdas"), buttons: [
+                    .default(Text("Fotos ou Videos"), action: {
+                        imageGalery.toggle()
+                    }),
+                    .cancel()
+                ])
+            }).sheet(isPresented: $imageGalery, onDismiss: { imagesList.append(uiImage!)}, content: {
+                ImagePicker(image: $uiImage, imagePath: $localeImage)
+            })
             
-        }.toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
-                Spacer()
-                Button(action: {
-                    
-                    
-                }, label: {
-                    Image(systemName: "plus").foregroundColor(.black)
-                })
-               
-            }
-        }
+
        
         
         
         
     }
+        }
 }
 
 struct MoodBoardView_Previews: PreviewProvider {

@@ -104,24 +104,8 @@ struct InsideBoardView: View {
                 } else if (selectedView == 1) {
                     IdeaView()    
                 } else if (selectedView == 2){
-                    MoodBoardGridView()
-                        .toolbar {
-                            ToolbarItemGroup(placement: .bottomBar) {
-                                
-                                Button(action: {
-                                    self.averageColorOn.toggle()
-                                }, label: {
-                                    Image(systemName: "paintpalette").foregroundColor(.black)
-                                })
-                                Spacer()
-                                Button(action: {
-                                    viewModel.toggleAddPostView()
-                                }, label: {
-                                    Image(systemName: "plus").foregroundColor(.black)
-                                })
-                                
-                            }
-                        }
+                    MoodBoardView()
+                        
                     
                 }
             }
