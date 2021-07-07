@@ -11,21 +11,25 @@ import AuthenticationServices
 struct RegisterView: View {
     @ObservedObject var viewModel: AuthenticationViewModel
     @State var value : CGFloat = 0
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         
         ScrollView{
             VStack(spacing: 20){
-                Rectangle()
-                    .foregroundColor(.gray)
+                Image("header")
+                    .resizable()
+                    .scaledToFill()
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height * 0.2155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 HStack{
                     NavigationLink(destination:
                                     LoginView(viewModel: viewModel)
                                    , label: {
                                     Text("Login")
-                                        .font(.title2)
+                                        .font(Font.custom("cocon-bold",size: 20))
                                         .bold()
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("UnselectedButton"))
                                    })
                         .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                         .cornerRadius(13)
@@ -34,7 +38,7 @@ struct RegisterView: View {
                     
                     Button(action: {}, label: {
                         Text("Criar Conta")
-                            .font(.title2)
+                            .font(Font.custom("cocon-bold",size: 20))
                             .bold()
                             .foregroundColor(.white)
                     })
@@ -53,7 +57,7 @@ struct RegisterView: View {
                         print("Authorisation failed: \(error.localizedDescription)")
                     }
                 }
-                .signInWithAppleButtonStyle(.whiteOutline)
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .black : .black)
                 .frame(width: UIScreen.main.bounds.size.width * 0.8826, height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 HStack{
@@ -76,31 +80,31 @@ struct RegisterView: View {
                     TextField("Nome",text: viewModel.bindings.name)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                     TextField("Nome de usuário",text: viewModel.bindings.username)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                     
                     TextField("Digite seu email",text: viewModel.bindings.email)
                         .keyboardType(.emailAddress)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: .center)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                     
                     SecureField("Escolha sua senha",text: viewModel.bindings.password)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                     
                     SecureField("Repita a sua senha",text: viewModel.bindings.confirmPassword)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                 }.padding(.horizontal,20)
                 
@@ -113,7 +117,7 @@ struct RegisterView: View {
                     viewModel.signUp()
                 }, label: {
                     Text("Criar")
-                        .font(.title)
+                        .font(Font.custom("cocon-bold",size: 20))
                         .bold()
                         .foregroundColor(.white)
                 })
@@ -161,6 +165,9 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(viewModel: .init())
+        Group {
+            RegisterView(viewModel: .init())
+            RegisterView(viewModel: .init())
+        }
     }
 }
