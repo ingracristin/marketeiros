@@ -76,6 +76,10 @@
 		EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */; };
 		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
 		EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */; };
+		EFF910E62695DBFB00D16D0D /* ProfileMvpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E52695DBFB00D16D0D /* ProfileMvpView.swift */; };
+		EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */; };
+		EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910EC2695F88400D16D0D /* AboutView.swift */; };
+		EFF910F02695FB2100D16D0D /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +157,10 @@
 		EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewColaboratorView.swift; sourceTree = "<group>"; };
 		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
 		EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcountListCellSwiftUIView.swift; sourceTree = "<group>"; };
+		EFF910E52695DBFB00D16D0D /* ProfileMvpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMvpView.swift; sourceTree = "<group>"; };
+		EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailsView.swift; sourceTree = "<group>"; };
+		EFF910EC2695F88400D16D0D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +452,7 @@
 		EF1DD15C267A5234005A3A1C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EFF910E42695DBC800D16D0D /* ProfileMvp */,
 				EF1DD162267A5277005A3A1C /* ProfileView.swift */,
 				EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */,
 				EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */,
@@ -509,6 +518,17 @@
 				EFA0B9002684E037009545B2 /* NotificationsUIView.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		EFF910E42695DBC800D16D0D /* ProfileMvp */ = {
+			isa = PBXGroup;
+			children = (
+				EFF910E52695DBFB00D16D0D /* ProfileMvpView.swift */,
+				EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */,
+				EFF910EC2695F88400D16D0D /* AboutView.swift */,
+				EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */,
+			);
+			path = ProfileMvp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,6 +649,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */,
 				AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */,
 				AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */,
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
@@ -669,8 +690,10 @@
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
 				79098F8F268DF8A90033B758 /* EditSheet.swift in Sources */,
+				EFF910E62695DBFB00D16D0D /* ProfileMvpView.swift in Sources */,
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
+				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,
 				AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */,
 				AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */,
 				795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */,
@@ -686,6 +709,7 @@
 				EF2D05022693566100B9D7E5 /* MoodHalfModalView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
+				EFF910F02695FB2100D16D0D /* UserDetailsView.swift in Sources */,
 				AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */,
 				EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */,
 				AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */,
