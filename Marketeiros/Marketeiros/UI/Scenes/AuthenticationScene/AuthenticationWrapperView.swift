@@ -17,7 +17,7 @@ struct AuthenticationWrapperView: View {
                 if viewModel.states.isLoggedIn {
                     TabBarScene()
                 } else  {
-                    LoginView(viewModel: viewModel)
+                    RegisterView(viewModel: viewModel)
                 }
             }
             .alert(isPresented: viewModel.bindings.existError) {

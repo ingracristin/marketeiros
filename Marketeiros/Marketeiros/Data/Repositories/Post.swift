@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Post: Codable, BoardItemSavable {
+struct Post: Codable, BoardItemSavable, Equatable {
     var uid: String
     var photoPath: String
     var title: String
