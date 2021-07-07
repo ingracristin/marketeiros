@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		79034D0A2695DA5200AE97EA /* DragRelocateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */; };
+		79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79034D0B269634CC00AE97EA /* UIApplicationExtension.swift */; };
 		79098F8D268DF4D20033B758 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F8C268DF4D20033B758 /* SearchView.swift */; };
 		79098F8F268DF8A90033B758 /* EditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F8E268DF8A90033B758 /* EditSheet.swift */; };
 		79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F90268E12EF0033B758 /* RenameSheet.swift */; };
@@ -82,6 +83,7 @@
 /* Begin PBXFileReference section */
 		70C384D510A910D381C9127C /* Pods-Marketeiros.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.debug.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.debug.xcconfig"; sourceTree = "<group>"; };
 		79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRelocateDelegate.swift; sourceTree = "<group>"; };
+		79034D0B269634CC00AE97EA /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		79098F8C268DF4D20033B758 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		79098F8E268DF8A90033B758 /* EditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSheet.swift; sourceTree = "<group>"; };
 		79098F90268E12EF0033B758 /* RenameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameSheet.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				79098F92268E189B0033B758 /* UIImageExtension.swift */,
 				AE3C43A62693F72B00013F79 /* UiColorExtension.swift */,
 				AE3C43AE2693FBC200013F79 /* FontExtension.swift */,
+				79034D0B269634CC00AE97EA /* UIApplicationExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */,
 				79182450268B728400429C9C /* IdeaView.swift in Sources */,
+				79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */,
 				79747F60269348B7004BAAC9 /* LoginView.swift in Sources */,
 				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
