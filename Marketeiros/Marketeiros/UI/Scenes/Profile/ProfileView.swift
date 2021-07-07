@@ -45,6 +45,7 @@ struct uh: View {
     }
 }
 struct ProfileView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var isShow = false
     @State private var showingPopover = false
     
@@ -57,7 +58,7 @@ struct ProfileView: View {
                 }) {
                     AppButtonView(label: "Sign Out") {
                         AuthService.current.signOut { result in
-                            print(result)
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }
                 }

@@ -17,7 +17,7 @@ struct AuthenticationWrapperView: View {
                 if viewModel.states.isLoggedIn {
                     TabBarScene()
                 } else  {
-                    LoginView()
+                    LoginView(viewModel: viewModel)
                 }
             }
             .alert(isPresented: viewModel.bindings.existError) {
@@ -25,9 +25,9 @@ struct AuthenticationWrapperView: View {
             }
             .onAppear {
                 if let _ = AuthService.current.user {
-                    viewModel.setLogged(logged: true)
+                    viewModel.set(isLogged: true)
                 } else {
-                    viewModel.setLogged(logged: false)
+                    viewModel.set(isLogged: false)
                 }
             }
         }

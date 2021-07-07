@@ -106,11 +106,13 @@ class AuthService {
     }
     
     func signOut(completion: @escaping (Result<String,AuthError>) -> ()) {
-        do {
-            try Auth.auth().signOut()
-            completion(.success("Success"))
-        } catch (let error) {
-            completion(.failure(.signOutError(error.localizedDescription)))
+        DispatchQueue.main.async {
+            do {
+                try Auth.auth().signOut()
+                completion(.success("Success"))
+            } catch (let error) {
+                completion(.failure(.signOutError(error.localizedDescription)))
+            }
         }
     }
     

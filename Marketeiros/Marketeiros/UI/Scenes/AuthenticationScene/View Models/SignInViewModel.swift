@@ -55,7 +55,7 @@ class SignInViewModel: ObservableObject {
                 if user.name.isEmpty {
                     
                 } else {
-                    UserRepository.current.initialize(user: user, completion: <#T##(Result<User, UserRepository.UserRepositoryErrors>) -> ()#>)
+//                    UserRepository.current.initialize(user: user, completion: <#T##(Result<User, UserRepository.UserRepositoryErrors>) -> ()#>)
                 }
             }
         }

@@ -9,7 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct LoginView: View {
-    @ObservedObject var viewModel = SignInViewModel()
+    @ObservedObject var viewModel: AuthenticationViewModel
     
     var body: some View {
         GeometryReader{ reader in
@@ -49,7 +49,7 @@ struct LoginView: View {
                     case .success(let authorization):
                         viewModel.signUpWithApple(authorization: authorization)
                     case .failure(let error):
-                            print("Authorisation failed: \(error.localizedDescription)")
+                        print("Authorisation failed: \(error.localizedDescription)")
                     }
                 }
                 .signInWithAppleButtonStyle(.whiteOutline)
@@ -72,12 +72,12 @@ struct LoginView: View {
                 }.padding(.horizontal,20)
                 
                 VStack{
-                    TextField("Email",text: viewModel.bindings.email)
+                    TextField("Email",text: viewModel.bindings.loginEmail)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
                         .cornerRadius(18)
-                    TextField("Digite sua senha",text: viewModel.bindings.password)
+                    TextField("Digite sua senha",text: viewModel.bindings.loginPassword)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
@@ -95,7 +95,6 @@ struct LoginView: View {
                 }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                 .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
                 .cornerRadius(20)
-                
             }
         }
     }
@@ -103,6 +102,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(viewModel: .init())
     }
 }

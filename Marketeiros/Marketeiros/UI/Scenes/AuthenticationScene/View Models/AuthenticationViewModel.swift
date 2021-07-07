@@ -12,6 +12,8 @@ import CryptoKit
 
 class AuthenticationViewModel: ObservableObject {
     struct States {
+        var loginEmail = ""
+        var loginPassword = ""
         var name = ""
         var username = ""
         var email = ""
@@ -23,9 +25,11 @@ class AuthenticationViewModel: ObservableObject {
         var existError = false
     }
     
-    private(set) var states = States()
+    @Published private(set) var states = States()
     
     var bindings : (
+        loginEmail: Binding<String>,
+        loginPassword: Binding<String>,
         name: Binding<String>,
         username: Binding<String>,
         email: Binding<String>,
@@ -35,6 +39,12 @@ class AuthenticationViewModel: ObservableObject {
         isLoggedIn: Binding<Bool>,
         existError: Binding<Bool>
     ) {(
+        loginEmail: Binding(
+            get: {self.states.loginEmail},
+            set: {self.states.loginEmail = $0}),
+        loginPassword: Binding(
+            get: {self.states.loginPassword},
+            set: {self.states.loginPassword = $0}),
         name: Binding(
             get: {self.states.name},
             set: {self.states.name = $0}),
@@ -61,13 +71,33 @@ class AuthenticationViewModel: ObservableObject {
             set: {self.states.existError = $0})
     )}
     
+    func signIn() {
+        AuthService.current.signInWithEmailAndPassword(email: states.loginEmail, password: states.loginPassword) { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(_):
+                self.states.isLoggedIn.toggle()
+            }
+        }
+    }
+    
     func signUp() {
         AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let user):
-                print(user.email)
+                UserRepository.current.initialize(user: user) { [weak self] result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(_):
+                        if let self = self {
+                            self.states.isLoggedIn.toggle()
+                        }
+                    }
+                }
             }
         }
     }
@@ -140,8 +170,7 @@ class AuthenticationViewModel: ObservableObject {
         return result
     }
     
-    func setLogged(logged: Bool) {
-        states.isLoggedIn = logged
+    func set(isLogged: Bool) {
+        states.isLoggedIn = isLogged
     }
-
 }

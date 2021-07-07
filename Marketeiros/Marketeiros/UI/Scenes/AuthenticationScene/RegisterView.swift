@@ -9,7 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct RegisterView: View {
-    @ObservedObject var viewModel = SignUpViewModel()
+    @ObservedObject var viewModel: AuthenticationViewModel
     
     var body: some View {
         GeometryReader{ reader in
@@ -105,7 +105,9 @@ struct RegisterView: View {
                     .padding(.horizontal, 35)
                     .foregroundColor(Color(#colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)))
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    viewModel.signUp()
+                }, label: {
                     Text("Criar")
                         .font(.title)
                         .bold()
@@ -121,6 +123,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterView(viewModel: .init())
     }
 }
