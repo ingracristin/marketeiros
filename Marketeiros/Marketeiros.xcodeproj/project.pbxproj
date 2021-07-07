@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79034D0A2695DA5200AE97EA /* DragRelocateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */; };
 		79098F8D268DF4D20033B758 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F8C268DF4D20033B758 /* SearchView.swift */; };
 		79098F8F268DF8A90033B758 /* EditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F8E268DF8A90033B758 /* EditSheet.swift */; };
 		79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F90268E12EF0033B758 /* RenameSheet.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		70C384D510A910D381C9127C /* Pods-Marketeiros.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.debug.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.debug.xcconfig"; sourceTree = "<group>"; };
+		79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRelocateDelegate.swift; sourceTree = "<group>"; };
 		79098F8C268DF4D20033B758 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		79098F8E268DF8A90033B758 /* EditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSheet.swift; sourceTree = "<group>"; };
 		79098F90268E12EF0033B758 /* RenameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameSheet.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
 				EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */,
 				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
+				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
 				AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */,
+				79034D0A2695DA5200AE97EA /* DragRelocateDelegate.swift in Sources */,
 				EF2D05022693566100B9D7E5 /* MoodHalfModalView.swift in Sources */,
 				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
@@ -847,7 +851,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -855,7 +859,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -871,7 +875,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -879,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

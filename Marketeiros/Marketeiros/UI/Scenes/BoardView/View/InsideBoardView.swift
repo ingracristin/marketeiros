@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
+
 
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: InsideBoardViewModel
     @State var selectedView = 2
     @State var averageColorOn = false
+    @State private var dragging: Post?
     
     init(board: Board) {
         viewModel = InsideBoardViewModel(board: board)
@@ -24,6 +27,8 @@ struct InsideBoardView: View {
     let moodLayou = [
         GridItem(.flexible(),spacing: 1)
     ]
+    
+    
     
     var body: some View {
         GeometryReader() { reader in
@@ -58,8 +63,17 @@ struct InsideBoardView: View {
                                             Image(uiImage: $0)
                                         }
                                         .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
-                                    }
+                                        
+                                    }.onDrag({
+                                        self.dragging = post
+                                        return NSItemProvider(object: String(post.uid) as NSString)
+                                    })
+                                    .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
+                                
+                                
+                                
+                                
                             }
                         }
                     }.toolbar {
@@ -105,7 +119,7 @@ struct InsideBoardView: View {
                     IdeaView()    
                 } else if (selectedView == 2){
                     MoodBoardView()
-                        
+                    
                     
                 }
             }
