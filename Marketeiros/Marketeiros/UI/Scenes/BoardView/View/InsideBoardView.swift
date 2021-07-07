@@ -63,12 +63,12 @@ struct InsideBoardView: View {
                                             Image(uiImage: $0)
                                         }
                                         .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
-                                        .onDrag({
-                                            self.dragging = post
-                                            return NSItemProvider(object: String(post.uid) as NSString)
-                                        })
-                                        //.onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: $dragging))
-                                    }
+                                        
+                                    }.onDrag({
+                                        self.dragging = post
+                                        return NSItemProvider(object: String(post.uid) as NSString)
+                                    })
+                                    .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
                                 
                                 

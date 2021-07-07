@@ -58,6 +58,7 @@ struct FirebaseImage<Placeholder: View> : View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: self.width, height: self.height, alignment: .center)
+                    .clipped()
                 Rectangle()
                         .foregroundColor(Color(image.averageColor ?? .clear))
                         .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
