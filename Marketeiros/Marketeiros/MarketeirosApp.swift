@@ -16,7 +16,7 @@ struct MarketeirosApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginSceneView()
+            AuthenticationWrapperView()
         }
     }
 }

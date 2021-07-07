@@ -21,8 +21,8 @@ struct User {
     func toJson() -> [String : Any] {
         return [
             "uid": self.uid,
-            "email": self.email,
-            "name": self.name,
+            "email": self.email ?? "unknown@mail.com",
+            "name": self.name ?? "",
         ]
     }
 }

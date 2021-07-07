@@ -40,6 +40,9 @@
 		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
 		AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */; };
 		AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */; };
+		AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D3222269542FC002BD62F /* SignInViewModel.swift */; };
+		AE5D32262695481F002BD62F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D32252695481F002BD62F /* SignUpViewModel.swift */; };
+		AE5D322926955BCA002BD62F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D322826955BCA002BD62F /* AuthenticationViewModel.swift */; };
 		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
 		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
 		AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE799667268E778F00AD80F4 /* ImagesRepository.swift */; };
@@ -54,7 +57,7 @@
 		AED6CF7A26897D6900870BB2 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7926897D6900870BB2 /* Board.swift */; };
 		AED6CF7C26897D7300870BB2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7B26897D7300870BB2 /* Post.swift */; };
 		AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7D26897E2300870BB2 /* AuthService.swift */; };
-		AED6CF8126897ED200870BB2 /* LoginSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF8026897ED200870BB2 /* LoginSceneView.swift */; };
+		AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */; };
 		AED6CF8326897FAB00870BB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */; };
 		AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */; };
 		AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA8012690261900A86786 /* TabBarScene.swift */; };
@@ -111,6 +114,10 @@
 		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
+		AE5D3222269542FC002BD62F /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		AE5D32252695481F002BD62F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AE5D322726955864002BD62F /* Marketeiros.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Marketeiros.entitlements; sourceTree = "<group>"; };
+		AE5D322826955BCA002BD62F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
 		AE799667268E778F00AD80F4 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
@@ -125,7 +132,7 @@
 		AED6CF7926897D6900870BB2 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Marketeiros/Data/Repositories/Board.swift; sourceTree = SOURCE_ROOT; };
 		AED6CF7B26897D7300870BB2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Marketeiros/Data/Repositories/Post.swift; sourceTree = SOURCE_ROOT; };
 		AED6CF7D26897E2300870BB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		AED6CF8026897ED200870BB2 /* LoginSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneView.swift; sourceTree = "<group>"; };
+		AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWrapperView.swift; sourceTree = "<group>"; };
 		AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarPageViewModel.swift; path = "Marketeiros/UI/Shared Views/CalendarPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AEFFA8012690261900A86786 /* TabBarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarScene.swift; sourceTree = "<group>"; };
@@ -315,7 +322,7 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AED6CF7F26897EA700870BB2 /* LoginScene */,
+				AED6CF7F26897EA700870BB2 /* AuthenticationScene */,
 				AEFFA800269025E800A86786 /* MainTabBar */,
 				795AB134267A3078006308B5 /* BoardView */,
 				EF745777268A1A11004A6C60 /* CreatePost */,
@@ -397,6 +404,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AE5D3224269547C1002BD62F /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE5D3222269542FC002BD62F /* SignInViewModel.swift */,
+				AE5D32252695481F002BD62F /* SignUpViewModel.swift */,
+				AE5D322826955BCA002BD62F /* AuthenticationViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		AE8A5204268B7D8800E14EBD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,14 +422,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		AED6CF7F26897EA700870BB2 /* LoginScene */ = {
+		AED6CF7F26897EA700870BB2 /* AuthenticationScene */ = {
 			isa = PBXGroup;
 			children = (
-				AED6CF8026897ED200870BB2 /* LoginSceneView.swift */,
+				AE5D3224269547C1002BD62F /* View Models */,
+				AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */,
 				79747F5F269348B7004BAAC9 /* LoginView.swift */,
 				79747F61269362EB004BAAC9 /* RegisterView.swift */,
 			);
-			path = LoginScene;
+			path = AuthenticationScene;
 			sourceTree = "<group>";
 		};
 		AEFFA800269025E800A86786 /* MainTabBar */ = {
@@ -456,6 +474,7 @@
 		EF30C35E26779A9A00DB7644 /* Marketeiros */ = {
 			isa = PBXGroup;
 			children = (
+				AE5D322726955864002BD62F /* Marketeiros.entitlements */,
 				AE5B704D2678EAF900AFF32E /* Data */,
 				AE5B704A2678EAD400AFF32E /* UI */,
 				AE590B8326779DA4000101AF /* Domain */,
@@ -626,18 +645,20 @@
 				AE3C43A72693F72B00013F79 /* UiColorExtension.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
+				AE5D322926955BCA002BD62F /* AuthenticationViewModel.swift in Sources */,
 				AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */,
 				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
 				AE3C43AF2693FBC200013F79 /* FontExtension.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
 				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,
+				AE5D32262695481F002BD62F /* SignUpViewModel.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
-				AED6CF8126897ED200870BB2 /* LoginSceneView.swift in Sources */,
+				AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */,
 				79182450268B728400429C9C /* IdeaView.swift in Sources */,
@@ -646,6 +667,7 @@
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				79098F91268E12EF0033B758 /* RenameSheet.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
+				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
 				79098F8F268DF8A90033B758 /* EditSheet.swift in Sources */,
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
@@ -798,9 +820,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -821,9 +844,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

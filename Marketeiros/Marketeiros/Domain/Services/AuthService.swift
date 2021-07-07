@@ -14,7 +14,7 @@ import AuthenticationServices
 class AuthService {
     static let current = AuthService()
     private let auth = Auth.auth()
-    var currentNonce : String?
+    //var currentNonce : String?
     
     enum AuthError: Error {
         case authenticationError(String)
@@ -27,7 +27,7 @@ class AuthService {
     
     var user : User? {
         if let user = auth.currentUser {
-            return User(uid: user.uid, email: user.email ?? "seila@gmail.com", name: user.displayName ?? "")
+            return User(uid: user.uid, email: user.email ?? "unknown@gmail.com", name: user.displayName ?? "")
         }
         return nil
     }
@@ -67,8 +67,8 @@ class AuthService {
         }
     }
     
-    func signInWith(appleIDTokenString: String,completion: @escaping (Result<User,AuthError>) -> ()) {
-        let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: appleIDTokenString, rawNonce: currentNonce)
+    func signInWith(appleIDTokenString: String, and nonce: String, completion: @escaping (Result<User,AuthError>) -> ()) {
+        let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: appleIDTokenString, rawNonce: nonce)
         
         auth.signIn(with: credential) { (result, error) in
             if let err = error {

@@ -9,9 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct LoginView: View {
-    
-    @State var user : String = ""
-    @State var password: String = ""
+    @ObservedObject var viewModel = SignInViewModel()
     
     var body: some View {
         GeometryReader{ reader in
@@ -43,15 +41,18 @@ struct LoginView: View {
                 
                 
                 SignInWithAppleButton(.signIn) { request in
-                    request.requestedScopes = [.fullName,.email]
+                    let nonce = viewModel.randomNonceString()
+                    request.requestedScopes = [.fullName, .email]
+                    request.nonce = viewModel.sha256(nonce)
                 } onCompletion: { result in
                     switch result {
-                    case .success(_):
-                            print("Authorisation successful")
+                    case .success(let authorization):
+                        viewModel.signUpWithApple(authorization: authorization)
                     case .failure(let error):
                             print("Authorisation failed: \(error.localizedDescription)")
                     }
-                }.signInWithAppleButtonStyle(.whiteOutline)
+                }
+                .signInWithAppleButtonStyle(.whiteOutline)
                 .frame(width: reader.size.width * 0.8826, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 HStack{
@@ -71,12 +72,12 @@ struct LoginView: View {
                 }.padding(.horizontal,20)
                 
                 VStack{
-                    TextField("Nome de usuário",text: $user)
+                    TextField("Email",text: viewModel.bindings.email)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
                         .cornerRadius(18)
-                    TextField("Digite sua senha",text: $password)
+                    TextField("Digite sua senha",text: viewModel.bindings.password)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
@@ -84,7 +85,9 @@ struct LoginView: View {
                 }.padding(.horizontal,20)
                 
                 Spacer().frame(height: 60)
-                Button(action: {}, label: {
+                Button(action: {
+                    viewModel.signIn()
+                }, label: {
                     Text("Entrar")
                         .font(.title)
                         .bold()

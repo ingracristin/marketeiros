@@ -9,11 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct RegisterView: View {
-    
-    @State var name : String = ""
-    @State var user : String = ""
-    @State var email : String = ""
-    @State var password: String = ""
+    @ObservedObject var viewModel = SignUpViewModel()
     
     var body: some View {
         GeometryReader{ reader in
@@ -27,8 +23,8 @@ struct RegisterView: View {
                             .font(.title2)
                             .bold()
                             .foregroundColor(.black)
-                    }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                    
+                    })
+                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                     .cornerRadius(13)
                     
                     Spacer()
@@ -38,11 +34,11 @@ struct RegisterView: View {
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
-                    }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                    })
+                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                     .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
                     .cornerRadius(13)
                 }.padding(.horizontal,20)
-                
                 
                 SignInWithAppleButton(.signIn) { request in
                     request.requestedScopes = [.fullName,.email]
@@ -53,7 +49,8 @@ struct RegisterView: View {
                     case .failure(let error):
                             print("Authorisation failed: \(error.localizedDescription)")
                     }
-                }.signInWithAppleButtonStyle(.whiteOutline)
+                }
+                .signInWithAppleButtonStyle(.whiteOutline)
                 .frame(width: reader.size.width * 0.8826, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 HStack{
@@ -73,24 +70,30 @@ struct RegisterView: View {
                 }.padding(.horizontal,20)
                 
                 VStack{
-                    TextField("Nome",text: $name)
+                    TextField("Nome",text: viewModel.bindings.name)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
                         .cornerRadius(18)
-                    TextField("Nome de usuário",text: $user)
+                    TextField("Nome de usuário",text: viewModel.bindings.username)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
                         .cornerRadius(18)
                     
-                    TextField("Digite seu email",text: $password)
+                    TextField("Digite seu email",text: viewModel.bindings.email)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: .center)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
                         .cornerRadius(18)
                     
-                    TextField("Escolha sua senha",text: $password)
+                    TextField("Escolha sua senha",text: viewModel.bindings.password)
+                        .padding(20)
+                        .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .cornerRadius(18)
+                    
+                    TextField("Repita a sua senha",text: viewModel.bindings.confirmPassword)
                         .padding(20)
                         .frame(width: .infinity, height: reader.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
@@ -107,12 +110,13 @@ struct RegisterView: View {
                         .font(.title)
                         .bold()
                         .foregroundColor(.white)
-                }).padding(.init(top: 5, leading: 20, bottom: 5, trailing: 20))
+                })
+                .padding(.init(top: 5, leading: 20, bottom: 5, trailing: 20))
                 .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
                 .cornerRadius(20)
-                
             }
-        }    }
+        }
+    }
 }
 
 struct RegisterView_Previews: PreviewProvider {
