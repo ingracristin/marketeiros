@@ -57,8 +57,10 @@ struct RegisterView: View {
                         print("Authorisation failed: \(error.localizedDescription)")
                     }
                 }
-                .signInWithAppleButtonStyle(colorScheme == .dark ? .black : .black)
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .black : .whiteOutline)
+                .border(colorScheme == .dark ? Color.white : Color.black.opacity(0))
                 .frame(width: UIScreen.main.bounds.size.width * 0.8826, height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
                 
                 HStack{
                     Capsule()
@@ -165,9 +167,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            RegisterView(viewModel: .init())
-            RegisterView(viewModel: .init())
-        }
+        RegisterView(viewModel: .init())
     }
 }

@@ -12,17 +12,20 @@ struct LoginView: View {
     @ObservedObject var viewModel: AuthenticationViewModel
     @State var value : CGFloat = 0
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         
         ScrollView{
             VStack(spacing: 20){
-                Rectangle()
-                    .foregroundColor(.gray)
+                Image("header")
+                    .resizable()
+                    .scaledToFill()
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height * 0.2155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 HStack{
                     Button(action: {}, label: {
                         Text("Login")
-                            .font(.title2)
+                            .font(Font.custom("cocon-bold",size: 20))
                             .bold()
                             .foregroundColor(.white)
                     }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
@@ -33,9 +36,10 @@ struct LoginView: View {
                     
                     Button(action: {}, label: {
                         Text("Criar Conta")
-                            .font(.title2)
+                            .font(Font.custom("cocon-bold",size: 20))
                             .bold()
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("UnselectedButton"))
+
                     }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                     
                     .cornerRadius(13)
@@ -54,7 +58,8 @@ struct LoginView: View {
                         print("Authorisation failed: \(error.localizedDescription)")
                     }
                 }
-                .signInWithAppleButtonStyle(.whiteOutline)
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .black : .whiteOutline)
+                .border(colorScheme == .dark ? Color.white : Color.black.opacity(0))
                 .frame(width: UIScreen.main.bounds.size.width * 0.8826, height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 HStack{
@@ -78,12 +83,12 @@ struct LoginView: View {
                         .keyboardType(.emailAddress)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                     SecureField("Digite sua senha",text: viewModel.bindings.loginPassword)
                         .padding(20)
                         .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color(#colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)))
+                        .background(Color("TextField"))
                         .cornerRadius(18)
                 }.padding(.horizontal,20)
                 
@@ -92,10 +97,10 @@ struct LoginView: View {
                     viewModel.signIn()
                 }, label: {
                     Text("Entrar")
-                        .font(.title)
+                        .font(Font.custom("cocon-bold",size: 20))
                         .bold()
                         .foregroundColor(.white)
-                }).padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                }).padding(.init(top: 5, leading: 20, bottom: 5, trailing: 20))
                 .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
                 .cornerRadius(20)
             }
