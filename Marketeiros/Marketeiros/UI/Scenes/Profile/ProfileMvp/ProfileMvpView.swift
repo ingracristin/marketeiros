@@ -25,7 +25,7 @@ struct ProfileMvpView: View {
             }
           
             NavigationLink(
-                destination: AboutView(),
+                destination: UserDetailsView(),
                 label: {
                     HStack{
                         Text("Conta")
@@ -33,26 +33,38 @@ struct ProfileMvpView: View {
                         Spacer()
                         Image(systemName: "person")
                     }.padding()
-                })
+                }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
                     
-            HStack{
-                Text("Notificações")
-                    .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
-                Spacer()
-                Image(systemName: "bell")
-            }.padding()
-            HStack{
-                Text("Ajuda")
-                    .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
-                Spacer()
-                Image(systemName: "globe")
-            }.padding()
-            HStack{
-                Text("Sobre")
-                    .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
-                Spacer()
-                Image(systemName: "questionmark.circle")
-            }.padding()
+            NavigationLink(
+                destination: NotificationsDetailsView(),
+                label: {
+                    HStack{
+                        Text("Notificações")
+                            .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                        Spacer()
+                        Image(systemName: "bell")
+                    }.padding()
+                }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+            NavigationLink(
+                destination: HelpView(),
+                label: {
+                    HStack{
+                        Text("Ajuda")
+                            .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                        Spacer()
+                        Image(systemName: "globe")
+                    }.padding()
+                }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+           NavigationLink(
+            destination: AboutView(),
+            label: {
+                HStack{
+                    Text("Sobre")
+                        .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                    Spacer()
+                    Image(systemName: "questionmark.circle")
+                }.padding()
+            }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
            Spacer()
             //bell
             //globe
