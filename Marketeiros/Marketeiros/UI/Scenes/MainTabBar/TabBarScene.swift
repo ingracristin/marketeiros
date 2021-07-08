@@ -12,18 +12,21 @@ struct TabBarScene: View {
         TabView {
             BoardView()
                 .tabItem {
-                    Label("Quadros", systemImage: "square.grid.2x2.fill")
+                    Label("Home", systemImage: "square.grid.2x2.fill")
                 }
-                .navigationTitle(Text("Home"))
+                .accentColor(Color("tabBarItem"))
+                .navigationBarHidden(true)
             CalendarPageView()
                 .tabItem {
                     Label("Calendário", systemImage: "calendar")
                 }
+                .accentColor(Color("tabBarItem"))
                 .navigationBarHidden(true)
             ProfileView()
                 .tabItem {
                     Label("Perfil", systemImage: "person.fill")
                 }
+                .accentColor(Color("tabBarItem"))
                 .navigationBarHidden(true)
         }
     }
