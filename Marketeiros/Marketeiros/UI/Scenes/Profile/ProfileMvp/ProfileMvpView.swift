@@ -33,7 +33,7 @@ struct ProfileMvpView: View {
                         Spacer()
                         Image(systemName: "person")
                     }.padding()
-                }).foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+                }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
                     
             NavigationLink(
                 destination: NotificationsDetailsView(),
@@ -44,7 +44,7 @@ struct ProfileMvpView: View {
                         Spacer()
                         Image(systemName: "bell")
                     }.padding()
-                }).foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+                }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
             NavigationLink(
                 destination: HelpView(),
                 label: {
@@ -54,7 +54,7 @@ struct ProfileMvpView: View {
                         Spacer()
                         Image(systemName: "globe")
                     }.padding()
-                }).foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+                }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
            NavigationLink(
             destination: AboutView(),
             label: {
@@ -64,7 +64,7 @@ struct ProfileMvpView: View {
                     Spacer()
                     Image(systemName: "questionmark.circle")
                 }.padding()
-            }).foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+            }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
            Spacer()
             //bell
             //globe
