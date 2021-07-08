@@ -8,8 +8,80 @@
 import SwiftUI
 
 struct UserDetailsView: View {
+    @State var boardName = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment:.leading){
+            HStack{
+                Spacer()
+                ZStack{
+                   
+                    Image("bolinha")
+                        .resizable()
+                        .frame(width: 90, height: 90)
+                    
+                    Image("camera")
+                        .frame(width: 100, height: 100, alignment: .bottomTrailing)
+                        .padding(.horizontal,40)
+                        
+                }
+                Spacer()
+            }
+            
+            Text("Dados da Conta")
+                .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                .padding()
+            HStack{
+                HStack{
+                    Text("Nome")
+                }.padding()
+                Spacer()
+                HStack{
+                    ZStack(alignment:.trailing){
+                        TextField("E-mail do convidado", text: $boardName)
+                            .padding()
+                            .frame(width: 280, height: 50)
+                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .cornerRadius(8)
+                        
+                    }
+                }
+            }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+            HStack{
+                HStack{
+                    Text("Usuário")
+                }.padding()
+                Spacer()
+                HStack{
+                    ZStack(alignment:.trailing){
+                        TextField("E-mail do convidado", text: $boardName)
+                            .padding()
+                            .frame(width: 280, height: 50)
+                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .cornerRadius(8)
+                        
+                    }
+                }
+            }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+            HStack{
+                HStack{
+                    Text("E-mail")
+                }.padding()
+                Spacer()
+                HStack{
+                    ZStack(alignment:.trailing){
+                        TextField("E-mail do convidado", text: $boardName)
+                            .padding()
+                            .frame(width: 280, height: 50)
+                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .cornerRadius(8)
+                        
+                    }
+                }
+            }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+            
+           Spacer()
+        }.padding()
+        .navigationBarTitle("Conta",displayMode: .inline )
     }
 }
 

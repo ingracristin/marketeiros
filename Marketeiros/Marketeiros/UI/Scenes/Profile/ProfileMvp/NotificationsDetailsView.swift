@@ -21,6 +21,7 @@ struct NotificationsDetailsView: View {
             Spacer()
         }.padding()
         .navigationBarTitle("Notifications", displayMode: .inline)
+        .foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
     }
 }
 
