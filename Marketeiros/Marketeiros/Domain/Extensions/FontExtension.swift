@@ -10,18 +10,18 @@ import SwiftUI
 
 extension Font {
     static func coconBold(sized: CGFloat) -> Font {
-        Font.custom("cocon-bold.otf", size: sized)
+        Font.custom("cocon-bold", size: sized)
     }
     
     static func sfProDisplayMedium(sized: CGFloat) -> Font {
-        Font.custom("SFProDisplay-Medium.ttf", size: sized)
+        Font.custom("SFProDisplay-Medium", size: sized)
     }
     
     static func sfProDisplaySemiBold(sized: CGFloat) -> Font {
-        Font.custom("SFProDisplay-Semibold.ttf", size: sized)
+        Font.custom("SFProDisplay-Semibold", size: sized)
     }
     
     static func sfProDisplayRegular(sized: CGFloat) -> Font {
-        Font.custom("SFProDisplay-Regular.ttf", size: sized)
+        Font.custom("SFProDisplay-Regular", size: sized)
     }
 }

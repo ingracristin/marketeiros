@@ -148,8 +148,57 @@ extension BoardsRepository {
             }
         }
     }
+    
+    func query<T: BoardItemSavable>(field: String, equals values: [String], on itemCollection: Collections, of board: Board, ofItemType: T.Type ,completion: @escaping (Result<[T],BoardsRepositoryErrors>) -> ()) {
+        get(collection: itemCollection, of: board).whereField(field, in: values).getDocuments { snapshot, error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.errorGettingItemsOfBoard(err.localizedDescription)))
+                }
+            } else {
+                var items = [T]()
+                for doc in snapshot!.documents {
+                    let item : T = T.from(json: doc.data()) as! T
+                    items.append(item)
+                }
+                DispatchQueue.main.async {
+                    completion(.success(items))
+                }
+            }
+        }
+    }
 
     private func get(collection itemCollection: Collections,of board: Board) -> CollectionReference {
         return collection.document(board.uid).collection(itemCollection.rawValue)
     }
 }
+
+//extension BoardsRepository {
+//    func add(idea: inout Idea, to paste: Paste, on board: Board) {
+//        let docRef =
+//            get(collection: .pastes, of: board)
+//            .document(paste.uid).collection(Collections.ideas.rawValue).addDocument(data: idea.toJson())
+//        docRef.updateData(["uid": docRef.documentID])
+//        idea.uid = docRef.documentID
+//    }
+//
+//    func getAllIdeas(of paste: Paste, on board: Board, completion: @escaping (Result<[Idea], BoardsRepositoryErrors>) -> ()) {
+//        get(collection: Collections.pastes, of: board)
+//            .document(paste.uid).collection(Collections.ideas.rawValue).getDocuments { snapshot, error in
+//            if let err = error {
+//                DispatchQueue.main.async {
+//                    completion(.failure(.errorGettingItemsOfBoard(err.localizedDescription)))
+//                }
+//            } else {
+//                var items = [Idea]()
+//                for doc in snapshot!.documents {
+//                    let item = Idea.from(json: doc.data())
+//                    items.append(item)
+//                }
+//                DispatchQueue.main.async {
+//                    completion(.success(items))
+//                }
+//            }
+//        }
+//    }
+//}

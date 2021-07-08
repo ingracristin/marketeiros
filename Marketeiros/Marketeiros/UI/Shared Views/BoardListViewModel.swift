@@ -43,7 +43,9 @@ class BoardListViewModel: ObservableObject {
             case.failure(let message):
                 print(message) // é bom botar essa message pra aparece num alert
             case .success(let boardsList):
-                self!.boards = boardsList
+                if let self = self {
+                    self.boards = boardsList
+                }
             }
         }
     }

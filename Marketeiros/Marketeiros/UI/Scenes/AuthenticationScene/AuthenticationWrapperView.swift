@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// dps bota tudo na viewmodel
 struct AuthenticationWrapperView: View {
     @ObservedObject var viewModel = AuthenticationViewModel()
     
@@ -17,7 +16,7 @@ struct AuthenticationWrapperView: View {
                 if viewModel.states.isLoggedIn {
                     TabBarScene()
                 } else  {
-                    RegisterView(viewModel: viewModel)
+                    AuthenticationView(viewModel: viewModel)
                 }
             }
             .alert(isPresented: viewModel.bindings.existError) {

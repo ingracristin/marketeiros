@@ -13,6 +13,8 @@ enum Collections: String {
     case users
     case boards
     case posts
+    case pastes
+    case ideas
 }
 
 class UserRepository {

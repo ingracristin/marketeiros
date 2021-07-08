@@ -28,8 +28,6 @@ struct InsideBoardView: View {
         GridItem(.flexible(),spacing: 1)
     ]
     
-    
-    
     var body: some View {
         GeometryReader() { reader in
             let layout = [
@@ -70,10 +68,6 @@ struct InsideBoardView: View {
                                     })
                                     .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
-                                
-                                
-                                
-                                
                             }
                         }
                     }.toolbar {
@@ -116,11 +110,9 @@ struct InsideBoardView: View {
                         }
                     }
                 } else if (selectedView == 1) {
-                    IdeaView()    
+                    IdeaView(viewModel: .init(board: viewModel.board))
                 } else if (selectedView == 2){
                     MoodBoardView()
-                    
-                    
                 }
             }
             .navigationTitle(viewModel.board.title)
