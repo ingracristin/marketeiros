@@ -12,7 +12,7 @@ import UniformTypeIdentifiers
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: InsideBoardViewModel
-    @State var selectedView = 2
+    @State var selectedView = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
     
@@ -47,6 +47,10 @@ struct InsideBoardView: View {
                     Text("Painel").tag(2)
                 })
                 .pickerStyle(SegmentedPickerStyle())
+                
+                NavigationLink(destination: EmptyView()) {
+                    EmptyView()
+                }
                 
                 if (selectedView == 0) {
                     ScrollView(){
@@ -130,6 +134,5 @@ struct InsideBoardView_Previews: PreviewProvider {
         NavigationView {
             InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
         }
-        
     }
 }

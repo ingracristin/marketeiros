@@ -73,8 +73,6 @@
 		AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */; };
 		AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA8012690261900A86786 /* TabBarScene.swift */; };
 		CCDA2B977807C095FAD79017 /* Pods_Marketeiros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */; };
-		EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */; };
-		EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DD162267A5277005A3A1C /* ProfileView.swift */; };
 		EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */; };
 		EF2D04F62693446D00B9D7E5 /* PinterestGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */; };
 		EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */; };
@@ -85,10 +83,8 @@
 		EF30C36726779A9A00DB7644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */; };
 		EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */; };
 		EF8646C126974BAC0037DAB1 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8646C026974BAC0037DAB1 /* HelpView.swift */; };
-		EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */; };
 		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
-		EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */; };
-		EFF910E62695DBFB00D16D0D /* ProfileMvpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E52695DBFB00D16D0D /* ProfileMvpView.swift */; };
+		EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E52695DBFB00D16D0D /* ProfileView.swift */; };
 		EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */; };
 		EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910EC2695F88400D16D0D /* AboutView.swift */; };
 		EFF910F02695FB2100D16D0D /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */; };
@@ -164,8 +160,6 @@
 		AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarPageViewModel.swift; path = "Marketeiros/UI/Shared Views/CalendarPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AEFFA8012690261900A86786 /* TabBarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarScene.swift; sourceTree = "<group>"; };
 		CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketeiros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsUIView.swift; sourceTree = "<group>"; };
-		EF1DD162267A5277005A3A1C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodBoardGridView.swift; sourceTree = "<group>"; };
 		EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestGrid.swift; sourceTree = "<group>"; };
 		EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardItemDetailsView.swift; sourceTree = "<group>"; };
@@ -178,10 +172,8 @@
 		EF30C36826779A9B00DB7644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUIView.swift; sourceTree = "<group>"; };
 		EF8646C026974BAC0037DAB1 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewColaboratorView.swift; sourceTree = "<group>"; };
 		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
-		EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcountListCellSwiftUIView.swift; sourceTree = "<group>"; };
-		EFF910E52695DBFB00D16D0D /* ProfileMvpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMvpView.swift; sourceTree = "<group>"; };
+		EFF910E52695DBFB00D16D0D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailsView.swift; sourceTree = "<group>"; };
 		EFF910EC2695F88400D16D0D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
@@ -228,17 +220,17 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */,
-				EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */,
 				795AB137267A30A3006308B5 /* BoardView.swift */,
-				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
-				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
-				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
-				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
+				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
+				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
+				EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */,
+				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
 				EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */,
-				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
 				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
+				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
+				EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */,
+				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,10 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				EFF910E42695DBC800D16D0D /* ProfileMvp */,
-				EF1DD162267A5277005A3A1C /* ProfileView.swift */,
-				EFE4F893267B9CF20034B27C /* AcountListCellSwiftUIView.swift */,
-				EF09900A267CDFD8003D02D5 /* ListTeamsUIView.swift */,
-				EFA0B8C926838D56009545B2 /* NewColaboratorView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -598,7 +586,7 @@
 		EFF910E42695DBC800D16D0D /* ProfileMvp */ = {
 			isa = PBXGroup;
 			children = (
-				EFF910E52695DBFB00D16D0D /* ProfileMvpView.swift */,
+				EFF910E52695DBFB00D16D0D /* ProfileView.swift */,
 				EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */,
 				EFF910EC2695F88400D16D0D /* AboutView.swift */,
 				EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */,
@@ -731,7 +719,6 @@
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
 				AE3EB5C426976C7E0093AF7C /* HalfModalView.swift in Sources */,
 				AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */,
-				EFE4F894267B9CF20034B27C /* AcountListCellSwiftUIView.swift in Sources */,
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
@@ -745,7 +732,6 @@
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
 				AE5D322926955BCA002BD62F /* AuthenticationViewModel.swift in Sources */,
 				AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */,
-				EF1DD163267A5277005A3A1C /* ProfileView.swift in Sources */,
 				AE3C43AF2693FBC200013F79 /* FontExtension.swift in Sources */,
 				AE3EB5D326976CDC0093AF7C /* IdeaViewModel.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
@@ -760,7 +746,6 @@
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
-				EFA0B8CA26838D56009545B2 /* NewColaboratorView.swift in Sources */,
 				79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */,
 				79747F60269348B7004BAAC9 /* LoginView.swift in Sources */,
 				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
@@ -769,7 +754,7 @@
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
 				AE3EB5D426976CDC0093AF7C /* IdeaView.swift in Sources */,
-				EFF910E62695DBFB00D16D0D /* ProfileMvpView.swift in Sources */,
+				EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */,
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
 				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,
@@ -793,7 +778,6 @@
 				AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */,
 				79034D0A2695DA5200AE97EA /* DragRelocateDelegate.swift in Sources */,
 				EF2D05022693566100B9D7E5 /* MoodHalfModalView.swift in Sources */,
-				EF09900B267CDFD8003D02D5 /* ListTeamsUIView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
 				EFF910F02695FB2100D16D0D /* UserDetailsView.swift in Sources */,
 				AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */,
@@ -935,7 +919,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -943,7 +927,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -959,7 +943,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -967,7 +951,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

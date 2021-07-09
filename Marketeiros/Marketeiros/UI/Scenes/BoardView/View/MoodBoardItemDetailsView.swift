@@ -20,13 +20,9 @@ struct MoodBoardItemDetailsView: View {
                 }, label: {
                     Image(systemName: "trash").foregroundColor(.black)
                 })
-               
             }
         }
-        
-        
     }
-    
 }
 
 struct MoodBoardItemDetailsView_Previews: PreviewProvider {

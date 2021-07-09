@@ -14,43 +14,38 @@ struct MoodBoardView: View {
     @State var imageGalery = false
     @State var uiImage: UIImage? = UIImage(named: "bolinha")!
     @State var localeImage: String = ""
+    
     var body: some View {
-            
         ScrollView {
-            VStack{
+            VStack {
+                if imagesList.isEmpty {
+                    Text("Voce ainda nao tem nada aqui mano")
+                }
                 MoodBoardGridView(imagesList: $imagesList)
-                Text("Voce ainda nao tem nada aqui mano")
-                    .toolbar {
-                        ToolbarItemGroup(placement: .bottomBar) {
-                            Spacer()
-                            Button(action: {
-                                showingActionSheet = true
-                                    
-                                
-                            }, label: {
-                                Image(systemName: "plus").foregroundColor(.black)
-                            })
-                           
-                        }
-                    }
-            }.actionSheet(isPresented: $showingActionSheet, content: {
+            }
+            .actionSheet(isPresented: $showingActionSheet, content: {
                 .init(title: Text("das"), message: Text("dasdas"), buttons: [
                     .default(Text("Fotos ou Videos"), action: {
                         imageGalery.toggle()
                     }),
                     .cancel()
                 ])
-            }).sheet(isPresented: $imageGalery, onDismiss: { imagesList.append(uiImage!)}, content: {
+            })
+            .sheet(isPresented: $imageGalery, onDismiss: { imagesList.append(uiImage!)}, content: {
                 ImagePicker(image: $uiImage, imagePath: $localeImage)
             })
-            
-
-       
-        
-        
-        
-    }
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Spacer()
+                    Button(action: {
+                        showingActionSheet = true
+                    }, label: {
+                        Image(systemName: "plus").foregroundColor(.black)
+                    })
+                }
+            }
         }
+    }
 }
 
 struct MoodBoardView_Previews: PreviewProvider {

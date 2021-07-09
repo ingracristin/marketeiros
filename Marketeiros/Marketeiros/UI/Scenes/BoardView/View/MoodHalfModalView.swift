@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MoodHalfModalView : View {
     @Binding var offset : CGFloat
-    
-    
-    
+
     var body: some View {
         ZStack{
             Rectangle()
@@ -41,8 +39,6 @@ struct MoodHalfModalView : View {
                 Spacer()
               
             }
-           
-            
         }
         //.background(Color.blue)
         .cornerRadius(30)

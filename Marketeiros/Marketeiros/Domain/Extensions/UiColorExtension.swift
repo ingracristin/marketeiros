@@ -16,4 +16,6 @@ extension UIColor {
     static let appYellow = UIColor(named: "AppYellow")!
     static let appBeige = UIColor(named: "AppBeige")!
     static let unselectedColor = UIColor(named: "UnselectedButton")!
+    static let navBarTitleColor = UIColor(named: "AppNavBarTitleColor")!
+    static let calendarCellColor = UIColor(named: "AppCalendarCellColor")!
 }

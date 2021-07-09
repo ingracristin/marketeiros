@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileMvpView: View {
+struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isShow = false
     @State private var showingPopover = false
@@ -76,10 +76,10 @@ struct ProfileMvpView: View {
     
 }
 
-struct ProfileMvpView_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ProfileMvpView()
+            ProfileView()
         }
         
     }

@@ -30,7 +30,6 @@ struct BoardCell: View {
                         .font(Font.custom("cocon-bold",size: 20))
                     Text(board.description)
                         .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
-                    
                 }
                 .frame(height: reader.size.height * 0.3319)
                 .padding(.init(top: 0, leading: 20, bottom: 3, trailing: 0))

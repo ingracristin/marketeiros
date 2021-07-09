@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoodBoardGridView: View {
     @Binding var imagesList: [UIImage]
+    
     var body: some View {
         var gridItems: [GridCell] = []
         for image in imagesList {
@@ -19,7 +20,6 @@ struct MoodBoardGridView: View {
         return ScrollView{
             PinterestGrid(gridItems: gridItems, numOfColumns: 2, spacing: 20, horizontalPadding: 20)
         }
-        
     }
 }
 
@@ -27,8 +27,6 @@ struct MoodBoardGridView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             MoodBoardGridView(imagesList: .constant([]))
-            
         }
-        
     }
 }

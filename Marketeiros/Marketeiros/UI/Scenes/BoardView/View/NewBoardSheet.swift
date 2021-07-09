@@ -13,6 +13,7 @@ struct NewBoardSheet: View {
     @State var imageGalery: UIImage?
     @State var imagePath: String = ""
     @State var show: Bool = false
+    
     init(callback: @escaping (Board) -> ()) {
         viewModel = NewBoardViewModel(callback: callback)
     }
@@ -116,24 +117,18 @@ struct NewBoardSheet: View {
                                     Text("Adicione uma capa")
                                 }
                             }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
-                            
                         }
                     })
                     .frame(height:reader.size.height * 0.2512)
                     .cornerRadius(8)
                 }
-                
-            }//.background(BlurView(style: .systemMaterial))
+            }
             .padding(.horizontal,20)
             .sheet(isPresented: $show) {
                 ImagePicker(image: $imageGalery, imagePath: $imagePath)
             }
         }
     }
-    /*func loadImage() {
-        guard let inputImage = imageGalery else { return }
-        image = Image(uiImage: imageGalery)
-    }*/
 }
 
 struct NewBoardSheet_Previews: PreviewProvider {

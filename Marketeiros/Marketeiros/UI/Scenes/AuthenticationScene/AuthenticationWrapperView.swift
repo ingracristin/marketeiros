@@ -11,23 +11,21 @@ struct AuthenticationWrapperView: View {
     @ObservedObject var viewModel = AuthenticationViewModel()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if viewModel.states.isLoggedIn {
-                    TabBarScene()
-                } else  {
-                    AuthenticationView(viewModel: viewModel)
-                }
+        VStack {
+            if viewModel.states.isLoggedIn {
+                TabBarScene()
+            } else  {
+                AuthenticationView(viewModel: viewModel)
             }
-            .alert(isPresented: viewModel.bindings.existError) {
-                Alert(title: Text("Error"), message: Text(""), dismissButton: .cancel())
-            }
-            .onAppear {
-                if let _ = AuthService.current.user {
-                    viewModel.set(isLogged: true)
-                } else {
-                    viewModel.set(isLogged: false)
-                }
+        }
+        .alert(isPresented: viewModel.bindings.existError) {
+            Alert(title: Text("Error"), message: Text(""), dismissButton: .cancel())
+        }
+        .onAppear {
+            if let _ = AuthService.current.user {
+                viewModel.set(isLogged: true)
+            } else {
+                viewModel.set(isLogged: false)
             }
         }
     }

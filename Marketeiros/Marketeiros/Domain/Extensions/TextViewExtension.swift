@@ -26,6 +26,7 @@ struct NavBarTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(Font.coconBold(sized: 34))
+            .foregroundColor(Color(UIColor.navBarTitleColor))
     }
 }
 
@@ -36,5 +37,9 @@ extension Text {
     
     func cellSubTitle() -> some View {
         self.modifier(CellSubTitle())
+    }
+    
+    func navBarTitle() -> some View {
+        self.modifier(NavBarTitle())
     }
 }

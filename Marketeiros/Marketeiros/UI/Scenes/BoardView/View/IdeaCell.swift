@@ -15,23 +15,18 @@ struct IdeaCell: View {
             HStack{
                 Button(action: {}, label: {
                     Image(systemName: "face.dashed").foregroundColor(Color("iconIdeaColorCell"))
-                    
                 })
                 Button(action: {}, label: {
                     Image(systemName: "folder").foregroundColor(Color("iconIdeaColorCell"))
-                    
                 })
             }
             TextEditor(text: $newIdea)
                 .colorMultiply(Color("ideaColorCell"))
                 .background(Color("ideaColorCell"))
-                
             
-            
-            
-        }.padding(.init(top: 12, leading: 20, bottom: 0, trailing: 20))
+        }
+        .padding(.init(top: 12, leading: 20, bottom: 0, trailing: 20))
         .background(Color("ideaColorCell"))
-        
     }
 }
 

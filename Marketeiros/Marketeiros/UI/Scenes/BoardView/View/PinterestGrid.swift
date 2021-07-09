@@ -14,7 +14,6 @@ struct GridCell: Identifiable {
 }
 
 struct PinterestGrid: View {
-    
     struct  Column: Identifiable {
         let id = UUID()
         var gridItems = [GridCell]()
@@ -50,7 +49,6 @@ struct PinterestGrid: View {
             columnsHeight[smallesColumnIndex] += gridItem.height
         }
         self.columns = columns
-        
     }
     
     var body: some View {
@@ -65,7 +63,6 @@ struct PinterestGrid: View {
                            .frame(height: gridItem.height)
                            .cornerRadius(10)
                         }
-                        
                     }
                 }
             }

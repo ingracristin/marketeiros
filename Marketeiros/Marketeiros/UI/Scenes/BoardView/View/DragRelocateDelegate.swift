@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct DragRelocateDelegate: DropDelegate {
     let item: Post
     @State var listData: [Post]
@@ -16,7 +14,6 @@ struct DragRelocateDelegate: DropDelegate {
 
     func dropEntered(info: DropInfo) {
         if item != current {
-            
             let from = listData.firstIndex(of: current!)!
             let to = listData.firstIndex(of: item)!
             if listData[to].uid != current!.uid {
@@ -26,7 +23,6 @@ struct DragRelocateDelegate: DropDelegate {
             }
         }
     }
-    
     
     func dropUpdated(info: DropInfo) -> DropProposal? {
         print("updatou")

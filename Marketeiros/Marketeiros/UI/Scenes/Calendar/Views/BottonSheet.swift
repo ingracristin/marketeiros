@@ -19,21 +19,28 @@ struct BottomSheet : View {
                 .fill(Color.gray.opacity(0.5))
                 .frame(width: 50, height: 5)
                 .padding(.top)
-                .padding(.bottom,5)
+                .padding(.bottom,8)
+            
+            Text("Eventos da semana")
+                .foregroundColor(.white)
+                .bold()
+                .padding(.bottom,15)
             
             ScrollView(.vertical, showsIndicators: false, content: {
                 Text(Calendar.current.getDescriptionOf(date: date))
+                    .foregroundColor(.white)
                 LazyVStack(alignment: .leading, spacing: 15, content: {
                     ForEach(notifications, id: \.uid) { notification in
                         BottonSheetListCell(notification: notification)
+                            .padding(.horizontal)
+                            .padding(.bottom)
                     }
                 })
-                .padding()
-                .padding(.top)
+                .padding(.vertical)
+                .padding(.horizontal,25)
             })
         }
-        .background(BlurView(style: .systemMaterial))
-        .cornerRadius(30)
+        .background(RoundedRectangle(cornerRadius: 30).foregroundColor(Color(UIColor.appDarkBlue)))
     }
 }
 

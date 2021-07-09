@@ -12,21 +12,29 @@ struct BottonSheetListCell: View {
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-            Color(.lightGray)
+            Color(UIColor.appBeige)
                 .cornerRadius(21)
             HStack {
                 VStack {
                     Spacer()
                     Text(getHourOf(date: notification.date))
+                        .foregroundColor(Color(UIColor.appDarkBlue))
+                        .font(Font.sfProDisplaySemiBold(sized: 18))
                     Spacer()
                 }
                 VStack {
-                    Text(notification.title)
-                        .cellTitle()
-                        .fixedSize(horizontal: true, vertical: false)
+                    HStack {
+                        Text(notification.title)
+                            .foregroundColor(Color(UIColor.appDarkBlue))
+                            .cellTitle()
+                            .fixedSize(horizontal: true, vertical: false)
+                        Spacer()
+                    }
+
                     Text(notification.uid)
+                        .foregroundColor(Color(UIColor.appDarkBlue))
                         .cellSubTitle()
-                    ColaboratorsView()
+                    //ColaboratorsView()
                 }
                 .padding()
             }
