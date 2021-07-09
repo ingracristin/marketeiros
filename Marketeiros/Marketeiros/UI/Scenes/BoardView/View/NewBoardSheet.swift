@@ -28,63 +28,88 @@ struct NewBoardSheet: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Cancelar")
-                            .foregroundColor(.red)
+                            .foregroundColor(Color(#colorLiteral(red: 0.8705882353, green: 0.3647058824, blue: 0.3647058824, alpha: 1)))
                             .font(.body)
                     })
                     Spacer()
                     Text("Novo quadro")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("SheetHeaderColor"))
                     Spacer()
                     Button(action: {
                         viewModel.createBoard()
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Adicionar")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("SheetButton"))
                             .font(.body)
                     })
                 }
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
                     HStack(spacing: 0){
-                        Text("Nome do quadro").fontWeight(.semibold)
-                            .font(.callout)
+                        Text("Nome do quadro").fontWeight(.regular)
+                            .font(.title3)
+                            .foregroundColor(Color("NavBarTitle"))
+                            
                         Spacer()
                     }
-                    TextField("", text: viewModel.bindings.title)
+                    TextField("Dê um nome ao seu quadro...", text: viewModel.bindings.title)
                         .frame(height:reader.size.height * 0.052)
-                        .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                        .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
+                        .background(Color("TextField2"))
                         .cornerRadius(8)
-                }
-                VStack(alignment:.leading, spacing: reader.size.height * 0.02) {
-                    Text("Bio do quadro").fontWeight(.semibold)
-                        .font(.callout)
-                    
-                    TextEditor(text: viewModel.bindings.description)
-                        .colorMultiply(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
-                        .cornerRadius(8)
-                        .frame(height: reader.size.height * 0.1317)
+                        
                 }
                 
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
-                    Text("Imagem do quadro").fontWeight(.semibold)
-                        .font(.callout)
+                    HStack(spacing: 0){
+                        Text("Vincular à conta do Instagram").fontWeight(.regular)
+                            .font(.title3)
+                            .foregroundColor(Color("NavBarTitle"))
+                        Spacer()
+                    }
+                    TextField("@usuário", text: viewModel.bindings.title)
+                        .frame(height:reader.size.height * 0.052)
+                        .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
+                        .background(Color("TextField2"))
+                        .cornerRadius(8)
+                }
+                
+                VStack(alignment:.leading, spacing: reader.size.height * 0.02) {
+                    Text("Bio do quadro").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                    
+                    TextField("Descreva em poucas palavras o seu quadro...",text: viewModel.bindings.description)
+                        
+                        .frame(height: reader.size.height * 0.1317,alignment: .topLeading)
+                        .padding(.init(top: 10, leading: 10, bottom: 0, trailing: 0))
+                        .multilineTextAlignment(.leading)
+                        .background(Color("TextField2"))
+                        .foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
+                        .cornerRadius(8)
+                }
+                
+                VStack(alignment:.leading, spacing: reader.size.height * 0.02){
+                    Text("Imagem do quadro").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
                     Button(action: {}, label: {
                         ZStack(alignment: .center){
                             Rectangle()
-                                .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                                .foregroundColor(Color("TextField2"))
                             VStack{
                                 Image(systemName: "camera")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: reader.size.width * 0.1413, height: reader.size.height * 0.0529)
                                 Text("Adicione uma capa")
-                            }.foregroundColor(Color(#colorLiteral(red: 0.3106196523, green: 0.3057384491, blue: 0.3057644367, alpha: 1)))
+                            }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                         }
                     })
                     .frame(height:reader.size.height * 0.2512)
                     .cornerRadius(8)
                 }
-            }.background(BlurView(style: .systemMaterial))
+            }//.background(BlurView(style: .systemMaterial))
             .padding(.horizontal,20)
         }
     }
