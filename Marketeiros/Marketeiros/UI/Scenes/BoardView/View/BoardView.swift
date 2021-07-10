@@ -38,7 +38,7 @@ struct BoardView: View {
             Image("headerBoard")
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.27)
+                .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.2906)
                 .ignoresSafeArea()
             
             VStack(spacing:0) {

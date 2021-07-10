@@ -77,7 +77,7 @@ struct InsideBoardView: View {
                             
                             ForEach(vm.imagesUrls, id: \.self) { url in
                                 AsyncImage(url: URL(string: url)!) {
-                                    RoundedRectangle(cornerRadius: 25)
+                                    Rectangle()
                                         .foregroundColor(.gray)
                                 } image: {
                                     Image(uiImage: $0)
