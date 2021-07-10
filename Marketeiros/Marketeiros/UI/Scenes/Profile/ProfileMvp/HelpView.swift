@@ -31,7 +31,7 @@ struct HelpView: View {
                 Spacer()
             }.padding()
             .navigationBarTitle("Sobre", displayMode: .inline)
-            
+    
             
         }
     }

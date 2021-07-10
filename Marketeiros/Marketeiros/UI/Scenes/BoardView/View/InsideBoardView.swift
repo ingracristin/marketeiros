@@ -142,11 +142,11 @@ struct InsideBoardView: View {
                     MoodBoardView()
                 }
             }
-            .navigationTitle(viewModel.board.title)
+            .navigationBarTitle(viewModel.board.title, displayMode: .inline)
             .onAppear {
                 viewModel.getAllPosts()
             }
-            .padding(.horizontal,20)
+            .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
         }
     }
 }
