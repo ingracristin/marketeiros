@@ -25,17 +25,19 @@ struct ProfileView: View {
                         .navBarTitle()
                     Spacer()
                 }
-                .padding(.init(top: 30, leading: 0, bottom: 10, trailing: 0))
+                .padding(.init(top: 30, leading: 20, bottom: 10, trailing: 0))
                 
                 HStack() {
                     VStack(alignment: .leading) {
                         Text("Ingra Cristina")
                             .font(.custom("SF Pro Display", size: 20))
                             .fontWeight(.semibold)
+                            .foregroundColor(Color("NavBarTitle"))
                         Text("@ingracristic")
                             .font(.custom("SF Pro Display", size: 16))
                             .fontWeight(.semibold)
-                    }.padding()
+                            .foregroundColor(Color("UserProfileColor"))
+                    }.padding(.horizontal,20)
                     Spacer()
                     Image("bolinha")
                         .padding()
@@ -52,7 +54,7 @@ struct ProfileView: View {
                             Spacer()
                             Image(systemName: "person")
                         }.padding()
-                    }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+                    }).foregroundColor(Color("ProfileButtonsColor"))
                 
                 NavigationLink(
                     destination: NotificationsDetailsView(),
@@ -63,7 +65,7 @@ struct ProfileView: View {
                             Spacer()
                             Image(systemName: "bell")
                         }.padding()
-                    }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+                    }).foregroundColor(Color("ProfileButtonsColor"))
                 NavigationLink(
                     destination: HelpView(),
                     label: {
@@ -73,7 +75,7 @@ struct ProfileView: View {
                             Spacer()
                             Image(systemName: "globe")
                         }.padding()
-                    }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+                    }).foregroundColor(Color("ProfileButtonsColor"))
                 NavigationLink(
                     destination: AboutView(),
                     label: {
@@ -83,7 +85,7 @@ struct ProfileView: View {
                             Spacer()
                             Image(systemName: "questionmark.circle")
                         }.padding()
-                    }).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+                    }).foregroundColor(Color("ProfileButtonsColor"))
                 Spacer()
                 //bell
                 //globe

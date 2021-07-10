@@ -9,24 +9,31 @@ import SwiftUI
 
 struct HelpView: View {
     var body: some View {
-        VStack(spacing: 20){
-            HStack{
-                Text("Suporte")
+        ZStack(alignment:.bottom){
+            Image("profileBg")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+                .frame( height: UIScreen.main.bounds.size.height * 0.66, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            VStack(spacing: 20){
+                HStack{
+                    Text("Suporte")
                     
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                }.foregroundColor(Color("NavBarTitle"))
+                HStack{
+                    Text("Contate a gente")
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                }.foregroundColor(Color("NavBarTitle"))
+                
                 Spacer()
-                Image(systemName: "chevron.forward")
-            }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
-            HStack{
-                Text("Contate a gente")
-                Spacer()
-                Image(systemName: "chevron.forward")
-            }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
-           
-            Spacer()
-        }.padding()
-        .navigationBarTitle("Sobre", displayMode: .inline)
-        
-        
+            }.padding()
+            .navigationBarTitle("Sobre", displayMode: .inline)
+            
+            
+        }
     }
 }
 

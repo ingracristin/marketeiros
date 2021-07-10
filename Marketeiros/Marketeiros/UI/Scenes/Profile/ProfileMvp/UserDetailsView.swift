@@ -29,10 +29,12 @@ struct UserDetailsView: View {
             
             Text("Dados da Conta")
                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                .foregroundColor(Color("NavBarTitle"))
                 .padding()
             HStack{
                 HStack{
                     Text("Nome")
+                        .foregroundColor(Color("NavBarTitle"))
                 }.padding()
                 Spacer()
                 HStack{
@@ -40,15 +42,16 @@ struct UserDetailsView: View {
                         TextField("E-mail do convidado", text: $boardName)
                             .padding()
                             .frame(width: 280, height: 50)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
                         
                     }
                 }
-            }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
+            }
             HStack{
                 HStack{
                     Text("Usuário")
+                        .foregroundColor(Color("NavBarTitle"))
                 }.padding()
                 Spacer()
                 HStack{
@@ -56,7 +59,7 @@ struct UserDetailsView: View {
                         TextField("E-mail do convidado", text: $boardName)
                             .padding()
                             .frame(width: 280, height: 50)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
                         
                     }
@@ -65,6 +68,7 @@ struct UserDetailsView: View {
             HStack{
                 HStack{
                     Text("E-mail")
+                        .foregroundColor(Color("NavBarTitle"))
                 }.padding()
                 Spacer()
                 HStack{
@@ -72,7 +76,7 @@ struct UserDetailsView: View {
                         TextField("E-mail do convidado", text: $boardName)
                             .padding()
                             .frame(width: 280, height: 50)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
                         
                     }
