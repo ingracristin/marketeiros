@@ -32,7 +32,6 @@ struct BottomSheet : View {
                 LazyVStack(alignment: .leading, spacing: 15, content: {
                     ForEach(notifications, id: \.uid) { notification in
                         BottonSheetListCell(notification: notification)
-                            .padding(.horizontal)
                             .padding(.bottom)
                     }
                 })

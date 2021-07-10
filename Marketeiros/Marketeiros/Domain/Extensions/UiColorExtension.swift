@@ -18,4 +18,5 @@ extension UIColor {
     static let unselectedColor = UIColor(named: "UnselectedButton")!
     static let navBarTitleColor = UIColor(named: "AppNavBarTitleColor")!
     static let calendarCellColor = UIColor(named: "AppCalendarCellColor")!
+    static let emptyCellGridColor = UIColor(named: "EmptyCellGridColor")!
 }

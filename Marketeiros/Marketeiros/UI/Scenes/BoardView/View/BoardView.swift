@@ -84,6 +84,7 @@ struct BoardView: View {
                                                 .cornerRadius(20)
                                         })
                                 }
+                        
                             })
                             
                             HStack{

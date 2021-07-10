@@ -10,5 +10,10 @@ import Foundation
 
 class ViewModel : ObservableObject {
     @Published var imagesUrls : [String] = []
+//    //var igUser = ""
+//    
+//    init(igUser: String) {
+//        self.igUser = igUser
+//    }
 }
 

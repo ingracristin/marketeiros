@@ -8,13 +8,14 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: InsideBoardViewModel
+    @ObservedObject var vm = ViewModel()
     @State var selectedView = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
+    @State var postsCount = 0
     
     init(board: Board) {
         viewModel = InsideBoardViewModel(board: board)
@@ -73,8 +74,30 @@ struct InsideBoardView: View {
                                     .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
                             }
+                            
+                            ForEach(vm.imagesUrls, id: \.self) { url in
+                                AsyncImage(url: URL(string: url)!) {
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .foregroundColor(.gray)
+                                } image: {
+                                    Image(uiImage: $0)
+                                        .resizable()
+                                }
+                                .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+                            }
+                            
+                            if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
+                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<19), id:\.self) {index in
+                                    Rectangle()
+                                        .foregroundColor(Color(UIColor.emptyCellGridColor))
+                                        .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+                                }
+                            }
                         }
-                    }.toolbar {
+                        
+                        TestWebView(vm: vm)
+                            .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                     }.toolbar {
                         ToolbarItemGroup(placement: .bottomBar) {
                             Button(action: {
                                 viewModel.toggleAddPostView()
@@ -115,12 +138,11 @@ struct InsideBoardView: View {
                     }
                 } else if (selectedView == 1) {
                     IdeaView(viewModel: .init(board: viewModel.board))
-                } else if (selectedView == 2){
+                } else if (selectedView == 2) {
                     MoodBoardView()
                 }
             }
             .navigationTitle(viewModel.board.title)
-            
             .onAppear {
                 viewModel.getAllPosts()
             }

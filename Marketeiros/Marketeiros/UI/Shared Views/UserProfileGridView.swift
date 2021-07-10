@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct UserProfileGridView: View {
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var vm = ViewModel()
     
     var body: some View {
         ScrollView {
-            if viewModel.imagesUrls.isEmpty {
+            if vm.imagesUrls.isEmpty {
                 Text("Loading...")
             } else {
                 LazyVGrid(columns: [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))], content: {
-                    ForEach(viewModel.imagesUrls, id: \.self) { url in
+                    ForEach(vm.imagesUrls, id: \.self) { url in
                         AsyncImage(url: URL(string: url)!) {
                             RoundedRectangle(cornerRadius: 25)
                                 .foregroundColor(.gray)
@@ -29,8 +29,7 @@ struct UserProfileGridView: View {
                 })
             }
             
-            TestWebView(vm: viewModel)
-                //.isHidden(true)
+            TestWebView(vm: vm)
                 .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .onAppear(perform: {
                     print("rebuildo essa porra")
