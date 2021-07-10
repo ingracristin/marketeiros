@@ -80,7 +80,7 @@ struct BoardView: View {
                                         destination: InsideBoardView(board: board),
                                         label: {
                                             BoardCell(board: board)
-                                                .frame(width: reader.size.width - 40, height: reader.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
+                                                .frame(width: reader.size.width, height: reader.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
                                                 .cornerRadius(20)
                                         })
                                 }
