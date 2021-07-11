@@ -42,7 +42,9 @@ struct TestWebView: UIViewRepresentable {
                     print(image+"\n")
                 }
                 
-                self.viewModel.imagesUrls = allImages
+                self.viewModel.imagesUrls = allImages.map({ url in
+                    ImageUrl(imageUrl: url)
+                })
             }
         }
     }

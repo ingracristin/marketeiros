@@ -16,8 +16,8 @@ struct UserProfileGridView: View {
                 Text("Loading...")
             } else {
                 LazyVGrid(columns: [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))], content: {
-                    ForEach(vm.imagesUrls, id: \.self) { url in
-                        AsyncImage(url: URL(string: url)!) {
+                    ForEach(vm.imagesUrls, id: \.id) { url in
+                        AsyncImage(url: URL(string: url.imageUrl)!) {
                             RoundedRectangle(cornerRadius: 25)
                                 .foregroundColor(.gray)
                         } image: {

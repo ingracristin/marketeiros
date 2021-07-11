@@ -9,7 +9,7 @@
 import Foundation
 
 class ViewModel : ObservableObject {
-    @Published var imagesUrls : [String] = []
+    @Published var imagesUrls : [ImageUrl] = []
     let igUser: String
     
     init(igUser: String) {
