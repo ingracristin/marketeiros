@@ -10,7 +10,7 @@ import SwiftUI
 struct BottomSheet : View {
     @Binding var offset : CGFloat
     @Binding var date : Date
-    var notifications: [ScheduledNotification]
+    var notifications: [Int: [ScheduledNotification]]
     var value : CGFloat
     
     var body: some View {
@@ -27,12 +27,17 @@ struct BottomSheet : View {
                 .padding(.bottom,15)
             
             ScrollView(.vertical, showsIndicators: false, content: {
-                Text(Calendar.current.getDescriptionOf(date: date))
-                    .foregroundColor(.white)
                 LazyVStack(alignment: .leading, spacing: 15, content: {
-                    ForEach(notifications, id: \.uid) { notification in
-                        BottonSheetListCell(notification: notification)
-                            .padding(.bottom)
+                    ForEach(notifications.keys.sorted(), id:\.self) { index in
+                        HStack {
+                            Spacer()
+                            Text(Calendar.current.getDescriptionOf(date: notifications[index]!.first!.date))
+                                .foregroundColor(.white)
+                            Spacer()
+                        }
+                        ForEach(Array(notifications[index]!), id:\.uid) { notification in
+                            BottonSheetListCell(notification: notification)
+                        }
                     }
                 })
                 .padding(.vertical)
@@ -45,6 +50,6 @@ struct BottomSheet : View {
 
 struct BottonSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(offset: .constant(0), date: .constant(.init()), notifications: [], value: 400)
+        BottomSheet(offset: .constant(0), date: .constant(.init()), notifications: [:], value: 400)
     }
 }

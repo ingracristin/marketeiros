@@ -42,31 +42,31 @@ struct IdeaView: View {
                                     .foregroundColor(Color("FolderTextColor"))
                                     .font(.callout)
                                     .fontWeight(.regular)
-                            }.frame(width:UIScreen.main.bounds.size.width * 0.2933, height: UIScreen.main.bounds.size.height * 0.0566)
+                            }
+                            .padding()
+                            .background(Color("IdeaViewColor"))
+                            .cornerRadius(14)
+                            //.frame(width:UIScreen.main.bounds.size.width * 0.2933, height: UIScreen.main.bounds.size.height * 0.0566)
                         }
 //                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color("IdeaViewColor"))
-                        .cornerRadius(14)
+                        
                         ForEach(viewModel.states.pastes, id: \.uid) { paste in
                             NavigationLink(
                                 destination: PastesDetailsView(paste: paste, board: viewModel.board, ideas: viewModel.getIdeasOfSelectedPaste(paste: paste)),
                                 label: {
-                                    ZStack(alignment: .leading) {
-                                        Rectangle()
-    //                                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            .frame(width:UIScreen.main.bounds.size.width * 0.2933, height: UIScreen.main.bounds.size.height * 0.0566)
-                                            .foregroundColor(Color("IdeaViewColor"))
-                                            .cornerRadius(12)
+                                    
                                         HStack(){
-                                            Text("⭐️")
-                                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                .padding(.horizontal,10)
+                                            Image(systemName: "folder")
+                                                .foregroundColor(Color("FolderTextColor"))
                                             Text(paste.title)
                                                 .foregroundColor(Color("FolderTextColor"))
                                                 .font(.callout)
                                                 .fontWeight(.regular)
                                         }
-                                    }
+                                        .padding()
+                                        .background(Color("IdeaViewColor"))
+                                        .cornerRadius(14)
+                                    
                                 })
                         }
                     }).frame(height: 70)

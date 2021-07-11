@@ -97,6 +97,10 @@ extension BoardsRepository {
         item.uid = docRef.documentID
     }
     
+    func update<T: BoardItemSavable>(item: inout T, to board: Board, on itemCollection: Collections) {
+        collection.document(board.uid).collection(itemCollection.rawValue).document(item.uid).setData(item.toJson())
+    }
+    
     func delete<T: BoardItemSavable>(item: T, to board: Board, on itemCollection: Collections, completion: @escaping (Result<Bool, BoardsRepositoryErrors>) -> ()) {
         collection.document(board.uid).collection(itemCollection.rawValue).document().delete { error in
             if let err = error {

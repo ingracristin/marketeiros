@@ -30,11 +30,12 @@ struct BottonSheetListCell: View {
                             .fixedSize(horizontal: true, vertical: false)
                         Spacer()
                     }
-
-                    Text(notification.uid)
-                        .foregroundColor(Color(UIColor.appDarkBlue))
-                        .cellSubTitle()
-                    //ColaboratorsView()
+                    HStack {
+                        Text(notification.title)
+                            .foregroundColor(Color(UIColor.appDarkBlue))
+                            .cellSubTitle()
+                        Spacer()
+                    }
                 }
                 .padding()
             }
@@ -61,8 +62,8 @@ struct ColaboratorsView: View {
     }
 }
 
-struct BottonSheetListCell_Previews: PreviewProvider {
-    static var previews: some View {
-        BottonSheetListCell(notification: .init(uid: "", title: "", date: .init()))
-    }
-}
+//struct BottonSheetListCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BottonSheetListCell(notification: .init(uid: "", title: "", date: .init()))
+//    }
+//}

@@ -83,6 +83,16 @@ extension Calendar {
         return "\(self.weekdaySymbols[weekDayIndex]), \(components.day!) of \(self.monthSymbols[monthIndex])"
     }
     
+    func getWeekDaysOf(date: Date = .init()) -> [Date] {
+        let calendar = Calendar.current
+        let dayOfWeek = calendar.component(.weekday, from: date)
+        let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: date)!
+        let days = (weekdays.lowerBound ..< weekdays.upperBound)
+            .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: date) }
+        
+        return days
+    }
+    
 //    func getDescriptionOf(date : Date, with dateComponents : [Calendar.Component]) -> String {
 //        let components = self.dateComponents(Set(dateComponents), from: date)
 //        let componentsList = components.description.split(separator: " ")

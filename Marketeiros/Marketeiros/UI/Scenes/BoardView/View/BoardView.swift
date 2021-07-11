@@ -61,7 +61,7 @@ struct BoardView: View {
                 .padding(.bottom,8)
                 
                 GeometryReader { reader in
-                    ScrollView(.vertical) {
+                    ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 20) {
                             HStack{
                                 Text("Seus Quadros")
@@ -84,7 +84,6 @@ struct BoardView: View {
                                                 .cornerRadius(20)
                                         })
                                 }
-                        
                             })
                             
                             HStack{

@@ -53,7 +53,7 @@ struct CalendarPageView: View {
             
             GeometryReader { reader in
                 VStack {
-                    BottomSheet(offset: $offset, date: $date, notifications: viewModel.getNotificationOnWeek(of: date), value: (-reader.frame(in: .global).height + aux))
+                    BottomSheet(offset: $offset, date: $date, notifications: viewModel.getWeekNotifications(of: date), value: (-reader.frame(in: .global).height + aux))
                         .offset(y: reader.frame(in: .global).height - aux)
                         .offset(y: offset) .gesture(DragGesture().onChanged({ (value) in
                             withAnimation {

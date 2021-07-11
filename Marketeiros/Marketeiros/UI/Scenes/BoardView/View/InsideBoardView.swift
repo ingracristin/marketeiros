@@ -50,10 +50,12 @@ struct InsideBoardView: View {
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
-//                NavigationLink(destination: EmptyView()) {
-//                    EmptyView()
-//                }
-                
+                if viewModel.posts.count == 1 {
+                    NavigationLink(destination: EmptyView()) {
+                        EmptyView()
+                    }
+                }
+
                 if (selectedView == 0) {
                     ScrollView(){
                         LazyVGrid(columns: layout, spacing: 1) {
