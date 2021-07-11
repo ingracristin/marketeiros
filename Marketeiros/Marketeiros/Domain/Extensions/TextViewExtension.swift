@@ -11,6 +11,7 @@ struct CellTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(Font.system(size: 20, weight: .medium, design: .default))
+            .foregroundColor(Color(UIColor.navBarTitleColor))
     }
 }
 
