@@ -19,9 +19,11 @@ class NewBoardViewModel : ObservableObject {
     struct States {
         var title: String = ""
         var description: String = ""
+        var instragramAccount = ""
         var photoPath: String = ""
         var inputImage: UIImage?
         var alertViewShowing = false
+        var showingImagePicker = false
     }
     
     var bindings: (
@@ -29,7 +31,9 @@ class NewBoardViewModel : ObservableObject {
         description: Binding<String>,
         photoPath: Binding<String>,
         inputImage: Binding<UIImage?>,
-        alertViewShowing: Binding<Bool>)
+        alertViewShowing: Binding<Bool>,
+        instragramAccount: Binding<String>,
+        showingImagePicker: Binding<Bool>)
     {(
         title: Binding(
             get: {self.states.title},
@@ -45,29 +49,52 @@ class NewBoardViewModel : ObservableObject {
             set: {self.states.inputImage = $0}),
         alertViewShowing: Binding(
             get: {self.states.alertViewShowing},
-            set: {self.states.alertViewShowing = $0})
+            set: {self.states.alertViewShowing = $0}),
+        instragramAccount: Binding(
+            get: {self.states.instragramAccount},
+            set: {self.states.instragramAccount = $0}),
+        showingImagePicker: Binding(
+            get: {self.states.showingImagePicker},
+            set: {self.states.showingImagePicker = $0})
         )}
+    
+    func toggleImagePicker() {
+        states.showingImagePicker.toggle()
+    }
     
     func createBoard() {
         guard let user = AuthService.current.user else {return}
+        guard let image = states.inputImage?.jpeg(.high) else {return}
+        
         var board = Board(
             uid: " ",
             imagePath: " ",
             title: states.title,
             description: states.description,
-            instagramAccount: " ",
+            instagramAccount: states.instragramAccount,
             ownerUid: user.uid,
             colaboratorsUids: [" "],
             postsGridUid: " ",
             ideasGridUid: " ",
             moodGridUid: " ")
         
-        BoardsRepository.current.create(board: &board) { [weak self] result in
+        BoardsRepository.current.create(board: &board) { result in
             switch result {
             case.failure(let message):
                 print(message)
             case .success(_):
-                self?.callback(board)
+                ImagesRepository.current.upload(imageData: image, of: &board) { progress in
+                    print(progress)
+                } completion: { [weak self] result in
+                    switch result {
+                    case.failure(let message):
+                        print(message)
+                    case .success(_):
+                        if let self = self {
+                            self.callback(board)
+                        }
+                    }
+                }
             }
         }
     }

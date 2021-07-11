@@ -12,12 +12,13 @@ import HTMLKit
 
 struct TestWebView: UIViewRepresentable {
     let coordinator = Coordinator()
-    let urlString = "https://www.instagram.com/ingracristin/"
-    var viewModel : ViewModel
+    let urlString: String
+    var viewModel: ViewModel
     
     init(vm : ViewModel) {
         self.coordinator.viewModel = vm
         self.viewModel = vm
+        self.urlString = "https://www.instagram.com/\(vm.igUser)/"
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {

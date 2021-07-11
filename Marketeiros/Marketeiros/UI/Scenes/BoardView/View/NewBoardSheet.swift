@@ -10,9 +10,6 @@ import SwiftUI
 struct NewBoardSheet: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel : NewBoardViewModel
-    @State var imageGalery: UIImage?
-    @State var imagePath: String = ""
-    @State var show: Bool = false
     
     init(callback: @escaping (Board) -> ()) {
         viewModel = NewBoardViewModel(callback: callback)
@@ -26,6 +23,7 @@ struct NewBoardSheet: View {
                     .frame(width: 50, height: 5)
                     .padding(.top)
                     .padding(.bottom,5)
+                
                 HStack{
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
@@ -60,7 +58,6 @@ struct NewBoardSheet: View {
                         .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                         .background(Color("TextField2"))
                         .cornerRadius(8)
-                        
                 }
                 
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
@@ -70,7 +67,7 @@ struct NewBoardSheet: View {
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                     }
-                    TextField("@usuário", text: viewModel.bindings.title)
+                    TextField("@usuário", text: viewModel.bindings.instragramAccount)
                         .frame(height:reader.size.height * 0.052)
                         .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                         .background(Color("TextField2"))
@@ -83,7 +80,6 @@ struct NewBoardSheet: View {
                         .foregroundColor(Color("NavBarTitle"))
                     
                     TextField("Descreva em poucas palavras o seu quadro...",text: viewModel.bindings.description)
-                        
                         .frame(height: reader.size.height * 0.1317,alignment: .topLeading)
                         .padding(.init(top: 10, leading: 10, bottom: 0, trailing: 0))
                         .multilineTextAlignment(.leading)
@@ -97,15 +93,14 @@ struct NewBoardSheet: View {
                         .font(.title3)
                         .foregroundColor(Color("NavBarTitle"))
                     Button(action: {
-                        show.toggle()
+                        viewModel.toggleImagePicker()
                     }, label: {
                         ZStack(alignment: .center){
                             Rectangle()
                                 .foregroundColor(Color("TextField2"))
-                            VStack{
-                               
-                                if imageGalery != nil {
-                                    Image(uiImage: imageGalery!)
+                            VStack {
+                                if viewModel.states.inputImage != nil {
+                                    Image(uiImage: viewModel.states.inputImage!)
                                         .resizable()
                                         .frame(height:reader.size.height * 0.2512)
                                         .scaledToFit()
@@ -124,8 +119,8 @@ struct NewBoardSheet: View {
                 }
             }
             .padding(.horizontal,20)
-            .sheet(isPresented: $show) {
-                ImagePicker(image: $imageGalery, imagePath: $imagePath)
+            .sheet(isPresented: viewModel.bindings.showingImagePicker) {
+                ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.photoPath)
             }
         }
     }

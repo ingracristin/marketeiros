@@ -9,20 +9,23 @@ import SwiftUI
 
 struct BoardCell: View {
     let board : Board
+    @State var average = false
     
     var body: some View {
         GeometryReader() { reader in
             ZStack(alignment: .bottomLeading) {
-                Image("bgBoardCell")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .clipped()
-                    .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
-            
-                    Rectangle()
-                        .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9333333333, alpha: 1)))
-                        .opacity(0.7)
-                        .frame(height: reader.size.height * 0.33)
+                FirebaseImage(board: board, averageColorOn: $average, widthImg: reader.size.width, heightImg: reader.size.height) {
+                    Image("bgBoardCell")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                        .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
+                }
+                
+                Rectangle()
+                    .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9333333333, alpha: 1)))
+                    .opacity(0.7)
+                    .frame(height: reader.size.height * 0.33)
                 
                 VStack(alignment: .leading){
                     Text(board.title)

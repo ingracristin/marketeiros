@@ -30,9 +30,8 @@ struct TabBarScene: View {
                     }
                     .accentColor(Color("tabBarItem"))
                     .navigationBarHidden(true)
-            }
-            .accentColor(Color(UIColor.appLightBlue))
-        }
+            }.accentColor(Color(UIColor.appLightBlue))
+        }.accentColor(Color(UIColor.navBarItemsColor))
     }
 }
 

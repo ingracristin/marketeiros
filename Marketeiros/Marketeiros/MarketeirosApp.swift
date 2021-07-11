@@ -14,6 +14,10 @@ struct MarketeirosApp: App {
     private let notificationService = UserNotificationService.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    init() {
+        setViewsAppearence()
+    }
+    
     var body: some Scene {
         WindowGroup {
             AuthenticationWrapperView()
@@ -26,5 +30,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = UserNotificationService.shared
         FirebaseApp.configure()
         return true
+    }
+}
+
+extension MarketeirosApp {
+    private func setViewsAppearence() {
+        UITableView.appearance().backgroundColor = .clear
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.navBarTitleColor]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.navBarTitleColor]
+        navBarAppearance.backgroundColor = UIColor(.init("navbarColor"))
+        navBarAppearance.shadowColor = .clear
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().barTintColor = UIColor(.init("navbarColor"))
+        UIToolbar.appearance().setShadowImage(UIImage(), forToolbarPosition: .any)
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().clipsToBounds = true
     }
 }

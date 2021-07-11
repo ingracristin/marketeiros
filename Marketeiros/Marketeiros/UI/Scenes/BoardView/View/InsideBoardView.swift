@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: InsideBoardViewModel
-    @ObservedObject var vm = ViewModel()
+    @ObservedObject var vm: ViewModel
     @State var selectedView = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
@@ -19,6 +19,7 @@ struct InsideBoardView: View {
     
     init(board: Board) {
         viewModel = InsideBoardViewModel(board: board)
+        vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
     }
     
     let moodLayout = [
@@ -49,9 +50,9 @@ struct InsideBoardView: View {
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
-                NavigationLink(destination: EmptyView()) {
-                    EmptyView()
-                }
+//                NavigationLink(destination: EmptyView()) {
+//                    EmptyView()
+//                }
                 
                 if (selectedView == 0) {
                     ScrollView(){
@@ -87,7 +88,7 @@ struct InsideBoardView: View {
                             }
                             
                             if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
-                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<19), id:\.self) {index in
+                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
                                     Rectangle()
                                         .foregroundColor(Color(UIColor.emptyCellGridColor))
                                         .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)

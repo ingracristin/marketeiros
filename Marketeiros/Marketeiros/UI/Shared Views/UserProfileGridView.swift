@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserProfileGridView: View {
-    @ObservedObject var vm = ViewModel()
+    @ObservedObject var vm = ViewModel(igUser: "ingracristin")
     
     var body: some View {
         ScrollView {

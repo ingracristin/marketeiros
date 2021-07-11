@@ -24,6 +24,12 @@ struct IdeaView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color("NavBarTitle"))
                 
+                if viewModel.states.pastes.isEmpty {
+                    NavigationLink(destination: EmptyView()) {
+                        EmptyView()
+                    }
+                }
+                
                 ScrollView(.horizontal){
                     LazyHStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
                         Button(action: {

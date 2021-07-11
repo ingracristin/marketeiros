@@ -36,8 +36,9 @@ class ImagesRepository {
         upload(imageData: data, to: imagePath, progressCallback: progressCallback, completion: completion)
     }
     
-    func upload(imageData data: Data, of board: Board, progressCallback: @escaping (Double) -> (), completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
-        let imagePath = "\(board.uid)/capa.png"
+    func upload(imageData data: Data, of board: inout Board, progressCallback: @escaping (Double) -> (), completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
+        let imagePath = "\(board.uid)/cover.png"
+        board.imagePath = imagePath
         upload(imageData: data, to: imagePath, progressCallback: progressCallback, completion: completion)
     }
     
@@ -47,7 +48,7 @@ class ImagesRepository {
     }
     
     func getImage(of board: Board, completion: @escaping (Result<UIImage, ImagesRepositoryErrors>) -> ()) {
-        let imagePath = "\(board.uid)/capa.png"
+        let imagePath = "\(board.uid)/cover.png"
         getImage(of: imagePath, completion: completion)
     }
     

@@ -17,30 +17,6 @@ struct PostDetailsView: View {
     
     var body: some View {
         ScrollView(){
-            HStack{
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Voltar")
-                        .foregroundColor(.blue)
-                        .font(.body)
-                })
-                Spacer()
-                Text("Criar post")
-                    .foregroundColor(.black)
-                Spacer()
-                Button(action: {
-                    viewModel.saveChangesToPost { _ in
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }, label: {
-                    Text("Salvar")
-                        .foregroundColor(.blue)
-                        .font(.body)
-                })
-            }
-            .padding(.horizontal)
-            
             VStack(spacing: 10){
                 ZStack {
                     Rectangle()
@@ -135,7 +111,7 @@ struct PostDetailsView: View {
                 .padding()
             }
         }
-        .navigationBarHidden(true)
+        .navigationBarTitle("Visualizar Post", displayMode: .inline)
         .padding(.vertical,20)
         .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
             ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
@@ -143,9 +119,17 @@ struct PostDetailsView: View {
         .alert(isPresented: viewModel.bindings.showingAlertView, content: {
             Alert(title: Text("\(viewModel.states.percentage)"))
         })
-        .onAppear {
-            
-        }
+        .navigationBarItems(trailing:
+            Button(action: {
+                viewModel.saveChangesToPost { _ in
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }, label: {
+                Text("Salvar")
+                    .font(Font.sfProDisplaySemiBold(sized: 17))
+                    .foregroundColor(Color(UIColor.navBarItemsColor))
+                    .font(.body)
+            }))
     }
 }
 
