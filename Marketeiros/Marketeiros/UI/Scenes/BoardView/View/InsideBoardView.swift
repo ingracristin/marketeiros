@@ -87,13 +87,13 @@ struct InsideBoardView: View {
                                 .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
                             }
                             
-                            if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
-                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
-                                    Rectangle()
-                                        .foregroundColor(Color(UIColor.emptyCellGridColor))
-                                        .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
-                                }
-                            }
+//                            if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
+//                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
+//                                    Rectangle()
+//                                        .foregroundColor(Color(UIColor.emptyCellGridColor))
+//                                        .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+//                                }
+//                            }
                         }
                         
                         TestWebView(vm: vm)

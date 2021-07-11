@@ -16,4 +16,8 @@ class ViewModel : ObservableObject {
         self.igUser = igUser
     }
 }
+struct ImageUrl {
+    var id = UUID()
+    var imageUrl: String
+}
 
