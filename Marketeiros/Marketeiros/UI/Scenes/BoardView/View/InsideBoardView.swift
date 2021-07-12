@@ -59,7 +59,7 @@ struct InsideBoardView: View {
                 if (selectedView == 0) {
                     ScrollView(){
                         LazyVGrid(columns: layout, spacing: 1) {
-                            ForEach(viewModel.posts, id: \.uid) { post in
+                            ForEach(viewModel.posts.sorted {$0.dateOfCreation > $1.dateOfCreation}, id: \.uid) { post in
                                 NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
                                     ZStack {
                                         FirebaseImage(post: post, board: viewModel.board,widthImg:((reader.size.width - 50) / 3),heightImg:((reader.size.width - 50) / 3), averageColorOn: $averageColorOn) {

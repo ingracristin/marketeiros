@@ -12,6 +12,8 @@ class PostDetailsViewModel: ObservableObject {
     @Published private(set) var states = States()
     var post: Post
     var board: Board
+    var pastPhoto: UIImage!
+    var pastPost: Post
     
     struct States {
         var titlePost = ""
@@ -81,56 +83,51 @@ class PostDetailsViewModel: ObservableObject {
     )}
     
     init(post: Post, board: Board) {
+        self.pastPost = post
         self.post = post
         self.board = board
         states.titlePost = post.title
         states.legendPost = post.description
         states.markedAccountsOnPost = post.markedAccountsOnPost.first ?? ""
         states.hashtag = post.hashtags.first ?? ""
+        states.scheduleDate = post.dateOfPublishing
+        states.showGreeting = true
         
         ImagesRepository.current.getImage(of: post, ofBoard: board) { result in
             switch result {
             case .failure(let message):
-                print("")
+                print(message)
             case .success(let newImage):
                 self.states.inputImage = newImage
+                self.pastPhoto = newImage
             }
         }
     }
     
     func saveChangesToPost(completionHadler: @escaping (String?) -> ()) {
-//        guard let image = states.inputImage?.jpeg(.high) else {return}
-//
-//        var post = Post(
-//            uid: "",
-//            photoPath: states.imagePath,
-//            title: states.titlePost,
-//            description: states.legendPost,
-//            hashtags: [states.hashtag],
-//            markedAccountsOnPost: [states.markedAccountsOnPost],
-//            dateOfPublishing: states.scheduleDate)
-//
-//        BoardsRepository.current.add(item: &post, to: board, on: .posts)
-//
-//        UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing, withData: [
-//            "imagePath": post.photoPath,
-//            "description": post.description,
-//            "uid": post.uid
-//        ])
-//
-//        states.showingAlertView.toggle()
-//        ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
-//            print(percentage)
-//            self?.states.percentage = percentage
-//        } completion: { result in
-//            switch result {
-//            case .failure(let message):
-//                completionHadler(message.localizedDescription)
-//            case .success(_):
-//                completionHadler(nil)
-//            }
-//            self.states.showingAlertView.toggle()
-//        }
+       guard let image = states.inputImage?.jpeg(.high) else {return}
+
+        BoardsRepository.current.add(item: &post, to: board, on: .posts)
+
+        UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing, withData: [
+            "imagePath": post.photoPath,
+            "description": post.description,
+            "uid": post.uid
+        ])
+
+        states.showingAlertView.toggle()
+        ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
+            print(percentage)
+            self?.states.percentage = percentage
+        } completion: { result in
+            switch result {
+            case .failure(let message):
+                completionHadler(message.localizedDescription)
+            case .success(_):
+                completionHadler(nil)
+            }
+            self.states.showingAlertView.toggle()
+        }
     }
     
     func loadImage() {

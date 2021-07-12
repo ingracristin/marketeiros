@@ -97,7 +97,7 @@ class ImagesRepository {
                 }
             } else {
                 DispatchQueue.main.async {
-                    UserDefaults.setValue(data,forKey: imagePath)
+                    UserDefaults.standard.setValue(data,forKey: imagePath)
                     completion(.success(true))
                 }
             }

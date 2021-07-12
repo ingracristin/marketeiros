@@ -98,8 +98,7 @@ struct PostDetailsView: View {
                 VStack {
                     DatePicker(
                         "Agendar",
-                        selection: viewModel.bindings.scheduleDate,
-                        in: Date()...)
+                        selection: viewModel.bindings.scheduleDate)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 25)
@@ -132,8 +131,6 @@ struct PostDetailsView: View {
             }))
     }
 }
-
-
 
 //struct PostDetailsView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -16,6 +16,7 @@ struct Post: Codable, BoardItemSavable, Equatable {
     var hashtags: [String]
     var markedAccountsOnPost: [String]
     var dateOfPublishing: Date
+    var dateOfCreation: Date = .init()
     
     func toJson() -> [String:Any] {
         return [
@@ -25,13 +26,17 @@ struct Post: Codable, BoardItemSavable, Equatable {
             "description": self.description,
             "hashtags": self.hashtags,
             "markedAccountsOnPost": self.markedAccountsOnPost,
-            "dateOfPublishing": self.dateOfPublishing
+            "dateOfPublishing": self.dateOfPublishing,
+            "dateOfCreation": self.dateOfCreation
         ]
     }
     
     static func from(json: [String: Any]) -> Post {
-        let firebaseDate = json["dateOfPublishing"] as! Timestamp
-        let date = Date(timeIntervalSince1970: TimeInterval(firebaseDate.seconds))
+        let publishing = json["dateOfPublishing"] as! Timestamp
+        let publishingDate = Date(timeIntervalSince1970: TimeInterval(publishing.seconds))
+        
+        let creation = json["dateOfCreation"] as! Timestamp
+        let creationDate = Date(timeIntervalSince1970: TimeInterval(creation.seconds))
         
         return Post(
             uid: json["uid"] as? String ?? "",
@@ -40,7 +45,8 @@ struct Post: Codable, BoardItemSavable, Equatable {
             description: json["description"] as? String ?? "",
             hashtags: json["hashtags"] as? [String] ?? [""],
             markedAccountsOnPost: json["markedAccountsOnPost"] as? [String] ?? [""],
-            dateOfPublishing: date)
+            dateOfPublishing: publishingDate,
+            dateOfCreation: creationDate)
     }
 }
 

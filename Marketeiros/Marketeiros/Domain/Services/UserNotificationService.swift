@@ -136,11 +136,15 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         let components = Calendar.current.dateComponents([.day,.hour,.month,.minute,.year], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components , repeats: false)
     
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: dictInfo["uid"] as! String, content: content, trigger: trigger)
         
         notificationCenter.add(request) { erro in
             print(erro?.localizedDescription)
         }
+    }
+    
+    func deleteNotificationWith(uids: [String]) {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: uids)
     }
     
     func getNotificationsDaysHourMinute(completion: @escaping ([Int],Int,Int) -> ()) {
