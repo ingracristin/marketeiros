@@ -11,7 +11,11 @@ import UserNotifications
 struct ScheduledNotification {
     var uid: String
     var title: String
+    var description: String
+    var boardUid: String
+    var boardTitle: String
     var date: Date
+    var imagePath: String
 }
 
 class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
@@ -19,9 +23,9 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
     static let shared = UserNotificationService()
     
     struct Constants {
-        static let appName = "Sei lá"
-        static let notificationSubtitle = ""
-        static let notificationBody = ""
+        static let appName = "Planni"
+        static let notificationSubtitle = "Está na hora de postar!"
+        static let notificationBody = "Você tem um post agendado, clique ser direcionado ao Instagram"
         static let categoryId = "myCategory"
     }
     
@@ -31,7 +35,7 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
             identifier: "myCategory",
             actions: [
                 .init(identifier: "Postar", title: "Postar", options: .foreground),
-                .init(identifier: "Cancel", title: "Cancel", options: .destructive)
+                .init(identifier: "Cancelar", title: "Cancel", options: .destructive)
             ],
             intentIdentifiers: [],
             options: []
@@ -164,9 +168,18 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
         notificationCenter.getPendingNotificationRequests(completionHandler: { notifications in
             if !notifications.isEmpty {
                 for notification in notifications {
+                    let content = notification.content.userInfo as! [String : Any]
                     let trigger = notification.trigger as! UNCalendarNotificationTrigger
                     let date = trigger.nextTriggerDate()
-                    scheduledNotifications.append(.init(uid: notification.identifier, title: notification.content.title, date: date!))
+                    scheduledNotifications.append(
+                        ScheduledNotification(
+                            uid: content["uid"] as! String,
+                            title: content["title"] as! String,
+                            description: content["description"] as! String,
+                            boardUid: content["boardUid"] as! String,
+                            boardTitle: content["boardTitle"] as! String,
+                            date: date!,
+                            imagePath: content["imagePath"] as! String))
                 }
             }
 

@@ -54,19 +54,17 @@ struct IdeaView: View {
                             NavigationLink(
                                 destination: PastesDetailsView(paste: paste, board: viewModel.board, ideas: viewModel.getIdeasOfSelectedPaste(paste: paste)),
                                 label: {
-                                    
-                                        HStack(){
-                                            Image(systemName: "folder")
-                                                .foregroundColor(Color("FolderTextColor"))
-                                            Text(paste.title)
-                                                .foregroundColor(Color("FolderTextColor"))
-                                                .font(.callout)
-                                                .fontWeight(.regular)
-                                        }
-                                        .padding()
-                                        .background(Color("IdeaViewColor"))
-                                        .cornerRadius(14)
-                                    
+                                    HStack(){
+                                        Image(systemName: "folder")
+                                            .foregroundColor(Color("FolderTextColor"))
+                                        Text(paste.title)
+                                            .foregroundColor(Color("FolderTextColor"))
+                                            .font(.callout)
+                                            .fontWeight(.regular)
+                                    }
+                                    .padding()
+                                    .background(Color("IdeaViewColor"))
+                                    .cornerRadius(14)
                                 })
                         }
                     }).frame(height: 70)
@@ -104,26 +102,30 @@ struct IdeaView: View {
                                 .cornerRadius(22)
                         })
                         ForEach(viewModel.states.ideas, id: \.uid) { idea in
-                            ZStack {
-                                Rectangle()
-                                    .foregroundColor(Color("IdeaViewColor"))
+                            NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.states.pastes.first(where: { paste in
+                                paste.uid == idea.pasteUid
+                            }) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundColor(Color("IdeaViewColor"))
+                                        .cornerRadius(22)
+                                    VStack(spacing: 5) {
+                                        Text(idea.title)
+                                            .foregroundColor(Color("UserProfileColor"))
+                                            .fontWeight(.semibold)
+                                    }
+                                    .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
+                                    .background(Color("IdeaViewColor"))
                                     .cornerRadius(22)
-                                VStack(spacing: 5) {
-                                    Text(idea.title)
-                                        .foregroundColor(Color("UserProfileColor"))
-                                        
-                                        .fontWeight(.semibold)
                                 }
-                                .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
-                                .background(Color("IdeaViewColor"))
-                                .cornerRadius(22)
                             }
+                            
                         }
                     }
                 }
             }
         }.onAppear(perform: {
-            viewModel.loadData()
+            viewModel.setListeners()
         })
         .sheet(isPresented: $newPasteSheetIsShowing, content: {
             CreatePasteView(board: viewModel.board)

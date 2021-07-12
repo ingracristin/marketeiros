@@ -1,19 +1,21 @@
 //
-//  CreateIdeaSceneView.swift
+//  EditIdeaView.swift
 //  Marketeiros
 //
-//  Created by Gonzalo Ivan Santos Portales on 07/07/21.
+//  Created by Gonzalo Ivan Santos Portales on 12/07/21.
 //
 
 import SwiftUI
 
-struct CreateIdeaSceneView: View {
+struct EditIdeaView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: CreateIdeaSceneViewModel
+    @ObservedObject var viewModel: EditIdeaViewModel
     @State var isHidden = true
+    var callback: ((Idea?) -> ())?
     
-    init(board: Board, pastes: [Paste]) {
-        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes)
+    init(board: Board, paste: Paste, idea: Idea, callback: ((Idea?) -> ())?) {
+        self.viewModel = EditIdeaViewModel(board: board, paste: paste, idea: idea)
+        self.callback = callback
     }
     
     var body: some View {
@@ -40,7 +42,6 @@ struct CreateIdeaSceneView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     HStack {
                         Button(action: {
-                            viewModel.setNonePaste()
                             viewModel.togglePasteSheet()
                         }) {
                             Text("Cancelar")
@@ -59,7 +60,7 @@ struct CreateIdeaSceneView: View {
                         }
                     }.padding(.bottom)
                     VStack {
-                        ForEach(viewModel.pastes, id:\.uid) { paste in
+                        ForEach(Array(arrayLiteral: viewModel.paste), id:\.uid) { paste in
                             Button(action: {
                                 viewModel.select(paste: paste)
                             }) {
@@ -84,14 +85,37 @@ struct CreateIdeaSceneView: View {
         }
         .navigationBarTitle("Criar idéia", displayMode: .inline)
         .navigationBarItems(
-            trailing: Button("Salvar", action: {
-                viewModel.saveIdea()
-                presentationMode.wrappedValue.dismiss()
-        }))
+            trailing: Menu(content: {
+                Button {
+                    viewModel.deleteIdea()
+                    callback?(nil)
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Label("Deletar", systemImage: "trash")
+                }
+
+                Button {
+                    viewModel.updateIdea()
+                    callback?(viewModel.idea)
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Label("Salvar", systemImage: "square.and.arrow.down")
+                }
+            }, label: {
+                Image(systemName: "ellipsis.circle")
+            })
+               
+//            trailing: Button("Salvar", action: {
+//                viewModel.updateIdea()
+//                callback?(viewModel.idea)
+//                presentationMode.wrappedValue.dismiss()
+//        })
+        
+        )
     }
 }
 
-struct CreateIdeaSceneView_Previews: PreviewProvider {
+struct EditIdeaView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             CreateIdeaSceneView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), pastes: [.init(uid: "", title: "teu cu", icon: "")])

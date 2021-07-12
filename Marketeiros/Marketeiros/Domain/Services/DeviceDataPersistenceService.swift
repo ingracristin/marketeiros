@@ -8,22 +8,29 @@
 import Foundation
 import UIKit
 
-enum LocalDirectories : String {
+enum LocalDirectories : String, CaseIterable {
     case posts
     case moodBoard
+    case boards
     case profile
 }
 
 class DeviceDataPersistenceService {
-    
     static let current = DeviceDataPersistenceService()
     
-    private init() {}
+    private init() {
+        for directory in LocalDirectories.allCases {
+            if !directoryExists(named: directory) {
+                createDirectory(named: directory)
+            }
+        }
+    }
     
     var persistedImagesNames : [LocalDirectories : [String]] = [
         LocalDirectories.posts : [String](),
         LocalDirectories.moodBoard : [String](),
-        LocalDirectories.profile : [String]()
+        LocalDirectories.profile : [String](),
+        LocalDirectories.boards : [String]()
     ]
     
     enum DevicePersistenceErrors: Error {
@@ -49,18 +56,34 @@ class DeviceDataPersistenceService {
         }
     }
     
+//    func getImage(identifiedBy uid: String, on directory: LocalDirectories) -> Result<UIImage, DevicePersistenceErrors> {
+//        let documentsDirectory = getURLOf(directory: directory.rawValue)
+//        let dataPath = documentsDirectory.appendingPathComponent(uid)
+//        do {
+//            let dataImage = try Data(contentsOf: dataPath)
+//            guard let image = UIImage(data: dataImage) else {
+//                return .failure(.errorFetchingItem("Error transforming Data"))
+//            }
+//            return .success(image)
+//        } catch {
+//            return .failure(.errorFetchingItem(error.localizedDescription))
+//        }
+//    }
+    
     func getImage(identifiedBy uid: String, on directory: LocalDirectories) -> Result<UIImage, DevicePersistenceErrors> {
         let documentsDirectory = getURLOf(directory: directory.rawValue)
         let dataPath = documentsDirectory.appendingPathComponent(uid)
-        do {
-            let dataImage = try Data(contentsOf: dataPath)
+       
+        let dataImage = try? Data(contentsOf: dataPath)
+        
+        if let dataImage = dataImage {
             guard let image = UIImage(data: dataImage) else {
                 return .failure(.errorFetchingItem("Error transforming Data"))
             }
             return .success(image)
-        } catch {
-            return .failure(.errorFetchingItem(error.localizedDescription))
-        }
+        } else {
+            return.failure(.errorFetchingItem("deu pau mlk"))
+        }  
     }
     
     func directoryExists(named directory : LocalDirectories) -> Bool {

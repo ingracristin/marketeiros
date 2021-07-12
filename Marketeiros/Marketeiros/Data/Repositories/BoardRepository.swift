@@ -102,7 +102,7 @@ extension BoardsRepository {
     }
     
     func delete<T: BoardItemSavable>(item: T, to board: Board, on itemCollection: Collections, completion: @escaping (Result<Bool, BoardsRepositoryErrors>) -> ()) {
-        collection.document(board.uid).collection(itemCollection.rawValue).document().delete { error in
+        collection.document(board.uid).collection(itemCollection.rawValue).document(item.uid).delete { error in
             if let err = error {
                 DispatchQueue.main.async {
                     completion(.failure(.errorDeletingItemsFromBoard(err.localizedDescription)))
@@ -167,6 +167,23 @@ extension BoardsRepository {
                 }
                 DispatchQueue.main.async {
                     completion(.success(items))
+                }
+            }
+        }
+    }
+    
+    func deleteQueryWhere<T: BoardItemSavable>(field: String, equals values: [String], on itemCollection: Collections, of board: Board, ofItemType: T.Type ,completion: @escaping (Result<Bool,BoardsRepositoryErrors>) -> ()) {
+        get(collection: itemCollection, of: board).whereField(field, in: values).getDocuments { snapshot, error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.errorGettingItemsOfBoard(err.localizedDescription)))
+                }
+            } else {
+                for doc in snapshot!.documents {
+                    doc.reference.delete()
+                }
+                DispatchQueue.main.async {
+                    completion(.success(true))
                 }
             }
         }

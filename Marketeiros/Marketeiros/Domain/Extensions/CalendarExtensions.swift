@@ -68,7 +68,8 @@ extension Calendar {
     func getHourAndMinuteFrom(date : Date) -> String {
         let hour = self.component(.hour, from: date)
         let minute = self.component(.minute, from: date)
-        return "\(hour):\(minute)"
+        
+        return String(format: "%02d:%02d", hour,minute)
     }
     
     func getWeekDayDescriptionFrom(date : Date) -> String {

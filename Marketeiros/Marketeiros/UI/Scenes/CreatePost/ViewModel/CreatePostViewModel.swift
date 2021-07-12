@@ -98,9 +98,12 @@ class CreatePostViewModel : ObservableObject {
         BoardsRepository.current.add(item: &post, to: board, on: .posts)
         
         UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing, withData: [
+            "title": post.title,
             "imagePath": post.photoPath,
+            "uid": post.uid,
             "description": post.description,
-            "uid": post.uid
+            "boardUid": board.uid,
+            "boardTitle": board.title,
         ])
         
         states.showingAlertView.toggle()

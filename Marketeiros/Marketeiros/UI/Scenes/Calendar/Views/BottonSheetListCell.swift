@@ -31,7 +31,7 @@ struct BottonSheetListCell: View {
                         Spacer()
                     }
                     HStack {
-                        Text(notification.title)
+                        Text(notification.description)
                             .foregroundColor(Color(UIColor.appDarkBlue))
                             .cellSubTitle()
                         Spacer()

@@ -70,6 +70,29 @@ class IdeaViewModel: ObservableObject {
         }
     }
     
+    func setListeners() {
+        BoardsRepository.current.setListener(on: .pastes, of: board, ofItemType: Paste.self) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let pastes):
+                if let self = self {
+                    self.states.pastes = pastes
+                }
+            }
+        }
+        BoardsRepository.current.setListener(on: .ideas, of: self.board, ofItemType: Idea.self) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let ideas):
+                if let self = self {
+                    self.states.ideas = ideas
+                }
+            }
+        }
+    }
+    
     func getIdeasOfSelectedPaste(paste: Paste) -> [Idea] {
         let ideas = states.ideas.filter { idea in
             idea.pasteUid == paste.uid

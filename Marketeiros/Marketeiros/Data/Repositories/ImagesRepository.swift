@@ -44,12 +44,20 @@ class ImagesRepository {
     
     func getImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<UIImage,ImagesRepositoryErrors>) -> ()) {
         let imagePath = "\(board.uid)/\(post.uid)"
-        getImage(of: imagePath , completion: completion)
+        if let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data {
+            completion(.success(UIImage(data: imageData)!))
+        } else {
+            getImage(of: imagePath , completion: completion)
+        }
     }
     
     func getImage(of board: Board, completion: @escaping (Result<UIImage, ImagesRepositoryErrors>) -> ()) {
         let imagePath = "\(board.uid)/cover.png"
-        getImage(of: imagePath, completion: completion)
+        if let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data {
+            completion(.success(UIImage(data: imageData)!))
+        } else {
+            getImage(of: imagePath , completion: completion)
+        }
     }
     
     private func getImage(of path: String, completion: @escaping (Result<UIImage, ImagesRepositoryErrors>) -> ()) {
@@ -69,6 +77,7 @@ class ImagesRepository {
                 DispatchQueue.main.async { [weak self] in
                     let image = UIImage(data: imageData!)!
                     self!.cache.setObject(image, forKey: path as NSString)
+                    UserDefaults.standard.setValue(imageData,forKey: path)
                     completion(.success(image))
                 }
             }
@@ -88,6 +97,7 @@ class ImagesRepository {
                 }
             } else {
                 DispatchQueue.main.async {
+                    UserDefaults.setValue(data,forKey: imagePath)
                     completion(.success(true))
                 }
             }

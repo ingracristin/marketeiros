@@ -20,29 +20,66 @@ struct PastesDetailsView: View {
     }
     
     var body: some View {
-        ScrollView() {
-            LazyVGrid(columns: layout, spacing: 15) {
-                ForEach(viewModel.ideas, id: \.uid) { idea in
-                    NavigationLink(
-                        destination: CreateIdeaSceneView(board: viewModel.board, pastes: [viewModel.paste]),
-                        label: {
-                            ZStack {
-                                Rectangle()
-                                    .foregroundColor(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
-                                    .cornerRadius(22)
-                                VStack(spacing: 5) {
-                                    Text(idea.title)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.3098039216, green: 0.3058823529, blue: 0.3058823529, alpha: 1)))
-                                        .font(.body)
-                                        .fontWeight(.regular)
-                                }
-                                .frame(width: 170, height: 170, alignment: .center)
-                                .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
+        if viewModel.ideas.isEmpty {
+            VStack {
+                Spacer()
+                NavigationLink(
+                    destination: CreateIdeaSceneView(board: viewModel.board, pastes: [viewModel.paste]),
+                    label: {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color("IdeaViewColor"))
                                 .cornerRadius(22)
+                            VStack(spacing: 5) {
+                                Image(systemName: "sparkles.rectangle.stack.fill")
+                                    .resizable()
+                                    .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(Color("NavBarTitle"))
+    //                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                Text("Adicionar idéia")
+                                    .foregroundColor(Color("NavBarTitle"))
+                                    .font(.body)
+                                    .fontWeight(.regular)
                             }
-                    })
+                        }
+                        .background(Color("IdeaViewColor"))
+                        .cornerRadius(22)
+                })
+                    .frame(width: 200, height: 200)
+                Spacer()
+            }.navigationBarTitle(viewModel.paste.title, displayMode: .inline)
+        } else {
+            ScrollView() {
+                LazyVGrid(columns: layout, spacing: 15) {
+                    ForEach(0..<viewModel.ideas.count, id: \.self) { index in
+                        NavigationLink(
+                            destination: EditIdeaView(board: viewModel.board, paste: viewModel.paste, idea: viewModel.ideas[index],callback: { idea in
+                                if let idea = idea {
+                                    self.viewModel.ideas[index] = idea
+                                } else {
+                                    self.viewModel.ideas.remove(at: index)
+                                }
+                            }),
+                            label: {
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundColor(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
+                                        .cornerRadius(22)
+                                    VStack(spacing: 5) {
+                                        Text(viewModel.ideas[index].title)
+                                            .foregroundColor(Color(#colorLiteral(red: 0.3098039216, green: 0.3058823529, blue: 0.3058823529, alpha: 1)))
+                                            .font(.body)
+                                            .fontWeight(.regular)
+                                    }
+                                    .frame(width: 170, height: 170, alignment: .center)
+                                    .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
+                                    .cornerRadius(22)
+                                }
+                        })
+                    }
                 }
-            }
+            }.navigationBarTitle(viewModel.paste.title, displayMode: .inline)
         }
     }
 }

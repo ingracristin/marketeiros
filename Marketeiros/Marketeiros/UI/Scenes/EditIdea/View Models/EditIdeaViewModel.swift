@@ -1,22 +1,26 @@
 //
-//  IdeaSceneViewModel.swift
+//  EditIdeaViewModel.swift
 //  Marketeiros
 //
-//  Created by Gonzalo Ivan Santos Portales on 07/07/21.
+//  Created by Gonzalo Ivan Santos Portales on 12/07/21.
 //
 
 import Foundation
 import SwiftUI
 
-class CreateIdeaSceneViewModel: ObservableObject {
+class EditIdeaViewModel: ObservableObject {
     @Published private(set) var states = States()
-    var pastes: [Paste]
+    var paste: Paste
+    var idea: Idea
     var board: Board
     
-    init(board: Board, pastes: [Paste]) {
-        self.pastes = pastes
+    init(board: Board, paste: Paste, idea: Idea) {
+        self.idea = idea
+        self.paste = paste
         self.board = board
-        self.states.paste = Paste(uid: "none", title: "none", icon: "none")
+        self.states.title = idea.title
+        self.states.description = idea.description
+        self.states.paste = paste
     }
     
     struct States {
@@ -50,20 +54,17 @@ class CreateIdeaSceneViewModel: ObservableObject {
         states.paste = paste
     }
     
-    func setNonePaste() {
-        states.paste = Paste(uid: "none", title: "none", icon: "none")
+    func deleteIdea() {
+        BoardsRepository.current.delete(item: idea, to: board, on: .ideas) { _ in
+            
+        }
     }
     
-    func saveIdea() {
-        var idea = Idea(
-            uid: "",
-            icon: "",
-            tag: states.paste.title,
-            pasteUid: states.paste.uid,
-            title: states.title,
-            description: states.description)
+    func updateIdea() {
+        idea.title = states.title
+        idea.description = states.description
         
-        BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
+        BoardsRepository.current.update(item: &idea, to: board, on: .ideas)
     }
 
     func togglePasteSheet() {

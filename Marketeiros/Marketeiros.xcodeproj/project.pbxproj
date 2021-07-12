@@ -62,6 +62,8 @@
 		AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5209268B8C7100E14EBD /* BlurView.swift */; };
 		AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */; };
 		AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */; };
+		AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED4269C15180091F229 /* EditIdeaView.swift */; };
+		AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */; };
 		AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserRepository.swift */; };
 		AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7526897D2A00870BB2 /* BoardRepository.swift */; };
 		AED6CF7826897D5E00870BB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7726897D5E00870BB2 /* User.swift */; };
@@ -149,6 +151,8 @@
 		AE8A5209268B8C7100E14EBD /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InsideBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/InsideBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		AEC80ED4269C15180091F229 /* EditIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaView.swift; sourceTree = "<group>"; };
+		AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaViewModel.swift; sourceTree = "<group>"; };
 		AED6CF7326897CE400870BB2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		AED6CF7526897D2A00870BB2 /* BoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRepository.swift; sourceTree = "<group>"; };
 		AED6CF7726897D5E00870BB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Marketeiros/Data/Repositories/User.swift; sourceTree = SOURCE_ROOT; };
@@ -400,6 +404,7 @@
 				AE3EB5CB26976CDC0093AF7C /* IdeaScene */,
 				AE3EB5C526976CBC0093AF7C /* PasteDetails */,
 				AE3EB5D826976CE60093AF7C /* CreateIdeaScene */,
+				AEC80ED3269C14F10091F229 /* EditIdea */,
 				AE3EB5DC26976CE60093AF7C /* CreatePasteScene */,
 				AE5B70502678EC9E00AFF32E /* Calendar */,
 				EF1DD15C267A5234005A3A1C /* Profile */,
@@ -494,6 +499,23 @@
 				AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AEC80ED3269C14F10091F229 /* EditIdea */ = {
+			isa = PBXGroup;
+			children = (
+				AEC80ED6269C15220091F229 /* View Models */,
+				AEC80ED4269C15180091F229 /* EditIdeaView.swift */,
+			);
+			path = EditIdea;
+			sourceTree = "<group>";
+		};
+		AEC80ED6269C15220091F229 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		AED6CF7F26897EA700870BB2 /* AuthenticationScene */ = {
@@ -714,6 +736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */,
+				AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */,
 				AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */,
 				AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */,
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
@@ -772,6 +795,7 @@
 				AE3EB5CA26976CBC0093AF7C /* PastesDetailsView.swift in Sources */,
 				AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
+				AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
 				AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */,
 				EF8646C126974BAC0037DAB1 /* HelpView.swift in Sources */,

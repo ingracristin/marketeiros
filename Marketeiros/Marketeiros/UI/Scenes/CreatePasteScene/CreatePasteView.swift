@@ -8,20 +8,40 @@
 import SwiftUI
 
 struct CreatePasteView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var title: String = ""
     var board: Board
     
     var body: some View {
         VStack(spacing: 20){
+            HStack {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Cancelar")
+                        .foregroundColor(.red)
+                }
+                Spacer()
+                Text("Nova Pasta")
+                    .font(Font.sfProDisplaySemiBold(sized: 18))
+                    .foregroundColor(Color(UIColor.navBarTitleColor))
+                Spacer()
+                Button(action: {
+                    var paste = Paste(uid: "", title: title, icon: "none")
+                    BoardsRepository.current.add(item: &paste, to: board, on: .pastes)
+                    presentationMode.wrappedValue.dismiss()
+
+                }) {
+                    Text("Salvar")
+                        .foregroundColor(Color(UIColor.navBarItemsColor))
+                }
+            }.padding(.vertical)
+            
             TextField("Nome da pasta", text: $title)
-            Button(action: {
-                var paste = Paste(uid: "", title: title, icon: "none")
-                BoardsRepository.current.add(item: &paste, to: board, on: .pastes)
-            }, label: {
-                Text("Salvar")
-            })
             Spacer()
-        }.padding()
+        }
+        .padding()
+        .navigationTitle("Criar idéia")
     }
 }
 
