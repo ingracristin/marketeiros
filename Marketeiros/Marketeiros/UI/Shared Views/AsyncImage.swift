@@ -12,16 +12,19 @@ import Combine
 
 struct AsyncImage<Placeholder: View>: View {
     @StateObject private var loader: ImageLoader
+    var averageColorOn: Binding<Bool>
     private let placeholder: Placeholder
     private let image: (UIImage) -> Image
     
     init(
         url: URL,
+        averageColorOn: Binding<Bool>,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
     ) {
         self.placeholder = placeholder()
         self.image = image
+        self.averageColorOn = averageColorOn
         _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
     }
     
@@ -32,8 +35,13 @@ struct AsyncImage<Placeholder: View>: View {
     
     private var content: some View {
         Group {
-            if loader.image != nil {
-                image(loader.image!)
+            if let img = loader.image {
+                 ZStack {
+                    image(img)
+                    Rectangle()
+                            .foregroundColor(Color(img.averageColor ?? .clear))
+                            .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
+                }
             } else {
                 placeholder
             }
