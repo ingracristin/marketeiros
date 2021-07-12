@@ -29,6 +29,7 @@ class ImagesRepository {
     
     enum ImagesRepositoryErrors: Error {
         case errorGettingImageFromPost(String)
+        case errorDeletingImage(String)
     }
     
     func upload(imageData data: Data, of post: Post, ofBoard board: Board, progressCallback: @escaping (Double) -> (), completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
@@ -57,6 +58,28 @@ class ImagesRepository {
             completion(.success(UIImage(data: imageData)!))
         } else {
             getImage(of: imagePath , completion: completion)
+        }
+    }
+    
+    func deleteImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
+        let imagePath = "\(board.uid)/\(post.uid)"
+        deleteImage(of: imagePath, completion: completion)
+    }
+    
+    func deleteImage(of board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
+        let imagePath = "\(board.uid)/cover.png"
+        deleteImage(of: imagePath, completion: completion)
+    }
+    
+    func deleteImage(of path: String, completion: @escaping (Result<Bool, ImagesRepositoryErrors>) -> ()) {
+        UserDefaults.standard.removeObject(forKey: path)
+        let imageRef = storageRoot.child(path)
+        imageRef.delete { error in
+            if let error = error {
+                completion(.failure(.errorDeletingImage(error.localizedDescription)))
+            } else {
+                completion(.success(true))
+            }
         }
     }
     
