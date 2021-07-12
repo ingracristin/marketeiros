@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PastesDetailsView: View {
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: PasteDetailsViewModel
     
     let layout = [
@@ -24,7 +25,9 @@ struct PastesDetailsView: View {
             VStack {
                 Spacer()
                 NavigationLink(
-                    destination: CreateIdeaSceneView(board: viewModel.board, pastes: [viewModel.paste]),
+                    destination: CreateIdeaSceneView(board: viewModel.board, pastes: [viewModel.paste]) { idea in
+                        viewModel.ideas.append(idea)
+                    },
                     label: {
                         ZStack {
                             Rectangle()
@@ -64,22 +67,46 @@ struct PastesDetailsView: View {
                             label: {
                                 ZStack {
                                     Rectangle()
-                                        .foregroundColor(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
+                                        .foregroundColor(Color("IdeaViewColor"))
                                         .cornerRadius(22)
                                     VStack(spacing: 5) {
                                         Text(viewModel.ideas[index].title)
-                                            .foregroundColor(Color(#colorLiteral(red: 0.3098039216, green: 0.3058823529, blue: 0.3058823529, alpha: 1)))
-                                            .font(.body)
-                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("UserProfileColor"))
+                                            .fontWeight(.semibold)
                                     }
                                     .frame(width: 170, height: 170, alignment: .center)
-                                    .background(Color(#colorLiteral(red: 0.7685593963, green: 0.7686710954, blue: 0.7685348988, alpha: 1)))
-                                    .cornerRadius(22)
+                                    
                                 }
+                                .background(Color("IdeaViewColor"))
+                                .cornerRadius(22)
                         })
                     }
                 }
-            }.navigationBarTitle(viewModel.paste.title, displayMode: .inline)
+            }
+            .navigationBarTitle(viewModel.paste.title, displayMode: .inline)
+            .navigationBarItems(
+                trailing: Menu(content: {
+                    Button {
+                        viewModel.deletePaste(completion: { _ in
+                            presentationMode.wrappedValue.dismiss()
+                        })
+                    } label: {
+                        Label("Deletar", systemImage: "trash")
+                    }
+
+                    Button {
+                        viewModel.toggleSheet()
+                    } label: {
+                        Label("Editar", systemImage: "pencil")
+                    }
+                }, label: {
+                    Image(systemName: "ellipsis.circle")
+                }))
+            .sheet(isPresented: viewModel.bindings.sheetViewIsAppearing, content: {
+                EditPasteView(currentPaste: viewModel.paste, board: viewModel.board) { paste in
+                    viewModel.set(paste: paste)
+                }
+            })
         }
     }
 }

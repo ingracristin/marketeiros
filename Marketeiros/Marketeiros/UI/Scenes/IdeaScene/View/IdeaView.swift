@@ -30,7 +30,7 @@ struct IdeaView: View {
                     }
                 }
                 
-                ScrollView(.horizontal){
+                ScrollView(.horizontal,showsIndicators: false){
                     LazyHStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: /*@START_MENU_TOKEN@*/[]/*@END_MENU_TOKEN@*/, content: {
                         Button(action: {
                             newPasteSheetIsShowing.toggle()
@@ -75,10 +75,10 @@ struct IdeaView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color("NavBarTitle"))
                 
-                ScrollView() {
+                ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: layout, spacing: 15) {
                         NavigationLink(
-                            destination: CreateIdeaSceneView(board: viewModel.board, pastes: viewModel.states.pastes),
+                            destination: CreateIdeaSceneView(board: viewModel.board, pastes: viewModel.states.pastes, completion: nil),
                             label: {
                                 ZStack {
                                     Rectangle()
@@ -110,9 +110,13 @@ struct IdeaView: View {
                                         .foregroundColor(Color("IdeaViewColor"))
                                         .cornerRadius(22)
                                     VStack(spacing: 5) {
-                                        Text(idea.title)
-                                            .foregroundColor(Color("UserProfileColor"))
-                                            .fontWeight(.semibold)
+                                        HStack {
+                                            Text(idea.title)
+                                                .foregroundColor(Color("UserProfileColor"))
+                                                .fontWeight(.semibold)
+                                            
+                                        }
+
                                     }
                                     .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
                                     .background(Color("IdeaViewColor"))

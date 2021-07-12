@@ -36,4 +36,36 @@ class PasteDetailsViewModel: ObservableObject {
             get: {self.states.sheetViewIsAppearing},
             set: {self.states.sheetViewIsAppearing = $0})
     )}
+    
+    func toggleSheet() {
+        states.sheetViewIsAppearing.toggle()
+    }
+    
+    func deletePaste(completion: @escaping (Bool) -> ()) {
+        let uid = paste.uid
+        let b = board
+        BoardsRepository.current.delete(item: paste, to: board, on: .pastes) { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(_):
+            BoardsRepository.current.deleteQueryWhere(field: "pasteUid", equals: [uid], on: .ideas, of: b, ofItemType: Idea.self) { result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(_):
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
+    
+    func set(paste: Paste) {
+        self.paste = paste
+    }
+    
+    func updatePaste() {
+        BoardsRepository.current.update(item: &paste, to: board, on: .pastes)
+    }
 }

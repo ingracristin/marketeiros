@@ -16,7 +16,7 @@ class CreateIdeaSceneViewModel: ObservableObject {
     init(board: Board, pastes: [Paste]) {
         self.pastes = pastes
         self.board = board
-        self.states.paste = Paste(uid: "none", title: "none", icon: "none")
+        self.states.paste = (pastes.count == 1) ? pastes.first : Paste(uid: "none", title: "none", icon: "none")
     }
     
     struct States {
@@ -54,7 +54,7 @@ class CreateIdeaSceneViewModel: ObservableObject {
         states.paste = Paste(uid: "none", title: "none", icon: "none")
     }
     
-    func saveIdea() {
+    func saveIdea(completion: ((Idea) -> ())?) {
         var idea = Idea(
             uid: "",
             icon: "",
@@ -63,6 +63,7 @@ class CreateIdeaSceneViewModel: ObservableObject {
             title: states.title,
             description: states.description)
         
+        completion?(idea)
         BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
     }
 

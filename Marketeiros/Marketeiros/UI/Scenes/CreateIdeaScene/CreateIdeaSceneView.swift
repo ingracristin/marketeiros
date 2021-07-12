@@ -11,9 +11,11 @@ struct CreateIdeaSceneView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CreateIdeaSceneViewModel
     @State var isHidden = true
+    var completion: ((Idea) -> ())?
     
-    init(board: Board, pastes: [Paste]) {
+    init(board: Board, pastes: [Paste], completion: ((Idea) -> ())?) {
         self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes)
+        self.completion = completion
     }
     
     var body: some View {
@@ -85,7 +87,7 @@ struct CreateIdeaSceneView: View {
         .navigationBarTitle("Criar idéia", displayMode: .inline)
         .navigationBarItems(
             trailing: Button("Salvar", action: {
-                viewModel.saveIdea()
+                viewModel.saveIdea(completion: completion)
                 presentationMode.wrappedValue.dismiss()
         }))
     }
@@ -94,7 +96,7 @@ struct CreateIdeaSceneView: View {
 struct CreateIdeaSceneView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateIdeaSceneView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), pastes: [.init(uid: "", title: "teu cu", icon: "")])
+            CreateIdeaSceneView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), pastes: [.init(uid: "", title: "teu cu", icon: "")], completion: nil)
         }
     }
 }

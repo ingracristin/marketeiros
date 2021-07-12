@@ -64,6 +64,7 @@
 		AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */; };
 		AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED4269C15180091F229 /* EditIdeaView.swift */; };
 		AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */; };
+		AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80EDA269C48AC0091F229 /* EditPasteView.swift */; };
 		AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserRepository.swift */; };
 		AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7526897D2A00870BB2 /* BoardRepository.swift */; };
 		AED6CF7826897D5E00870BB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7726897D5E00870BB2 /* User.swift */; };
@@ -153,6 +154,7 @@
 		AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InsideBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/InsideBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AEC80ED4269C15180091F229 /* EditIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaView.swift; sourceTree = "<group>"; };
 		AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaViewModel.swift; sourceTree = "<group>"; };
+		AEC80EDA269C48AC0091F229 /* EditPasteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasteView.swift; sourceTree = "<group>"; };
 		AED6CF7326897CE400870BB2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		AED6CF7526897D2A00870BB2 /* BoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRepository.swift; sourceTree = "<group>"; };
 		AED6CF7726897D5E00870BB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Marketeiros/Data/Repositories/User.swift; sourceTree = SOURCE_ROOT; };
@@ -396,6 +398,7 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AEC80ED9269C488D0091F229 /* EditPaste */,
 				AED6CF7F26897EA700870BB2 /* AuthenticationScene */,
 				AEFFA800269025E800A86786 /* MainTabBar */,
 				795AB134267A3078006308B5 /* BoardView */,
@@ -516,6 +519,14 @@
 				AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		AEC80ED9269C488D0091F229 /* EditPaste */ = {
+			isa = PBXGroup;
+			children = (
+				AEC80EDA269C48AC0091F229 /* EditPasteView.swift */,
+			);
+			path = EditPaste;
 			sourceTree = "<group>";
 		};
 		AED6CF7F26897EA700870BB2 /* AuthenticationScene */ = {
@@ -779,6 +790,7 @@
 				AE3EB5D426976CDC0093AF7C /* IdeaView.swift in Sources */,
 				EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */,
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
+				AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
 				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,
 				AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */,
