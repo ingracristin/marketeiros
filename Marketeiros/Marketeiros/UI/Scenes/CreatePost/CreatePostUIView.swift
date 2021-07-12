@@ -20,9 +20,9 @@ struct CreatePostUIView: View {
             VStack(spacing: 10){
                 ZStack {
                     Rectangle()
-                        .fill(Color(#colorLiteral(red: 0.8980392157, green: 0.8941176471, blue: 0.9294117647, alpha: 1)))
-                        
-                        .frame(width: 390, height: 300)
+                        .foregroundColor(Color(UIColor.emptyCellGridColor))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.9066, height: UIScreen.main.bounds.size.height * 0.3756)
+                        .cornerRadius(24)
                         
 
                     if viewModel.states.inputImage != nil {
@@ -31,10 +31,15 @@ struct CreatePostUIView: View {
                             .frame(width: 390, height: 500)
                             .scaledToFit()
                     } else {
-                        Spacer()
-                        Text("Clice aqui para selecionar a imagem")
-                            .foregroundColor(.black)
-                            .font(.headline)
+                        VStack{
+                            Image(systemName: "camera")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.1413, height: UIScreen.main.bounds.size.height * 0.0529)
+                            Text("Adicione uma capa")
+                        }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
+                        
+                        
                     }
                 }
                 .onTapGesture {
@@ -44,9 +49,12 @@ struct CreatePostUIView: View {
                 Spacer()
                 
                 HStack{
-                    Text("Título")
+                    Text("Título").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                
                     Spacer()
-                    
+                        
                     ZStack(alignment:.trailing){
                         TextField("Título do Post", text: viewModel.bindings.titlePost)
                             .padding()
@@ -57,7 +65,10 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
                 
                 HStack{
-                    Text("Legenda")
+                    Text("Legenda").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                
                     Spacer()
                     ZStack(alignment:.trailing){
                         TextField("Legendas", text: viewModel.bindings.legendPost)
@@ -70,7 +81,10 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
                 
                 HStack{
-                    Text("Hastags")
+                    Text("Hastags").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                
                     Spacer()
                     ZStack(alignment:.trailing){
                         TextField("#", text: viewModel.bindings.hastagPost)
@@ -82,7 +96,10 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
                 
                 HStack{
-                    Text("Marcados")
+                    Text("Marcados").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                
                     Spacer()
                     ZStack(alignment:.trailing){
                         TextField("E-mail do convidado", text: viewModel.bindings.markedPost)
@@ -94,10 +111,16 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
 
                 HStack(){
-                    Toggle("Agendar", isOn: viewModel.bindings.showGreeting)
+                    Text("Agendar").fontWeight(.regular)
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                    Toggle("", isOn: viewModel.bindings.showGreeting)
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    
                     
                 }
                 .padding(20)
+                
                 
                 
                 VStack {

@@ -132,10 +132,11 @@ struct PostDetailsView: View {
     }
 }
 
-//struct PostDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            PostDetailsView(post: .T(uid: "Teu cu", photoPath: "Teu cu", title: "Teu cu", description: "Teu cu", hashtags: ["Teu cu"], markedAccountsOnPost: ["Teu cu"], dateOfPublishing: Date()))
-//        }
-//    }
-//}
+/*struct PostDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            PostDetailsView(post: .T(uid: "", photoPath: "", title: "", description: "", hashtags: [""], markedAccountsOnPost: [""], dateOfPublishing: Date()), board: Board)
+        }
+    }
+}
+*/
