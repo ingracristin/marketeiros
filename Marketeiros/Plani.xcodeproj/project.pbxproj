@@ -174,7 +174,7 @@
 		EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardItemDetailsView.swift; sourceTree = "<group>"; };
 		EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodHalfModalView.swift; sourceTree = "<group>"; };
 		EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardView.swift; sourceTree = "<group>"; };
-		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF30C35C26779A9A00DB7644 /* Plani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36326779A9A00DB7644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 		EF30C35D26779A9A00DB7644 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EF30C35C26779A9A00DB7644 /* Marketeiros.app */,
+				EF30C35C26779A9A00DB7644 /* Plani.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -635,9 +635,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EF30C35B26779A9A00DB7644 /* Marketeiros */ = {
+		EF30C35B26779A9A00DB7644 /* Plani */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EF30C36B26779A9B00DB7644 /* Build configuration list for PBXNativeTarget "Marketeiros" */;
+			buildConfigurationList = EF30C36B26779A9B00DB7644 /* Build configuration list for PBXNativeTarget "Plani" */;
 			buildPhases = (
 				D100D83CAEA2EBB4D6E7BBD7 /* [CP] Check Pods Manifest.lock */,
 				EF30C35826779A9A00DB7644 /* Sources */,
@@ -649,9 +649,9 @@
 			);
 			dependencies = (
 			);
-			name = Marketeiros;
+			name = Plani;
 			productName = Marketeiros;
-			productReference = EF30C35C26779A9A00DB7644 /* Marketeiros.app */;
+			productReference = EF30C35C26779A9A00DB7644 /* Plani.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -668,7 +668,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EF30C35726779A9A00DB7644 /* Build configuration list for PBXProject "Marketeiros" */;
+			buildConfigurationList = EF30C35726779A9A00DB7644 /* Build configuration list for PBXProject "Plani" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -682,7 +682,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EF30C35B26779A9A00DB7644 /* Marketeiros */,
+				EF30C35B26779A9A00DB7644 /* Plani */,
 			);
 		};
 /* End PBXProject section */
@@ -1017,7 +1017,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EF30C35726779A9A00DB7644 /* Build configuration list for PBXProject "Marketeiros" */ = {
+		EF30C35726779A9A00DB7644 /* Build configuration list for PBXProject "Plani" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF30C36926779A9B00DB7644 /* Debug */,
@@ -1026,7 +1026,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EF30C36B26779A9B00DB7644 /* Build configuration list for PBXNativeTarget "Marketeiros" */ = {
+		EF30C36B26779A9B00DB7644 /* Build configuration list for PBXNativeTarget "Plani" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EF30C36C26779A9B00DB7644 /* Debug */,
