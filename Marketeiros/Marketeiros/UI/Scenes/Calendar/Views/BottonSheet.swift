@@ -21,7 +21,7 @@ struct BottomSheet : View {
                 .padding(.top)
                 .padding(.bottom,8)
             
-            Text("Eventos da semana")
+            Text(NSLocalizedString("eventWeek", comment: ""))
                 .foregroundColor(.white)
                 .bold()
                 .padding(.bottom,15)
