@@ -56,7 +56,7 @@ struct CreatePostUIView: View {
                     Spacer()
                         
                     ZStack(alignment:.trailing){
-                        TextField("Título do Post", text: viewModel.bindings.titlePost)
+                        TextField("Um título faz a diferença", text: viewModel.bindings.titlePost)
                             .padding()
                             .frame(width: 253, height: 50)
                             .background(Color("TextField2"))
@@ -71,7 +71,7 @@ struct CreatePostUIView: View {
                 
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("Legendas", text: viewModel.bindings.legendPost)
+                        TextField("A legenda é fundamental...", text: viewModel.bindings.legendPost)
                             .padding()
                             //.frame(height:reader.size.height * 0.052)
                             .frame(width: 253, height: 100)
@@ -102,7 +102,7 @@ struct CreatePostUIView: View {
                 
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: viewModel.bindings.markedPost)
+                        TextField("@", text: viewModel.bindings.markedPost)
                             .padding()
                             .frame(width: 253, height: 50)
                             .background(Color("TextField2"))

@@ -20,8 +20,9 @@ struct PostDetailsView: View {
             VStack(spacing: 10){
                 ZStack {
                     Rectangle()
-                        .fill(Color.secondary)
-                        .frame(width: 390, height: 300)
+                        .foregroundColor(Color(UIColor.emptyCellGridColor))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.9066, height: UIScreen.main.bounds.size.height * 0.3756)
+                        .cornerRadius(24)
 
                     if viewModel.states.inputImage != nil {
                         Image(uiImage: viewModel.states.inputImage!)
@@ -29,9 +30,14 @@ struct PostDetailsView: View {
                             .frame(width: 390, height: 500)
                             .scaledToFit()
                     } else {
-                        Text("Clice aqui para selecionar a imagem")
-                            .foregroundColor(.black)
-                            .font(.headline)
+                        VStack{
+                            Image(systemName: "camera")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.1413, height: UIScreen.main.bounds.size.height * 0.0529)
+                            Text("Adicione uma capa")
+                        }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
+                        
                     }
                 }
                 .onTapGesture {
@@ -42,56 +48,69 @@ struct PostDetailsView: View {
                 
                 HStack{
                     Text("Título")
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
                     Spacer()
                     
                     ZStack(alignment:.trailing){
-                        TextField("Título do Post", text: viewModel.bindings.titlePost)
+                        TextField("Um título faz a diferença", text: viewModel.bindings.titlePost)
                             .padding()
                             .frame(width: 253, height: 50)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
+                           
                     }
                 }.padding(.horizontal,20)
                 
                 HStack{
                     Text("Legenda")
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("Legendas", text: viewModel.bindings.legendPost)
+                        TextField("A legenda é fundamental...", text: viewModel.bindings.legendPost)
                             .padding()
                             //.frame(height:reader.size.height * 0.052)
                             .frame(width: 253, height: 100)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
                     }
                 }.padding(.horizontal,20)
                 
                 HStack{
                     Text("Hastags")
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
                     Spacer()
                     ZStack(alignment:.trailing){
                         TextField("#", text: viewModel.bindings.hastagPost)
                             .padding()
                             .frame(width: 253, height: 50)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
                     }
                 }.padding(.horizontal,20)
                 
                 HStack{
                     Text("Marcados")
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: viewModel.bindings.markedPost)
+                        TextField("@", text: viewModel.bindings.markedPost)
                             .padding()
                             .frame(width: 253, height: 50)
-                            .background(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .background(Color("TextField2"))
                             .cornerRadius(8)
                     }
                 }.padding(.horizontal,20)
 
                 HStack(){
-                    Toggle("Agendar", isOn: viewModel.bindings.showGreeting)
+                    Text("Agendar")
+                        .font(.title3)
+                        .foregroundColor(Color("NavBarTitle"))
+                    Toggle("", isOn: viewModel.bindings.showGreeting)
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
                 }
                 .padding(20)
                 
@@ -101,8 +120,8 @@ struct PostDetailsView: View {
                         selection: viewModel.bindings.scheduleDate)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 25)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1))))
+                        .background(Color("TextField2"))
+                                        .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                         .isHidden(!viewModel.states.showGreeting)
                 }
                 .frame(height: (viewModel.states.showGreeting) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -132,11 +151,11 @@ struct PostDetailsView: View {
     }
 }
 
-/*struct PostDetailsView_Previews: PreviewProvider {
+struct PostDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PostDetailsView(post: .T(uid: "", photoPath: "", title: "", description: "", hashtags: [""], markedAccountsOnPost: [""], dateOfPublishing: Date()), board: Board)
+            PostDetailsView(post: .T(uid: "", photoPath: "", title: "", description: "", hashtags: [""], markedAccountsOnPost: [""], dateOfPublishing: Date()), board: Board(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
         }
     }
 }
-*/
+
