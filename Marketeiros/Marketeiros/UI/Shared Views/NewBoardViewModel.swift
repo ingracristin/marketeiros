@@ -64,7 +64,7 @@ class NewBoardViewModel : ObservableObject {
     
     func createBoard() {
         guard let user = AuthService.current.user else {return}
-        guard let image = states.inputImage?.jpeg(.high) else {return}
+        guard let image = states.inputImage?.jpeg(.medium) else {return}
         
         var board = Board(
             uid: " ",

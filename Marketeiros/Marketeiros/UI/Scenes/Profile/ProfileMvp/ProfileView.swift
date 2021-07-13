@@ -11,6 +11,7 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isShow = false
     @State private var showingPopover = false
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
@@ -20,12 +21,29 @@ struct ProfileView: View {
                 .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.2906)
                 .ignoresSafeArea()
             VStack() {
+                
+                HStack(alignment: .lastTextBaseline,spacing:0) {
+                    Spacer()
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "slider.horizontal.3")
+                            .frame(height: 40)
+                    }
+                    .isHidden(true)
+                }.padding(.bottom,0)
+                    
                 HStack {
                     Text(NSLocalizedString("profile", comment: ""))
                         .navBarTitle()
                     Spacer()
+                    Button(action: {
+                        authenticationViewModel.signOut()
+                    }, label: {
+                        Text("Sign Out")
+                    })
                 }
-                .padding(.init(top: 30, leading: 20, bottom: 10, trailing: 0))
+                .padding(.bottom,8)
                 
                 HStack() {
                     VStack(alignment: .leading) {
@@ -92,8 +110,6 @@ struct ProfileView: View {
                 //questionmark.circle
             }.padding()
             .navigationBarHidden(true)
-            
-            
         }
     }
 }

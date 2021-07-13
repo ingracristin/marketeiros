@@ -24,7 +24,7 @@ class CreatePostViewModel : ObservableObject {
         var image: Image?
         var imagePath: String = ""
         var inputImage: UIImage?
-        var percentage: Double = 0
+        var percentage: Float = 0
     }
     
     var bindings: (
@@ -39,7 +39,7 @@ class CreatePostViewModel : ObservableObject {
         inputImage: Binding<UIImage?>,
         imagePath: Binding<String>,
         showingAlertView: Binding<Bool>,
-        percentage: Binding<Double>)
+        percentage: Binding<Float>)
     {(
         titlePost: Binding(
             get: {self.states.titlePost},
@@ -84,7 +84,7 @@ class CreatePostViewModel : ObservableObject {
     }
     
     func addPostToBoard(completionHadler: @escaping (String?) -> ()) {
-        guard let image = states.inputImage?.jpeg(.high) else {return}
+        guard let image = states.inputImage?.jpeg(.medium) else {return}
         
         var post = Post(
             uid: "",
@@ -109,7 +109,7 @@ class CreatePostViewModel : ObservableObject {
         states.showingAlertView.toggle()
         ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
             print(percentage)
-            self?.states.percentage = percentage
+            self?.states.percentage = Float(percentage)
         } completion: { result in
             switch result {
             case .failure(let message):

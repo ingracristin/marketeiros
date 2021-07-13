@@ -38,10 +38,11 @@ struct CalendarPageView: View {
                     Text(NSLocalizedString("calendar", comment: ""))
                         .navBarTitle()
                     Spacer()
-                    AppButtonView(
-                        label: NSLocalizedString("creatEventBtn", comment: "")) {
-                        isShowing.toggle()
-                    }
+                    
+//                    AppButtonView(
+//                        label: NSLocalizedString("creatEventBtn", comment: "")) {
+//                        isShowing.toggle()
+//                    }
                 }
                 .padding(.bottom,8)
             
@@ -49,7 +50,7 @@ struct CalendarPageView: View {
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .accentColor(Color(UIColor.appLightBlue))
             }
-            .padding(.horizontal,20)
+            .padding(.horizontal)
             
             GeometryReader { reader in
                 VStack {

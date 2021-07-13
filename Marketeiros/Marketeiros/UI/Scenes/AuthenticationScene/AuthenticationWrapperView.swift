@@ -28,6 +28,7 @@ struct AuthenticationWrapperView: View {
                 viewModel.set(isLogged: false)
             }
         }
+        .environmentObject(viewModel)
     }
 }
 

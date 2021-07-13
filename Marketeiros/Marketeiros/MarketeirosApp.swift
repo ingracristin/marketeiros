@@ -48,5 +48,6 @@ extension MarketeirosApp {
         UIToolbar.appearance().setShadowImage(UIImage(), forToolbarPosition: .any)
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().clipsToBounds = true
+        UITextView.appearance().backgroundColor = .clear
     }
 }

@@ -124,7 +124,7 @@ class PostDetailsViewModel: ObservableObject {
         BoardsRepository.current.update(item: &post, to: board, on: .posts)
         
         if states.inputImage != pastPhoto {
-            guard let image = states.inputImage?.jpeg(.high) else {return}
+            guard let image = states.inputImage?.jpeg(.medium) else {return}
             
             states.showingAlertView.toggle()
             ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in

@@ -72,23 +72,28 @@ class AuthenticationViewModel: ObservableObject {
     )}
     
     func signIn() {
-        AuthService.current.signInWithEmailAndPassword(email: states.loginEmail, password: states.loginPassword) { result in
+        self.states.isLoading.toggle()
+        AuthService.current.signInWithEmailAndPassword(email: states.loginEmail, password: states.loginPassword) { [weak self] result in
+            self?.states.isLoading.toggle()
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(_):
-                self.states.isLoggedIn.toggle()
+                self?.states.isLoggedIn.toggle()
             }
         }
     }
     
     func signUp() {
+        states.isLoading.toggle()
         AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { result in
             switch result {
             case .failure(let error):
+                self.states.isLoading.toggle()
                 print(error)
             case .success(let user):
                 UserRepository.current.initialize(user: user) { [weak self] result in
+                    self?.states.isLoading.toggle()
                     switch result {
                     case .failure(let error):
                         print(error)
@@ -101,6 +106,7 @@ class AuthenticationViewModel: ObservableObject {
             }
         }
     }
+    
     
     func signUpWithApple(authorization: ASAuthorization) {
         guard let credentials = authorization.credential as? ASAuthorizationAppleIDCredential,
@@ -126,6 +132,14 @@ class AuthenticationViewModel: ObservableObject {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func signOut() {
+        AuthService.current.signOut { [weak self]result in
+            if let self = self {
+                self.set(isLogged: false)
             }
         }
     }

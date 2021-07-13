@@ -27,8 +27,9 @@ struct PostDetailsView: View {
                     if viewModel.states.inputImage != nil {
                         Image(uiImage: viewModel.states.inputImage!)
                             .resizable()
-                            .frame(width: 390, height: 500)
+                            .frame(width: UIScreen.main.bounds.size.width * 0.9066, height: UIScreen.main.bounds.size.height * 0.3756)
                             .scaledToFit()
+                            .clipped()
                     } else {
                         VStack{
                             Image(systemName: "camera")
@@ -134,9 +135,6 @@ struct PostDetailsView: View {
         .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
             ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
         }
-        .alert(isPresented: viewModel.bindings.showingAlertView, content: {
-            Alert(title: Text("\(viewModel.states.percentage)"))
-        })
         .navigationBarItems(trailing:
             Button(action: {
                 viewModel.saveChangesToPost { _ in

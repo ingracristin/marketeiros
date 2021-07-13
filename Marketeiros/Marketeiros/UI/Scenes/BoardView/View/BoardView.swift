@@ -17,11 +17,11 @@ struct AppButtonView: View {
         }, label: {
             Text(label)
                 .foregroundColor(.white)
-                .font(.caption)
-                .fontWeight(.semibold)
-                .padding(5)
-                .background(RoundedRectangle(cornerRadius: 10)
+                .font(Font.sfProDisplaySemiBold(sized: 14))
+                .padding(6)
+                .background(RoundedRectangle(cornerRadius: 12)
                                 .accentColor(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1))))
+                .shadow(radius: 6)
         })
     }
 }
@@ -59,6 +59,7 @@ struct BoardView: View {
                     Spacer()
                 }
                 .padding(.bottom,8)
+                .padding(.horizontal)
                 
                 GeometryReader { reader in
                     ScrollView(.vertical, showsIndicators: false) {
@@ -72,7 +73,7 @@ struct BoardView: View {
                                 AppButtonView(label: NSLocalizedString("createBtn", comment: "")) {
                                     viewModel.toggleSheetView()
                                 }
-                            }
+                            }.padding(.horizontal)
                             
                             LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: [], content: {
                                 ForEach(viewModel.boards, id: \.uid) { board in
@@ -80,8 +81,12 @@ struct BoardView: View {
                                         destination: InsideBoardView(board: board),
                                         label: {
                                             BoardCell(board: board)
-                                                .frame(width: reader.size.width, height: reader.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
+                                                .frame(height: reader.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
                                                 .cornerRadius(20)
+                                                .shadow(radius: 6, x: 2, y: 4)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 10)
                                         })
                                 }
                             })
@@ -95,12 +100,14 @@ struct BoardView: View {
                                 AppButtonView(label: NSLocalizedString("createIdeaBtn", comment: "")) {
                                     viewModel.toggleSheetView()
                                 }
-                            }
+                            }.padding(.horizontal)
                             
                             IdeaCell()
-                                .frame(height: reader.size.height * 0.1380, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .background(Color(#colorLiteral(red: 0.9371728301, green: 0.9373074174, blue: 0.9371433854, alpha: 1)))
                                 .cornerRadius(14)
+                                .shadow(radius: 6)
+                                .padding(.horizontal)
+                          
                         }
                     }
                 }
@@ -116,7 +123,7 @@ struct BoardView: View {
                     viewModel.getAllBoards()
                 }
             }
-            .padding(.horizontal,20)
+            //.padding(.horizontal,20)
         }
     }
 }

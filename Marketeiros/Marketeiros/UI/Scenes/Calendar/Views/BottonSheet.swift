@@ -24,7 +24,7 @@ struct BottomSheet : View {
             Text(NSLocalizedString("eventWeek", comment: ""))
                 .foregroundColor(.white)
                 .bold()
-                .padding(.bottom,15)
+                .padding(.bottom,5)
             
             ScrollView(.vertical, showsIndicators: false, content: {
                 LazyVStack(alignment: .leading, spacing: 15, content: {

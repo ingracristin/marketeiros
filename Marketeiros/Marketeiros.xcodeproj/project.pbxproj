@@ -66,6 +66,10 @@
 		AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED4269C15180091F229 /* EditIdeaView.swift */; };
 		AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */; };
 		AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80EDA269C48AC0091F229 /* EditPasteView.swift */; };
+		AED48457269D5EE100890E91 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48456269D5EE100890E91 /* LoadingView.swift */; };
+		AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48458269D5EE700890E91 /* ProgressBar.swift */; };
+		AED4845B269D5EEF00890E91 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */; };
+		AED4845D269D69D600890E91 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845C269D69D600890E91 /* ProgressBarView.swift */; };
 		AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserRepository.swift */; };
 		AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7526897D2A00870BB2 /* BoardRepository.swift */; };
 		AED6CF7826897D5E00870BB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7726897D5E00870BB2 /* User.swift */; };
@@ -158,6 +162,10 @@
 		AEC80ED4269C15180091F229 /* EditIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaView.swift; sourceTree = "<group>"; };
 		AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaViewModel.swift; sourceTree = "<group>"; };
 		AEC80EDA269C48AC0091F229 /* EditPasteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasteView.swift; sourceTree = "<group>"; };
+		AED48456269D5EE100890E91 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		AED48458269D5EE700890E91 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		AED4845C269D69D600890E91 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		AED6CF7326897CE400870BB2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		AED6CF7526897D2A00870BB2 /* BoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRepository.swift; sourceTree = "<group>"; };
 		AED6CF7726897D5E00870BB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Marketeiros/Data/Repositories/User.swift; sourceTree = SOURCE_ROOT; };
@@ -281,7 +289,11 @@
 				AE8A5209268B8C7100E14EBD /* BlurView.swift */,
 				AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */,
 				AE119B61268EC0FC00327D39 /* FirebaseImage.swift */,
+				AED48458269D5EE700890E91 /* ProgressBar.swift */,
+				AED48456269D5EE100890E91 /* LoadingView.swift */,
+				AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */,
 				AE3EB5C326976C7E0093AF7C /* HalfModalView.swift */,
+				AED4845C269D69D600890E91 /* ProgressBarView.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -762,6 +774,7 @@
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
+				AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */,
 				AE3EB5D526976CDC0093AF7C /* SearchView.swift in Sources */,
 				EF2D050626935FF200B9D7E5 /* MoodBoardView.swift in Sources */,
 				EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */,
@@ -799,6 +812,7 @@
 				AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
 				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,
+				AED48457269D5EE100890E91 /* LoadingView.swift in Sources */,
 				AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */,
 				AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */,
 				795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */,
@@ -811,6 +825,7 @@
 				AE3EB5E226976D090093AF7C /* DeviceDataPersistenceService.swift in Sources */,
 				79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */,
 				AE3EB5CA26976CBC0093AF7C /* PastesDetailsView.swift in Sources */,
+				AED4845B269D5EEF00890E91 /* ActivityIndicator.swift in Sources */,
 				AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */,
@@ -818,6 +833,7 @@
 				AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */,
 				EF8646C126974BAC0037DAB1 /* HelpView.swift in Sources */,
 				AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */,
+				AED4845D269D69D600890E91 /* ProgressBarView.swift in Sources */,
 				79034D0A2695DA5200AE97EA /* DragRelocateDelegate.swift in Sources */,
 				EF2D05022693566100B9D7E5 /* MoodHalfModalView.swift in Sources */,
 				AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */,
