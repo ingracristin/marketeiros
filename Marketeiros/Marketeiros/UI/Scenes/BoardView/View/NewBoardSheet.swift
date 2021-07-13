@@ -28,32 +28,32 @@ struct NewBoardSheet: View {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("Cancelar")
+                        Text(NSLocalizedString("cancelBtn", comment: ""))
                             .foregroundColor(Color(#colorLiteral(red: 0.8705882353, green: 0.3647058824, blue: 0.3647058824, alpha: 1)))
                             .font(.body)
                     })
                     Spacer()
-                    Text("Novo quadro")
+                    Text(NSLocalizedString("sheetTittleNew", comment: ""))
                         .foregroundColor(Color("SheetHeaderColor"))
                     Spacer()
                     Button(action: {
                         viewModel.createBoard()
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("Adicionar")
+                        Text(NSLocalizedString("creatBtn", comment: ""))
                             .foregroundColor(Color("SheetButton"))
                             .font(.body)
                     })
                 }
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
                     HStack(spacing: 0){
-                        Text("Nome do quadro").fontWeight(.regular)
+                        Text(NSLocalizedString("nameBoard", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                             
                         Spacer()
                     }
-                    TextField("Dê um nome ao seu quadro...", text: viewModel.bindings.title)
+                    TextField(NSLocalizedString("PH_boardName", comment: ""), text: viewModel.bindings.title)
                         .frame(height:reader.size.height * 0.052)
                         .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                         .background(Color("TextField2"))
@@ -62,12 +62,12 @@ struct NewBoardSheet: View {
                 
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
                     HStack(spacing: 0){
-                        Text("Vincular à conta do Instagram").fontWeight(.regular)
+                        Text(NSLocalizedString("linkInsta", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                     }
-                    TextField("@usuário", text: viewModel.bindings.instragramAccount)
+                    TextField(NSLocalizedString("PH_link", comment: ""), text: viewModel.bindings.instragramAccount)
                         .frame(height:reader.size.height * 0.052)
                         .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                         .background(Color("TextField2"))
@@ -75,11 +75,11 @@ struct NewBoardSheet: View {
                 }
                 
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02) {
-                    Text("Bio do quadro").fontWeight(.regular)
+                    Text(NSLocalizedString("boardBio", comment: "")).fontWeight(.regular)
                         .font(.title3)
                         .foregroundColor(Color("NavBarTitle"))
                     
-                    TextField("Descreva em poucas palavras o seu quadro...",text: viewModel.bindings.description)
+                    TextField(NSLocalizedString("PH_boardbio", comment: ""),text: viewModel.bindings.description)
                         .frame(height: reader.size.height * 0.1317,alignment: .topLeading)
                         .padding(.init(top: 10, leading: 10, bottom: 0, trailing: 0))
                         .multilineTextAlignment(.leading)
@@ -89,7 +89,7 @@ struct NewBoardSheet: View {
                 }
                 
                 VStack(alignment:.leading, spacing: reader.size.height * 0.02){
-                    Text("Imagem do quadro").fontWeight(.regular)
+                    Text(NSLocalizedString("imageBoard", comment: "")).fontWeight(.regular)
                         .font(.title3)
                         .foregroundColor(Color("NavBarTitle"))
                     Button(action: {
@@ -111,7 +111,7 @@ struct NewBoardSheet: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: reader.size.width * 0.1413, height: reader.size.height * 0.0529)
-                                    Text("Adicione uma capa")
+                                    Text(NSLocalizedString("imageCaption", comment: ""))
                                 }
                             }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                         }

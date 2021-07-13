@@ -70,9 +70,9 @@
 //Creat Post View
 "createPost" = "Criar post";
 "chooseImg" = "Escolher imagem";
-"PH_title" = "Um título chamativo faz a diferença";
+"PH_title" = "Um título faz a diferença";
 "caption" = "Legenda";
-"PH_caption" = "A legenda é parte fundamental pro seu post, então escreva algo legal aqui....";
+"PH_caption" = "A legenda fundamental..";
 "tagPeople" = "Marcados";
 "schedule" = "Agendar";
 "day" = "Dia";

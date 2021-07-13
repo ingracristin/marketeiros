@@ -35,11 +35,11 @@ struct CalendarPageView: View {
                 }.padding(.bottom,0)
                     
                 HStack {
-                    Text("Calendar")
+                    Text(NSLocalizedString("calendar", comment: ""))
                         .navBarTitle()
                     Spacer()
                     AppButtonView(
-                        label: "Criar Evento") {
+                        label: NSLocalizedString("creatEventBtn", comment: "")) {
                         isShowing.toggle()
                     }
                 }

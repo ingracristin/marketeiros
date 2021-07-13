@@ -22,35 +22,35 @@ struct AddNewEventView: View {
                 .padding(.top)
                 .padding(.bottom,5)
             VStack(alignment: .leading) {
-                Text("Titulo")
+                Text(NSLocalizedString("title", comment: ""))
                     .cellTitle()
                 TextField("", text: $title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
             HStack {
-                Text("Começa em:")
+                Text(NSLocalizedString("starts", comment: ""))
                     .cellTitle()
                 DatePicker("", selection: $date)
                     .datePickerStyle(CompactDatePickerStyle())
             }
             
             HStack {
-                Text("Termina em:")
+                Text(NSLocalizedString("ends", comment: ""))
                     .cellTitle()
                 DatePicker("", selection: $date)
                     .datePickerStyle(CompactDatePickerStyle())
             }
             
             VStack(alignment: .leading) {
-                Text("Local")
+                Text(NSLocalizedString("place", comment: ""))
                     .cellTitle()
                 TextField("", text: $title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
             HStack {
-                Text("Calendário")
+                Text(NSLocalizedString("calendar", comment: ""))
                     .cellTitle()
                 Spacer()
             }

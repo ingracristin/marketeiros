@@ -36,7 +36,7 @@ struct CreatePostUIView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: UIScreen.main.bounds.size.width * 0.1413, height: UIScreen.main.bounds.size.height * 0.0529)
-                            Text("Adicione uma capa")
+                            Text(NSLocalizedString("chooseImg", comment: ""))
                         }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                         
                         
@@ -56,7 +56,7 @@ struct CreatePostUIView: View {
                     Spacer()
                         
                     ZStack(alignment:.trailing){
-                        TextField("Um título faz a diferença", text: viewModel.bindings.titlePost)
+                        TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
                             .padding()
                             .frame(width: 253, height: 50)
                             .background(Color("TextField2"))
@@ -65,13 +65,13 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
                 
                 HStack{
-                    Text("Legenda").fontWeight(.regular)
+                    Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
                         .font(.title3)
                         .foregroundColor(Color("NavBarTitle"))
                 
                     Spacer()
                     ZStack(alignment:.trailing){
-                        TextField("A legenda é fundamental...", text: viewModel.bindings.legendPost)
+                        TextField(NSLocalizedString("PH_caption", comment: ""), text: viewModel.bindings.legendPost)
                             .padding()
                             //.frame(height:reader.size.height * 0.052)
                             .frame(width: 253, height: 100)
@@ -96,7 +96,7 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
                 
                 HStack{
-                    Text("Marcados").fontWeight(.regular)
+                    Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
                         .font(.title3)
                         .foregroundColor(Color("NavBarTitle"))
                 
@@ -111,7 +111,7 @@ struct CreatePostUIView: View {
                 }.padding(.horizontal,20)
 
                 HStack(){
-                    Text("Agendar").fontWeight(.regular)
+                    Text(NSLocalizedString("schedule", comment: "")).fontWeight(.regular)
                         .font(.title3)
                         .foregroundColor(Color("NavBarTitle"))
                     Toggle("", isOn: viewModel.bindings.showGreeting)
@@ -139,7 +139,7 @@ struct CreatePostUIView: View {
                 .padding()
             }
         }
-        .navigationBarTitle("Criar Post", displayMode: .inline)
+        .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)
         .padding(.vertical,20)
         .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
             ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
@@ -155,7 +155,7 @@ struct CreatePostUIView: View {
                 presentationMode.wrappedValue.dismiss()
             }
         }, label: {
-            Text("Salvar")
+            Text(NSLocalizedString("save", comment: ""))
                 .font(Font.sfProDisplaySemiBold(sized: 17))
                 .foregroundColor(Color(UIColor.navBarItemsColor))
                 .font(.body)

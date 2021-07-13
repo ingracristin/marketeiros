@@ -19,7 +19,7 @@ struct IdeaView: View {
     var body: some View {
         GeometryReader { reader in
             VStack(alignment: .leading) {
-                Text("Pastas")
+                Text(NSLocalizedString("collections", comment: ""))
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("NavBarTitle"))
@@ -38,7 +38,7 @@ struct IdeaView: View {
                             HStack{
                                 Image(systemName: "folder")
                                     .foregroundColor(Color("FolderTextColor"))
-                                Text("Nova pasta")
+                                Text(NSLocalizedString("btnCollection", comment: ""))
                                     .foregroundColor(Color("FolderTextColor"))
                                     .font(.callout)
                                     .fontWeight(.regular)
@@ -70,7 +70,7 @@ struct IdeaView: View {
                     }).frame(height: 70)
                 }
                 //.fixedSize()
-                Text("Cartões de ideias")
+                Text(NSLocalizedString("ideaCard", comment: ""))
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("NavBarTitle"))
@@ -91,7 +91,7 @@ struct IdeaView: View {
                                             .aspectRatio(contentMode: .fit)
                                             .foregroundColor(Color("NavBarTitle"))
 //                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        Text("Adicionar ideia")
+                                        Text(NSLocalizedString("ideaBtn", comment: ""))
                                             .foregroundColor(Color("NavBarTitle"))
                                             .font(.body)
                                             .fontWeight(.regular)
