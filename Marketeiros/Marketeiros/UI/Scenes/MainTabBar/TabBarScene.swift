@@ -19,14 +19,14 @@ struct TabBarScene: View {
                 
                 CalendarPageView()
                     .tabItem {
-                        Label("Calendário", systemImage: "calendar")
+                        Label(NSLocalizedString("calendar", comment: ""), systemImage: "calendar")
                     }
                     .accentColor(Color("tabBarItem"))
                     .navigationBarHidden(true)
                 
                 ProfileView()
                     .tabItem {
-                        Label("Perfil", systemImage: "person.fill")
+                        Label(NSLocalizedString("profile", comment: ""), systemImage: "person.fill")
                     }
                     .accentColor(Color("tabBarItem"))
                     .navigationBarHidden(true)

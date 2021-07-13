@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IdeaCell: View {
-    @State var newIdea: String = "Teve uma nova super ideia? Escreva aqui para não esquecer!"
+    @State var newIdea: String = NSLocalizedString("writeIdea", comment: "")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5){
