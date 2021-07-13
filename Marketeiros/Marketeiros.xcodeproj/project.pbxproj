@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		79034D0A2695DA5200AE97EA /* DragRelocateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */; };
 		79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79034D0B269634CC00AE97EA /* UIApplicationExtension.swift */; };
+		79034D14269C701300AE97EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79034D16269C701300AE97EA /* Localizable.strings */; };
 		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
@@ -97,6 +98,8 @@
 		70C384D510A910D381C9127C /* Pods-Marketeiros.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.debug.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.debug.xcconfig"; sourceTree = "<group>"; };
 		79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRelocateDelegate.swift; sourceTree = "<group>"; };
 		79034D0B269634CC00AE97EA /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		79034D15269C701300AE97EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79034D17269C70B200AE97EA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -584,6 +587,7 @@
 				AE5B704A2678EAD400AFF32E /* UI */,
 				AE590B8326779DA4000101AF /* Domain */,
 				EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */,
+				79034D16269C701300AE97EA /* Localizable.strings */,
 				EF30C36326779A9A00DB7644 /* Assets.xcassets */,
 				EF30C36826779A9B00DB7644 /* Info.plist */,
 				EF30C36526779A9A00DB7644 /* Preview Content */,
@@ -671,6 +675,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = EF30C35326779A9A00DB7644;
 			productRefGroup = EF30C35D26779A9A00DB7644 /* Products */;
@@ -692,6 +697,7 @@
 				AE3C43AD2693FAAD00013F79 /* SFProDisplay-Semibold.ttf in Resources */,
 				EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */,
 				AE3C43AC2693FAAD00013F79 /* SFProDisplay-Regular.ttf in Resources */,
+				79034D14269C701300AE97EA /* Localizable.strings in Resources */,
 				AED6CF8326897FAB00870BB2 /* GoogleService-Info.plist in Resources */,
 				AE3C43AB2693FAAD00013F79 /* SFProDisplay-Medium.ttf in Resources */,
 			);
@@ -827,11 +833,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		79034D16269C701300AE97EA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79034D15269C701300AE97EA /* en */,
+				79034D17269C70B200AE97EA /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		EF30C36926779A9B00DB7644 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -894,6 +913,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -955,7 +975,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = Y22Z44SKH8;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -963,7 +983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeirosss;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -979,7 +999,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = Y22Z44SKH8;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -987,7 +1007,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeirosss;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

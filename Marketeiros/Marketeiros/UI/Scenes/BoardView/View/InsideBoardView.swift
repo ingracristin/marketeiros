@@ -79,7 +79,7 @@ struct InsideBoardView: View {
                             }
                             
                             ForEach(vm.imagesUrls, id: \.id) { imageUrl in
-                                AsyncImage(url: URL(string: imageUrl.imageUrl)!) {
+                                AsyncImage(url: URL(string: imageUrl.imageUrl)!, averageColorOn: $averageColorOn) {
                                     Rectangle()
                                         .foregroundColor(.gray)
                                 } image: {

@@ -102,8 +102,10 @@ struct NewBoardSheet: View {
                                 if viewModel.states.inputImage != nil {
                                     Image(uiImage: viewModel.states.inputImage!)
                                         .resizable()
-                                        .frame(height:reader.size.height * 0.2512)
-                                        .scaledToFit()
+                                        .scaledToFill()
+                                        .frame(width: reader.size.width * 0.90, height:reader.size.height * 0.2512)
+                                        .clipped()
+                                        
                                 } else {
                                     Image(systemName: "camera")
                                         .resizable()

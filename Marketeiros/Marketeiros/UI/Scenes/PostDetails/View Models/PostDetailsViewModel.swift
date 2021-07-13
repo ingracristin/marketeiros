@@ -13,7 +13,6 @@ class PostDetailsViewModel: ObservableObject {
     var post: Post
     var board: Board
     var pastPhoto: UIImage!
-    var pastPost: Post
     
     struct States {
         var titlePost = ""
@@ -83,7 +82,6 @@ class PostDetailsViewModel: ObservableObject {
     )}
     
     init(post: Post, board: Board) {
-        self.pastPost = post
         self.post = post
         self.board = board
         states.titlePost = post.title
@@ -105,28 +103,50 @@ class PostDetailsViewModel: ObservableObject {
     }
     
     func saveChangesToPost(completionHadler: @escaping (String?) -> ()) {
-       guard let image = states.inputImage?.jpeg(.high) else {return}
-
-        BoardsRepository.current.add(item: &post, to: board, on: .posts)
-
-        UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing, withData: [
-            "imagePath": post.photoPath,
-            "description": post.description,
-            "uid": post.uid
-        ])
-
-        states.showingAlertView.toggle()
-        ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
-            print(percentage)
-            self?.states.percentage = percentage
-        } completion: { result in
-            switch result {
-            case .failure(let message):
-                completionHadler(message.localizedDescription)
-            case .success(_):
-                completionHadler(nil)
+        if states.scheduleDate != post.dateOfPublishing {
+            UserNotificationService.shared.deleteNotificationWith(uids: [post.uid])
+            UserNotificationService.shared.setUserNotification(on: states.scheduleDate, withData: [
+                "title": post.title,
+                "imagePath": post.photoPath,
+                "uid": post.uid,
+                "description": post.description,
+                "boardUid": board.uid,
+                "boardTitle": board.title,
+            ])
+        }
+        
+        post.title = states.titlePost
+        post.description = states.legendPost
+        post.hashtags = [states.hashtag]
+        post.markedAccountsOnPost = [states.markedAccountsOnPost]
+        post.dateOfPublishing = states.scheduleDate
+        
+        BoardsRepository.current.update(item: &post, to: board, on: .posts)
+        
+        if states.inputImage != pastPhoto {
+            guard let image = states.inputImage?.jpeg(.high) else {return}
+            
+            states.showingAlertView.toggle()
+            ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
+                print(percentage)
+                self?.states.percentage = percentage
+            } completion: { result in
+                switch result {
+                case .failure(let message):
+                    completionHadler(message.localizedDescription)
+                case .success(_):
+                    completionHadler(nil)
+                }
+                self.states.showingAlertView.toggle()
             }
-            self.states.showingAlertView.toggle()
+        } else {
+            completionHadler(nil)
+        }
+    }
+    
+    func deletePost() {
+        BoardsRepository.current.delete(item: post, to: board, on: .posts) { result in
+            
         }
     }
     

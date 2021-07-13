@@ -19,7 +19,10 @@ struct MoodBoardView: View {
         ScrollView {
             VStack {
                 if imagesList.isEmpty {
-                    Text("Voce ainda nao tem nada aqui mano")
+                    Image("moodBooardBg")
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaledToFill()
+                        .ignoresSafeArea()
                 }
                 MoodBoardGridView(imagesList: $imagesList)
             }
