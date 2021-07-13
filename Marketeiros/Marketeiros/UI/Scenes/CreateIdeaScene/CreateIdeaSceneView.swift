@@ -36,6 +36,11 @@ struct CreateIdeaSceneView: View {
                 TextEditor(text: viewModel.bindings.description)
                     .foregroundColor(Color(UIColor.lightGray))
                     .font(Font.sfProDisplaySemiBold(sized: 14))
+                    .onTapGesture {
+                        if viewModel.states.description == NSLocalizedString("descriptionIdea", comment: "") {
+                            viewModel.setDescriptionwith(text: "")
+                        }
+                    }
             }.padding()
 
             HalfModalView(isShown: viewModel.bindings.pasteSheetShowing, modalHeight: 350) {

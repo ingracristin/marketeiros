@@ -28,6 +28,11 @@ struct IdeaCell: View {
                     .font(Font.sfProDisplayRegular(sized: 14))
                     .foregroundColor(Color.gray)
                     .background(Color("ideaColorCell"))
+                    .onTapGesture {
+                        if newIdea == NSLocalizedString("writeIdea", comment: "") {
+                            newIdea = ""
+                        }
+                    }
                 Text(newIdea).opacity(0).padding(.all,8)
             }
             .padding(.vertical,8)

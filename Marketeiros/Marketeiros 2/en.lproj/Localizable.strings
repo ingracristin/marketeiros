@@ -1,0 +1,100 @@
+/*
+  Localizable.strings
+  Marketeiros
+
+  Created by João Guilherme on 12/07/21.
+  
+*/
+//Login View
+"createAcc" = "Create account";
+"or" = "or";
+"username" = "Username";
+"password" = "Password";
+"logIn" = "Log In";
+
+//Create AccountView
+"name" = "Name";
+"username" = "Username";
+"typeEmail" = "Type your e-mail";
+"typePass" = "Type your password";
+"typePassAgain" = "Type your password again";
+"termsCreate" = "By creating an account you agree to the terms of service and privacy policy of the application.";
+"create" = "Create account";
+
+//Home view
+"yourBoard" = "Your Boards";
+"createBtn" = "Create Board";
+"ideas" = "Ideas";
+"createIdeaBtn" = "Add idea";
+"writeIdea" = "Got a new idea? Write here so you don't forget!";
+
+//NewBoard Sheet
+"cancelBtn" = "Cancel";
+"sheetTittleNew" = "New Board";
+"creatBtn" = "Create";
+"nameBoard" = "Board name";
+"PH_boardName" = "Give your board a name";
+"linkInsta" = "Link to Instagram account";
+"PH_link" = "@your_user";
+"boardBio" = "Board bio";
+"PH_boardbio" = "Briefly describe your board...";
+"imageBoard" = "Board cover";
+"imageCaption" = "Add a image";
+
+//Calendar View
+"creatEventBtn" = "Create Event";
+"eventWeek" = "Events of the week";
+
+//NewEvent Sheet
+"addBtn" = "Add";
+"title" = "Title";
+"starts" = "Starts";
+"ends" = "Ends";
+"place" = "Place";
+"calendar" = "Calendar";
+
+//Profile View
+"profile" = "Profile";
+"account" = "Account";
+"notifi" = "Notifications";
+"help" = "Help";
+"about" = "About";
+"user" = "User";
+"email" = "E-mail";
+"terms" = "Terms and conditions";
+"rate" = "Rate app on App Store";
+"site" = "Website";
+"version" = "Version";
+"sup" = "Support";
+"contact" = "Contact us";
+"save" = "Save";
+
+
+//Creat Post View
+"createPost" = "Create post";
+"chooseImg" = "Choose a image";
+"PH_title" = "A title makes a difference";
+"caption" = "Caption";
+"PH_caption" = "The caption is a fundamental part of your post, so write something nice here....";
+"tagPeople" = "Tag People";
+"schedule" = "Schedule";
+"day" = "Day";
+"time" = "Time";
+
+
+//Idea View
+"collections" = "Collections";
+"btnCollection" = "New collection";
+"ideaCard" = "Idea cards";
+"ideaBtn" = "Add idea";
+"descriptionIdea" = "What was your amazing idea today?";
+
+
+//MoodBoard View
+"emptyMessage" = "Your moodboard it's empty...";
+"emptyMessage2" = "Add images that inspires you by clicking on the +";
+"newMedia" = "New media";
+"phAndVid" = "Photos and videos";
+"camera" = "Camera";
+
+

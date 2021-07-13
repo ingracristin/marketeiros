@@ -1,0 +1,100 @@
+/* 
+  Localizable.strings
+  Marketeiros
+
+  Created by João Guilherme on 12/07/21.
+  
+*/
+//Login View
+"createAcc" = "Criar conta";
+"or" = "ou";
+"username" = "Nome de usuário";
+"password" = "Digite sua senha";
+"logIn" = "Entrar";
+
+//Create AccountView
+"name" = "Nome";
+"username" = "Nome de usuário";
+"typeEmail" = "Digite seu email";
+"typePass" = "Escolha uma senha";
+"typePassAgain" = "Confirme sua senha";
+"terms" = "Ao criar uma conta você concorda com os termos de serviço e política de privacidade do aplicativo.";
+"create" = "Criar";
+
+//Home view
+"yourBoard" = "Seus Quadros";
+"createBtn" = "Criar quadro";
+"ideas" = "Ideias";
+"createIdeaBtn" = "Adicionar Ideia";
+"writeIdea" = "Teve uma nova super ideia? Escreva aqui para não esquecer!";
+
+//NewBoard Sheet
+"cancelBtn" = "Cancelar";
+"sheetTittleNew" = "Novo quadro";
+"creatBtn" = "Criar";
+"nameBoard" = "Nome do quadro";
+"PH_boardName" = "Dê um nome ao seu quadro...";
+"linkInsta" = "Vincular à conta do Instagram";
+"PH_link" = "@usuário";
+"boardBio" = "Bio do quadro";
+"PH_boardbio" = "Descreva em poucas palavras o seu quadro...";
+"imageBoard" = "Imagem do quadro";
+"imageCaption" = "Adicione uma capa";
+
+//Calendar View
+"creatEventBtn" = "criar evento";
+"eventWeek" = "Eventos da semana";
+
+//NewEvent Sheet
+"addBtn" = "Adicionar";
+"title" = "Título";
+"starts" = "Começa ";
+"ends" = "Termina";
+"place" = "Local";
+"calendar" = "Calendário";
+
+//Profile View
+"profile" = "Perfil";
+"account" = "Conta";
+"notifi" = "Notificações";
+"help" = "Ajuda";
+"about" = "Sobre";
+"user" = "Usuário";
+"email" = "E-mail";
+"terms" = "Termos e condicões";
+"rate" = "Classificar app na App Store";
+"site" = "Website";
+"version" = "Versão";
+"sup" = "Suporte";
+"contact" = "Contate a gente";
+"save" = "Salvar";
+
+
+//Creat Post View
+"createPost" = "Criar post";
+"chooseImg" = "Escolher imagem";
+"PH_title" = "Um título faz a diferença";
+"caption" = "Legenda";
+"PH_caption" = "A legenda fundamental..";
+"tagPeople" = "Marcados";
+"schedule" = "Agendar";
+"day" = "Dia";
+"time" = "Horário";
+
+
+//Idea View
+"collections" = "Pastas";
+"btnCollection" = "Nova pasta";
+"ideaCard" = "Cartões de ideias";
+"ideaBtn" = "Adicionar ideia";
+"descriptionIdea" = "Qual foi sua ideia incrível de hoje?";
+
+
+//MoodBoard View
+"emptyMessage" = "Seu moodboard está meio vazio...";
+"emptyMessage2" = "Adicione imagens que te inspiram clicando no +";
+"newMedia" = "Nova midia";
+"phAndVid" = "Fotos ou vídeos";
+"camera" = "Camera";
+
+

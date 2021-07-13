@@ -26,7 +26,7 @@ class PostDetailsViewModel: ObservableObject {
         var image: Image?
         var imagePath: String = ""
         var inputImage: UIImage?
-        var percentage: Double = 0
+        var percentage: Float = 0
     }
     
     var bindings: (
@@ -41,7 +41,7 @@ class PostDetailsViewModel: ObservableObject {
         inputImage: Binding<UIImage?>,
         imagePath: Binding<String>,
         showingAlertView: Binding<Bool>,
-        percentage: Binding<Double>)
+        percentage: Binding<Float>)
     {(
         titlePost: Binding(
             get: {self.states.titlePost},
@@ -125,11 +125,11 @@ class PostDetailsViewModel: ObservableObject {
         
         if states.inputImage != pastPhoto {
             guard let image = states.inputImage?.jpeg(.medium) else {return}
+            ImagesRepository.current.deleteImage(of: post, ofBoard: board) { _ in}
             
             states.showingAlertView.toggle()
             ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
-                print(percentage)
-                self?.states.percentage = percentage
+                self?.states.percentage = Float(percentage)
             } completion: { result in
                 switch result {
                 case .failure(let message):

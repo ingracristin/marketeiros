@@ -24,6 +24,7 @@ class NewBoardViewModel : ObservableObject {
         var inputImage: UIImage?
         var alertViewShowing = false
         var showingImagePicker = false
+        var percentage: Float = 0
     }
     
     var bindings: (
@@ -33,7 +34,8 @@ class NewBoardViewModel : ObservableObject {
         inputImage: Binding<UIImage?>,
         alertViewShowing: Binding<Bool>,
         instragramAccount: Binding<String>,
-        showingImagePicker: Binding<Bool>)
+        showingImagePicker: Binding<Bool>,
+        percentage: Binding<Float>)
     {(
         title: Binding(
             get: {self.states.title},
@@ -55,14 +57,17 @@ class NewBoardViewModel : ObservableObject {
             set: {self.states.instragramAccount = $0}),
         showingImagePicker: Binding(
             get: {self.states.showingImagePicker},
-            set: {self.states.showingImagePicker = $0})
+            set: {self.states.showingImagePicker = $0}),
+        percentage: Binding(
+            get: {self.states.percentage},
+            set: {self.states.percentage = $0})
         )}
     
     func toggleImagePicker() {
         states.showingImagePicker.toggle()
     }
     
-    func createBoard() {
+    func createBoard(completionHadler: @escaping (String?) -> ()) {
         guard let user = AuthService.current.user else {return}
         guard let image = states.inputImage?.jpeg(.medium) else {return}
         
@@ -78,20 +83,23 @@ class NewBoardViewModel : ObservableObject {
             ideasGridUid: " ",
             moodGridUid: " ")
         
+        states.alertViewShowing.toggle()
         BoardsRepository.current.create(board: &board) { result in
             switch result {
             case.failure(let message):
                 print(message)
             case .success(_):
-                ImagesRepository.current.upload(imageData: image, of: &board) { progress in
-                    print(progress)
+                ImagesRepository.current.upload(imageData: image, of: &board) { [weak self] progress in
+                    self?.states.percentage = Float(progress)
                 } completion: { [weak self] result in
+                    self?.states.alertViewShowing.toggle()
                     switch result {
                     case.failure(let message):
-                        print(message)
+                        completionHadler(message.localizedDescription)
                     case .success(_):
                         if let self = self {
                             self.callback(board)
+                            completionHadler(nil)
                         }
                     }
                 }

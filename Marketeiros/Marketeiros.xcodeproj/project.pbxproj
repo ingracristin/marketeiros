@@ -70,6 +70,8 @@
 		AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48458269D5EE700890E91 /* ProgressBar.swift */; };
 		AED4845B269D5EEF00890E91 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */; };
 		AED4845D269D69D600890E91 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845C269D69D600890E91 /* ProgressBarView.swift */; };
+		AED48460269D88FB00890E91 /* EditBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845F269D88FB00890E91 /* EditBoardView.swift */; };
+		AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48462269D893900890E91 /* EditBoardViewModel.swift */; };
 		AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserRepository.swift */; };
 		AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7526897D2A00870BB2 /* BoardRepository.swift */; };
 		AED6CF7826897D5E00870BB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7726897D5E00870BB2 /* User.swift */; };
@@ -166,6 +168,8 @@
 		AED48458269D5EE700890E91 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		AED4845C269D69D600890E91 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		AED4845F269D88FB00890E91 /* EditBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBoardView.swift; sourceTree = "<group>"; };
+		AED48462269D893900890E91 /* EditBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBoardViewModel.swift; sourceTree = "<group>"; };
 		AED6CF7326897CE400870BB2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		AED6CF7526897D2A00870BB2 /* BoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRepository.swift; sourceTree = "<group>"; };
 		AED6CF7726897D5E00870BB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Marketeiros/Data/Repositories/User.swift; sourceTree = SOURCE_ROOT; };
@@ -413,6 +417,7 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AED4845E269D88E500890E91 /* EditBoard */,
 				AEC80ED9269C488D0091F229 /* EditPaste */,
 				AED6CF7F26897EA700870BB2 /* AuthenticationScene */,
 				AEFFA800269025E800A86786 /* MainTabBar */,
@@ -542,6 +547,23 @@
 				AEC80EDA269C48AC0091F229 /* EditPasteView.swift */,
 			);
 			path = EditPaste;
+			sourceTree = "<group>";
+		};
+		AED4845E269D88E500890E91 /* EditBoard */ = {
+			isa = PBXGroup;
+			children = (
+				AED48461269D892400890E91 /* View Models */,
+				AED4845F269D88FB00890E91 /* EditBoardView.swift */,
+			);
+			path = EditBoard;
+			sourceTree = "<group>";
+		};
+		AED48461269D892400890E91 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AED48462269D893900890E91 /* EditBoardViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		AED6CF7F26897EA700870BB2 /* AuthenticationScene */ = {
@@ -766,6 +788,7 @@
 			files = (
 				EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */,
 				AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */,
+				AED48460269D88FB00890E91 /* EditBoardView.swift in Sources */,
 				AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */,
 				AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */,
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
@@ -774,6 +797,7 @@
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
+				AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */,
 				AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */,
 				AE3EB5D526976CDC0093AF7C /* SearchView.swift in Sources */,
 				EF2D050626935FF200B9D7E5 /* MoodBoardView.swift in Sources */,
@@ -991,7 +1015,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -999,7 +1023,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1015,7 +1039,7 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1023,7 +1047,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

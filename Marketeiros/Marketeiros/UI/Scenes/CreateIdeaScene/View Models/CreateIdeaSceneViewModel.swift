@@ -21,7 +21,7 @@ class CreateIdeaSceneViewModel: ObservableObject {
     
     struct States {
         var title = ""
-        var description = "Descrição"
+        var description = NSLocalizedString("descriptionIdea", comment: "")
         var paste: Paste!
         var pasteSheetShowing = false
     }
@@ -45,6 +45,10 @@ class CreateIdeaSceneViewModel: ObservableObject {
             get: {self.states.pasteSheetShowing},
             set: {self.states.pasteSheetShowing = $0})
     )}
+    
+    func setDescriptionwith(text: String) {
+        states.description = text
+    }
     
     func select(paste: Paste) {
         states.paste = paste

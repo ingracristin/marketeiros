@@ -12,6 +12,7 @@ struct ProfileView: View {
     @State var isShow = false
     @State private var showingPopover = false
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @State var user = UserProfile(uid: "", email: "email@example.com", name: "Name", username: "Username")
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
@@ -108,8 +109,12 @@ struct ProfileView: View {
                 //bell
                 //globe
                 //questionmark.circle
-            }.padding()
+            }
+            .padding()
             .navigationBarHidden(true)
+            .onAppear {
+                
+            }
         }
     }
 }
