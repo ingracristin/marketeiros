@@ -17,13 +17,13 @@ struct LoginView: View {
     var body: some View {
         VStack(spacing: 20){
             VStack{
-                TextField("Email",text: viewModel.bindings.loginEmail)
+                TextField(NSLocalizedString("username", comment: ""),text: viewModel.bindings.loginEmail)
                     .keyboardType(.emailAddress)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
                     .cornerRadius(18)
-                SecureField("Digite sua senha",text: viewModel.bindings.loginPassword)
+                SecureField(NSLocalizedString("password", comment: ""),text: viewModel.bindings.loginPassword)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
@@ -34,7 +34,7 @@ struct LoginView: View {
             Button(action: {
                 viewModel.signIn()
             }, label: {
-                Text("Entrar")
+                Text(NSLocalizedString("logIn", comment: ""))
                     .font(Font.custom("cocon-bold",size: 20))
                     .bold()
                     .foregroundColor(.white)

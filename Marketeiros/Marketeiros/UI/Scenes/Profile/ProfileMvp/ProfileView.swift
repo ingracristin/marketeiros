@@ -21,7 +21,7 @@ struct ProfileView: View {
                 .ignoresSafeArea()
             VStack() {
                 HStack {
-                    Text("Perfil")
+                    Text(NSLocalizedString("profile", comment: ""))
                         .navBarTitle()
                     Spacer()
                 }
@@ -48,7 +48,7 @@ struct ProfileView: View {
                     destination: UserDetailsView(),
                     label: {
                         HStack{
-                            Text("Conta")
+                            Text(NSLocalizedString("account", comment: ""))
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                                 
                             Spacer()
@@ -60,7 +60,7 @@ struct ProfileView: View {
                     destination: NotificationsDetailsView(),
                     label: {
                         HStack{
-                            Text("Notificações")
+                            Text(NSLocalizedString("notifi", comment: ""))
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "bell")
@@ -70,7 +70,7 @@ struct ProfileView: View {
                     destination: HelpView(),
                     label: {
                         HStack{
-                            Text("Ajuda")
+                            Text(NSLocalizedString("help", comment: ""))
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "globe")
@@ -80,7 +80,7 @@ struct ProfileView: View {
                     destination: AboutView(),
                     label: {
                         HStack{
-                            Text("Sobre")
+                            Text(NSLocalizedString("about", comment: ""))
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "questionmark.circle")

@@ -38,7 +38,7 @@ struct AuthenticationView: View {
                     Button(action: {
                         selectedIndex = 1
                     }, label: {
-                        Text("Criar Conta")
+                        Text(NSLocalizedString("createAcc", comment: ""))
                             .font(Font.custom("cocon-bold",size: 20))
                             .bold()
                             .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
@@ -69,7 +69,7 @@ struct AuthenticationView: View {
                         .frame(width: UIScreen.main.bounds.size.width * 0.3093, height: 2)
                     
                     Spacer()
-                    Text("ou")
+                    Text(NSLocalizedString("or", comment: ""))
                         .foregroundColor(Color.gray)
                     Spacer()
                     
