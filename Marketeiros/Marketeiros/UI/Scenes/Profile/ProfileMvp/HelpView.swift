@@ -17,20 +17,20 @@ struct HelpView: View {
                 .frame( height: UIScreen.main.bounds.size.height * 0.66, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             VStack(spacing: 20){
                 HStack{
-                    Text("Suporte")
+                    Text(NSLocalizedString("sup", comment: ""))
                     
                     Spacer()
                     Image(systemName: "chevron.forward")
                 }.foregroundColor(Color("NavBarTitle"))
                 HStack{
-                    Text("Contate a gente")
+                    Text(NSLocalizedString("contact", comment: ""))
                     Spacer()
                     Image(systemName: "chevron.forward")
                 }.foregroundColor(Color("NavBarTitle"))
                 
                 Spacer()
             }.padding()
-            .navigationBarTitle("Sobre", displayMode: .inline)
+            .navigationBarTitle(NSLocalizedString("help", comment: ""), displayMode: .inline)
     
             
         }

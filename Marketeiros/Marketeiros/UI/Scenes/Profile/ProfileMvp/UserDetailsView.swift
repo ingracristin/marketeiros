@@ -27,19 +27,19 @@ struct UserDetailsView: View {
                 Spacer()
             }
             
-            Text("Dados da Conta")
+            Text(NSLocalizedString("account", comment: ""))
                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                 .foregroundColor(Color("NavBarTitle"))
                 .padding()
             HStack{
                 HStack{
-                    Text("Nome")
+                    Text(NSLocalizedString("name", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
                 }.padding()
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: $boardName)
+                        TextField("", text: $boardName)
                             .padding()
                             .frame(width: 280, height: 50)
                             .background(Color("TextField2"))
@@ -50,13 +50,13 @@ struct UserDetailsView: View {
             }
             HStack{
                 HStack{
-                    Text("Usuário")
+                    Text(NSLocalizedString("user", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
                 }.padding()
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: $boardName)
+                        TextField("", text: $boardName)
                             .padding()
                             .frame(width: 280, height: 50)
                             .background(Color("TextField2"))
@@ -85,7 +85,7 @@ struct UserDetailsView: View {
             
            Spacer()
         }.padding()
-        .navigationBarTitle("Conta",displayMode: .inline )
+        .navigationBarTitle(NSLocalizedString("account", comment: ""),displayMode: .inline )
     }
 }
 

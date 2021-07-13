@@ -46,6 +46,9 @@ struct IdeaView: View {
                             .padding()
                             .background(Color("IdeaViewColor"))
                             .cornerRadius(14)
+                            .shadow(radius: 6, x: 2, y: 4)
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
                             //.frame(width:UIScreen.main.bounds.size.width * 0.2933, height: UIScreen.main.bounds.size.height * 0.0566)
                         }
 //                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -65,6 +68,9 @@ struct IdeaView: View {
                                     .padding()
                                     .background(Color("IdeaViewColor"))
                                     .cornerRadius(14)
+                                    .shadow(radius: 6, x: 2, y: 4)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 10)
                                 })
                         }
                     }).frame(height: 70)
@@ -97,9 +103,13 @@ struct IdeaView: View {
                                             .fontWeight(.regular)
                                     }
                                     .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
+                                    
                                 }
                                 .background(Color("IdeaViewColor"))
                                 .cornerRadius(22)
+                                .shadow(radius: 6, x: 2, y: 4)
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
                         })
                         ForEach(viewModel.states.ideas, id: \.uid) { idea in
                             NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.states.pastes.first(where: { paste in
@@ -121,6 +131,9 @@ struct IdeaView: View {
                                     .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
                                     .background(Color("IdeaViewColor"))
                                     .cornerRadius(22)
+                                    .shadow(radius: 6, x: 2, y: 4)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 10)
                                 }
                             }
                             

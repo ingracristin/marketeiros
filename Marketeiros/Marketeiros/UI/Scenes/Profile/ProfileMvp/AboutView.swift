@@ -18,12 +18,12 @@ struct AboutView: View {
              .frame( height: UIScreen.main.bounds.size.height * 0.66, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             VStack(spacing: 20){
                 HStack{
-                    Text("Termos e condicões")
+                    Text(NSLocalizedString("terms", comment: ""))
                     Spacer()
                     Image(systemName: "chevron.forward")
                 }
                 HStack{
-                    Text("Classificar app na App Store")
+                    Text(NSLocalizedString("rate", comment: ""))
                     Spacer()
                     Image(systemName: "chevron.forward")
                 }
@@ -33,7 +33,7 @@ struct AboutView: View {
                     Image(systemName: "chevron.forward")
                 }
                 HStack{
-                    Text("Version")
+                    Text(NSLocalizedString("version", comment: ""))
                         .foregroundColor(.gray)
                     Spacer()
                     Text("1.0")
@@ -43,7 +43,7 @@ struct AboutView: View {
                 
                 
             }.padding()
-            .navigationBarTitle("Sobre", displayMode: .inline)
+            .navigationBarTitle(NSLocalizedString("about", comment: ""), displayMode: .inline)
             .foregroundColor(Color("NavBarTitle"))
             
         }

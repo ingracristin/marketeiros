@@ -45,8 +45,8 @@ struct InsideBoardView: View {
             VStack(spacing: 20) {
                 Picker("View", selection: $selectedView, content: {
                     Text("Grid").tag(0)
-                    Text("Ideias").tag(1)
-                    Text("Painel").tag(2)
+                    Text(NSLocalizedString("ideas", comment: "")).tag(1)
+                    Text("Mood").tag(2)
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
