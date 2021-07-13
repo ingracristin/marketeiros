@@ -88,7 +88,7 @@ class EditBoardViewModel : ObservableObject {
     func saveChangesToBoard(completionHadler: @escaping (String?) -> ()) {
         board.title = states.title
         board.description = states.description
-        board.instagramAccount = states.instragramAccount
+        board.instagramAccount = states.instragramAccount.replacingOccurrences(of: " ", with: "") 
         board.imagePath = board.imagePath
         
         if states.inputImage != pastPhoto {

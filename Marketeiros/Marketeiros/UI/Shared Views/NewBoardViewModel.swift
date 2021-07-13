@@ -76,7 +76,7 @@ class NewBoardViewModel : ObservableObject {
             imagePath: " ",
             title: states.title,
             description: states.description,
-            instagramAccount: states.instragramAccount,
+            instagramAccount: states.instragramAccount.replacingOccurrences(of: " ", with: "") ,
             ownerUid: user.uid,
             colaboratorsUids: [" "],
             postsGridUid: " ",

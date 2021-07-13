@@ -72,7 +72,7 @@
 		AED4845D269D69D600890E91 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845C269D69D600890E91 /* ProgressBarView.swift */; };
 		AED48460269D88FB00890E91 /* EditBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845F269D88FB00890E91 /* EditBoardView.swift */; };
 		AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48462269D893900890E91 /* EditBoardViewModel.swift */; };
-		AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserRepository.swift */; };
+		AED6CF7426897CE400870BB2 /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7326897CE400870BB2 /* UserProfileRepository.swift */; };
 		AED6CF7626897D2A00870BB2 /* BoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7526897D2A00870BB2 /* BoardRepository.swift */; };
 		AED6CF7826897D5E00870BB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7726897D5E00870BB2 /* User.swift */; };
 		AED6CF7A26897D6900870BB2 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7926897D6900870BB2 /* Board.swift */; };
@@ -170,7 +170,7 @@
 		AED4845C269D69D600890E91 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		AED4845F269D88FB00890E91 /* EditBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBoardView.swift; sourceTree = "<group>"; };
 		AED48462269D893900890E91 /* EditBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBoardViewModel.swift; sourceTree = "<group>"; };
-		AED6CF7326897CE400870BB2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		AED6CF7326897CE400870BB2 /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
 		AED6CF7526897D2A00870BB2 /* BoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardRepository.swift; sourceTree = "<group>"; };
 		AED6CF7726897D5E00870BB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Marketeiros/Data/Repositories/User.swift; sourceTree = SOURCE_ROOT; };
 		AED6CF7926897D6900870BB2 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Marketeiros/Data/Repositories/Board.swift; sourceTree = SOURCE_ROOT; };
@@ -447,7 +447,7 @@
 		AE5B704E2678EB0700AFF32E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				AED6CF7326897CE400870BB2 /* UserRepository.swift */,
+				AED6CF7326897CE400870BB2 /* UserProfileRepository.swift */,
 				AED6CF7526897D2A00870BB2 /* BoardRepository.swift */,
 				AE799667268E778F00AD80F4 /* ImagesRepository.swift */,
 			);
@@ -789,7 +789,7 @@
 				EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */,
 				AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */,
 				AED48460269D88FB00890E91 /* EditBoardView.swift in Sources */,
-				AED6CF7426897CE400870BB2 /* UserRepository.swift in Sources */,
+				AED6CF7426897CE400870BB2 /* UserProfileRepository.swift in Sources */,
 				AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */,
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
 				AE3EB5C426976C7E0093AF7C /* HalfModalView.swift in Sources */,

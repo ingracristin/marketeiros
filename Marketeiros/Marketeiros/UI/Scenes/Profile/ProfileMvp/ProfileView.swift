@@ -48,11 +48,11 @@ struct ProfileView: View {
                 
                 HStack() {
                     VStack(alignment: .leading) {
-                        Text("Ingra Cristina")
+                        Text(user.name)
                             .font(.custom("SF Pro Display", size: 20))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("NavBarTitle"))
-                        Text("@ingracristic")
+                        Text(user.email)
                             .font(.custom("SF Pro Display", size: 16))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("UserProfileColor"))
@@ -113,7 +113,15 @@ struct ProfileView: View {
             .padding()
             .navigationBarHidden(true)
             .onAppear {
-                
+                let currentUser = AuthService.current.user!
+                UserProfileRepository.current.getUserWith(uid: currentUser.uid) { result in
+                    switch result {
+                    case .failure(_):
+                        print()
+                    case .success(let userProfile):
+                        self.user = userProfile
+                    }
+                }
             }
         }
     }

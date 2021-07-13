@@ -75,7 +75,7 @@ class SignUpViewModel: ObservableObject {
                 if user.name.isEmpty {
                     
                 } else {
-                    UserRepository.current.initialize(user: user) { result in
+                    UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: user.name, username: user.name)) { result in
                         switch result {
                         case .failure(let error):
                             print(error)

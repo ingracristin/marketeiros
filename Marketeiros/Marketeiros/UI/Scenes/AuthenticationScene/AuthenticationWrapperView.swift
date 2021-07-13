@@ -22,6 +22,11 @@ struct AuthenticationWrapperView: View {
             Alert(title: Text("Error"), message: Text(""), dismissButton: .cancel())
         }
         .onAppear {
+            if UserDefaults.standard.object(forKey: "authError") == nil {
+                viewModel.signOut()
+                UserDefaults.standard.setValue(true, forKey: "authError")
+            }
+
             if let _ = AuthService.current.user {
                 viewModel.set(isLogged: true)
             } else {

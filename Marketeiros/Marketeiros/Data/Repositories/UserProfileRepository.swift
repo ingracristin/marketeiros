@@ -17,8 +17,8 @@ enum Collections: String {
     case ideas
 }
 
-class UserRepository {
-    static let current = UserRepository()
+class UserProfileRepository {
+    static let current = UserProfileRepository()
     private let collection = Firestore.firestore().collection(Collections.users.rawValue)
     
     private init() {}
@@ -27,7 +27,7 @@ class UserRepository {
         case initializationError(String)
     }
  
-    func initialize(user: User,completion: @escaping (Result<User,UserRepositoryErrors>) -> ()) {
+    func initialize(user: UserProfile,completion: @escaping (Result<UserProfile,UserRepositoryErrors>) -> ()) {
         collection.document(user.uid).setData(user.toJson()) { (error) in
             if let err = error {
                 DispatchQueue.main.async {
@@ -38,6 +38,22 @@ class UserRepository {
                     completion(.success(user))
                 }
             }
+        }
+    }
+    
+    func getUserWith(uid: String,completion: @escaping (Result<UserProfile,UserRepositoryErrors>) -> ()) {
+        collection.document(uid).getDocument { snapshot, error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.initializationError(err.localizedDescription)))
+                }
+            } else {
+                let user = UserProfile.from(json: snapshot!.data()!)
+                DispatchQueue.main.async {
+                    completion(.success(user))
+                }
+            }
+
         }
     }
 }

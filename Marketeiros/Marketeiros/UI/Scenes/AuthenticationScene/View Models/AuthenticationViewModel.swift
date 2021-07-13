@@ -86,13 +86,15 @@ class AuthenticationViewModel: ObservableObject {
     
     func signUp() {
         states.isLoading.toggle()
-        AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { result in
+        let name = states.name
+        let username = states.username
+        AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self]result in
             switch result {
             case .failure(let error):
-                self.states.isLoading.toggle()
+                self?.states.isLoading.toggle()
                 print(error)
             case .success(let user):
-                UserRepository.current.initialize(user: user) { [weak self] result in
+                UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) { [weak self] result in
                     self?.states.isLoading.toggle()
                     switch result {
                     case .failure(let error):
@@ -119,9 +121,9 @@ class AuthenticationViewModel: ObservableObject {
                 print(error)
             case .success(let user):
                 if user.name.isEmpty {
-                    
+                    self.states.isLoggedIn.toggle()
                 } else {
-                    UserRepository.current.initialize(user: user) { [weak self] result in
+                    UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: user.name, username: user.name)) { [weak self] result in
                         switch result {
                         case .failure(let error):
                             print(error)
