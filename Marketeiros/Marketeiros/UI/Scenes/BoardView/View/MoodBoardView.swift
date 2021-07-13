@@ -27,8 +27,8 @@ struct MoodBoardView: View {
                 MoodBoardGridView(imagesList: $imagesList)
             }
             .actionSheet(isPresented: $showingActionSheet, content: {
-                .init(title: Text("das"), message: Text("dasdas"), buttons: [
-                    .default(Text("Fotos ou Videos"), action: {
+                .init(title: Text("New Media"), buttons: [
+                    .default(Text("Photos and Videos"), action: {
                         imageGalery.toggle()
                     }),
                     .cancel()
