@@ -146,6 +146,9 @@ struct InsideBoardView: View {
                 }
             }
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {}, label: {
+                Text("...")
+            }))
             .onAppear {
                 viewModel.getAllPosts()
             }

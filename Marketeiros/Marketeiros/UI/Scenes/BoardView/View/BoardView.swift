@@ -119,6 +119,7 @@ struct BoardView: View {
                     })
                 })
                 .navigationBarHidden(true)
+                
                 .onAppear {
                     viewModel.getAllBoards()
                 }
