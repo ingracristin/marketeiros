@@ -16,38 +16,38 @@ struct RegisterView: View {
     var body: some View {
         VStack(spacing: 20) {
             VStack{
-                TextField("Nome",text: viewModel.bindings.name)
+                TextField(NSLocalizedString("name", comment: ""),text: viewModel.bindings.name)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
                     .cornerRadius(18)
-                TextField("Nome de usuário",text: viewModel.bindings.username)
+                TextField(NSLocalizedString("username", comment: ""),text: viewModel.bindings.username)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
                     .cornerRadius(18)
                 
-                TextField("Digite seu email",text: viewModel.bindings.email)
+                TextField(NSLocalizedString("typeEmail", comment: ""),text: viewModel.bindings.email)
                     .keyboardType(.emailAddress)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: .center)
                     .background(Color("TextField"))
                     .cornerRadius(18)
                 
-                SecureField("Escolha sua senha",text: viewModel.bindings.password)
+                SecureField(NSLocalizedString("typePass", comment: ""),text: viewModel.bindings.password)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
                     .cornerRadius(18)
                 
-                SecureField("Repita a sua senha",text: viewModel.bindings.confirmPassword)
+                SecureField(NSLocalizedString("typePassAgain", comment: ""),text: viewModel.bindings.confirmPassword)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
                     .cornerRadius(18)
             }.padding(.horizontal,20)
         
-            Text("Ao criar uma conta você concorda com os termos de serviço e política de privacidade do aplicativo.")
+            Text(NSLocalizedString("termsCreate", comment: ""))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 35)
                 .foregroundColor(Color(#colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)))
@@ -55,7 +55,7 @@ struct RegisterView: View {
             Button(action: {
                 viewModel.signUp()
             }, label: {
-                Text("Criar")
+                Text(NSLocalizedString("create", comment: ""))
                     .font(Font.custom("cocon-bold",size: 20))
                     .bold()
                     .foregroundColor(.white)

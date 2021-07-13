@@ -17,6 +17,7 @@
 "username" = "Nome de usuário";
 "typeEmail" = "Digite seu email";
 "typePass" = "Escolha uma senha";
+"typePassAgain" = "Confirme sua senha";
 "terms" = "Ao criar uma conta você concorda com os termos de serviço e política de privacidade do aplicativo.";
 "create" = "Criar";
 
@@ -24,6 +25,7 @@
 "yourBoard" = "Seus Quadros";
 "createBtn" = "Criar quadro";
 "ideas" = "Ideias";
+"createIdeaBtn" = "Adicionar Ideia";
 "writeIdea" = "Teve uma nova super ideia? Escreva aqui para não esquecer!";
 
 //NewBoard Sheet
@@ -54,6 +56,7 @@
 //Profile View
 "profile" = "Perfil";
 "account" = "Conta";
+"notifi" = "Notificações";
 "help" = "Ajuda";
 "about" = "Sobre";
 "user" = "Usuário";

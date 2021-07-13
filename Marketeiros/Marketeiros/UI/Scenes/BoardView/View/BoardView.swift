@@ -64,12 +64,12 @@ struct BoardView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 20) {
                             HStack{
-                                Text("Seus Quadros")
+                                Text(NSLocalizedString("yourBoard", comment: ""))
                                     .fontWeight(.semibold)
                                     .font(.title2)
                                     .foregroundColor(Color("NavBarTitle"))
                                 Spacer()
-                                AppButtonView(label: "Criar quadro") {
+                                AppButtonView(label: NSLocalizedString("createBtn", comment: "")) {
                                     viewModel.toggleSheetView()
                                 }
                             }
@@ -87,12 +87,12 @@ struct BoardView: View {
                             })
                             
                             HStack{
-                                Text("Ideias")
+                                Text(NSLocalizedString("ideas", comment: ""))
                                     .fontWeight(.semibold)
                                     .font(.title2)
                                     .foregroundColor(Color("NavBarTitle"))
                                 Spacer()
-                                AppButtonView(label: "Criar Ideia") {
+                                AppButtonView(label: NSLocalizedString("createIdeaBtn", comment: "")) {
                                     viewModel.toggleSheetView()
                                 }
                             }

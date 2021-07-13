@@ -17,13 +17,15 @@
 "username" = "Username";
 "typeEmail" = "Type your e-mail";
 "typePass" = "Type your password";
-"terms" = "By creating an account you agree to the terms of service and privacy policy of the application.";
+"typePassAgain" = "Type your password again";
+"termsCreate" = "By creating an account you agree to the terms of service and privacy policy of the application.";
 "create" = "Create account";
 
 //Home view
 "yourBoard" = "Your Boards";
 "createBtn" = "Create Board";
 "ideas" = "Ideas";
+"createIdeaBtn" = "Add idea";
 "writeIdea" = "Got a new idea? Write here so you don't forget!";
 
 //NewBoard Sheet
@@ -54,6 +56,7 @@
 //Profile View
 "profile" = "Profile";
 "account" = "Account";
+"notifi" = "Notifications";
 "help" = "Help";
 "about" = "About";
 "user" = "User";
