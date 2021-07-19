@@ -10,7 +10,7 @@ import SwiftUI
 struct IdeaView: View {
     @StateObject var viewModel: IdeaViewModel
     @State var newPasteSheetIsShowing = false
-        
+    
     let layout = [
         GridItem(.fixed(170),spacing: 15),
         GridItem(.fixed(170),spacing: 15)
@@ -51,7 +51,7 @@ struct IdeaView: View {
                             .padding(.vertical, 10)
                             //.frame(width:UIScreen.main.bounds.size.width * 0.2933, height: UIScreen.main.bounds.size.height * 0.0566)
                         }
-//                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        //                        .frame(width: reader.size.width * 0.2933, height: reader.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                         ForEach(viewModel.states.pastes, id: \.uid) { paste in
                             NavigationLink(
@@ -96,7 +96,7 @@ struct IdeaView: View {
                                             .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             .aspectRatio(contentMode: .fit)
                                             .foregroundColor(Color("NavBarTitle"))
-//                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        //                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         Text(NSLocalizedString("ideaBtn", comment: ""))
                                             .foregroundColor(Color("NavBarTitle"))
                                             .font(.body)
@@ -110,7 +110,7 @@ struct IdeaView: View {
                                 .shadow(radius: 6, x: 2, y: 4)
                                 .padding(.horizontal)
                                 .padding(.vertical, 10)
-                        })
+                            })
                         ForEach(viewModel.states.ideas, id: \.uid) { idea in
                             NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.states.pastes.first(where: { paste in
                                 paste.uid == idea.pasteUid
@@ -126,15 +126,15 @@ struct IdeaView: View {
                                                 .fontWeight(.semibold)
                                             
                                         }
-
+                                        
                                     }
                                     .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
                                     .background(Color("IdeaViewColor"))
                                     .cornerRadius(22)
-                                    .shadow(radius: 6, x: 2, y: 4)
-                                    .padding(.horizontal)
-                                    .padding(.vertical, 10)
-                                }
+                                }.shadow(radius: 6, x: 2, y: 4)
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
+
                             }
                             
                         }
