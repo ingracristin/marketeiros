@@ -21,6 +21,8 @@ struct ProfileView: View {
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.2906)
                 .ignoresSafeArea()
+                .shadow(radius: 6)
+                
             VStack() {
                 
                 HStack(alignment: .lastTextBaseline,spacing:0) {
