@@ -98,4 +98,6 @@
 "phAndVid" = "Fotos ou vídeos";
 "camera" = "Camera";
 
-
+//addons
+"share" = "Compartilhar";
+"delete" = "Deletar da Grid";

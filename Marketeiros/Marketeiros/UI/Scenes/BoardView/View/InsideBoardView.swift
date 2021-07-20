@@ -65,28 +65,51 @@ struct InsideBoardView: View {
                                         FirebaseImage(post: post, board: viewModel.board,widthImg:((reader.size.width - 50) / 3),heightImg:((reader.size.width - 50) / 3), averageColorOn: $averageColorOn) {
                                             Rectangle()
                                                 .foregroundColor(.gray)
+                                            
                                         } image: {
                                             Image(uiImage: $0)
                                         }
                                         .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+//                                        .contextMenu {
+//                                            VStack{
+//                                                Button(action:{}){
+//                                                    HStack{
+//                                                        Text(NSLocalizedString("share", comment: ""))
+//                                                        Image(systemName: "square.and.arrow.up")
+//                                                    }
+//                                                }
+//
+//                                                Button(action:{}){
+//                                                    HStack{
+//                                                        Text(NSLocalizedString("delete", comment: ""))
+//                                                        Image(systemName: "trash")
+//                                                    }.foregroundColor(.red)
+//                                                }
+//
+//                                            }
+//                                        }
                                         
-                                    }.onDrag({
+                                    }
+                                    .onDrag({
                                         self.dragging = post
                                         return NSItemProvider(object: String(post.uid) as NSString)
                                     })
                                     .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
+                                
                             }
                             
                             ForEach(vm.imagesUrls, id: \.id) { imageUrl in
                                 AsyncImage(url: URL(string: imageUrl.imageUrl)!, averageColorOn: $averageColorOn) {
                                     Rectangle()
                                         .foregroundColor(.gray)
+                                    
                                 } image: {
                                     Image(uiImage: $0)
                                         .resizable()
                                 }
                                 .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+                                
                             }
                             
                             if (vm.imagesUrls.count + viewModel.posts.count) < 18 {

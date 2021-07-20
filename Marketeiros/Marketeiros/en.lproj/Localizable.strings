@@ -97,4 +97,7 @@
 "phAndVid" = "Photos and videos";
 "camera" = "Camera";
 
+//addons
+"share" = "Share";
+"delete" = "Delete from Grid";
 

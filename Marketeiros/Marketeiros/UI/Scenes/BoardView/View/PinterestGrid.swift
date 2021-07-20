@@ -60,19 +60,20 @@ struct PinterestGrid: View {
                             Image(uiImage: gridItem.image)
                                 .resizable()
                                 
-                           .frame(height: gridItem.height)
-                           .cornerRadius(10)
+                                .frame(height: gridItem.height)
+                                .cornerRadius(10)
+                                
+                        }
                         }
                     }
                 }
             }
+            .padding(.horizontal, horizontalPadding)
         }
-        .padding(.horizontal, horizontalPadding)
     }
-}
-
-struct PinterestGrid_Previews: PreviewProvider {
-    static var previews: some View {
-        PinterestGrid(gridItems: [GridCell(height: 200, image: UIImage(named: "bolinha")!)], numOfColumns: 4)
+    
+    struct PinterestGrid_Previews: PreviewProvider {
+        static var previews: some View {
+            PinterestGrid(gridItems: [GridCell(height: 200, image: UIImage(named: "bolinha")!)], numOfColumns: 4)
+        }
     }
-}
