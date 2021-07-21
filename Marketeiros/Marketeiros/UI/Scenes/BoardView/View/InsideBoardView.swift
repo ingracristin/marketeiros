@@ -70,16 +70,17 @@ struct InsideBoardView: View {
                             }
                             
                             ForEach(vm.imagesUrls, id: \.id) { imageUrl in
-                                AsyncImage(url: URL(string: imageUrl.imageUrl)!, averageColorOn: $averageColorOn) {
-                                    Rectangle()
-                                        .foregroundColor(.gray)
-                                    
-                                } image: {
-                                    Image(uiImage: $0)
-                                        .resizable()
-                                }
-                                .frame(width: cellWidth,height: cellWidth, alignment: .center)
                                 
+                                AsyncImage(url: URL(string: imageUrl.imageUrl)!, averageColorOn: $averageColorOn, height: cellWidth, width: cellWidth) {
+                                        Rectangle()
+                                            .foregroundColor(Color(UIColor.emptyCellGridColor))
+                                        
+                                    } image: {
+                                        Image(uiImage: $0)
+                                            .resizable()
+                                    }
+                                    .frame(width: cellWidth,height: cellWidth, alignment: .center)
+                                 
                             }
                             
                             if (vm.imagesUrls.count + viewModel.posts.count) < 18 {

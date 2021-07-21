@@ -13,18 +13,24 @@ import Combine
 struct AsyncImage<Placeholder: View>: View {
     @StateObject private var loader: ImageLoader
     var averageColorOn: Binding<Bool>
+    var height: CGFloat
+    var width: CGFloat
     private let placeholder: Placeholder
     private let image: (UIImage) -> Image
     
     init(
         url: URL,
         averageColorOn: Binding<Bool>,
+        height : CGFloat,
+        width: CGFloat,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
     ) {
         self.placeholder = placeholder()
         self.image = image
         self.averageColorOn = averageColorOn
+        self.height = height
+        self.width = width
         _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
     }
     
@@ -36,12 +42,22 @@ struct AsyncImage<Placeholder: View>: View {
     private var content: some View {
         Group {
             if let img = loader.image {
-                 ZStack {
+                ZStack(alignment: .topTrailing){
                     image(img)
                     Rectangle()
                             .foregroundColor(Color(img.averageColor ?? .clear))
                             .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
-                }
+                    ZStack(alignment:.center){
+                        Rectangle()
+                            .frame(width: self.width * 0.3982, height:  self.height * 0.0973)
+                            .foregroundColor(Color(#colorLiteral(red: 0.537254902, green: 0.5411764706, blue: 0.5529411765, alpha: 0.34)))
+                            .cornerRadius(3)
+                        Text("Postado")
+                            .font(.custom("SF Pro Display", size: 8))
+                            .fontWeight(.regular)
+                            .foregroundColor(.white)
+                    }.padding(.init(top: 8, leading: 0, bottom: 0, trailing: 5))
+                 }
             } else {
                 placeholder
             }

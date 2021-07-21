@@ -15,10 +15,11 @@ struct PostsGridCellView: View {
     @Binding var averageColorOn: Bool
     
     var body: some View {
-        ZStack {
+        ZStack(alignment:.topTrailing){
+            
             FirebaseImage(post: post, board: board, widthImg: width, heightImg: height, averageColorOn: $averageColorOn) {
                 Rectangle()
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(UIColor.emptyCellGridColor))
                 
             } image: {
                 Image(uiImage: $0)
@@ -42,6 +43,8 @@ struct PostsGridCellView: View {
 
                 }
             }
+            
+            
         }
     }
 }

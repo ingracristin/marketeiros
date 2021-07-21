@@ -17,7 +17,7 @@ struct UserProfileGridView: View {
             } else {
                 LazyVGrid(columns: [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100))], content: {
                     ForEach(vm.imagesUrls, id: \.id) { url in
-                        AsyncImage(url: URL(string: url.imageUrl)!, averageColorOn: .constant(false)) {
+                        AsyncImage(url: URL(string: url.imageUrl)!, averageColorOn: .constant(false),height: 113, width: 113) {
                             RoundedRectangle(cornerRadius: 25)
                                 .foregroundColor(.gray)
                         } image: {
