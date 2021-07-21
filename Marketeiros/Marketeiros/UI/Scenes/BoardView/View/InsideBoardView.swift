@@ -3,7 +3,7 @@
 //  Marketeiros
 //
 //  Created by João Guilherme on 24/06/21.
-//
+//hm
 
 import SwiftUI
 import UniformTypeIdentifiers
@@ -18,6 +18,8 @@ struct InsideBoardView: View {
     @State var postsCount = 0
     
     init(board: Board) {
+        UIToolbar.appearance().barTintColor = UIColor.init(Color(#colorLiteral(red: 0.9798186421, green: 0.9811866879, blue: 0.9327015281, alpha: 1)))
+
         viewModel = InsideBoardViewModel(board: board)
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
     }
@@ -99,7 +101,7 @@ struct InsideBoardView: View {
                             Button(action: {
                                 viewModel.toggleAddPostView()
                             }, label: {
-                                Image(systemName: "plus").foregroundColor(.black)
+                                Text("Novo")
                             })
                             
                             Spacer()
@@ -107,30 +109,18 @@ struct InsideBoardView: View {
                             Button(action: {
                                 self.averageColorOn.toggle()
                             }, label: {
-                                Image(systemName: "paintpalette").foregroundColor(.black)
+                                Text("Cores")
                             })
                             
                             Spacer()
+                            
                             
                             Button(action: {}, label: {
-                                Image(systemName: "repeat").foregroundColor(.black)
+                                Text("Formato")
+                                    
                             })
                             
-                            Spacer()
-                            
-                            Button(action: {}, label: {
-                                Image(systemName: "squareshape.split.3x3").foregroundColor(.black)
-                            })
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                viewModel.deleteBoard { result in
-                                    presentationMode.wrappedValue.dismiss()
-                                }
-                            }, label: {
-                                Image(systemName: "trash").foregroundColor(.black)
-                            })
+                           
                         }
                     }
                 } else if (selectedView == 1) {
