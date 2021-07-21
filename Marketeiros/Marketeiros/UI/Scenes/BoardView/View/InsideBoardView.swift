@@ -22,20 +22,14 @@ struct InsideBoardView: View {
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
     }
     
-    let moodLayout = [
-        GridItem(.flexible(),spacing: 0.5),
-        GridItem(.flexible(),spacing: 0.5)
-    ]
-    let moodLayou = [
-        GridItem(.flexible(),spacing: 1)
-    ]
-    
     var body: some View {
         GeometryReader() { reader in
+            let cellWidth: CGFloat = (reader.size.width - 50) / 3
+                        
             let layout = [
-                GridItem(.fixed(((reader.size.width - 50) / 3))),
-                GridItem(.fixed(((reader.size.width - 50) / 3))),
-                GridItem(.fixed(((reader.size.width - 50) / 3))),
+                GridItem(.fixed(cellWidth), spacing: 1),
+                GridItem(.fixed(cellWidth), spacing: 1),
+                GridItem(.fixed(cellWidth), spacing: 1),
             ]
             
             NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: viewModel.bindings.addPostScreenShowing){
@@ -62,14 +56,14 @@ struct InsideBoardView: View {
                             ForEach(viewModel.posts.sorted {$0.dateOfCreation > $1.dateOfCreation}, id: \.uid) { post in
                                 NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
                                     ZStack {
-                                        FirebaseImage(post: post, board: viewModel.board,widthImg:((reader.size.width - 50) / 3),heightImg:((reader.size.width - 50) / 3), averageColorOn: $averageColorOn) {
+                                        FirebaseImage(post: post, board: viewModel.board,widthImg:cellWidth,heightImg:cellWidth, averageColorOn: $averageColorOn) {
                                             Rectangle()
                                                 .foregroundColor(.gray)
                                             
                                         } image: {
                                             Image(uiImage: $0)
                                         }
-                                        .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+                                        .frame(width: cellWidth,height: cellWidth, alignment: .center)
 //                                        .contextMenu {
 //                                            VStack{
 //                                                Button(action:{}){
@@ -88,7 +82,6 @@ struct InsideBoardView: View {
 //
 //                                            }
 //                                        }
-                                        
                                     }
                                     .onDrag({
                                         self.dragging = post
@@ -96,7 +89,6 @@ struct InsideBoardView: View {
                                     })
                                     .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
-                                
                             }
                             
                             ForEach(vm.imagesUrls, id: \.id) { imageUrl in
@@ -108,7 +100,7 @@ struct InsideBoardView: View {
                                     Image(uiImage: $0)
                                         .resizable()
                                 }
-                                .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+                                .frame(width: cellWidth,height: cellWidth, alignment: .center)
                                 
                             }
                             
@@ -116,7 +108,7 @@ struct InsideBoardView: View {
                                 ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
                                     Rectangle()
                                         .foregroundColor(Color(UIColor.emptyCellGridColor))
-                                        .frame(width: ((reader.size.width - 50) / 3),height: ((reader.size.width - 50) / 3), alignment: .center)
+                                        .frame(width: cellWidth,height: cellWidth, alignment: .center)
                                 }
                             }
                         }

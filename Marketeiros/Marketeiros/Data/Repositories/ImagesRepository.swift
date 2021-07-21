@@ -18,8 +18,9 @@ enum ImagesAcessibilityAtributes : String {
 }
 
 //boardUid/capa.png
-//boardUid/postUid/postImage.png
-//userUid/fotoPerfil.png
+//boardUid/posts/postUid
+//boardUid/moodBoard/moodBoardUid
+//users/userUid.png
 class ImagesRepository {
     static let current = ImagesRepository()
     private let storageRoot = Storage.storage().reference()
@@ -28,28 +29,34 @@ class ImagesRepository {
     private init() {}
     
     enum ImagesRepositoryErrors: Error {
-        case errorGettingImageFromPost(String)
+        case errorGettingImage(String)
+        case errorSendingImage(String)
         case errorDeletingImage(String)
     }
     
     func upload(imageData data: Data, of post: Post, ofBoard board: Board, progressCallback: @escaping (Double) -> (), completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
-        let imagePath = "\(board.uid)/\(post.uid)"
+        let imagePath = "\(board.uid)/posts/\(post.uid)"
         upload(imageData: data, to: imagePath, progressCallback: progressCallback, completion: completion)
+    }
+    
+    func getImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<UIImage,ImagesRepositoryErrors>) -> ()) {
+        let imagePath = "\(board.uid)/posts/\(post.uid)"
+        if let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data {
+            completion(.success(UIImage(data: imageData)!))
+        } else {
+            getImage(of: imagePath , completion: completion)
+        }
+    }
+    
+    func deleteImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
+        let imagePath = "\(board.uid)/posts/\(post.uid)"
+        deleteImage(of: imagePath, completion: completion)
     }
     
     func upload(imageData data: Data, of board: inout Board, progressCallback: @escaping (Double) -> (), completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
         let imagePath = "\(board.uid)/cover.png"
         board.imagePath = imagePath
         upload(imageData: data, to: imagePath, progressCallback: progressCallback, completion: completion)
-    }
-    
-    func getImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<UIImage,ImagesRepositoryErrors>) -> ()) {
-        let imagePath = "\(board.uid)/\(post.uid)"
-        if let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data {
-            completion(.success(UIImage(data: imageData)!))
-        } else {
-            getImage(of: imagePath , completion: completion)
-        }
     }
     
     func getImage(of board: Board, completion: @escaping (Result<UIImage, ImagesRepositoryErrors>) -> ()) {
@@ -61,17 +68,12 @@ class ImagesRepository {
         }
     }
     
-    func deleteImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
-        let imagePath = "\(board.uid)/\(post.uid)"
-        deleteImage(of: imagePath, completion: completion)
-    }
-    
     func deleteImage(of board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
         let imagePath = "\(board.uid)/cover.png"
         deleteImage(of: imagePath, completion: completion)
     }
     
-    func deleteImage(of path: String, completion: @escaping (Result<Bool, ImagesRepositoryErrors>) -> ()) {
+    private func deleteImage(of path: String, completion: @escaping (Result<Bool, ImagesRepositoryErrors>) -> ()) {
         UserDefaults.standard.removeObject(forKey: path)
         let imageRef = storageRoot.child(path)
         imageRef.delete { error in
@@ -94,7 +96,7 @@ class ImagesRepository {
         imageRef.getData(maxSize: .max) { (imageData, error) in
             if let errorMessage = error?.localizedDescription {
                 DispatchQueue.main.async {
-                    completion(.failure(.errorGettingImageFromPost(errorMessage)))
+                    completion(.failure(.errorGettingImage(errorMessage)))
                 }
             } else {
                 DispatchQueue.main.async { [weak self] in
@@ -116,7 +118,7 @@ class ImagesRepository {
         let uploadProgressTask = imageRef.putData(data, metadata: metadata) { (_, error) in
             if let errorMessage = error?.localizedDescription {
                 DispatchQueue.main.async {
-                    completion(.failure(.errorGettingImageFromPost(errorMessage)))
+                    completion(.failure(.errorSendingImage(errorMessage)))
                 }
             } else {
                 DispatchQueue.main.async {
