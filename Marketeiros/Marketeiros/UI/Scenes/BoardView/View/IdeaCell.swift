@@ -26,7 +26,7 @@ struct IdeaCell: View {
             ZStack {
                 TextEditor(text: $newIdea)
                     .font(Font.sfProDisplayRegular(sized: 14))
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color("IdeaColorText"))
                     .background(Color("ideaColorCell"))
                     .onTapGesture {
                         if newIdea == NSLocalizedString("writeIdea", comment: "") {
