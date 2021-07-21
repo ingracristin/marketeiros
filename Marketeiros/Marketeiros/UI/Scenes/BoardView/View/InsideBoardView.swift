@@ -55,34 +55,12 @@ struct InsideBoardView: View {
                         LazyVGrid(columns: layout, spacing: 1) {
                             ForEach(viewModel.posts.sorted {$0.dateOfCreation > $1.dateOfCreation}, id: \.uid) { post in
                                 NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
-                                    ZStack {
-                                        FirebaseImage(post: post, board: viewModel.board,widthImg:cellWidth,heightImg:cellWidth, averageColorOn: $averageColorOn) {
-                                            Rectangle()
-                                                .foregroundColor(.gray)
-                                            
-                                        } image: {
-                                            Image(uiImage: $0)
-                                        }
-                                        .frame(width: cellWidth,height: cellWidth, alignment: .center)
-//                                        .contextMenu {
-//                                            VStack{
-//                                                Button(action:{}){
-//                                                    HStack{
-//                                                        Text(NSLocalizedString("share", comment: ""))
-//                                                        Image(systemName: "square.and.arrow.up")
-//                                                    }
-//                                                }
-//
-//                                                Button(action:{}){
-//                                                    HStack{
-//                                                        Text(NSLocalizedString("delete", comment: ""))
-//                                                        Image(systemName: "trash")
-//                                                    }.foregroundColor(.red)
-//                                                }
-//
-//                                            }
-//                                        }
-                                    }
+                                    PostsGridCellView(
+                                        post: post,
+                                        board: viewModel.board,
+                                        height: cellWidth,
+                                        width: cellWidth,
+                                        averageColorOn: $averageColorOn)
                                     .onDrag({
                                         self.dragging = post
                                         return NSItemProvider(object: String(post.uid) as NSString)

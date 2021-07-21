@@ -80,6 +80,7 @@
 		AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7D26897E2300870BB2 /* AuthService.swift */; };
 		AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */; };
 		AED6CF8326897FAB00870BB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */; };
+		AEE1B9DE26A7BF9600BC45FA /* PostsGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1B9DD26A7BF9600BC45FA /* PostsGridCellView.swift */; };
 		AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */; };
 		AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA8012690261900A86786 /* TabBarScene.swift */; };
 		CCDA2B977807C095FAD79017 /* Pods_Marketeiros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */; };
@@ -178,6 +179,7 @@
 		AED6CF7D26897E2300870BB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWrapperView.swift; sourceTree = "<group>"; };
 		AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AEE1B9DD26A7BF9600BC45FA /* PostsGridCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGridCellView.swift; sourceTree = "<group>"; };
 		AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarPageViewModel.swift; path = "Marketeiros/UI/Shared Views/CalendarPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AEFFA8012690261900A86786 /* TabBarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarScene.swift; sourceTree = "<group>"; };
 		CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketeiros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
 				EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */,
 				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
+				AEE1B9DD26A7BF9600BC45FA /* PostsGridCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
 				AE3EB5D426976CDC0093AF7C /* IdeaView.swift in Sources */,
 				EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */,
+				AEE1B9DE26A7BF9600BC45FA /* PostsGridCellView.swift in Sources */,
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
 				AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
@@ -1024,7 +1028,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1050,7 +1054,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
