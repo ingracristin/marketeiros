@@ -19,6 +19,7 @@ struct InsideBoardView: View {
     
     init(board: Board) {
         UIToolbar.appearance().barTintColor = UIColor.init(Color(#colorLiteral(red: 0.9798186421, green: 0.9811866879, blue: 0.9327015281, alpha: 1)))
+        
 
         viewModel = InsideBoardViewModel(board: board)
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
@@ -44,7 +45,9 @@ struct InsideBoardView: View {
                     Text(NSLocalizedString("ideas", comment: "")).tag(1)
                     Text("Mood").tag(2)
                 })
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(SegmentedPickerStyle()).foregroundColor(Color.orange)
+                
+                
                 
                 if viewModel.posts.count == 1 {
                     NavigationLink(destination: EmptyView()) {
@@ -102,6 +105,7 @@ struct InsideBoardView: View {
                                 viewModel.toggleAddPostView()
                             }, label: {
                                 Text("Novo")
+                                    .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
                             })
                             
                             Spacer()
@@ -110,6 +114,7 @@ struct InsideBoardView: View {
                                 self.averageColorOn.toggle()
                             }, label: {
                                 Text("Cores")
+                                    .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
                             })
                             
                             Spacer()
@@ -117,6 +122,7 @@ struct InsideBoardView: View {
                             
                             Button(action: {}, label: {
                                 Text("Formato")
+                                    .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
                                     
                             })
                             
