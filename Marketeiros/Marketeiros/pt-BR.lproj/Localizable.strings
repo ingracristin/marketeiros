@@ -101,3 +101,6 @@
 //addons
 "share" = "Compartilhar";
 "delete" = "Deletar da Grid";
+"posted" = "Postado";
+"edit" = "Editar";
+"deletePost" = "Deletar post";

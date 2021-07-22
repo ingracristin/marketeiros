@@ -17,6 +17,7 @@
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
 		79747F60269348B7004BAAC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79747F5F269348B7004BAAC9 /* LoginView.swift */; };
 		79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79747F61269362EB004BAAC9 /* RegisterView.swift */; };
+		798C8A6A26A85C500031F9DA /* NewPostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C8A6926A85C500031F9DA /* NewPostDetailsView.swift */; };
 		79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */; };
 		AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B5D268EC0B400327D39 /* PostDetailsView.swift */; };
 		AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B5F268EC0D000327D39 /* PostDetailsViewModel.swift */; };
@@ -114,6 +115,7 @@
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
 		79747F5F269348B7004BAAC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		79747F61269362EB004BAAC9 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		798C8A6926A85C500031F9DA /* NewPostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostDetailsView.swift; sourceTree = "<group>"; };
 		79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBoardView.swift; sourceTree = "<group>"; };
 		973B31595F71E5ED16B930A4 /* Pods-Marketeiros.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marketeiros.release.xcconfig"; path = "Target Support Files/Pods-Marketeiros/Pods-Marketeiros.release.xcconfig"; sourceTree = "<group>"; };
 		AE119B5D268EC0B400327D39 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				AE119B5C268EC09300327D39 /* View Models */,
 				AE119B5D268EC0B400327D39 /* PostDetailsView.swift */,
+				798C8A6926A85C500031F9DA /* NewPostDetailsView.swift */,
 			);
 			path = PostDetails;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */,
 				AEE1B9DE26A7BF9600BC45FA /* PostsGridCellView.swift in Sources */,
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
+				798C8A6A26A85C500031F9DA /* NewPostDetailsView.swift in Sources */,
 				AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
 				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,

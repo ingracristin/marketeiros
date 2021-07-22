@@ -100,4 +100,7 @@
 //addons
 "share" = "Share";
 "delete" = "Delete from Grid";
+"posted" = "Posted";
+"edit" = "Edit";
+"deletePost" = "Delete Post";
 

@@ -52,7 +52,7 @@ struct AsyncImage<Placeholder: View>: View {
                             .frame(width: self.width * 0.3982, height:  self.height * 0.0973)
                             .foregroundColor(Color(#colorLiteral(red: 0.537254902, green: 0.5411764706, blue: 0.5529411765, alpha: 0.34)))
                             .cornerRadius(3)
-                        Text("Postado")
+                        Text(NSLocalizedString("posted", comment: ""))
                             .font(.custom("SF Pro Display", size: 8))
                             .fontWeight(.regular)
                             .foregroundColor(.white)
