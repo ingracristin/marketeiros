@@ -34,7 +34,7 @@ struct NewPostDetailsView: View {
                     Spacer()
                 }
                 
-                            
+                
                 Text("Lorem ipsum dolor sit amet")
                     .font(.custom("SF Pro Display", size: 16))
                     .fontWeight(.semibold)
@@ -71,12 +71,36 @@ struct NewPostDetailsView: View {
             
             Spacer()
             
-        }.padding(.horizontal,20)
+        }.padding(.init(top: 20, leading: 20, bottom: 0, trailing: 20))
+        .navigationBarTitle("Post", displayMode: .inline)
+        .navigationBarItems(trailing:
+                                Menu(content: {
+                                    Button(action:{}){
+                                        HStack{
+                                            Text(NSLocalizedString("edit", comment: ""))
+                                            Image(systemName: "square.and.pencil")
+                                        }
+                                    }
+                                    Button(action:{}){
+                                        HStack{
+                                            Text(NSLocalizedString("deletePost", comment: ""))
+                                            Image(systemName: "trash")
+                                        }.foregroundColor(.red)
+                                    }
+                                },label: {
+                                    Text("...")
+                                        .font(Font.sfProDisplaySemiBold(sized: 17))
+                                        .foregroundColor(Color(UIColor.navBarItemsColor))
+                                        
+                                }))
     }
 }
 
 struct NewPostDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostDetailsView()
+        NavigationView{
+            NewPostDetailsView()
+        }
+        
     }
 }
