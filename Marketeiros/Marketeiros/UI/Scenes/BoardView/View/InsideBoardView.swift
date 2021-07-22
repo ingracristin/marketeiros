@@ -18,9 +18,13 @@ struct InsideBoardView: View {
     @State var postsCount = 0
     
     init(board: Board) {
-        UIToolbar.appearance().barTintColor = UIColor.init(Color(#colorLiteral(red: 0.9798186421, green: 0.9811866879, blue: 0.9327015281, alpha: 1)))
         
-
+        UIToolbar.appearance().barTintColor = UIColor.init(Color(#colorLiteral(red: 0.9798186421, green: 0.9811866879, blue: 0.9327015281, alpha: 1)))
+       
+       
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+        
         viewModel = InsideBoardViewModel(board: board)
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
     }
@@ -45,7 +49,12 @@ struct InsideBoardView: View {
                     Text(NSLocalizedString("ideas", comment: "")).tag(1)
                     Text("Mood").tag(2)
                 })
-                .pickerStyle(SegmentedPickerStyle()).foregroundColor(Color.orange)
+                .pickerStyle(SegmentedPickerStyle()).onAppear {
+                    UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.init(cgColor: #colorLiteral(red: 0.2745098039, green: 0.3921568627, blue: 0.9019607843, alpha: 1))
+                }.cornerRadius(25)
+                .pickerStyle(SegmentedPickerStyle())
+                             .cornerRadius(25)
+                
                 
                 
                 
