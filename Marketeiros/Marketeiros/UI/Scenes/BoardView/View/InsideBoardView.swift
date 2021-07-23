@@ -12,7 +12,7 @@ struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: InsideBoardViewModel
     @ObservedObject var vm: ViewModel
-    @State var selectedView = 0
+    @State var selectedIndex = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
     @State var postsCount = 0
@@ -44,17 +44,50 @@ struct InsideBoardView: View {
             }
             
             VStack(spacing: 20) {
-                Picker("View", selection: $selectedView, content: {
-                    Text("Grid").tag(0)
-                    Text(NSLocalizedString("ideas", comment: "")).tag(1)
-                    Text("Mood").tag(2)
-                })
-                .pickerStyle(SegmentedPickerStyle()).onAppear {
-                    UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.init(cgColor: #colorLiteral(red: 0.2745098039, green: 0.3921568627, blue: 0.9019607843, alpha: 1))
-                }.cornerRadius(25)
-                .pickerStyle(SegmentedPickerStyle())
-                             .cornerRadius(25)
-                
+                HStack(){
+                    Button(action: {
+                        selectedIndex = 0
+                    }, label: {
+                        Text("Grid")
+                            .font(Font.coconBold(sized: 20))
+                            .bold()
+                            .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
+                    })
+                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                   
+                    .background((selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                    .cornerRadius(13)
+                    .frame(width: (reader.size.width/3) - 40)
+                    Spacer()
+                    Button(action: {
+                        selectedIndex = 1
+                    }, label: {
+                        Text("Ideias")
+                            .font(Font.coconBold(sized: 20))
+                            .bold()
+                            .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
+                    })
+                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                    .background((selectedIndex == 1) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                    .cornerRadius(13)
+                    .frame(width: (reader.size.width/3) - 40)
+                    Spacer()
+                    Button(action: {
+                        selectedIndex = 2
+                    }, label: {
+                        Text("Mood")
+                            .font(Font.coconBold(sized: 20))
+                            .bold()
+                            .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
+                    })
+                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                    
+                    .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                    .cornerRadius(13)
+                    .frame(width: (reader.size.width/3) - 40)
+                   
+                }
+               
                 
                 
                 
@@ -64,7 +97,7 @@ struct InsideBoardView: View {
                     }
                 }
 
-                if (selectedView == 0) {
+                if (selectedIndex == 0) {
                     ScrollView(){
                         LazyVGrid(columns: layout, spacing: 1) {
                             ForEach(viewModel.posts.sorted {$0.dateOfCreation > $1.dateOfCreation}, id: \.uid) { post in
@@ -138,9 +171,9 @@ struct InsideBoardView: View {
                            
                         }
                     }
-                } else if (selectedView == 1) {
+                } else if (selectedIndex == 1) {
                     IdeaView(viewModel: .init(board: viewModel.board))
-                } else if (selectedView == 2) {
+                } else if (selectedIndex == 2) {
                     MoodBoardView()
                 }
             }
