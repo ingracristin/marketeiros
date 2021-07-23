@@ -45,10 +45,12 @@ struct CalendarPageView: View {
 //                    }
                 }
                 .padding(.bottom,8)
+                
+                AppDatePicker(anyDays: viewModel.bindings.scheduledDates, selectedDay: $date)
             
-                DatePicker("Eita", selection: $date, displayedComponents: .date)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                    .accentColor(Color(UIColor.appLightBlue))
+//                DatePicker("Eita", selection: $date, displayedComponents: .date)
+//                    .datePickerStyle(GraphicalDatePickerStyle())
+//                    .accentColor(Color(UIColor.appLightBlue))
             }
             .padding(.horizontal)
             

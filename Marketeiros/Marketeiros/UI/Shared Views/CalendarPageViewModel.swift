@@ -14,19 +14,24 @@ class CalendarPageViewModel: ObservableObject {
     
     class States {
         var date: Date = .init()
+        var scheduledDates = [Date]()
         var isShowing = false
     }
     
     var bindings: (
         date: Binding<Date>,
-        isShowing: Binding<Bool>
+        isShowing: Binding<Bool>,
+        scheduledDates: Binding<[Date]>
     ) {(
         date: Binding(
             get: {self.states.date},
             set: {self.states.date = $0}),
         isShowing: Binding(
             get: {self.states.isShowing},
-            set: {self.states.isShowing = $0})
+            set: {self.states.isShowing = $0}),
+        scheduledDates: Binding(
+            get: {self.states.scheduledDates},
+            set: {self.states.scheduledDates = $0})
     )}
     
     func toggleIsShowing() {
@@ -54,6 +59,7 @@ class CalendarPageViewModel: ObservableObject {
         UserNotificationService.shared.getScheduledNotifications { scheduledNotifications in
             DispatchQueue.main.async {
                 self.notifications = scheduledNotifications
+                self.bindings.scheduledDates.wrappedValue = scheduledNotifications.map({$0.date})
             }
         }
     }
