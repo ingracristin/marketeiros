@@ -49,8 +49,7 @@ struct InsideBoardView: View {
                         selectedIndex = 0
                     }, label: {
                         Text("Grid")
-                            .font(Font.coconBold(sized: 20))
-                            .bold()
+                            .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
@@ -62,9 +61,8 @@ struct InsideBoardView: View {
                     Button(action: {
                         selectedIndex = 1
                     }, label: {
-                        Text("Ideias")
-                            .font(Font.coconBold(sized: 20))
-                            .bold()
+                        Text(NSLocalizedString("ideas", comment: ""))
+                            .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
@@ -76,8 +74,7 @@ struct InsideBoardView: View {
                         selectedIndex = 2
                     }, label: {
                         Text("Mood")
-                            .font(Font.coconBold(sized: 20))
-                            .bold()
+                            .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
@@ -86,7 +83,7 @@ struct InsideBoardView: View {
                     .cornerRadius(13)
                     .frame(width: (reader.size.width/3) - 40)
                    
-                }
+                }.padding(.bottom)
                
                 
                 
