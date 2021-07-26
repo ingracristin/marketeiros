@@ -49,7 +49,6 @@ struct InsideBoardView: View {
                         selectedIndex = 0
                     }, label: {
                         Text("Grid")
-                            .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
                             .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
                     })
@@ -63,7 +62,7 @@ struct InsideBoardView: View {
                         selectedIndex = 1
                     }, label: {
                         Text(NSLocalizedString("ideas", comment: ""))
-                            .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
+                            
                             .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
                     })
@@ -76,7 +75,6 @@ struct InsideBoardView: View {
                         selectedIndex = 2
                     }, label: {
                         Text("Mood")
-                            .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
                             .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
                     })
