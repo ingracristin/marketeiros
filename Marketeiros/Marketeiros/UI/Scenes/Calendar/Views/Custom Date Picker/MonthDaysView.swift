@@ -31,7 +31,7 @@ struct MonthDaysView: View {
                     Text("")
                         .frame(minHeight: cellSize, maxHeight: cellSize)
                 } else {
-                    SingleDayView(cellSize: cellSize, dayOfMonth: monthDataModel.days[index])
+                    SingleDayView(dayInFocus: monthDataModel.selectedDay!, cellSize: cellSize, dayOfMonth: monthDataModel.days[index])
                 }
             }
         }.padding(.bottom, 10)

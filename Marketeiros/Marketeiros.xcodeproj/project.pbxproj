@@ -310,14 +310,14 @@
 		AE247DD726AB12AC0059CBEB /* Custom Date Picker */ = {
 			isa = PBXGroup;
 			children = (
+				AE247DDF26AB12AC0059CBEB /* View Model */,
+				AE247DD926AB12AC0059CBEB /* Models */,
 				AE247DE826AB132C0059CBEB /* AppDatePicker.swift */,
 				AE247DD826AB12AC0059CBEB /* MonthDaysView.swift */,
-				AE247DD926AB12AC0059CBEB /* Models */,
 				AE247DDB26AB12AC0059CBEB /* MonthView.swift */,
 				AE247DDC26AB12AC0059CBEB /* MonthYserPicker.swift */,
 				AE247DDD26AB12AC0059CBEB /* SingleDayView.swift */,
 				AE247DDE26AB12AC0059CBEB /* MonthPicker.swift */,
-				AE247DDF26AB12AC0059CBEB /* View Model */,
 			);
 			path = "Custom Date Picker";
 			sourceTree = "<group>";

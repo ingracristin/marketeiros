@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SingleDayView: View {
     @EnvironmentObject var monthDataModel: AppDatePickerViewModel
+    @Binding var dayInFocus: Date
     var cellSize: CGFloat
     var dayOfMonth: MDPDayOfMonth
     
@@ -50,7 +51,7 @@ struct SingleDayView: View {
                             .background(Circle().foregroundColor(Color(UIColor.appDarkBlue)))
                             .frame(width: cellSize - 5, height: cellSize - 5))
             
-            } else if Calendar.current.isDate(dayOfMonth.date!, inSameDayAs: monthDataModel.dayInFocus)  {
+            } else if Calendar.current.isDate(dayOfMonth.date!, inSameDayAs:dayInFocus)  {
                 Text("\(dayOfMonth.day)")
                     .font(Font.sfProDisplayRegular(sized: 16))
                     .fontWeight(.semibold)
@@ -92,6 +93,6 @@ struct SingleDayView: View {
 
 struct MDPDayView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleDayView(cellSize: 30, dayOfMonth: .init())
+        SingleDayView(dayInFocus: .constant(.init()), cellSize: 30, dayOfMonth: .init())
     }
 }
