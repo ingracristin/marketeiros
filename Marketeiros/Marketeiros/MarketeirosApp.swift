@@ -36,6 +36,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 extension MarketeirosApp {
     private func setViewsAppearence() {
         UITableView.appearance().backgroundColor = .clear
+        // nav bar
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.navBarTitleColor]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.navBarTitleColor]
@@ -45,9 +46,14 @@ extension MarketeirosApp {
         UINavigationBar.appearance().compactAppearance = navBarAppearance
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().barTintColor = UIColor(.init("navbarColor"))
+        // toolbar
         UIToolbar.appearance().setShadowImage(UIImage(), forToolbarPosition: .any)
+        // tabBar
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().clipsToBounds = true
+        UITabBar.appearance().isTranslucent = false
+        
+        // textView
         UITextView.appearance().backgroundColor = .clear
     }
 }

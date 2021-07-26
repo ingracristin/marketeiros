@@ -14,7 +14,7 @@ struct BottonSheetListCell: View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Color(UIColor.appBeige)
                 .cornerRadius(21)
-            HStack {
+            HStack(spacing:0) {
                 VStack {
                     Spacer()
                     Text(getHourOf(date: notification.date))
@@ -22,6 +22,15 @@ struct BottonSheetListCell: View {
                         .font(Font.sfProDisplaySemiBold(sized: 18))
                     Spacer()
                 }
+                RoundedRectangle(cornerRadius: 30)
+                    //.padding(.vertical,10)
+                    .foregroundColor(Color(UIColor.appDarkBlue))
+                    .frame(width: 1.3)
+                    .padding(.vertical,12)
+                    .padding(.horizontal,17)
+                    
+
+                    
                 VStack {
                     HStack {
                         Text(notification.title)
@@ -37,7 +46,7 @@ struct BottonSheetListCell: View {
                         Spacer()
                     }
                 }
-                .padding()
+                .padding(.vertical)
             }
             .padding(.horizontal, 30)
         }

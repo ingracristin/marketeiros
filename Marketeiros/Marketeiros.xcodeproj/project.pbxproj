@@ -24,6 +24,15 @@
 		AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE119B61268EC0FC00327D39 /* FirebaseImage.swift */; };
 		AE21A9FF268BC0BF00AF3797 /* NewBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */; };
 		AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */; };
+		AE247DE126AB12AC0059CBEB /* MonthDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DD826AB12AC0059CBEB /* MonthDaysView.swift */; };
+		AE247DE226AB12AC0059CBEB /* DayOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DDA26AB12AC0059CBEB /* DayOfMonth.swift */; };
+		AE247DE326AB12AC0059CBEB /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DDB26AB12AC0059CBEB /* MonthView.swift */; };
+		AE247DE426AB12AC0059CBEB /* MonthYserPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DDC26AB12AC0059CBEB /* MonthYserPicker.swift */; };
+		AE247DE526AB12AC0059CBEB /* SingleDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DDD26AB12AC0059CBEB /* SingleDayView.swift */; };
+		AE247DE626AB12AC0059CBEB /* MonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DDE26AB12AC0059CBEB /* MonthPicker.swift */; };
+		AE247DE726AB12AC0059CBEB /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DE026AB12AC0059CBEB /* DatePickerViewModel.swift */; };
+		AE247DE926AB132C0059CBEB /* AppDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DE826AB132C0059CBEB /* AppDatePicker.swift */; };
+		AE247DEB26AB13870059CBEB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE247DEA26AB13870059CBEB /* StringExtension.swift */; };
 		AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */; };
 		AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC322683BA9C00258D8B /* AsyncImage.swift */; };
 		AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC342683BC4800258D8B /* UserProfileGridView.swift */; };
@@ -123,6 +132,15 @@
 		AE119B61268EC0FC00327D39 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
 		AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/NewBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoardListViewModel.swift; path = "Marketeiros/UI/Shared Views/BoardListViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		AE247DD826AB12AC0059CBEB /* MonthDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthDaysView.swift; sourceTree = "<group>"; };
+		AE247DDA26AB12AC0059CBEB /* DayOfMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOfMonth.swift; sourceTree = "<group>"; };
+		AE247DDB26AB12AC0059CBEB /* MonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		AE247DDC26AB12AC0059CBEB /* MonthYserPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYserPicker.swift; sourceTree = "<group>"; };
+		AE247DDD26AB12AC0059CBEB /* SingleDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDayView.swift; sourceTree = "<group>"; };
+		AE247DDE26AB12AC0059CBEB /* MonthPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPicker.swift; sourceTree = "<group>"; };
+		AE247DE026AB12AC0059CBEB /* DatePickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
+		AE247DE826AB132C0059CBEB /* AppDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatePicker.swift; sourceTree = "<group>"; };
+		AE247DEA26AB13870059CBEB /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventView.swift; sourceTree = "<group>"; };
 		AE37BC322683BA9C00258D8B /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		AE37BC342683BC4800258D8B /* UserProfileGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGridView.swift; sourceTree = "<group>"; };
@@ -287,6 +305,37 @@
 				AE119B5F268EC0D000327D39 /* PostDetailsViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		AE247DD726AB12AC0059CBEB /* Custom Date Picker */ = {
+			isa = PBXGroup;
+			children = (
+				AE247DDF26AB12AC0059CBEB /* View Model */,
+				AE247DD926AB12AC0059CBEB /* Models */,
+				AE247DE826AB132C0059CBEB /* AppDatePicker.swift */,
+				AE247DD826AB12AC0059CBEB /* MonthDaysView.swift */,
+				AE247DDB26AB12AC0059CBEB /* MonthView.swift */,
+				AE247DDC26AB12AC0059CBEB /* MonthYserPicker.swift */,
+				AE247DDD26AB12AC0059CBEB /* SingleDayView.swift */,
+				AE247DDE26AB12AC0059CBEB /* MonthPicker.swift */,
+			);
+			path = "Custom Date Picker";
+			sourceTree = "<group>";
+		};
+		AE247DD926AB12AC0059CBEB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE247DDA26AB12AC0059CBEB /* DayOfMonth.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AE247DDF26AB12AC0059CBEB /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE247DE026AB12AC0059CBEB /* DatePickerViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		AE37BC312683BA8700258D8B /* Shared Views */ = {
@@ -482,6 +531,7 @@
 		AE5B70512678EDB500AFF32E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AE247DD726AB12AC0059CBEB /* Custom Date Picker */,
 				AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */,
 				AE3A8370267998540016F435 /* BottonSheet.swift */,
 				AE647215267B942E009E5789 /* BottonSheetListCell.swift */,
@@ -501,6 +551,7 @@
 		AE5B70552678F5F000AFF32E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AE247DEA26AB13870059CBEB /* StringExtension.swift */,
 				AE5B70562678F5FF00AFF32E /* CalendarExtensions.swift */,
 				AE647213267B93F5009E5789 /* TextViewExtension.swift */,
 				AE8A5207268B834000E14EBD /* ViewExtension.swift */,
@@ -800,8 +851,10 @@
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
 				AE3EB5C426976C7E0093AF7C /* HalfModalView.swift in Sources */,
 				AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */,
+				AE247DE226AB12AC0059CBEB /* DayOfMonth.swift in Sources */,
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
+				AE247DE726AB12AC0059CBEB /* DatePickerViewModel.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
 				AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */,
 				AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */,
@@ -822,6 +875,7 @@
 				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,
 				AE5D32262695481F002BD62F /* SignUpViewModel.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
+				AE247DEB26AB13870059CBEB /* StringExtension.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
@@ -829,8 +883,10 @@
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
+				AE247DE926AB132C0059CBEB /* AppDatePicker.swift in Sources */,
 				79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */,
 				79747F60269348B7004BAAC9 /* LoginView.swift in Sources */,
+				AE247DE626AB12AC0059CBEB /* MonthPicker.swift in Sources */,
 				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				AE3EB5DF26976CE60093AF7C /* CreateIdeaSceneView.swift in Sources */,
@@ -843,6 +899,7 @@
 				798C8A6A26A85C500031F9DA /* NewPostDetailsView.swift in Sources */,
 				AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
+				AE247DE126AB12AC0059CBEB /* MonthDaysView.swift in Sources */,
 				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,
 				AED48457269D5EE100890E91 /* LoadingView.swift in Sources */,
 				AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */,
@@ -851,8 +908,11 @@
 				AED6CF7826897D5E00870BB2 /* User.swift in Sources */,
 				AE3EB5C926976CBC0093AF7C /* PasteDetailsViewModel.swift in Sources */,
 				EF2D04F62693446D00B9D7E5 /* PinterestGrid.swift in Sources */,
+				AE247DE326AB12AC0059CBEB /* MonthView.swift in Sources */,
 				AE3EB5D626976CDC0093AF7C /* EditSheet.swift in Sources */,
+				AE247DE426AB12AC0059CBEB /* MonthYserPicker.swift in Sources */,
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
+				AE247DE526AB12AC0059CBEB /* SingleDayView.swift in Sources */,
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 				AE3EB5E226976D090093AF7C /* DeviceDataPersistenceService.swift in Sources */,
 				79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */,
@@ -1024,7 +1084,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1032,7 +1092,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1050,7 +1110,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1058,7 +1118,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
