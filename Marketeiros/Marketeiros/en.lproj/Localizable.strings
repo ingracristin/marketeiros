@@ -55,7 +55,7 @@
 
 //Profile View
 "profile" = "Profile";
-"account" = "Account";
+"accountData" = "Account Data";
 "notifi" = "Notifications";
 "help" = "Help";
 "about" = "About";

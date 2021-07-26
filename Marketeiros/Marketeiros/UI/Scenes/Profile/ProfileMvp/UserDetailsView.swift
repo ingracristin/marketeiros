@@ -13,21 +13,27 @@ struct UserDetailsView: View {
         VStack(alignment:.leading){
             HStack{
                 Spacer()
-                ZStack{
+                ZStack(alignment: .bottomTrailing){
                    
                     Image("bolinha")
                         .resizable()
-                        .frame(width: 90, height: 90)
+                        .frame(width: 100, height: 100)
+                        .overlay(Image(systemName: "camera")
+                                    .foregroundColor(Color("cameraColor")), alignment: .bottomTrailing)
                     
-                    Image("camera")
-                        .frame(width: 100, height: 100, alignment: .bottomTrailing)
-                        .padding(.horizontal,40)
+                    
+                        //.frame(width: 100, height: 100)
+                        //.padding(.horizontal,40)
+                        //.foregroundColor(Color("cameraColor"))
                         
+                    
+                    
                 }
                 Spacer()
             }
             
-            Text(NSLocalizedString("account", comment: ""))
+            Text(NSLocalizedString("accountData", comment: ""))
+                .bold()
                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                 .foregroundColor(Color("NavBarTitle"))
                 .padding()
@@ -35,6 +41,7 @@ struct UserDetailsView: View {
                 HStack{
                     Text(NSLocalizedString("name", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
+                        .font(.custom("SF Pro Display", size: 20))
                 }.padding()
                 Spacer()
                 HStack{
@@ -52,6 +59,7 @@ struct UserDetailsView: View {
                 HStack{
                     Text(NSLocalizedString("user", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
+                        .font(.custom("SF Pro Display", size: 20))
                 }.padding()
                 Spacer()
                 HStack{
@@ -69,11 +77,12 @@ struct UserDetailsView: View {
                 HStack{
                     Text("E-mail")
                         .foregroundColor(Color("NavBarTitle"))
+                        .font(.custom("SF Pro Display", size: 20))
                 }.padding()
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
-                        TextField("E-mail do convidado", text: $boardName)
+                        TextField("Aq tem q pegar o email da pess", text: $boardName)
                             .padding()
                             .frame(width: 280, height: 50)
                             .background(Color("TextField2"))
@@ -84,6 +93,19 @@ struct UserDetailsView: View {
             }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
             
            Spacer()
+            HStack(){
+                Spacer()
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Text("Excluir conta")
+                        .foregroundColor(.red)
+                        .font(.custom("SF Pro Display", size: 20))
+                    
+                })
+                Spacer()
+            }
+            
+            
+            
         }.padding()
         .navigationBarTitle(NSLocalizedString("account", comment: ""),displayMode: .inline )
     }
