@@ -48,7 +48,7 @@ struct SingleDayView: View {
                     .background(
                         Circle()
                             .stroke(strokeColor, lineWidth: 1)
-                            .background(Circle().foregroundColor(Color(UIColor.appDarkBlue)))
+                            .background(Circle().foregroundColor(Color(UIColor.appLightBlue)))
                             .frame(width: cellSize - 5, height: cellSize - 5))
             
             } else if Calendar.current.isDate(dayOfMonth.date!, inSameDayAs:dayInFocus)  {

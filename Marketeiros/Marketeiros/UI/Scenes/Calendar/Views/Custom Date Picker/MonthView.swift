@@ -35,14 +35,14 @@ struct MonthView: View {
                     Spacer()
                     Button( action: {showPrevMonth()} ) {
                         Image(systemName: "chevron.left")
-                            .font(.title2)
+                            .font(.title3)
                             .foregroundColor(Color(UIColor.navBarTitleColor))
-                    }.padding(.horizontal)
+                    }.padding(.horizontal,10)
                     Button( action: {showNextMonth()} ) {
                         Image(systemName: "chevron.right")
-                            .font(.title2)
+                            .font(.title3)
                             .foregroundColor(Color(UIColor.navBarTitleColor))
-                    }.padding(.horizontal)
+                    }.padding(.trailing)
                 }
                 .padding(.leading, 18)
                 

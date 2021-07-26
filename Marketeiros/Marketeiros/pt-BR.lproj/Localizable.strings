@@ -44,6 +44,7 @@
 //Calendar View
 "creatEventBtn" = "criar evento";
 "eventWeek" = "Eventos da semana";
+"of" = "de";
 
 //NewEvent Sheet
 "addBtn" = "Adicionar";

@@ -16,7 +16,7 @@ struct BottomSheet : View {
     var body: some View {
         VStack {
             Capsule()
-                .fill(Color.gray.opacity(0.5))
+                .fill(Color.white)
                 .frame(width: 50, height: 5)
                 .padding(.top)
                 .padding(.bottom,8)

@@ -140,7 +140,7 @@ extension AppDatePickerViewModel {
         }
         
         self.numDays = numDays
-        self.title = "\(calendar.monthSymbols[month-1]) \(year)"
+        self.title = "\(calendar.monthSymbols[month-1]) \(year)".capitalized
         self.days = daysArray
     }
 }

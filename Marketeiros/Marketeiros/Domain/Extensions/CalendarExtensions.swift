@@ -81,7 +81,9 @@ extension Calendar {
         let components = self.dateComponents([.weekday,.day,.month], from: date)
         let weekDayIndex = components.weekday! - 1
         let monthIndex = components.month! - 1
-        return "\(self.weekdaySymbols[weekDayIndex]), \(components.day!) of \(self.monthSymbols[monthIndex])"
+        let weekDayDescription = self.weekdaySymbols[weekDayIndex].capitalized
+        let connective = NSLocalizedString("of", comment: "")
+        return "\(weekDayDescription), \(components.day!) \(connective) \(self.monthSymbols[monthIndex])"
     }
     
     func getWeekDaysOf(date: Date = .init()) -> [Date] {

@@ -31,6 +31,7 @@ struct CalendarPageView: View {
                     }) {
                         Image(systemName: "slider.horizontal.3")
                             .frame(height: 40)
+                            .foregroundColor(Color(UIColor.appDarkGrey))
                     }
                 }.padding(.bottom,0)
                     
@@ -39,18 +40,14 @@ struct CalendarPageView: View {
                         .navBarTitle()
                     Spacer()
                     
-//                    AppButtonView(
-//                        label: NSLocalizedString("creatEventBtn", comment: "")) {
-//                        isShowing.toggle()
-//                    }
+                    AppButtonView(
+                        label: NSLocalizedString("creatEventBtn", comment: "")) {
+                        isShowing.toggle()
+                    }
                 }
                 .padding(.bottom,8)
                 
                 AppDatePicker(anyDays: viewModel.bindings.scheduledDates, selectedDay: $date)
-            
-//                DatePicker("Eita", selection: $date, displayedComponents: .date)
-//                    .datePickerStyle(GraphicalDatePickerStyle())
-//                    .accentColor(Color(UIColor.appLightBlue))
             }
             .padding(.horizontal)
             

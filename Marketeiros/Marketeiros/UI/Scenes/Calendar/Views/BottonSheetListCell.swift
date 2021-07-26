@@ -22,6 +22,10 @@ struct BottonSheetListCell: View {
                         .font(Font.sfProDisplaySemiBold(sized: 18))
                     Spacer()
                 }
+                Divider()
+                    .padding(.vertical)
+                    .frame(width: 20)
+                    
                 VStack {
                     HStack {
                         Text(notification.title)
