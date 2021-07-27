@@ -115,15 +115,19 @@ class AuthenticationViewModel: ObservableObject {
               let identityToken = credentials.identityToken,
               let appleIDTokenString = String(data: identityToken, encoding: .utf8) else { return }
         
+        let givenName = credentials.fullName?.givenName ?? ""
+        let lastName = credentials.fullName?.familyName ?? ""
+        let userNameFullName = "\(givenName) \(lastName)"
+        
         AuthService.current.signInWith(appleIDTokenString: appleIDTokenString, and: states.nonce) { result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let user):
-                if user.name.isEmpty {
+                if givenName.isEmpty {
                     self.states.isLoggedIn.toggle()
                 } else {
-                    UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: user.name, username: user.name)) { [weak self] result in
+                    UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: givenName, username: userNameFullName)) { [weak self] result in
                         switch result {
                         case .failure(let error):
                             print(error)

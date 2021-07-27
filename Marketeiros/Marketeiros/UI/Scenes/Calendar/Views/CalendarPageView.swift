@@ -32,6 +32,7 @@ struct CalendarPageView: View {
                         Image(systemName: "slider.horizontal.3")
                             .frame(height: 40)
                             .foregroundColor(Color(UIColor.appDarkGrey))
+                            .isHidden(true)
                     }
                 }.padding(.bottom,0)
                     

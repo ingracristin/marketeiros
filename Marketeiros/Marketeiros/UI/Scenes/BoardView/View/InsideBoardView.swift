@@ -17,11 +17,8 @@ struct InsideBoardView: View {
     @State private var dragging: Post?
     @State var postsCount = 0
     
-    init(board: Board) {
-        
+    init(board: Board) {  
         UIToolbar.appearance().barTintColor = UIColor.init(Color(#colorLiteral(red: 0.9798186421, green: 0.9811866879, blue: 0.9327015281, alpha: 1)))
-       
-       
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
@@ -86,9 +83,6 @@ struct InsideBoardView: View {
                    
                 }.padding(.bottom)
                
-                
-                
-                
                 if viewModel.posts.count == 1 {
                     NavigationLink(destination: EmptyView()) {
                         EmptyView()
@@ -115,19 +109,15 @@ struct InsideBoardView: View {
                             }
                             
                             ForEach(vm.imagesUrls, id: \.id) { imageUrl in
-                                
                                 AsyncImage(url: URL(string: imageUrl.imageUrl)!, averageColorOn: $averageColorOn, height: cellWidth, width: cellWidth) {
                                         Rectangle()
                                             .foregroundColor(Color(UIColor.emptyCellGridColor))
-                                        
                                     } image: {
                                         Image(uiImage: $0)
                                             .resizable()
                                     }
                                     .frame(width: cellWidth,height: cellWidth, alignment: .center)
-                                 
                             }
-                            
                             if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
                                 ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
                                     Rectangle()
@@ -158,13 +148,10 @@ struct InsideBoardView: View {
                             })
                             
                             Spacer()
-                            
-                            
+
                             Button(action: {}, label: {
                                 Text("Formato")
                             })
-                            
-                           
                         }
                     }
                 } else if (selectedIndex == 1) {
@@ -182,7 +169,6 @@ struct InsideBoardView: View {
             }
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
         }
-        
     }
 }
 

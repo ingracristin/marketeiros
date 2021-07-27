@@ -23,13 +23,10 @@ struct BottonSheetListCell: View {
                     Spacer()
                 }
                 RoundedRectangle(cornerRadius: 30)
-                    //.padding(.vertical,10)
                     .foregroundColor(Color(UIColor.appDarkBlue))
                     .frame(width: 1.3)
                     .padding(.vertical,12)
                     .padding(.horizontal,17)
-                    
-
                     
                 VStack {
                     HStack {

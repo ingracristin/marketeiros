@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct NewPostDetailsView: View {
+    @ObservedObject var viewModel: PostDetailsViewModel
+    
+    init(post: Post, board: Board) {
+        viewModel = .init(post: post, board: board)
+    }
+    
     var body: some View {
         VStack(alignment:.leading){
             Image("ImageTest")
@@ -99,7 +105,7 @@ struct NewPostDetailsView: View {
 struct NewPostDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            NewPostDetailsView()
+            NewPostDetailsView(post: .T(uid: "", photoPath: "", title: "", description: "", hashtags: [""], markedAccountsOnPost: [""], dateOfPublishing: Date()), board: Board(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
         }
         
     }
