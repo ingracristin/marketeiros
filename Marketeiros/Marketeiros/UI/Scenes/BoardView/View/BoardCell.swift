@@ -15,11 +15,30 @@ struct BoardCell: View {
         GeometryReader() { reader in
             ZStack(alignment: .bottomLeading) {
                 FirebaseImage(board: board, averageColorOn: $average, widthImg: reader.size.width, heightImg: reader.size.height) {
+                    
                     Image("bgBoardCell")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipped()
                         .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
+                    
+                    VStack(){
+                        HStack(){
+                            Spacer()
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                Text("...")
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                            }).foregroundColor(.blue)
+                            //.padding(.top)
+                            
+                        }
+                        Spacer()
+                    }.padding(.leading)
+                    
+                    
+                    
+                    
                 }
                 
                 Rectangle()

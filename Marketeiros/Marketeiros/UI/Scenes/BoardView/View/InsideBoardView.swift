@@ -145,7 +145,7 @@ struct InsideBoardView: View {
                                 viewModel.toggleAddPostView()
                             }, label: {
                                 Text("Novo")
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
+
                             })
                             
                             Spacer()
@@ -154,7 +154,7 @@ struct InsideBoardView: View {
                                 self.averageColorOn.toggle()
                             }, label: {
                                 Text("Cores")
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
+                                  
                             })
                             
                             Spacer()
@@ -162,8 +162,6 @@ struct InsideBoardView: View {
                             
                             Button(action: {}, label: {
                                 Text("Formato")
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1921568627, green: 0.1803921569, blue: 0.4078431373, alpha: 1)))
-                                    
                             })
                             
                            
@@ -184,6 +182,7 @@ struct InsideBoardView: View {
             }
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
         }
+        
     }
 }
 
