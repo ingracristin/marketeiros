@@ -28,9 +28,10 @@ struct PostDetailsView: View {
                         if viewModel.states.inputImage != nil {
                             Image(uiImage: viewModel.states.inputImage!)
                                 .resizable()
+                                .scaledToFill()
                                 .frame(width: UIScreen.main.bounds.size.width * 0.9066, height: UIScreen.main.bounds.size.height * 0.3756)
-                                .scaledToFit()
                                 .clipped()
+                                .cornerRadius(24)
                         } else {
                             VStack{
                                 Image(systemName: "camera")

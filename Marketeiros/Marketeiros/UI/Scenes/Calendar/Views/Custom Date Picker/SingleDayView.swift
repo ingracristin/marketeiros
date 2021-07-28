@@ -67,7 +67,7 @@ struct SingleDayView: View {
                     Text("\(dayOfMonth.day)")
                         .font(Font.sfProDisplayRegular(sized: 16))
                         .fontWeight(.semibold)
-                        .foregroundColor(Color(UIColor.appYellow))
+                        .foregroundColor(Color(UIColor.appLightBlue))
                         .frame(minHeight: cellSize, maxHeight: cellSize)
                         .background(
                             Circle()

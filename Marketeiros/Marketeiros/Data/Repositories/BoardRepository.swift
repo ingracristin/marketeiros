@@ -74,6 +74,20 @@ class BoardsRepository {
         board.uid = docRef.documentID
     }
     
+    func update(board: Board, completion: @escaping (Result<Bool,BoardsRepositoryErrors>) -> ()){
+        collection.document(board.uid).updateData(board.toJson()) { error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.boardsCollectionError(err.localizedDescription)))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(.success(true))
+                }
+            }
+        }
+    }
+    
     func delete(board: Board, completion: @escaping (Result<Bool,BoardsRepositoryErrors>) -> ()){
         collection.document(board.uid).delete { error in
             if let err = error {

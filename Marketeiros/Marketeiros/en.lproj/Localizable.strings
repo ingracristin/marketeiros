@@ -28,6 +28,10 @@
 "createIdeaBtn" = "Add idea";
 "writeIdea" = "Got a new idea? Write here so you don't forget!";
 
+// Inside Board view
+"edit board" = "Edit Board";
+"delete board" = "Delete Board";
+
 //NewBoard Sheet
 "cancelBtn" = "Cancel";
 "sheetTittleNew" = "New Board";

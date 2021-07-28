@@ -19,6 +19,7 @@ struct TestWebView: UIViewRepresentable {
         self.coordinator.viewModel = vm
         self.viewModel = vm
         self.urlString = "https://www.instagram.com/\(vm.igUser)/"
+        print(urlString)
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {
@@ -60,7 +61,8 @@ struct TestWebView: UIViewRepresentable {
         config.preferences = prefs
         let wb = WKWebView(frame: .zero, configuration: config)
         wb.navigationDelegate = coordinator
-        wb.load(URLRequest(url: URL(string: urlString)!))
+        let url = URL(string: urlString)!
+        wb.load(URLRequest(url: url))
         //wb.isHidden = true
         return wb
     }

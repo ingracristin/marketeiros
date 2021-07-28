@@ -91,24 +91,30 @@ class EditBoardViewModel : ObservableObject {
         board.instagramAccount = states.instragramAccount.replacingOccurrences(of: " ", with: "") 
         board.imagePath = board.imagePath
         
-        if states.inputImage != pastPhoto {
-            guard let image = states.inputImage?.jpeg(.medium) else {return}
-            ImagesRepository.current.deleteImage(of: board) { _ in}
-            
-            states.alertViewShowing.toggle()
-            ImagesRepository.current.upload(imageData: image, of: &board) { [weak self] progress in
-                self?.states.percentage = Float(progress)
-            } completion: { [weak self] result in
-                self?.states.alertViewShowing.toggle()
-                switch result {
-                case.failure(let message):
-                    completionHadler(message.localizedDescription)
-                case .success(_):
-                    if let self = self {
-                        self.callback(self.board)
-                        completionHadler(nil)
+        BoardsRepository.current.update(board: board) { [weak self] _ in
+            guard let self = self else {return}
+            if self.states.inputImage != self.pastPhoto {
+                guard let image = self.states.inputImage?.jpeg(.medium) else {return}
+                ImagesRepository.current.deleteImage(of: self.board) { _ in}
+                
+                self.states.alertViewShowing.toggle()
+                ImagesRepository.current.upload(imageData: image, of: &self.board) { [weak self] progress in
+                    self?.states.percentage = Float(progress)
+                } completion: { [weak self] result in
+                    self?.states.alertViewShowing.toggle()
+                    switch result {
+                    case.failure(let message):
+                        completionHadler(message.localizedDescription)
+                    case .success(_):
+                        if let self = self {
+                            self.callback(self.board)
+                            completionHadler(nil)
+                        }
                     }
                 }
+            } else {
+                self.callback(self.board)
+                completionHadler(nil)
             }
         }
     }

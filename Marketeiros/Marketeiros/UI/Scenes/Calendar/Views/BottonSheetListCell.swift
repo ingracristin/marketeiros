@@ -33,13 +33,17 @@ struct BottonSheetListCell: View {
                         Text(notification.title)
                             .foregroundColor(Color(UIColor.appDarkBlue))
                             .cellTitle()
-                            .fixedSize(horizontal: true, vertical: false)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+//                            .fixedSize(horizontal: true, vertical: false)
                         Spacer()
                     }
                     HStack {
                         Text(notification.description)
                             .foregroundColor(Color(UIColor.appDarkBlue))
                             .cellSubTitle()
+                            .lineLimit(1)
+                            .truncationMode(.tail)
                         Spacer()
                     }
                 }

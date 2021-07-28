@@ -11,31 +11,44 @@ import SwiftUI
 class InsideBoardViewModel: ObservableObject {
     @Published private(set) var posts = [Post]()
     @Published private(set) var states = States()
-    let board: Board
+    @Published var board: Board
     
     struct States {
         var selectedIndex = 0
+        var editBoardIsShowing = false
         var addPostScreenShowing = false
     }
     
     var bindings: (
         selectedIndex: Binding<Int>,
-        addPostScreenShowing: Binding<Bool>
+        addPostScreenShowing: Binding<Bool>,
+        editBoardIsShowing: Binding<Bool>
     ) {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
             set: {self.states.selectedIndex = $0}),
         addPostScreenShowing: Binding(
             get: {self.states.addPostScreenShowing},
-            set: {self.states.addPostScreenShowing = $0})
+            set: {self.states.addPostScreenShowing = $0}),
+        editBoardIsShowing: Binding(
+            get: {self.states.editBoardIsShowing},
+            set: {self.states.editBoardIsShowing = $0})
     )}
     
     init(board: Board) {
         self.board = board
     }
     
+    func change(board: Board) {
+        self.board = board
+    }
+    
     func toggleAddPostView() {
         states.addPostScreenShowing.toggle()
+    }
+    
+    func toggleEditBoardSheet() {
+        states.editBoardIsShowing.toggle()
     }
     
     func getAllPosts() {
@@ -50,6 +63,9 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func deleteBoard(completion: @escaping (Bool) -> ()) {
+        let uids = posts.map {$0.uid}
+        UserNotificationService.shared.deleteNotificationWith(uids: uids)
+        
         BoardsRepository.current.delete(board: board) { result in
             switch result {
             case .failure(_):

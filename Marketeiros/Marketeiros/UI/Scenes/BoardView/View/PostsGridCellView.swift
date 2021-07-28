@@ -16,7 +16,6 @@ struct PostsGridCellView: View {
     
     var body: some View {
         ZStack(alignment:.topTrailing){
-            
             FirebaseImage(post: post, board: board, widthImg: width, heightImg: height, averageColorOn: $averageColorOn) {
                 Rectangle()
                     .foregroundColor(Color(UIColor.emptyCellGridColor))
@@ -26,36 +25,31 @@ struct PostsGridCellView: View {
             }
             .frame(width: width,height: height, alignment: .center)
             .contextMenu {
-                VStack{
-                    Button(action:{}){
-                        HStack{
-                            Text(NSLocalizedString("share", comment: ""))
-                            Image(systemName: "square.and.arrow.up")
-                        }
+                Button(action:{}){
+                    HStack{
+                        Text(NSLocalizedString("share", comment: ""))
+                        Image(systemName: "square.and.arrow.up")
                     }
+                }
 
-                    Button(action:{}){
-                        HStack{
-                            Text(NSLocalizedString("delete", comment: ""))
-                            Image(systemName: "trash")
-                        }.foregroundColor(.red)
-                    }
-
+                Button(action:{}){
+                    HStack{
+                        Text(NSLocalizedString("delete", comment: ""))
+                        Image(systemName: "trash")
+                    }.foregroundColor(.red)
                 }
             }
-            
-            
         }
     }
 }
-//
-//struct PostsGridCellView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PostsGridCellView(
-//            post: <#Post#>,
-//            board: <#Board#>,
-//            height: <#CGFloat#>,
-//            width: <#CGFloat#>,
-//            averageColorOn: <#Binding<Bool>#>)
-//    }
-//}
+
+struct PostsGridCellView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostsGridCellView(
+            post: .T(uid: "fsdfsdf", photoPath: "", title: "", description: "", hashtags: [], markedAccountsOnPost: [], dateOfPublishing: .init()),
+            board:  .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""),
+            height: 100,
+            width: 70,
+            averageColorOn: .constant(false))
+    }
+}

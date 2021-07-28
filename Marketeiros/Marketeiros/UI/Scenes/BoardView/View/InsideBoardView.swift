@@ -100,11 +100,11 @@ struct InsideBoardView: View {
                                         height: cellWidth,
                                         width: cellWidth,
                                         averageColorOn: $averageColorOn)
-                                    .onDrag({
-                                        self.dragging = post
-                                        return NSItemProvider(object: String(post.uid) as NSString)
-                                    })
-                                    .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
+//                                    .onDrag({
+//                                        self.dragging = post
+//                                        return NSItemProvider(object: String(post.uid) as NSString)
+//                                    })
+//                                    .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
                                 }
                             }
                             
@@ -134,24 +134,19 @@ struct InsideBoardView: View {
                             Button(action: {
                                 viewModel.toggleAddPostView()
                             }, label: {
-                                Text("Novo")
+                                Text("New")
 
-                            })
+                            }).padding(.horizontal)
                             
                             Spacer()
                             
                             Button(action: {
                                 self.averageColorOn.toggle()
                             }, label: {
-                                Text("Cores")
+                                Text("Colors")
                                   
-                            })
+                            }).padding(.horizontal)
                             
-                            Spacer()
-
-                            Button(action: {}, label: {
-                                Text("Formato")
-                            })
                         }
                     }
                 } else if (selectedIndex == 1) {
@@ -160,10 +155,25 @@ struct InsideBoardView: View {
                     MoodBoardView()
                 }
             }
+            .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
+                EditBoardView(board: viewModel.board) { board in
+                    viewModel.change(board: board)
+                }
+            })
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {}, label: {
-                Text("...")
-            }))
+            .navigationBarItems(trailing:
+                Menu {
+                    Button(NSLocalizedString("edit board", comment: ""), action: {
+                        viewModel.toggleEditBoardSheet()
+                    })
+                    Button(NSLocalizedString("delete board", comment: ""), action: {
+                        viewModel.deleteBoard { _ in
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+                } label: {
+                    Text("...")
+                })
             .onAppear {
                 viewModel.getAllPosts()
             }

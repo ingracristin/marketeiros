@@ -28,6 +28,10 @@
 "createIdeaBtn" = "Adicionar Ideia";
 "writeIdea" = "Teve uma nova super ideia? Escreva aqui para não esquecer!";
 
+// Inside Board view
+"edit board" = "Editar Quadro";
+"delete board" = "Deletar Quadro";
+
 //NewBoard Sheet
 "cancelBtn" = "Cancelar";
 "sheetTittleNew" = "Novo quadro";
