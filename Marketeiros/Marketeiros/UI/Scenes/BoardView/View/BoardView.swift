@@ -19,7 +19,7 @@ struct AppButtonView: View {
                 .foregroundColor(.white)
                 .font(Font.sfProDisplaySemiBold(sized: 14))
                 .padding(.vertical,6)
-                .padding(.horizontal,10)
+                .padding(.horizontal,15)
                 .background(RoundedRectangle(cornerRadius: 18)
                                 .accentColor(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1))))
                 .shadow(radius: 6)
