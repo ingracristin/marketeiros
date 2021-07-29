@@ -104,7 +104,7 @@ struct ProfileView: View {
             .padding()
             .navigationBarHidden(true)
             .onAppear {
-                /*let currentUser = AuthService.current.user!
+                let currentUser = AuthService.current.user!
                 UserProfileRepository.current.getUserWith(uid: currentUser.uid) { result in
                     switch result {
                     case .failure(_):
@@ -112,7 +112,7 @@ struct ProfileView: View {
                     case .success(let userProfile):
                         self.user = userProfile
                     }
-                }*/
+                }
             }
         }
     }
