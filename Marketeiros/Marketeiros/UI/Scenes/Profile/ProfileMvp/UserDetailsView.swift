@@ -15,7 +15,7 @@ struct UserDetailsView: View {
                 Spacer()
                 ZStack(alignment: .bottomTrailing){
                    
-                    Image("bolinha")
+                    Image("perfil")
                         .resizable()
                         .frame(width: 100, height: 100)
                         .overlay(Image(systemName: "camera")
