@@ -77,16 +77,7 @@ struct ProfileView: View {
                         }.padding()
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 
-                NavigationLink(
-                    destination: NotificationsDetailsView(),
-                    label: {
-                        HStack{
-                            Text(NSLocalizedString("notifi", comment: ""))
-                                .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
-                            Spacer()
-                            Image(systemName: "bell")
-                        }.padding()
-                    }).foregroundColor(Color("ProfileButtonsColor"))
+               
                 NavigationLink(
                     destination: HelpView(),
                     label: {
@@ -115,7 +106,7 @@ struct ProfileView: View {
             .padding()
             .navigationBarHidden(true)
             .onAppear {
-                let currentUser = AuthService.current.user!
+                /*let currentUser = AuthService.current.user!
                 UserProfileRepository.current.getUserWith(uid: currentUser.uid) { result in
                     switch result {
                     case .failure(_):
@@ -123,7 +114,7 @@ struct ProfileView: View {
                     case .success(let userProfile):
                         self.user = userProfile
                     }
-                }
+                }*/
             }
         }
     }

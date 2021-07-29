@@ -161,22 +161,7 @@ struct InsideBoardView: View {
                 }
             })
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
-            .navigationBarItems(trailing:
-                Menu {
-                    Button(NSLocalizedString("edit board", comment: ""), action: {
-                        viewModel.toggleEditBoardSheet()
-                    })
-                    Button(NSLocalizedString("delete board", comment: ""), action: {
-                        viewModel.deleteBoard { _ in
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-                } label: {
-                    Text("...")
-                })
-            .onAppear {
-                viewModel.getAllPosts()
-            }
+            
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
         }
     }
