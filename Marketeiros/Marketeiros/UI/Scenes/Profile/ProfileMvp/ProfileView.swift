@@ -40,11 +40,7 @@ struct ProfileView: View {
                     Text(NSLocalizedString("profile", comment: ""))
                         .navBarTitle()
                     Spacer()
-                    Button(action: {
-                        authenticationViewModel.signOut()
-                    }, label: {
-                        Text("Sign Out")
-                    })
+                    
                 }
                 .padding(.bottom,8)
                 
@@ -60,7 +56,9 @@ struct ProfileView: View {
                             .foregroundColor(Color("UserProfileColor"))
                     }.padding(.horizontal,20)
                     Spacer()
-                    Image("bolinha")
+                    Image("perfil")
+                        .resizable()
+                        .frame(width: 58, height: 58)
                         .padding()
                 }
                 Spacer().frame(height:UIScreen.main.bounds.size.height * 0.035)
