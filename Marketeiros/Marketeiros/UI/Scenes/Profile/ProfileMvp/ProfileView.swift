@@ -42,7 +42,7 @@ struct ProfileView: View {
                     Spacer()
                     
                 }
-                .padding(.bottom,8)
+                .padding(.init(top: 0, leading: 20, bottom: 8, trailing: 0))
                 
                 HStack() {
                     VStack(alignment: .leading) {
