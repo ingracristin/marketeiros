@@ -22,18 +22,22 @@ struct AboutView: View {
                         .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                     Spacer()
                     Image(systemName: "chevron.forward")
+                        .foregroundColor(Color("AppLightBlue"))
                 }
                 HStack{
                     Text(NSLocalizedString("rate", comment: ""))
                         .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                     Spacer()
                     Image(systemName: "chevron.forward")
+                        .foregroundColor(Color("AppLightBlue"))
+
                 }
                 HStack{
                     Text("Website")
                         .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                     Spacer()
                     Image(systemName: "chevron.forward")
+                        .foregroundColor(Color("AppLightBlue"))
                 }
                 HStack{
                     Text(NSLocalizedString("version", comment: ""))

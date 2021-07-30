@@ -22,12 +22,14 @@ struct HelpView: View {
                     
                     Spacer()
                     Image(systemName: "chevron.forward")
+                        .foregroundColor(Color("AppLightBlue"))
                 }.foregroundColor(Color("NavBarTitle"))
                 HStack{
                     Text(NSLocalizedString("contact", comment: ""))
                         .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                     Spacer()
                     Image(systemName: "chevron.forward")
+                        .foregroundColor(Color("AppLightBlue"))
                 }.foregroundColor(Color("NavBarTitle"))
                 
                 Spacer()
