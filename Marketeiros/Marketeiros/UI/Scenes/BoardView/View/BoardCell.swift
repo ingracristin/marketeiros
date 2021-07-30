@@ -22,20 +22,27 @@ struct BoardCell: View {
                         .clipped()
                         .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
                     
+                    
                     VStack(){
                         HStack(){
                             Spacer()
-                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Menu {
+                                Button(NSLocalizedString("edit board", comment: ""), action: {
+                                    
+                                })
+                                
+                            } label: {
                                 Text("...")
                                     .fontWeight(.bold)
                                     .font(.title)
-                            }).foregroundColor(.blue)
+                            }.foregroundColor(Color("navbarColor"))
+                                    
+                            
                             //.padding(.top)
                             
-                        }
+                        }.padding(.trailing,20)
                         Spacer()
                     }.padding(.leading)
-                    
                     
                     
                     
@@ -55,6 +62,8 @@ struct BoardCell: View {
                 }
                 .frame(height: reader.size.height * 0.3319)
                 .padding(.init(top: 0, leading: 20, bottom: 3, trailing: 0))
+                
+                
             }
         }
     }
