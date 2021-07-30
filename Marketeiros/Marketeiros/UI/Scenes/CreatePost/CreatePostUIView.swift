@@ -49,7 +49,7 @@ struct CreatePostUIView: View {
                     Spacer()
                     
                     HStack{
-                        Text("Título").fontWeight(.regular)
+                        Text(NSLocalizedString("title", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                     
@@ -81,7 +81,7 @@ struct CreatePostUIView: View {
                     }.padding(.horizontal,20)
                     
                     HStack{
-                        Text("Hastags").fontWeight(.regular)
+                        Text("Hashtags").fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                     
@@ -116,8 +116,6 @@ struct CreatePostUIView: View {
                             .foregroundColor(Color("NavBarTitle"))
                         Toggle("", isOn: viewModel.bindings.showGreeting)
                             .toggleStyle(SwitchToggleStyle(tint: .blue))
-                        
-                        
                     }
                     .padding(20)
 

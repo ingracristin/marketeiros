@@ -19,7 +19,7 @@ class NewBoardViewModel : ObservableObject {
     struct States {
         var title: String = ""
         var description: String = ""
-        var instragramAccount = ""
+        var instragramAccount = "@"
         var photoPath: String = ""
         var inputImage: UIImage?
         var alertViewShowing = false
@@ -71,12 +71,14 @@ class NewBoardViewModel : ObservableObject {
         guard let user = AuthService.current.user else {return}
         guard let image = states.inputImage?.jpeg(.medium) else {return}
         
+        let igAccount = states.instragramAccount.replacingOccurrences(of: " ", with: "").removeCharactersContained(in: "@")
+        
         var board = Board(
             uid: " ",
             imagePath: " ",
             title: states.title,
             description: states.description,
-            instagramAccount: states.instragramAccount.replacingOccurrences(of: " ", with: "") ,
+            instagramAccount: igAccount,
             ownerUid: user.uid,
             colaboratorsUids: [" "],
             postsGridUid: " ",

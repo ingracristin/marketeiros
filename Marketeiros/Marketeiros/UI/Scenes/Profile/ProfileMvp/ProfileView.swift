@@ -28,12 +28,12 @@ struct ProfileView: View {
                 HStack(alignment: .lastTextBaseline,spacing:0) {
                     Spacer()
                     Button(action: {
-                        
+                        authenticationViewModel.signOut()
                     }) {
                         Image(systemName: "slider.horizontal.3")
                             .frame(height: 40)
                     }
-                    .isHidden(true)
+                    .isHidden(false)
                 }.padding(.bottom,0)
                     
                 HStack {

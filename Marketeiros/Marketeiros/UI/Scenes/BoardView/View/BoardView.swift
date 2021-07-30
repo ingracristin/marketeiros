@@ -28,7 +28,7 @@ struct AppButtonView: View {
 }
 
 struct BoardView: View {
-    @ObservedObject var viewModel = BoardListViewModel()
+    @StateObject var viewModel = BoardListViewModel()
     
     init(){
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "cocon-bold", size: 34)!, .foregroundColor: UIColor(named: "NavBarTitle")!]

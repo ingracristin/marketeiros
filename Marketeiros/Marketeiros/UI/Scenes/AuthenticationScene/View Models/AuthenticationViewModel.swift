@@ -88,27 +88,16 @@ class AuthenticationViewModel: ObservableObject {
         states.isLoading.toggle()
         let name = states.name
         let username = states.username
-        AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self]result in
+        AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self] result in
             switch result {
             case .failure(let error):
                 self?.states.isLoading.toggle()
                 print(error)
             case .success(let user):
-                UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) { [weak self] result in
-                    self?.states.isLoading.toggle()
-                    switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(_):
-                        if let self = self {
-                            self.states.isLoggedIn.toggle()
-                        }
-                    }
-                }
+                self?.initialize(user: user, with: name, and: username)
             }
         }
     }
-    
     
     func signUpWithApple(authorization: ASAuthorization) {
         guard let credentials = authorization.credential as? ASAuthorizationAppleIDCredential,
@@ -119,15 +108,42 @@ class AuthenticationViewModel: ObservableObject {
         let lastName = credentials.fullName?.familyName ?? ""
         let userNameFullName = "\(givenName) \(lastName)"
         
+        states.isLoading.toggle()
         AuthService.current.signInWith(appleIDTokenString: appleIDTokenString, and: states.nonce) { result in
             switch result {
             case .failure(let error):
+                self.states.isLoading.toggle()
                 print(error)
             case .success(let user):
                 if givenName.isEmpty {
+                    self.states.isLoading.toggle()
                     self.states.isLoggedIn.toggle()
                 } else {
-                    UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: givenName, username: userNameFullName)) { [weak self] result in
+                    self.initialize(user: user, with: userNameFullName, and: givenName)
+                }
+            }
+        }
+    }
+    
+    private func initialize(user: User, with name: String, and username: String) {
+        UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) {   [weak self] result in
+            switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(_):
+                    var  board = Board.init(
+                        uid: "",
+                        imagePath: "",
+                        title: "Planni Board",
+                        description: "",
+                        instagramAccount: "",
+                        ownerUid: user.uid,
+                        colaboratorsUids: [],
+                        postsGridUid: "",
+                        ideasGridUid: "",
+                        moodGridUid: "")
+                    BoardsRepository.current.create(board: &board) { [weak self] result in
+                        self?.states.isLoading.toggle()
                         switch result {
                         case .failure(let error):
                             print(error)
@@ -135,7 +151,6 @@ class AuthenticationViewModel: ObservableObject {
                             if let self = self {
                                 self.states.isLoggedIn.toggle()
                             }
-                        }
                     }
                 }
             }
