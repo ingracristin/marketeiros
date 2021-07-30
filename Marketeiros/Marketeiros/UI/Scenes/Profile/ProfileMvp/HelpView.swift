@@ -18,12 +18,14 @@ struct HelpView: View {
             VStack(spacing: 20){
                 HStack{
                     Text(NSLocalizedString("sup", comment: ""))
+                        .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                     
                     Spacer()
                     Image(systemName: "chevron.forward")
                 }.foregroundColor(Color("NavBarTitle"))
                 HStack{
                     Text(NSLocalizedString("contact", comment: ""))
+                        .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                     Spacer()
                     Image(systemName: "chevron.forward")
                 }.foregroundColor(Color("NavBarTitle"))
