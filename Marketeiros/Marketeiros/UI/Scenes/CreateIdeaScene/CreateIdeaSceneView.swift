@@ -89,12 +89,21 @@ struct CreateIdeaSceneView: View {
             }
             .isHidden(!viewModel.bindings.pasteSheetShowing.wrappedValue)
         }
-        .navigationBarTitle("Criar idéia", displayMode: .inline)
-        .navigationBarItems(
-            trailing: Button("Salvar", action: {
-                viewModel.saveIdea(completion: completion)
-                presentationMode.wrappedValue.dismiss()
-        }))
+        //WITH BUG
+//        .navigationBarTitle("",displayMode: .inline)
+//        .navigationBarItems(trailing: Menu {
+//            Button(action:{}){
+//                HStack{
+//                    Text(NSLocalizedString("delete", comment: ""))
+//                    Image(systemName: "trash")
+//                }.foregroundColor(.red)
+//            }
+//
+//        } label: {
+//            Text("􀍡")
+//                .fontWeight(.bold)
+//                .font(.title)
+//        }.foregroundColor(Color("navbarColor")))
     }
 }
 
