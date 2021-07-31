@@ -13,7 +13,7 @@ struct CalendarPageView: View {
     @State var isShowing = false
     //let aux : CGFloat = 400
     let aux : CGFloat = UIScreen.main.bounds.height * 0.35
-    @ObservedObject var viewModel = CalendarPageViewModel()
+    @StateObject var viewModel = CalendarPageViewModel()
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {

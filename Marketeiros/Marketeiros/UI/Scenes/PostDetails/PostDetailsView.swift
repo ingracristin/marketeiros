@@ -137,6 +137,8 @@ struct PostDetailsView: View {
             .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
                 ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Text("Cancelar"))
             .navigationBarItems(trailing:
                 Button(action: {
                     viewModel.saveChangesToPost { _ in

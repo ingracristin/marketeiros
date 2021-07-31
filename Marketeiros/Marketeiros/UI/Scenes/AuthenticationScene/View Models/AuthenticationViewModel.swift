@@ -23,6 +23,7 @@ class AuthenticationViewModel: ObservableObject {
         var nonce = ""
         var isLoggedIn = false
         var existError = false
+        var errorText = "Error"
     }
     
     @Published private(set) var states = States()
@@ -37,7 +38,8 @@ class AuthenticationViewModel: ObservableObject {
         confirmPassword: Binding<String>,
         isLoading: Binding<Bool>,
         isLoggedIn: Binding<Bool>,
-        existError: Binding<Bool>
+        existError: Binding<Bool>,
+        errorText: Binding<String>
     ) {(
         loginEmail: Binding(
             get: {self.states.loginEmail},
@@ -68,7 +70,10 @@ class AuthenticationViewModel: ObservableObject {
             set: {self.states.isLoggedIn = $0}),
         existError: Binding(
             get: {self.states.existError},
-            set: {self.states.existError = $0})
+            set: {self.states.existError = $0}),
+        errorText: Binding(
+            get: {self.states.errorText},
+            set: {self.states.errorText = $0})
     )}
     
     func signIn() {
@@ -77,7 +82,8 @@ class AuthenticationViewModel: ObservableObject {
             self?.states.isLoading.toggle()
             switch result {
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.states.errorText = error.localizedDescription
+                self?.states.existError.toggle()
             case .success(_):
                 self?.states.isLoggedIn.toggle()
             }
@@ -92,7 +98,8 @@ class AuthenticationViewModel: ObservableObject {
             switch result {
             case .failure(let error):
                 self?.states.isLoading.toggle()
-                print(error)
+                self?.states.existError.toggle()
+                self?.states.errorText = error.localizedDescription
             case .success(let user):
                 self?.initialize(user: user, with: name, and: username)
             }
@@ -113,7 +120,8 @@ class AuthenticationViewModel: ObservableObject {
             switch result {
             case .failure(let error):
                 self.states.isLoading.toggle()
-                print(error)
+                self.states.existError.toggle()
+                self.states.errorText = error.localizedDescription
             case .success(let user):
                 if givenName.isEmpty {
                     self.states.isLoading.toggle()
@@ -129,7 +137,8 @@ class AuthenticationViewModel: ObservableObject {
         UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) {   [weak self] result in
             switch result {
                 case .failure(let error):
-                    print(error)
+                    self?.states.existError.toggle()
+                    self?.states.errorText = error.localizedDescription
                 case .success(_):
                     var  board = Board.init(
                         uid: "",
@@ -146,7 +155,8 @@ class AuthenticationViewModel: ObservableObject {
                         self?.states.isLoading.toggle()
                         switch result {
                         case .failure(let error):
-                            print(error)
+                            self?.states.existError.toggle()
+                            self?.states.errorText = error.localizedDescription
                         case .success(_):
                             if let self = self {
                                 self.states.isLoggedIn.toggle()
