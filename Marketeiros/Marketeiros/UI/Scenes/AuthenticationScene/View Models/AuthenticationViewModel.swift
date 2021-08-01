@@ -95,9 +95,21 @@ class AuthenticationViewModel: ObservableObject {
         let name = states.name
         let username = states.username
         
+        if name.isEmpty ||
+           username.isEmpty ||
+            states.email.isEmpty ||
+           states.password.isEmpty ||
+           states.email.isEmpty {
+           
+            states.isLoading.toggle()
+            states.errorText = NSLocalizedString("All fields must be filled in correctly.", comment: "")
+            states.existError.toggle()
+            return
+        }
+        
         if states.password != states.confirmPassword {
             states.isLoading.toggle()
-            states.errorText = "Password must be equal on the two fields!"
+            states.errorText = NSLocalizedString("Password must be equal on the two fields!", comment: "")
             states.existError.toggle()
             return
         }

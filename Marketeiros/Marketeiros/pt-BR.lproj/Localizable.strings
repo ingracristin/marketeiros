@@ -118,3 +118,9 @@
 "The email address is badly formatted." = "O endereço de e-mail está formatado incorretamente.";
 "The password is invalid or the user does not have a password." = "A senha é inválida ou o usuário não possui uma senha.";
 "There is no user record corresponding to this identifier. The user may have been deleted." = "Não há registro de usuário correspondente a estas credenciais.";
+
+// User Creation Errors
+"All fields must be filled in correctly." = "Todos os campos devem estar preenchidos corretamente";
+"Password must be equal on the two fields!" = "A senha deve ser igual nos dois campos!";
+"The email address is already in use by another account." = "O endereço de e-mail já está sendo usado por outra conta.";
+"The password must be 6 characters long or more." = "A senha deve ter 6 caracteres ou mais.";
