@@ -94,6 +94,14 @@ class AuthenticationViewModel: ObservableObject {
         states.isLoading.toggle()
         let name = states.name
         let username = states.username
+        
+        if states.password != states.confirmPassword {
+            states.isLoading.toggle()
+            states.errorText = "Password must be equal on the two fields!"
+            states.existError.toggle()
+            return
+        }
+        
         AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self] result in
             switch result {
             case .failure(let error):

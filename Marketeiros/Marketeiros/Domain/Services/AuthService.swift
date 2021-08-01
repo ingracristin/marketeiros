@@ -14,15 +14,7 @@ import AuthenticationServices
 class AuthService {
     static let current = AuthService()
     private let auth = Auth.auth()
-    //var currentNonce : String?
-    
-    enum AuthError: Error {
-        case authenticationError(String)
-        case accountCreationError(String)
-        case signOutError(String)
-        case redefinePasswordError(String)
-    }
-    
+
     private init() {}
     
     var user : User? {
@@ -125,6 +117,32 @@ class AuthService {
             } else {
                 completion(nil)
             }
+        }
+    }
+}
+
+enum AuthError: Error {
+    case authenticationError(String)
+    case accountCreationError(String)
+    case signOutError(String)
+    case redefinePasswordError(String)
+}
+
+extension AuthError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .accountCreationError(let message):
+            print(message)
+            return NSLocalizedString(message, comment: "")
+        case .authenticationError(let message):
+            print(message)
+            return NSLocalizedString(message, comment: "")
+        case .redefinePasswordError(let message):
+            print(message)
+            return NSLocalizedString(message, comment: "")
+        case .signOutError(let message):
+            print(message)
+            return NSLocalizedString(message, comment: "")
         }
     }
 }

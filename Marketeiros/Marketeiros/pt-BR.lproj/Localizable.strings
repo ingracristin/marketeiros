@@ -111,3 +111,10 @@
 "deletePost" = "Deletar post";
 
 "justDel" = "Apagar";
+
+
+// Authentication Errors
+"Error" = "Erro";
+"The email address is badly formatted." = "O endereço de e-mail está formatado incorretamente.";
+"The password is invalid or the user does not have a password." = "A senha é inválida ou o usuário não possui uma senha.";
+"There is no user record corresponding to this identifier. The user may have been deleted." = "Não há registro de usuário correspondente a estas credenciais.";

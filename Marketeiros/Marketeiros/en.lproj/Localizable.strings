@@ -111,3 +111,8 @@
 
 "justDel" = "Delete";
 
+// Authentication Errors
+"Error" = "Error";
+"The email address is badly formatted." = "The email address is badly formatted.";
+"The password is invalid or the user does not have a password." = "The password is invalid or the user does not have a password.";
+"There is no user record corresponding to this identifier. The user may have been deleted." = "There is no user record corresponding to this identifier.";
