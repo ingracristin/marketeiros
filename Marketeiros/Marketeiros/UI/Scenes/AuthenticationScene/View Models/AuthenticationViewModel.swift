@@ -23,7 +23,7 @@ class AuthenticationViewModel: ObservableObject {
         var nonce = ""
         var isLoggedIn = false
         var existError = false
-        var errorText = "Error"
+        var errorText = "Error Description"
     }
     
     @Published private(set) var states = States()
@@ -97,9 +97,9 @@ class AuthenticationViewModel: ObservableObject {
         AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self] result in
             switch result {
             case .failure(let error):
+                self?.states.errorText = error.localizedDescription
                 self?.states.isLoading.toggle()
                 self?.states.existError.toggle()
-                self?.states.errorText = error.localizedDescription
             case .success(let user):
                 self?.initialize(user: user, with: name, and: username)
             }
@@ -119,9 +119,9 @@ class AuthenticationViewModel: ObservableObject {
         AuthService.current.signInWith(appleIDTokenString: appleIDTokenString, and: states.nonce) { result in
             switch result {
             case .failure(let error):
+                self.states.errorText = error.localizedDescription
                 self.states.isLoading.toggle()
                 self.states.existError.toggle()
-                self.states.errorText = error.localizedDescription
             case .success(let user):
                 if givenName.isEmpty {
                     self.states.isLoading.toggle()
@@ -137,8 +137,8 @@ class AuthenticationViewModel: ObservableObject {
         UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) {   [weak self] result in
             switch result {
                 case .failure(let error):
-                    self?.states.existError.toggle()
                     self?.states.errorText = error.localizedDescription
+                    self?.states.existError.toggle()
                 case .success(_):
                     var  board = Board.init(
                         uid: "",

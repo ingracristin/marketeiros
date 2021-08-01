@@ -106,6 +106,9 @@ struct AuthenticationView: View {
             }
             .ignoresSafeArea()
             .navigationBarHidden(true)
+            .alert(isPresented: viewModel.bindings.existError) {
+                Alert(title: Text("Error"), message: Text(viewModel.states.errorText), dismissButton: .cancel())
+            }
         }
     }
 }

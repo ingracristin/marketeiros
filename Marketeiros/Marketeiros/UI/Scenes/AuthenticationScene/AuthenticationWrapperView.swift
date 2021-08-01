@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AuthenticationWrapperView: View {
-    @ObservedObject var viewModel = AuthenticationViewModel()
+    @StateObject var viewModel = AuthenticationViewModel()
     
     var body: some View {
         VStack {
@@ -17,9 +17,6 @@ struct AuthenticationWrapperView: View {
             } else  {
                 AuthenticationView(viewModel: viewModel)
             }
-        }
-        .alert(isPresented: viewModel.bindings.existError) {
-            Alert(title: Text("Error"), message: Text(""), dismissButton: .cancel())
         }
         .onAppear {
             if UserDefaults.standard.object(forKey: "authError") == nil {
@@ -42,56 +39,3 @@ struct LoginSceneView_Previews: PreviewProvider {
         AuthenticationWrapperView()
     }
 }
-
-//// dps bota tudo na viewmodel
-//struct LoginSceneView: View {
-//    @State var isLoggedIn = false
-//    @State var existError = false
-//    @State var errorMessage = ""
-//
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                if isLoggedIn {
-//                    TabBarScene()
-//                } else  {
-//                    Button {
-//                        AuthService.current.signInAnom { result in
-//                            switch result {
-//                            case .success(let user):
-//                                UserRepository.current.initialize(user: user) { result in
-//                                    switch result {
-//                                    case .failure(.initializationError(let message)):
-//                                        errorMessage = message
-//                                    case . success(_):
-//                                        isLoggedIn.toggle()
-//                                    }
-//                                }
-//                            case .failure(.authenticationError(let message)):
-//                                errorMessage = message
-//                                existError.toggle()
-//                            default:
-//                                errorMessage = "Unknown Error"
-//                                existError.toggle()
-//                            }
-//                        }
-//                    } label: {
-//                        Text("Sign In anom")
-//                    }
-//                }
-//            }
-//            .alert(isPresented: $existError) {
-//                Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .cancel())
-//            }
-//            .onAppear {
-//                AuthService.current.verifyAuthentication { user in
-//                    if let _ = user {
-//                        isLoggedIn = true
-//                    } else {
-//                        isLoggedIn = false
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
