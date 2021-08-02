@@ -128,9 +128,9 @@ struct CreatePostUIView: View {
                             .padding()
                             .background(Color("TextField2"))
                                             .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
-                            .isHidden(!viewModel.states.showGreeting)
+                            .isHidden(!viewModel.states.isShowingDatePicker)
                     }
-                    .frame(height: (viewModel.states.showGreeting) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .animation(.easeOut)
                     .padding()
                 }

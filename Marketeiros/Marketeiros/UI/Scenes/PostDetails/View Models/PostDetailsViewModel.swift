@@ -88,9 +88,12 @@ class PostDetailsViewModel: ObservableObject {
         states.legendPost = post.description
         states.markedAccountsOnPost = post.markedAccountsOnPost.first ?? ""
         states.hashtag = post.hashtags.first ?? ""
-        states.scheduleDate = post.dateOfPublishing
-        states.isShowingDatePicker = true
         
+        if post.dateOfPublishing != nil {
+            states.scheduleDate = post.dateOfPublishing!
+            states.isShowingDatePicker = true
+        }
+    
         ImagesRepository.current.getImage(of: post, ofBoard: board) { result in
             switch result {
             case .failure(let message):
@@ -121,7 +124,7 @@ class PostDetailsViewModel: ObservableObject {
         post.description = states.legendPost
         post.hashtags = [states.hashtag]
         post.markedAccountsOnPost = [states.markedAccountsOnPost]
-        post.dateOfPublishing = states.scheduleDate
+        post.dateOfPublishing = (states.isShowingDatePicker) ? states.scheduleDate : nil
         
         BoardsRepository.current.update(item: &post, to: board, on: .posts)
         

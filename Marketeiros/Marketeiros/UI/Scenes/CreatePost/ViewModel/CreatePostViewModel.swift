@@ -18,7 +18,7 @@ class CreatePostViewModel : ObservableObject {
         var hashtag = ""
         var markedAccountsOnPost = ""
         var scheduleDate = Date()
-        var showGreeting = false
+        var isShowingDatePicker = false
         var showingImagePicker = false
         var showingAlertView = false
         var image: Image?
@@ -57,8 +57,8 @@ class CreatePostViewModel : ObservableObject {
             get: {self.states.scheduleDate},
             set: {self.states.scheduleDate = $0}),
         showGreeting: Binding(
-            get: {self.states.showGreeting},
-            set: {self.states.showGreeting = $0}),
+            get: {self.states.isShowingDatePicker},
+            set: {self.states.isShowingDatePicker = $0}),
         image: Binding(
             get: {self.states.image},
             set: {self.states.image = $0}),
@@ -93,18 +93,20 @@ class CreatePostViewModel : ObservableObject {
             description: states.legendPost,
             hashtags: [states.hashtag],
             markedAccountsOnPost: [states.markedAccountsOnPost],
-            dateOfPublishing: states.scheduleDate)
+            dateOfPublishing: nil)
         
         BoardsRepository.current.add(item: &post, to: board, on: .posts)
         
-        UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing, withData: [
-            "title": post.title,
-            "imagePath": post.photoPath,
-            "uid": post.uid,
-            "description": post.description,
-            "boardUid": board.uid,
-            "boardTitle": board.title,
-        ])
+        if states.isShowingDatePicker {
+            UserNotificationService.shared.setUserNotification(on: post.dateOfPublishing!, withData: [
+                "title": post.title,
+                "imagePath": post.photoPath,
+                "uid": post.uid,
+                "description": post.description,
+                "boardUid": board.uid,
+                "boardTitle": board.title,
+            ])
+        }
         
         states.showingAlertView.toggle()
         ImagesRepository.current.upload(imageData: image, of: post, ofBoard: board) {[weak self] percentage in
