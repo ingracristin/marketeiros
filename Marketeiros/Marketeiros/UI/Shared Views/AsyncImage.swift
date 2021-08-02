@@ -50,8 +50,9 @@ struct AsyncImage<Placeholder: View>: View {
                     ZStack(alignment:.center){
                         Rectangle()
                             .frame(width: self.width * 0.3982, height:  self.height * 0.0973)
-                            .foregroundColor(Color(#colorLiteral(red: 0.537254902, green: 0.5411764706, blue: 0.5529411765, alpha: 0.34)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.537254902, green: 0.5411764706, blue: 0.5529411765, alpha: 0.5)))
                             .cornerRadius(3)
+                            .shadow(radius: 6, x: 2, y: 4)
                         Text(NSLocalizedString("posted", comment: ""))
                             .font(.custom("SF Pro Display", size: 8))
                             .fontWeight(.regular)
