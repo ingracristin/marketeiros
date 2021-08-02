@@ -12,6 +12,7 @@ struct AuthenticationView: View {
     @ObservedObject var viewModel: AuthenticationViewModel
     @State var value : CGFloat = 0
     @State var selectedIndex = 0
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -93,7 +94,7 @@ struct AuthenticationView: View {
                         
                         let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
                         
-                        let height = value.height
+                        let height = value.height / 2
                         self.value = height
                     }
                     NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
