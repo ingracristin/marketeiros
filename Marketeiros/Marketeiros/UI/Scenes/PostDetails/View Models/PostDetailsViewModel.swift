@@ -20,7 +20,7 @@ class PostDetailsViewModel: ObservableObject {
         var hashtag = ""
         var markedAccountsOnPost = ""
         var scheduleDate = Date()
-        var showGreeting = false
+        var isShowingDatePicker = false
         var showingImagePicker = false
         var showingAlertView = false
         var image: Image?
@@ -59,8 +59,8 @@ class PostDetailsViewModel: ObservableObject {
             get: {self.states.scheduleDate},
             set: {self.states.scheduleDate = $0}),
         showGreeting: Binding(
-            get: {self.states.showGreeting},
-            set: {self.states.showGreeting = $0}),
+            get: {self.states.isShowingDatePicker},
+            set: {self.states.isShowingDatePicker = $0}),
         image: Binding(
             get: {self.states.image},
             set: {self.states.image = $0}),
@@ -88,9 +88,12 @@ class PostDetailsViewModel: ObservableObject {
         states.legendPost = post.description
         states.markedAccountsOnPost = post.markedAccountsOnPost.first ?? ""
         states.hashtag = post.hashtags.first ?? ""
-        states.scheduleDate = post.dateOfPublishing
-        states.showGreeting = true
         
+        if post.dateOfPublishing != nil {
+            states.scheduleDate = post.dateOfPublishing!
+            states.isShowingDatePicker = true
+        }
+    
         ImagesRepository.current.getImage(of: post, ofBoard: board) { result in
             switch result {
             case .failure(let message):
@@ -103,7 +106,9 @@ class PostDetailsViewModel: ObservableObject {
     }
     
     func saveChangesToPost(completionHadler: @escaping (String?) -> ()) {
-        if states.scheduleDate != post.dateOfPublishing {
+        if !states.isShowingDatePicker {
+            UserNotificationService.shared.deleteNotificationWith(uids: [post.uid])
+        } else if states.scheduleDate != post.dateOfPublishing {
             UserNotificationService.shared.deleteNotificationWith(uids: [post.uid])
             UserNotificationService.shared.setUserNotification(on: states.scheduleDate, withData: [
                 "title": post.title,
@@ -119,7 +124,7 @@ class PostDetailsViewModel: ObservableObject {
         post.description = states.legendPost
         post.hashtags = [states.hashtag]
         post.markedAccountsOnPost = [states.markedAccountsOnPost]
-        post.dateOfPublishing = states.scheduleDate
+        post.dateOfPublishing = (states.isShowingDatePicker) ? states.scheduleDate : nil
         
         BoardsRepository.current.update(item: &post, to: board, on: .posts)
         
@@ -145,8 +150,16 @@ class PostDetailsViewModel: ObservableObject {
     }
     
     func deletePost() {
-        BoardsRepository.current.delete(item: post, to: board, on: .posts) { result in
-            
+        BoardsRepository.current.delete(item: post, to: board, on: .posts) { [weak self] result in
+            switch result {
+            case .failure(_):
+                print("")
+            case .success(_):
+                if let self = self {
+                    UserNotificationService.shared.deleteNotificationWith(uids: [self.post.uid])
+                    ImagesRepository.current.deleteImage(of: self.post, ofBoard: self.board) { _ in}
+                }
+            }
         }
     }
     

@@ -62,7 +62,6 @@ struct BoardView: View {
                 .padding(.bottom,8)
                 .padding(.horizontal)
                 
-                
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 20) {
                         HStack{
@@ -92,22 +91,22 @@ struct BoardView: View {
                             }
                         })
                         
-                        HStack{
-                            Text(NSLocalizedString("ideas", comment: ""))
-                                .fontWeight(.semibold)
-                                .font(.title2)
-                                .foregroundColor(Color("NavBarTitle"))
-                            Spacer()
-                            AppButtonView(label: NSLocalizedString("createIdeaBtn", comment: "")) {
-                                viewModel.toggleSheetView()
-                            }
-                        }.padding(.horizontal)
-                        
-                        IdeaCell()
-                            .background(Color(#colorLiteral(red: 0.9371728301, green: 0.9373074174, blue: 0.9371433854, alpha: 1)))
-                            .cornerRadius(14)
-                            .shadow(radius: 6)
-                            .padding(.horizontal)
+//                        HStack{
+//                            Text(NSLocalizedString("ideas", comment: ""))
+//                                .fontWeight(.semibold)
+//                                .font(.title2)
+//                                .foregroundColor(Color("NavBarTitle"))
+//                            Spacer()
+//                            AppButtonView(label: NSLocalizedString("createIdeaBtn", comment: "")) {
+//                                viewModel.toggleSheetView()
+//                            }
+//                        }.padding(.horizontal)
+//
+//                        IdeaCell()
+//                            .background(Color(#colorLiteral(red: 0.9371728301, green: 0.9373074174, blue: 0.9371433854, alpha: 1)))
+//                            .cornerRadius(14)
+//                            .shadow(radius: 6)
+//                            .padding(.horizontal)
                         
                     }
                 }
@@ -120,11 +119,9 @@ struct BoardView: View {
                 })
             })
             .navigationBarHidden(true)
-            
             .onAppear {
                 viewModel.getAllBoards()
             }
-            
             //.padding(.horizontal,20)
         }
     }

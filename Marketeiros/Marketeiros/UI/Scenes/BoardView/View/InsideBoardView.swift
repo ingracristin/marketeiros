@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: InsideBoardViewModel
+    @StateObject var viewModel: InsideBoardViewModel
     @ObservedObject var vm: ViewModel
     @State var selectedIndex = 0
     @State var averageColorOn = false
@@ -22,7 +22,7 @@ struct InsideBoardView: View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
-        viewModel = InsideBoardViewModel(board: board)
+        _viewModel = StateObject(wrappedValue: InsideBoardViewModel(board: board))
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
     }
     
@@ -160,9 +160,14 @@ struct InsideBoardView: View {
                     viewModel.change(board: board)
                 }
             })
+            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {viewModel.deleteBoard { _ in
+                presentationMode.wrappedValue.dismiss()
+            }}))
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
-            
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
+            .onAppear {
+                viewModel.getAllPosts()
+            }
         }
     }
 }

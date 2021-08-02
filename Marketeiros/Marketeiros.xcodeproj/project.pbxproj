@@ -67,6 +67,7 @@
 		AE5D322926955BCA002BD62F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D322826955BCA002BD62F /* AuthenticationViewModel.swift */; };
 		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
 		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
+		AE66B15026B77176007518AC /* BoardMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66B14F26B77176007518AC /* BoardMenuButton.swift */; };
 		AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE799667268E778F00AD80F4 /* ImagesRepository.swift */; };
 		AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */; };
 		AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5207268B834000E14EBD /* ViewExtension.swift */; };
@@ -176,6 +177,7 @@
 		AE5D322826955BCA002BD62F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
+		AE66B14F26B77176007518AC /* BoardMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMenuButton.swift; sourceTree = "<group>"; };
 		AE799667268E778F00AD80F4 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
 		AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		AE8A5207268B834000E14EBD /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */,
 				AE3EB5C326976C7E0093AF7C /* HalfModalView.swift */,
 				AED4845C269D69D600890E91 /* ProgressBarView.swift */,
+				AE66B14F26B77176007518AC /* BoardMenuButton.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
 				AE5D322926955BCA002BD62F /* AuthenticationViewModel.swift in Sources */,
+				AE66B15026B77176007518AC /* BoardMenuButton.swift in Sources */,
 				AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */,
 				AE3C43AF2693FBC200013F79 /* FontExtension.swift in Sources */,
 				AE3EB5D326976CDC0093AF7C /* IdeaViewModel.swift in Sources */,
@@ -1084,7 +1088,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1092,11 +1096,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1110,7 +1114,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1118,11 +1122,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
