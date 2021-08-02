@@ -92,7 +92,7 @@ struct InsideBoardView: View {
                 if (selectedIndex == 0) {
                     ScrollView(){
                         LazyVGrid(columns: layout, spacing: 1) {
-                            ForEach(viewModel.posts.sorted {$0.dateOfCreation > $1.dateOfCreation}, id: \.uid) { post in
+                            ForEach(viewModel.posts, id: \.uid) { post in
                                 NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
                                     PostsGridCellView(
                                         post: post,
@@ -100,12 +100,12 @@ struct InsideBoardView: View {
                                         height: cellWidth,
                                         width: cellWidth,
                                         averageColorOn: $averageColorOn)
-//                                    .onDrag({
-//                                        self.dragging = post
-//                                        return NSItemProvider(object: String(post.uid) as NSString)
-//                                    })
-//                                    .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: viewModel.posts, current: dragging))
-                                }
+                                        .onDrag({
+                                            self.dragging = post
+                                            return NSItemProvider(object: String(post.uid) as NSString)
+                                        })
+
+                                }.onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: $viewModel.posts, current: $dragging))
                             }
                             
                             ForEach(vm.imagesUrls, id: \.id) { imageUrl in
@@ -129,7 +129,8 @@ struct InsideBoardView: View {
                         
                         TestWebView(vm: vm)
                             .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                     }.toolbar {
+                     }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                    .toolbar {
                         ToolbarItemGroup(placement: .bottomBar) {
                             Button(action: {
                                 viewModel.toggleAddPostView()

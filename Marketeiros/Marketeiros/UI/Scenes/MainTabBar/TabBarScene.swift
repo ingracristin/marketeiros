@@ -37,6 +37,8 @@ struct TabBarScene: View {
                     .tag(2)
                     .accentColor(Color("tabBarItem"))
                     .navigationBarHidden(true)
+                
+                
             }.accentColor(Color(UIColor.appLightBlue))
             .onChange(of: tabSelection, perform: { value in
                 switch tabSelection{

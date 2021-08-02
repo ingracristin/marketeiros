@@ -9,15 +9,16 @@ import SwiftUI
 
 struct DragRelocateDelegate: DropDelegate {
     let item: Post
-    @State var listData: [Post]
-    @State var current: Post?
+    @Binding var listData: [Post]
+    @Binding var current: Post?
 
     func dropEntered(info: DropInfo) {
         if item != current {
             let from = listData.firstIndex(of: current!)!
             let to = listData.firstIndex(of: item)!
             if listData[to].uid != current!.uid {
-                print(from,to)
+                //print(from,to)
+                //print(listData)
                 listData.move(fromOffsets: IndexSet(integer: from),
                     toOffset: to > from ? to + 1 : to)
             }
@@ -25,7 +26,7 @@ struct DragRelocateDelegate: DropDelegate {
     }
     
     func dropUpdated(info: DropInfo) -> DropProposal? {
-        print("updatou")
+        
         return DropProposal(operation: .move)
     }
 
@@ -33,4 +34,6 @@ struct DragRelocateDelegate: DropDelegate {
         self.current = nil
         return true
     }
+    
+    
 }

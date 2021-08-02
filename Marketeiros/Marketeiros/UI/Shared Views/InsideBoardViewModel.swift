@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class InsideBoardViewModel: ObservableObject {
-    @Published private(set) var posts = [Post]()
+    @Published var posts = [Post]()
     @Published private(set) var states = States()
     @Published var board: Board
     

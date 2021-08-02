@@ -24,21 +24,21 @@ struct PostsGridCellView: View {
                 Image(uiImage: $0)
             }
             .frame(width: width,height: height, alignment: .center)
-            .contextMenu {
-                Button(action:{}){
-                    HStack{
-                        Text(NSLocalizedString("share", comment: ""))
-                        Image(systemName: "square.and.arrow.up")
-                    }
-                }
-
-                Button(action:{}){
-                    HStack{
-                        Text(NSLocalizedString("delete", comment: ""))
-                        Image(systemName: "trash")
-                    }.foregroundColor(.red)
-                }
-            }
+//            .contextMenu {
+//                Button(action:{}){
+//                    HStack{
+//                        Text(NSLocalizedString("share", comment: ""))
+//                        Image(systemName: "square.and.arrow.up")
+//                    }
+//                }
+//
+//                Button(action:{}){
+//                    HStack{
+//                        Text(NSLocalizedString("delete", comment: ""))
+//                        Image(systemName: "trash")
+//                    }.foregroundColor(.red)
+//                }
+//            }
         }
     }
 }
