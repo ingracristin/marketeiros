@@ -65,7 +65,6 @@ class InsideBoardViewModel: ObservableObject {
     func deleteBoard(completion: @escaping (Bool) -> ()) {
         let uids = posts.map {$0.uid}
         UserNotificationService.shared.deleteNotificationWith(uids: uids)
-        
         BoardsRepository.current.delete(board: board) { result in
             switch result {
             case .failure(_):
