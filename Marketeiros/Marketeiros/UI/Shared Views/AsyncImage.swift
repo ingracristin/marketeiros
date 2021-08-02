@@ -46,7 +46,7 @@ struct AsyncImage<Placeholder: View>: View {
                     image(img)
                     Rectangle()
                             .foregroundColor(Color(img.averageColor ?? .clear))
-                            .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
+                            .opacity(0.85).isHidden(!averageColorOn.wrappedValue)
                     ZStack(alignment:.center){
                         Rectangle()
                             .frame(width: self.width * 0.3982, height:  self.height * 0.0973)

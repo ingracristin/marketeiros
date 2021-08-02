@@ -61,7 +61,7 @@ struct FirebaseImage<Placeholder: View> : View {
                     .clipped()
                 Rectangle()
                         .foregroundColor(Color(image.averageColor ?? .clear))
-                        .opacity(0.7).isHidden(!averageColorOn.wrappedValue)
+                        .opacity(0.85).isHidden(!averageColorOn.wrappedValue)
             }
         } else {
             placeholder
