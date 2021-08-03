@@ -122,3 +122,7 @@
 "Password must be equal on the two fields!" = "Password must be equal on the two fields!";
 "The email address is already in use by another account." = "The email address is already in use by another account.";
 "The password must be 6 characters long or more." = "The password must be 6 characters long or more.";
+//grid view
+
+"newToolBar" = "New";
+"colorsToolBar" = "Colors";

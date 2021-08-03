@@ -135,7 +135,10 @@ struct InsideBoardView: View {
                             Button(action: {
                                 viewModel.toggleAddPostView()
                             }, label: {
-                                Text("New")
+                                Text(NSLocalizedString("newToolBar", comment: ""))
+                                
+                                    
+                                
 
                             }).padding(.horizontal)
                             
@@ -144,12 +147,12 @@ struct InsideBoardView: View {
                             Button(action: {
                                 self.averageColorOn.toggle()
                             }, label: {
-                                Text("Colors")
+                                Text(NSLocalizedString("colorsToolBar", comment: ""))
                                   
                             }).padding(.horizontal)
                             
                         }
-                    }
+                    }.foregroundColor(Color("ToolBarColor"))
                 } else if (selectedIndex == 1) {
                     IdeaView(viewModel: .init(board: viewModel.board))
                 } else if (selectedIndex == 2) {
