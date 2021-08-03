@@ -10,7 +10,7 @@ import SwiftUI
 struct UserDetailsView: View {
     @State var boardName = ""
     var body: some View {
-        VStack(alignment:.leading){
+        VStack(alignment:.leading, spacing: 16){
             HStack{
                 Spacer()
                 ZStack(alignment: .bottomTrailing){
@@ -36,13 +36,13 @@ struct UserDetailsView: View {
                 .bold()
                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                 .foregroundColor(Color("NavBarTitle"))
-                .padding()
+               
             HStack{
                 HStack{
                     Text(NSLocalizedString("name", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
                         .font(.custom("SF Pro Display", size: 20))
-                }.padding()
+                }
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
@@ -60,7 +60,7 @@ struct UserDetailsView: View {
                     Text(NSLocalizedString("user", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
                         .font(.custom("SF Pro Display", size: 20))
-                }.padding()
+                }
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
@@ -78,7 +78,7 @@ struct UserDetailsView: View {
                     Text("E-mail")
                         .foregroundColor(Color("NavBarTitle"))
                         .font(.custom("SF Pro Display", size: 20))
-                }.padding()
+                }
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
@@ -106,7 +106,7 @@ struct UserDetailsView: View {
             
             
             
-        }.padding()
+        }.padding(.horizontal, 20)
         .navigationBarTitle(NSLocalizedString("account", comment: ""),displayMode: .inline )
     }
 }

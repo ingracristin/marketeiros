@@ -42,7 +42,7 @@ struct ProfileView: View {
                     Spacer()
                     
                 }
-                .padding(.init(top: 0, leading: 20, bottom: 8, trailing: 0))
+                //.padding(.init(top: 0, leading: 20, bottom: 8, trailing: 0))
                 
                 HStack() {
                     VStack(alignment: .leading) {
@@ -72,7 +72,7 @@ struct ProfileView: View {
                                 
                             Spacer()
                             Image(systemName: "person")
-                        }.padding()
+                        }
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 
                
@@ -84,7 +84,7 @@ struct ProfileView: View {
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "globe")
-                        }.padding()
+                        }
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 NavigationLink(
                     destination: AboutView(),
@@ -94,14 +94,14 @@ struct ProfileView: View {
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "questionmark.circle")
-                        }.padding()
+                        }
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 Spacer()
                 //bell
                 //globe
                 //questionmark.circle
             }
-            .padding()
+            .padding(.horizontal, 20)
             .navigationBarHidden(true)
             .onAppear {
                 let currentUser = AuthService.current.user!
