@@ -59,8 +59,9 @@ struct PinterestGrid: View {
                         NavigationLink(destination: MoodBoardItemDetailsView()) {
                             Image(uiImage: gridItem.image)
                                 .resizable()
-                                
+                                .scaledToFill()
                                 .frame(height: gridItem.height)
+                                .clipped()
                                 .cornerRadius(10)
                                 
                         }
