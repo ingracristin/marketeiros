@@ -126,3 +126,12 @@
 
 "newToolBar" = "New";
 "colorsToolBar" = "Colors";
+
+
+//New event
+"newEvent" = "New Event";
+"addEvent" = "Add";
+"titleEvent" = "Title";
+"startsEvent" = "Starts";
+"localEvent" = "Local";
+"calendarEvent" = "Calendar";

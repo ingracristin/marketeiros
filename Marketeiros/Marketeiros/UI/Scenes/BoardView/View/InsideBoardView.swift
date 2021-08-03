@@ -120,9 +120,13 @@ struct InsideBoardView: View {
                             }
                             if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
                                 ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
-                                    Rectangle()
-                                        .foregroundColor(Color(UIColor.emptyCellGridColor))
-                                        .frame(width: cellWidth,height: cellWidth, alignment: .center)
+                                    
+                                    Button(action: {viewModel.toggleAddPostView()}){
+                                        Rectangle()
+                                            .foregroundColor(Color(UIColor.emptyCellGridColor))
+                                            .frame(width: cellWidth,height: cellWidth, alignment: .center)
+                                    }
+                                        
                                 }
                             }
                         }
