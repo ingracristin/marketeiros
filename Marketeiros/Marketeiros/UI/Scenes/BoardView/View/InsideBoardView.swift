@@ -18,7 +18,7 @@ struct InsideBoardView: View {
     @State var postsCount = 0
     
     init(board: Board) {  
-        UIToolbar.appearance().barTintColor = UIColor.init(Color(#colorLiteral(red: 0.9798186421, green: 0.9811866879, blue: 0.9327015281, alpha: 1)))
+        UIToolbar.appearance().barTintColor = UIColor.init(Color("ToolBarColor"))
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
@@ -156,7 +156,7 @@ struct InsideBoardView: View {
                             }).padding(.horizontal)
                             
                         }
-                    }.foregroundColor(Color("ToolBarColor"))
+                    }
                 } else if (selectedIndex == 1) {
                     IdeaView(viewModel: .init(board: viewModel.board))
                 } else if (selectedIndex == 2) {
