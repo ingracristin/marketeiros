@@ -23,7 +23,7 @@ struct ProfileView: View {
                 .ignoresSafeArea()
                 .shadow(radius: 6)
                 
-            VStack() {
+            VStack(spacing: 20) {
                 
                 HStack(alignment: .lastTextBaseline,spacing:0) {
                     Spacer()
@@ -54,12 +54,13 @@ struct ProfileView: View {
                             .font(.custom("SF Pro Display", size: 16))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("UserProfileColor"))
-                    }.padding(.horizontal,20)
+                    }
                     Spacer()
                     Image("perfil")
                         .resizable()
-                        .frame(width: 58, height: 58)
-                        .padding()
+                        .frame(width: UIScreen.main.bounds.size.height * 0.0714, height: UIScreen.main.bounds.size.height * 0.0714)
+                        .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 5))
+                        
                 }
                 Spacer().frame(height:UIScreen.main.bounds.size.height * 0.035)
                 
@@ -72,6 +73,9 @@ struct ProfileView: View {
                                 
                             Spacer()
                             Image(systemName: "person")
+                                .resizable()
+                                .frame(width:UIScreen.main.bounds.size.height * 0.0246 ,height: UIScreen.main.bounds.size.height * 0.0246)
+                                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 25))
                         }
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 
@@ -84,6 +88,9 @@ struct ProfileView: View {
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "globe")
+                                .resizable()
+                                .frame(width:UIScreen.main.bounds.size.height * 0.0246 ,height: UIScreen.main.bounds.size.height * 0.0246)
+                                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 25))
                         }
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 NavigationLink(
@@ -94,6 +101,9 @@ struct ProfileView: View {
                                 .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
                             Spacer()
                             Image(systemName: "questionmark.circle")
+                                .resizable()
+                                .frame(width:UIScreen.main.bounds.size.height * 0.0246 ,height: UIScreen.main.bounds.size.height * 0.0246)
+                                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 25))
                         }
                     }).foregroundColor(Color("ProfileButtonsColor"))
                 Spacer()
