@@ -56,6 +56,7 @@ struct PinterestGrid: View {
             ForEach(columns) { column in
                 LazyVStack(spacing: spacing){
                     ForEach(column.gridItems) { gridItem in
+                        
                         NavigationLink(destination: MoodBoardItemDetailsView()) {
                             Image(uiImage: gridItem.image)
                                 .resizable()

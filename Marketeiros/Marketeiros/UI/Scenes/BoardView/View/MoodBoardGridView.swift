@@ -13,6 +13,7 @@ struct MoodBoardGridView: View {
     var body: some View {
         var gridItems: [GridCell] = []
         for image in imagesList {
+            
             let randomH = CGFloat.random(in: 180 ... 300)
             gridItems.append(GridCell(height: randomH, image: image))
         }

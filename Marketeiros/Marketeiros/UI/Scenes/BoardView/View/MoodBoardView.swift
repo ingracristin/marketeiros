@@ -13,6 +13,7 @@ struct MoodBoardView: View {
     @State var showingActionSheet = false
     @State var imageGalery = false
     @State var uiImage: UIImage? = UIImage(named: "bolinha")!
+    @State var lastImage: UIImage? = UIImage(named: "bolinha")!
     @State var localeImage: String = ""
     
     var body: some View {
@@ -34,7 +35,12 @@ struct MoodBoardView: View {
                     .cancel()
                 ])
             })
-            .sheet(isPresented: $imageGalery, onDismiss: { imagesList.append(uiImage!)}, content: {
+            .sheet(isPresented: $imageGalery, onDismiss: {
+                if(uiImage != nil && uiImage != lastImage){
+                    imagesList.append(uiImage!)
+                    lastImage = uiImage
+                }
+                    }, content: {
                 ImagePicker(image: $uiImage, imagePath: $localeImage)
             })
             .toolbar {

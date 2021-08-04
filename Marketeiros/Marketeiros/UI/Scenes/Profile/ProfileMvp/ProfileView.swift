@@ -23,7 +23,7 @@ struct ProfileView: View {
                 .ignoresSafeArea()
                 .shadow(radius: 6)
                 
-            VStack(spacing: 20) {
+            VStack(spacing: 20){
                 
                 HStack(alignment: .lastTextBaseline,spacing:0) {
                     Spacer()
