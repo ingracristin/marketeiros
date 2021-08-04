@@ -43,7 +43,7 @@ struct EditBoardView: View {
                                 presentationMode.wrappedValue.dismiss()
                             }
                         }, label: {
-                            Text(NSLocalizedString("creatBtn", comment: ""))
+                            Text(NSLocalizedString("save", comment: ""))
                                 .foregroundColor(Color("SheetButton"))
                                 .font(.body)
                         })
@@ -82,7 +82,7 @@ struct EditBoardView: View {
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                         
-                        TextField(NSLocalizedString("PH_boardbio", comment: ""),text: viewModel.bindings.description)
+                        TextEditor(text: viewModel.bindings.description)
                             .frame(height: reader.size.height * 0.1317,alignment: .topLeading)
                             .padding(.init(top: 10, leading: 10, bottom: 0, trailing: 0))
                             .multilineTextAlignment(.leading)

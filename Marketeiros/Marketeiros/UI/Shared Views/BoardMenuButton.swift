@@ -24,7 +24,7 @@ struct BoardMenuButton: View {
                     .foregroundColor(.red)
             }
         } label: {
-            Text("...")
+            Image(systemName: "ellipsis")
         }
     }
 }

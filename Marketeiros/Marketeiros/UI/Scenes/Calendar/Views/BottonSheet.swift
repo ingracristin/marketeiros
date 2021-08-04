@@ -20,12 +20,33 @@ struct BottomSheet : View {
                 .frame(width: 50, height: 5)
                 .padding(.top)
                 .padding(.bottom,8)
-            
-            Text(NSLocalizedString("eventWeek", comment: ""))
-                .foregroundColor(.white)
-                .bold()
-                .padding(.bottom,5)
-            
+            HStack(alignment:.center, spacing:0){
+                if offset < 0 {
+                    Button(action: {}, label: {
+                        Text("OK")
+                    })
+                    .foregroundColor(.white)
+                    .padding(.leading,20)
+                    .isHidden(true)
+                }
+                Spacer()
+                Text(NSLocalizedString("eventWeek", comment: ""))
+                    .foregroundColor(.white)
+                    .bold()
+                    .padding(.bottom,5)
+                Spacer()
+                if offset < 0 {
+                    Button(action: {
+                        withAnimation {
+                            offset = 0
+                        }
+                    }, label: {
+                        Text("OK")
+                    })
+                    .foregroundColor(.white)
+                    .padding(.trailing,20)
+                }
+            }
             ScrollView(.vertical, showsIndicators: false, content: {
                 LazyVStack(alignment: .leading, spacing: 15, content: {
                     ForEach(notifications.keys.sorted(), id:\.self) { index in
@@ -44,7 +65,7 @@ struct BottomSheet : View {
                 .padding(.horizontal,25)
             })
         }
-        .background(RoundedRectangle(cornerRadius: 30).foregroundColor(Color(UIColor.appDarkBlue)))
+        .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.appDarkBlue)))
     }
 }
 

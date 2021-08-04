@@ -56,7 +56,8 @@ struct CalendarPageView: View {
                 VStack {
                     BottomSheet(offset: $offset, date: $date, notifications: viewModel.getWeekNotifications(of: date), value: (-reader.frame(in: .global).height + aux))
                         .offset(y: reader.frame(in: .global).height - aux)
-                        .offset(y: offset) .gesture(DragGesture().onChanged({ (value) in
+                        .offset(y: offset)
+                        .gesture(DragGesture().onChanged({ (value) in
                             withAnimation {
                                 if value.startLocation.y > reader.frame(in: .global).midX {
                                     if value.translation.height < 0 && offset > (-reader.frame(in: .global).height + aux) {
@@ -69,7 +70,8 @@ struct CalendarPageView: View {
                                     }
                                 }
                             }
-                        }).onEnded({ (value) in
+                        })
+                        .onEnded({ (value) in
                             withAnimation {
                                 if value.startLocation.y > reader.frame(in: .global).midX {
                                     if -value.translation.height > reader.frame(in: .global).midX {

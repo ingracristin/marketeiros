@@ -37,11 +37,15 @@ struct CreatePasteView: View {
                 }
             }.padding(.vertical)
             
-            TextField("Nome da pasta", text: $title)
+            VStack(spacing:5) {
+                TextField("Nome da pasta", text: $title)
+                Divider()
+            }
             Spacer()
         }
         .padding()
         .navigationTitle("Criar idéia")
+        .cornerRadius(50)
     }
 }
 

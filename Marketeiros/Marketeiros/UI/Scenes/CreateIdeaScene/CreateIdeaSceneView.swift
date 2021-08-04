@@ -10,33 +10,42 @@ import SwiftUI
 struct CreateIdeaSceneView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CreateIdeaSceneViewModel
-    @State var isHidden = true
-    var completion: ((Idea) -> ())?
+    
     
     init(board: Board, pastes: [Paste], completion: ((Idea) -> ())?) {
-        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes)
-        self.completion = completion
+        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes,completion:completion)
     }
     
     var body: some View {
         ZStack {
             VStack {
-                Button(action: {
-                    isHidden.toggle()
-                    viewModel.togglePasteSheet()
-                }, label: {
-                    HStack {
-                        Image(systemName: "folder")
-                        Spacer()
-                    }
-                }).padding(.vertical)
+                HStack {
+                    Button(action: {
+                        viewModel.togglePasteSheet()
+                    }, label: {
+                        HStack {
+                            Image(systemName: "folder")
+                            Spacer()
+                        }
+                    }).padding(.vertical)
+                    .frame(width:50)
+                    Spacer()
+                }
+                
                 TextField("Título", text: viewModel.bindings.title)
                     .foregroundColor(Color(UIColor.lightGray))
                     .font(Font.sfProDisplaySemiBold(sized: 24))
+                    .onTapGesture {
+                        viewModel.okButtonIsShowing(true)
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                        viewModel.okButtonIsShowing(false)
+                    }
                 TextEditor(text: viewModel.bindings.description)
                     .foregroundColor(Color(UIColor.lightGray))
                     .font(Font.sfProDisplaySemiBold(sized: 14))
                     .onTapGesture {
+                        viewModel.okButtonIsShowing(true)
                         if viewModel.states.description == NSLocalizedString("descriptionIdea", comment: "") {
                             viewModel.setDescriptionwith(text: "")
                         }
@@ -89,21 +98,31 @@ struct CreateIdeaSceneView: View {
             }
             .isHidden(!viewModel.bindings.pasteSheetShowing.wrappedValue)
         }
-        //WITH BUG
-//        .navigationBarTitle("",displayMode: .inline)
-//        .navigationBarItems(trailing: Menu {
-//            Button(action:{}){
-//                HStack{
-//                    Text(NSLocalizedString("delete", comment: ""))
-//                    Image(systemName: "trash")
-//                }.foregroundColor(.red)
-//            }
-//
-//        } label: {
-//            Text("􀍡")
-//                .fontWeight(.bold)
-//                .font(.title)
-//        }.foregroundColor(Color("navbarColor")))
+        .navigationBarTitle("Idea",displayMode: .inline)
+        .navigationBarItems(trailing:
+            HStack(spacing:20) {
+                Menu {
+                    Button(action:{}) {
+                        HStack{
+                            Text(NSLocalizedString("delete", comment: ""))
+                            Image(systemName: "trash")
+                        }.foregroundColor(.red)
+                    }
+
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                }.foregroundColor(Color(UIColor.navBarItemsColor))
+                if viewModel.states.okButtonShowing {
+                    Button {
+                        viewModel.saveIdea()
+                    } label: {
+                        Text("ok")
+                            .fontWeight(.semibold)
+                    }
+                }
+                
+            }
+        )
     }
 }
 

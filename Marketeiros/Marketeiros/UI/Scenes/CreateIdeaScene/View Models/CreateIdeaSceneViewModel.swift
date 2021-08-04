@@ -12,10 +12,12 @@ class CreateIdeaSceneViewModel: ObservableObject {
     @Published private(set) var states = States()
     var pastes: [Paste]
     var board: Board
+    var completion: ((Idea) -> ())?
     
-    init(board: Board, pastes: [Paste]) {
+    init(board: Board, pastes: [Paste], completion: ((Idea) -> ())?) {
         self.pastes = pastes
         self.board = board
+        self.completion = completion
         self.states.paste = (pastes.count == 1) ? pastes.first : Paste(uid: "none", title: "none", icon: "none")
     }
     
@@ -24,13 +26,15 @@ class CreateIdeaSceneViewModel: ObservableObject {
         var description = NSLocalizedString("descriptionIdea", comment: "")
         var paste: Paste!
         var pasteSheetShowing = false
+        var okButtonShowing = false
     }
     
     var bindings: (
         title: Binding<String>,
         description: Binding<String>,
         paste: Binding<Paste>,
-        pasteSheetShowing: Binding<Bool>
+        pasteSheetShowing: Binding<Bool>,
+        okButtonShowing: Binding<Bool>
     ) {(
         title: Binding(
             get: {self.states.title},
@@ -43,7 +47,10 @@ class CreateIdeaSceneViewModel: ObservableObject {
             set: {self.states.paste = $0}),
         pasteSheetShowing: Binding(
             get: {self.states.pasteSheetShowing},
-            set: {self.states.pasteSheetShowing = $0})
+            set: {self.states.pasteSheetShowing = $0}),
+        okButtonShowing: Binding(
+            get: {self.states.okButtonShowing},
+            set: {self.states.okButtonShowing = $0})
     )}
     
     func setDescriptionwith(text: String) {
@@ -58,7 +65,11 @@ class CreateIdeaSceneViewModel: ObservableObject {
         states.paste = Paste(uid: "none", title: "none", icon: "none")
     }
     
-    func saveIdea(completion: ((Idea) -> ())?) {
+    func okButtonIsShowing(_ value: Bool) {
+        states.okButtonShowing = value
+    }
+    
+    func saveIdea() {
         var idea = Idea(
             uid: "",
             icon: "",
@@ -66,7 +77,8 @@ class CreateIdeaSceneViewModel: ObservableObject {
             pasteUid: states.paste.uid,
             title: states.title,
             description: states.description)
-        
+        print(completion)
+        print(idea)
         completion?(idea)
         BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
     }

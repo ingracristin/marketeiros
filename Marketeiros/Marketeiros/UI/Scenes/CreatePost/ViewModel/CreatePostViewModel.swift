@@ -93,7 +93,7 @@ class CreatePostViewModel : ObservableObject {
             description: states.legendPost,
             hashtags: [states.hashtag],
             markedAccountsOnPost: [states.markedAccountsOnPost],
-            dateOfPublishing: nil)
+            dateOfPublishing: (states.isShowingDatePicker) ? states.scheduleDate : nil)
         
         BoardsRepository.current.add(item: &post, to: board, on: .posts)
         
