@@ -82,7 +82,7 @@ struct IdeaView: View {
                     .foregroundColor(Color("NavBarTitle"))
                 
                 ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: layout, spacing: 15) {
+                    LazyVGrid(columns: layout, spacing: 2) {
                         NavigationLink(
                             destination: CreateIdeaSceneView(board: viewModel.board, pastes: viewModel.states.pastes, completion: nil),
                             label: {

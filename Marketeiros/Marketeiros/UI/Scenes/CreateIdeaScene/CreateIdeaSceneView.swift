@@ -120,7 +120,6 @@ struct CreateIdeaSceneView: View {
                             .fontWeight(.semibold)
                     }
                 }
-                
             }
         )
     }

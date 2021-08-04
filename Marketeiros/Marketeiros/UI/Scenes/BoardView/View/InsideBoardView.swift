@@ -23,7 +23,7 @@ struct InsideBoardView: View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
         _viewModel = StateObject(wrappedValue: InsideBoardViewModel(board: board))
-        vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "ingracristin")
+        vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "")
     }
     
     var body: some View {
@@ -50,7 +50,6 @@ struct InsideBoardView: View {
                             .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                   
                     .background((selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                     .cornerRadius(13)
                     .frame(width: (reader.size.width/3) - 40)
@@ -59,7 +58,6 @@ struct InsideBoardView: View {
                         selectedIndex = 1
                     }, label: {
                         Text(NSLocalizedString("ideas", comment: ""))
-                            
                             .font(.system(size: 20))
                             .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
                     })
@@ -76,12 +74,11 @@ struct InsideBoardView: View {
                             .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                    
                     .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                     .cornerRadius(13)
                     .frame(width: (reader.size.width/3) - 40)
                    
-                }.padding(.bottom)
+                }.padding(.bottom,0)
                
                 if viewModel.posts.count == 1 {
                     NavigationLink(destination: EmptyView()) {
@@ -104,7 +101,6 @@ struct InsideBoardView: View {
                                             self.dragging = post
                                             return NSItemProvider(object: String(post.uid) as NSString)
                                         })
-
                                 }.onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: $viewModel.posts, current: $dragging))
                             }
                             
@@ -140,10 +136,6 @@ struct InsideBoardView: View {
                                 viewModel.toggleAddPostView()
                             }, label: {
                                 Text(NSLocalizedString("newToolBar", comment: ""))
-                                
-                                    
-                                
-
                             }).padding(.horizontal)
                             
                             Spacer()
@@ -154,7 +146,6 @@ struct InsideBoardView: View {
                                 Text(NSLocalizedString("colorsToolBar", comment: ""))
                                   
                             }).padding(.horizontal)
-                            
                         }
                     }
                 } else if (selectedIndex == 1) {
