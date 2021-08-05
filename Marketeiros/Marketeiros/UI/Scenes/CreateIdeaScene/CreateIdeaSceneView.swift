@@ -11,9 +11,8 @@ struct CreateIdeaSceneView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CreateIdeaSceneViewModel
     
-    
     init(board: Board, pastes: [Paste], completion: ((Idea) -> ())?) {
-        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes,completion:completion)
+        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes, completion:completion)
     }
     
     var body: some View {
