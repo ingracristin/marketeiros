@@ -117,6 +117,10 @@ struct CreatePostUIView: View {
                             .foregroundColor(Color("NavBarTitle"))
                         Toggle("", isOn: viewModel.bindings.showGreeting)
                             .toggleStyle(SwitchToggleStyle(tint: .blue))
+                            .onTapGesture {
+                                print("VAI CHAMAR A NOTIFICAO!")
+                                viewModel.requestUserNotification()
+                            }
                     }
                     .padding(20)
                     
@@ -143,7 +147,7 @@ struct CreatePostUIView: View {
                 ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
             }
             .onAppear {
-                viewModel.requestUserNotification()
+                
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ (noti) in
                     
                     let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
