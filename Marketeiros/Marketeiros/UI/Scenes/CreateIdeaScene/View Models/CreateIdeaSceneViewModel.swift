@@ -77,9 +77,11 @@ class CreateIdeaSceneViewModel: ObservableObject {
             pasteUid: states.paste.uid,
             title: states.title,
             description: states.description)
-        print(completion)
-        print(idea)
-        completion?(idea)
+        
+        if let callback = completion {
+            callback(idea)
+        }
+        
         BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
     }
 
