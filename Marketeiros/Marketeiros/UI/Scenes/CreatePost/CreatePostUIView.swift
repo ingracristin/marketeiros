@@ -10,6 +10,7 @@ import SwiftUI
 struct CreatePostUIView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CreatePostViewModel
+    @State var value : CGFloat = 0
     
     init(board: Board) {
         viewModel = .init(board: board)
@@ -24,7 +25,7 @@ struct CreatePostUIView: View {
                             .foregroundColor(Color(UIColor.emptyCellGridColor))
                             .frame(width: UIScreen.main.bounds.size.width * 0.9066, height: UIScreen.main.bounds.size.height * 0.3756)
                             .cornerRadius(24)
-
+                        
                         if viewModel.states.inputImage != nil {
                             Image(uiImage: viewModel.states.inputImage!)
                                 .resizable()
@@ -52,9 +53,9 @@ struct CreatePostUIView: View {
                         Text(NSLocalizedString("title", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
-                    
+                        
                         Spacer()
-                            
+                        
                         ZStack(alignment:.trailing){
                             TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
                                 .padding()
@@ -68,7 +69,7 @@ struct CreatePostUIView: View {
                         Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
-                    
+                        
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField(NSLocalizedString("PH_caption", comment: ""), text: viewModel.bindings.legendPost)
@@ -84,7 +85,7 @@ struct CreatePostUIView: View {
                         Text("Hashtags").fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
-                    
+                        
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField("#", text: viewModel.bindings.hastagPost)
@@ -99,7 +100,7 @@ struct CreatePostUIView: View {
                         Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
-                    
+                        
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField("@", text: viewModel.bindings.markedPost)
@@ -109,7 +110,7 @@ struct CreatePostUIView: View {
                                 .cornerRadius(8)
                         }
                     }.padding(.horizontal,20)
-
+                    
                     HStack(){
                         Text(NSLocalizedString("schedule", comment: "")).fontWeight(.regular)
                             .font(.title3)
@@ -118,7 +119,7 @@ struct CreatePostUIView: View {
                             .toggleStyle(SwitchToggleStyle(tint: .blue))
                     }
                     .padding(20)
-
+                    
                     VStack {
                         DatePicker(
                             "Agendar",
@@ -127,13 +128,14 @@ struct CreatePostUIView: View {
                             .datePickerStyle(GraphicalDatePickerStyle())
                             .padding()
                             .background(Color("TextField2"))
-                                            .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                             .isHidden(!viewModel.states.isShowingDatePicker)
                     }
                     .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .animation(.easeOut)
                     .padding()
                 }
+                .offset(y: -self.value)
             }
             .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)
             .padding(.vertical,20)
@@ -142,7 +144,21 @@ struct CreatePostUIView: View {
             }
             .onAppear {
                 viewModel.requestUserNotification()
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ (noti) in
+                    
+                    let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                    
+                    let height = value.height
+                    self.value = height
+                }
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
+                    
+                    self.value = 0
+                }
+                
+                UIApplication.shared.addTapGestureRecognizer()
             }
+            
             .navigationBarItems(trailing: Button(action: {
                 viewModel.addPostToBoard { _ in
                     presentationMode.wrappedValue.dismiss()
