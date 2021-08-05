@@ -166,6 +166,10 @@ struct InsideBoardView: View {
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
             .onAppear {
                 viewModel.getAllPosts()
+                
+                if(vm.imagesUrls.first != nil){
+                    vm.imagesUrls.removeFirst()
+                }
             }
         }
     }
