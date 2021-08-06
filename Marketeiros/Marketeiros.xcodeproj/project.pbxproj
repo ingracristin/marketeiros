@@ -15,6 +15,9 @@
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
+		795E180326BC253900EEE63B /* LoadingPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E180226BC253900EEE63B /* LoadingPhotosView.swift */; };
+		795E180526BC3B5D00EEE63B /* LoadingPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E180426BC3B5D00EEE63B /* LoadingPost.swift */; };
+		795E180726BC3CC400EEE63B /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E180626BC3CC400EEE63B /* ErrorMessage.swift */; };
 		79747F60269348B7004BAAC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79747F5F269348B7004BAAC9 /* LoginView.swift */; };
 		79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79747F61269362EB004BAAC9 /* RegisterView.swift */; };
 		798C8A6A26A85C500031F9DA /* NewPostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C8A6926A85C500031F9DA /* NewPostDetailsView.swift */; };
@@ -124,6 +127,9 @@
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
+		795E180226BC253900EEE63B /* LoadingPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPhotosView.swift; sourceTree = "<group>"; };
+		795E180426BC3B5D00EEE63B /* LoadingPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPost.swift; sourceTree = "<group>"; };
+		795E180626BC3CC400EEE63B /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		79747F5F269348B7004BAAC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		79747F61269362EB004BAAC9 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		798C8A6926A85C500031F9DA /* NewPostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostDetailsView.swift; sourceTree = "<group>"; };
@@ -212,7 +218,7 @@
 		EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardItemDetailsView.swift; sourceTree = "<group>"; };
 		EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodHalfModalView.swift; sourceTree = "<group>"; };
 		EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardView.swift; sourceTree = "<group>"; };
-		EF30C35C26779A9A00DB7644 /* Marketeiros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marketeiros.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF30C35C26779A9A00DB7644 /* Plani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF30C35F26779A9A00DB7644 /* MarketeirosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketeirosApp.swift; sourceTree = "<group>"; };
 		EF30C36326779A9A00DB7644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF30C36626779A9A00DB7644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -359,6 +365,9 @@
 				AED4845C269D69D600890E91 /* ProgressBarView.swift */,
 				AE66B14F26B77176007518AC /* BoardMenuButton.swift */,
 				AECB11A526BA35220007BB2C /* CornerShapeView.swift */,
+				795E180626BC3CC400EEE63B /* ErrorMessage.swift */,
+				795E180226BC253900EEE63B /* LoadingPhotosView.swift */,
+				795E180426BC3B5D00EEE63B /* LoadingPost.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -671,7 +680,7 @@
 		EF30C35D26779A9A00DB7644 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EF30C35C26779A9A00DB7644 /* Marketeiros.app */,
+				EF30C35C26779A9A00DB7644 /* Plani.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -748,7 +757,7 @@
 			);
 			name = Marketeiros;
 			productName = Marketeiros;
-			productReference = EF30C35C26779A9A00DB7644 /* Marketeiros.app */;
+			productReference = EF30C35C26779A9A00DB7644 /* Plani.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -857,6 +866,7 @@
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
 				AE3EB5C426976C7E0093AF7C /* HalfModalView.swift in Sources */,
 				AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */,
+				795E180726BC3CC400EEE63B /* ErrorMessage.swift in Sources */,
 				AE247DE226AB12AC0059CBEB /* DayOfMonth.swift in Sources */,
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
@@ -889,6 +899,7 @@
 				AE3EB5DE26976CE60093AF7C /* CreateIdeaSceneViewModel.swift in Sources */,
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
 				AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */,
+				795E180326BC253900EEE63B /* LoadingPhotosView.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
 				AE247DE926AB132C0059CBEB /* AppDatePicker.swift in Sources */,
 				79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */,
@@ -921,6 +932,7 @@
 				AE247DE426AB12AC0059CBEB /* MonthYserPicker.swift in Sources */,
 				AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */,
 				AE247DE526AB12AC0059CBEB /* SingleDayView.swift in Sources */,
+				795E180526BC3B5D00EEE63B /* LoadingPost.swift in Sources */,
 				AE5B70572678F5FF00AFF32E /* CalendarExtensions.swift in Sources */,
 				AE3EB5E226976D090093AF7C /* DeviceDataPersistenceService.swift in Sources */,
 				79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */,
@@ -1093,7 +1105,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1102,8 +1114,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1121,7 +1133,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1130,8 +1142,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
