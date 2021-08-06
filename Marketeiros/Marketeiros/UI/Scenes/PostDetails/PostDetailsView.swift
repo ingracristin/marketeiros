@@ -16,7 +16,7 @@ struct PostDetailsView: View {
     }
     
     var body: some View {
-        ProgressBarView(isShowing: viewModel.bindings.showingAlertView, value: viewModel.bindings.percentage) {
+        LoadingPost(isShowing: viewModel.bindings.showingAlertView){
             ScrollView(){
                 VStack(spacing: 10){
                     ZStack {
@@ -50,66 +50,66 @@ struct PostDetailsView: View {
                     Spacer()
                     
                     HStack{
-                        Text("Título")
-                            .font(.title3)
+                        Text(NSLocalizedString("title", comment: "")).fontWeight(.regular)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                         
                         ZStack(alignment:.trailing){
-                            TextField("Um título faz a diferença", text: viewModel.bindings.titlePost)
+                            TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
                                 .padding()
-                                .frame(width: 253, height: 50)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
                     }.padding(.horizontal,20)
                     
                     HStack{
-                        Text("Legenda")
-                            .font(.title3)
+                        Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                         ZStack(alignment:.trailing){
-                            TextField("A legenda é fundamental...", text: viewModel.bindings.legendPost)
+                            TextField(NSLocalizedString("PH_caption", comment: ""), text: viewModel.bindings.legendPost)
                                 .padding()
                                 //.frame(height:reader.size.height * 0.052)
-                                .frame(width: 253, height: 100)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.1231)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
                     }.padding(.horizontal,20)
                     
                     HStack{
-                        Text("Hastags")
-                            .font(.title3)
+                        Text("Hashtags").fontWeight(.regular)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField("#", text: viewModel.bindings.hastagPost)
                                 .padding()
-                                .frame(width: 253, height: 50)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
                     }.padding(.horizontal,20)
                     
                     HStack{
-                        Text("Marcados")
-                            .font(.title3)
+                        Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField("@", text: viewModel.bindings.markedPost)
                                 .padding()
-                                .frame(width: 253, height: 50)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
                     }.padding(.horizontal,20)
 
                     HStack(){
-                        Text("Agendar")
-                            .font(.title3)
+                        Text(NSLocalizedString("schedule", comment: "")).fontWeight(.regular)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         Toggle("", isOn: viewModel.bindings.showGreeting)
                             .toggleStyle(SwitchToggleStyle(tint: .blue))
@@ -131,7 +131,7 @@ struct PostDetailsView: View {
                     .padding()
                 }
             }
-            .navigationBarTitle("Visualizar Post", displayMode: .inline)
+            .navigationBarTitle("Post", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                    Button("Help") {
@@ -150,7 +150,7 @@ struct PostDetailsView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }, label: {
-                    Text("Salvar")
+                    Text(NSLocalizedString("save", comment: "))
                         .font(Font.sfProDisplaySemiBold(sized: 17))
                         .foregroundColor(Color(UIColor.navBarItemsColor))
                         .font(.body)
