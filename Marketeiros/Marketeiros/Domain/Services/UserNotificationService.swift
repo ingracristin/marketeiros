@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import UserNotifications
 
 struct ScheduledNotification {
@@ -16,11 +17,56 @@ struct ScheduledNotification {
     var boardTitle: String
     var date: Date
     var imagePath: String
+    
+    static func from(json: [String: Any]) -> ScheduledNotification {
+        return ScheduledNotification(
+            uid: json["uid"] as! String,
+            title: json["title"] as! String,
+            description: json["description"] as! String,
+            boardUid: json["boardUid"] as! String,
+            boardTitle: json["boardTitle"] as! String,
+            date: json["date"] as? Date ?? .init(),
+            imagePath: json["imagePath"] as! String)
+    }
+    
+    func toJson() -> [String: Any] {
+        return [
+            "uid": self.uid ,
+            "title": self.title,
+            "description": self.description,
+            "boardUid": self.boardUid,
+            "boardTitle": self.boardTitle,
+            "imagePath": self.imagePath,
+            "date": self.date
+        ]
+    }
 }
 
-class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
+class UserNotificationService: NSObject,UNUserNotificationCenterDelegate, ObservableObject {
     var notificationCenter : UNUserNotificationCenter
+    @Published private(set) var states = States()
     static let shared = UserNotificationService()
+    
+    struct States {
+        var hasNotification = false
+        var postScheduledNotification: ScheduledNotification = .init(uid: "", title: "", description: "", boardUid: "", boardTitle: "", date: .init(), imagePath: "")
+    }
+    
+    var bindings: (
+        hasNotification: Binding<Bool>,
+        scheduledNotification: Binding<ScheduledNotification>
+    ) {(
+        hasNotification: Binding(
+            get: {self.states.hasNotification},
+            set: {self.states.hasNotification = $0}),
+        scheduledNotification: Binding(
+            get: {self.states.postScheduledNotification},
+            set: {self.states.postScheduledNotification = $0})
+    )}
+    
+    func setHasNotification(value: Bool) {
+        states.hasNotification = value
+    }
     
     struct Constants {
         static let appName = "Planni"
@@ -223,7 +269,9 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate {
             return
         }
         
-        SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: postData)
+        //SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: postData)
+        states.postScheduledNotification = ScheduledNotification.from(json: postData)
+        states.hasNotification = true
         completionHandler()
     }
 }

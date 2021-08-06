@@ -136,6 +136,10 @@
 "localEvent" = "Local";
 "calendarEvent" = "Calendar";
 
+//Share Post View
+"captionMessage" = "Hey! Your caption has been copied to the clipboard.";
+"captionTip" = "Paste the caption on Instagram :)";
+"publishOnFeed" = "Publish on Feed";
 
 //loadings
 

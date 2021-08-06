@@ -140,9 +140,13 @@
 "localEvent" = "Local";
 "calendarEvent" = "Calendário";
 
+//Share Post View
+"captionMessage" = "Ei! Sua legenda foi copiada para a área de transferência.";
+"captionTip" = "Cole a legenda no Instagram :)";
+"publishOnFeed" = "Publicar no feed";
+
 
 //loadings
-
 "loadingPhotos" = "Carregando fotos...";
 "savingPost" = "Salvando post...";
 "ops" = "Opa, algo deu errado! Tente novamente.";

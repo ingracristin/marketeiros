@@ -77,6 +77,8 @@
 		AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5209268B8C7100E14EBD /* BlurView.swift */; };
 		AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */; };
 		AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */; };
+		AEB7B6AD26BD15C800850114 /* SharePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B6AA26BD15C800850114 /* SharePostView.swift */; };
+		AEB7B6AE26BD15C800850114 /* SharePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */; };
 		AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED4269C15180091F229 /* EditIdeaView.swift */; };
 		AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */; };
 		AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80EDA269C48AC0091F229 /* EditPasteView.swift */; };
@@ -191,6 +193,8 @@
 		AE8A5209268B8C7100E14EBD /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InsideBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/InsideBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		AEB7B6AA26BD15C800850114 /* SharePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePostView.swift; sourceTree = "<group>"; };
+		AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePostViewModel.swift; sourceTree = "<group>"; };
 		AEC80ED4269C15180091F229 /* EditIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaView.swift; sourceTree = "<group>"; };
 		AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaViewModel.swift; sourceTree = "<group>"; };
 		AEC80EDA269C48AC0091F229 /* EditPasteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasteView.swift; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 		AE5B704B2678EAE000AFF32E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AEB7B6A926BD15C800850114 /* ConfirmSharedPost */,
 				AED4845E269D88E500890E91 /* EditBoard */,
 				AEC80ED9269C488D0091F229 /* EditPaste */,
 				AED6CF7F26897EA700870BB2 /* AuthenticationScene */,
@@ -594,6 +599,23 @@
 				AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AEB7B6A926BD15C800850114 /* ConfirmSharedPost */ = {
+			isa = PBXGroup;
+			children = (
+				AEB7B6AA26BD15C800850114 /* SharePostView.swift */,
+				AEB7B6AB26BD15C800850114 /* View Model */,
+			);
+			path = ConfirmSharedPost;
+			sourceTree = "<group>";
+		};
+		AEB7B6AB26BD15C800850114 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		AEC80ED3269C14F10091F229 /* EditIdea */ = {
@@ -880,6 +902,7 @@
 				AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */,
 				AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */,
 				AE3C43A72693F72B00013F79 /* UiColorExtension.swift in Sources */,
+				AEB7B6AD26BD15C800850114 /* SharePostView.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
 				AE5D322926955BCA002BD62F /* AuthenticationViewModel.swift in Sources */,
@@ -917,6 +940,7 @@
 				EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */,
 				798C8A6A26A85C500031F9DA /* NewPostDetailsView.swift in Sources */,
 				AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */,
+				AEB7B6AE26BD15C800850114 /* SharePostViewModel.swift in Sources */,
 				AED6CF7A26897D6900870BB2 /* Board.swift in Sources */,
 				AE247DE126AB12AC0059CBEB /* MonthDaysView.swift in Sources */,
 				EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */,
@@ -1105,7 +1129,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1114,7 +1138,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1133,7 +1157,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1142,7 +1166,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

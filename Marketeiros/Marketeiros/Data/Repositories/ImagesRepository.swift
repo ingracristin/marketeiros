@@ -73,6 +73,16 @@ class ImagesRepository {
         deleteImage(of: imagePath, completion: completion)
     }
     
+    
+    func getImageOfScheduledPost(withUid uid: String, ofBoardWithUid boardUid: String) -> UIImage {
+        let imagePath = "\(boardUid)/posts/\(uid)"
+        guard let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data else {
+            return UIImage(named: "ImageTest")!
+        }
+        
+        return UIImage(data: imageData) ?? UIImage(named: "ImageTest")!
+    }
+    
     private func deleteImage(of path: String, completion: @escaping (Result<Bool, ImagesRepositoryErrors>) -> ()) {
         UserDefaults.standard.removeObject(forKey: path)
         let imageRef = storageRoot.child(path)
