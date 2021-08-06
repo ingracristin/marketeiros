@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct UserDetailsView: View {
-    @State var boardName = ""
+    @State var username = ""
+    @State var name = ""
+    @State var email = ""
+    
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @State var user = UserProfile(uid: "", email: "email@example.com", name: "Name", username: "Username")
+    
     var body: some View {
         VStack(alignment:.leading, spacing: 16){
             HStack{
@@ -46,7 +52,7 @@ struct UserDetailsView: View {
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
-                        TextField("", text: $boardName)
+                        TextField(user.name, text: $name)
                             .padding()
                             .frame(width: 280, height: 50)
                             .background(Color("TextField2"))
@@ -64,7 +70,7 @@ struct UserDetailsView: View {
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
-                        TextField("", text: $boardName)
+                        TextField(user.username, text: $username)
                             .padding()
                             .frame(width: 280, height: 50)
                             .background(Color("TextField2"))
@@ -82,7 +88,7 @@ struct UserDetailsView: View {
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
-                        TextField("Aq tem q pegar o email da pess", text: $boardName)
+                        TextField(user.email, text: $email)
                             .padding()
                             .frame(width: 280, height: 50)
                             .background(Color("TextField2"))
@@ -108,6 +114,17 @@ struct UserDetailsView: View {
             
         }.padding(.horizontal, 20)
         .navigationBarTitle(NSLocalizedString("account", comment: ""),displayMode: .inline )
+        .onAppear {
+            let currentUser = AuthService.current.user!
+            UserProfileRepository.current.getUserWith(uid: currentUser.uid) { result in
+                switch result {
+                case .failure(_):
+                    print()
+                case .success(let userProfile):
+                    self.user = userProfile
+                }
+            }
+        }
     }
 }
 

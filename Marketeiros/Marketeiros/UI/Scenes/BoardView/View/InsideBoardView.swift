@@ -16,6 +16,7 @@ struct InsideBoardView: View {
     @State var averageColorOn = false
     @State private var dragging: Post?
     @State var postsCount = 0
+    var firstPhoto = true
     
     init(board: Board) {  
         UIToolbar.appearance().barTintColor = UIColor.init(Color("ToolBarColor"))
@@ -166,6 +167,10 @@ struct InsideBoardView: View {
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
             .onAppear {
                 viewModel.getAllPosts()
+                
+//                if(vm.imagesUrls.first != nil){
+//                    vm.imagesUrls.removeFirst()
+//                }
             }
         }
     }

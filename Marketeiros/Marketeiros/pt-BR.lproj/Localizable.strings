@@ -139,3 +139,10 @@
 "startsEvent" = "Inicia";
 "localEvent" = "Local";
 "calendarEvent" = "Calendário";
+
+
+//loadings
+
+"loadingPhotos" = "Carregando fotos...";
+"savingPost" = "Salvando post...";
+"ops" = "Opa, algo deu errado! Tente novamente.";

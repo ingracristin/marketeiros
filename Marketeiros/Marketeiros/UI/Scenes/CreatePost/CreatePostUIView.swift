@@ -17,7 +17,7 @@ struct CreatePostUIView: View {
     }
     
     var body: some View {
-        ProgressBarView(isShowing: viewModel.bindings.showingAlertView, value: viewModel.bindings.percentage) {
+        LoadingPost(isShowing: viewModel.bindings.showingAlertView) {
             ScrollView(){
                 VStack(spacing: 10){
                     ZStack {
@@ -118,7 +118,6 @@ struct CreatePostUIView: View {
                         Toggle("", isOn: viewModel.bindings.showGreeting)
                             .toggleStyle(SwitchToggleStyle(tint: .blue))
                             .onTapGesture {
-                                print("VAI CHAMAR A NOTIFICAO!")
                                 viewModel.requestUserNotification()
                             }
                     }

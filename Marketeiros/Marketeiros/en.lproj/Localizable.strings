@@ -135,3 +135,10 @@
 "startsEvent" = "Starts";
 "localEvent" = "Local";
 "calendarEvent" = "Calendar";
+
+
+//loadings
+
+"loadingPhotos" = "Loading Photos...";
+"savingPost" = "Saving Post...";
+"ops" = "Ops looks like something went wrong! Try again.";
