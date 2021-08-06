@@ -66,21 +66,21 @@ struct InsideBoardView: View {
                     .background((selectedIndex == 1) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                     .cornerRadius(13)
                     .frame(width: (reader.size.width/3) - 40)
-                    Spacer()
-                    Button(action: {
-                        selectedIndex = 2
-                    }, label: {
-                        Text("Mood")
-                            .font(.system(size: 20))
-                            .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
-                    })
-                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                    .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
-                    .cornerRadius(13)
-                    .frame(width: (reader.size.width/3) - 40)
+//                    Spacer()
+//                    Button(action: {
+//                        selectedIndex = 2
+//                    }, label: {
+//                        Text("Mood")
+//                            .font(.system(size: 20))
+//                            .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
+//                    })
+//                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+//                    .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+//                    .cornerRadius(13)
+//                    .frame(width: (reader.size.width/3) - 40)
                    
                 }.padding(.bottom,0)
-               
+                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 if viewModel.posts.count == 1 {
                     NavigationLink(destination: EmptyView()) {
                         EmptyView()
@@ -151,6 +151,7 @@ struct InsideBoardView: View {
                     }
                 } else if (selectedIndex == 1) {
                     IdeaView(viewModel: .init(board: viewModel.board))
+                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 } else if (selectedIndex == 2) {
                     MoodBoardView()
                 }
