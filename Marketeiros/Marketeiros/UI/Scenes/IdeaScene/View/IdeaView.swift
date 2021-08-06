@@ -12,8 +12,8 @@ struct IdeaView: View {
     @State var newPasteSheetIsShowing = false
     
     let layout = [
-        GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 15),
-        GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 15)
+        GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 5),
+        GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 5)
     ]
     
     var body: some View {
@@ -108,7 +108,7 @@ struct IdeaView: View {
                                 .background(Color("IdeaViewColor"))
                                 .cornerRadius(22)
                                 .shadow(radius: 6, x: 2, y: 4)
-                                
+                                .padding(.horizontal)
                                 .padding(.vertical, 10)
                             })
                         ForEach(viewModel.states.ideas, id: \.uid) { idea in
@@ -130,7 +130,7 @@ struct IdeaView: View {
                                     .background(Color("IdeaViewColor"))
                                     .cornerRadius(22)
                                 }.shadow(radius: 6, x: 2, y: 4)
-                                
+                                .padding(.horizontal)
                                 .padding(.vertical, 10)
                             }
                         }
