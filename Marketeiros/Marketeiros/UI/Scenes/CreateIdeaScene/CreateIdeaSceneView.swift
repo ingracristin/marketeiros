@@ -96,6 +96,7 @@ struct CreateIdeaSceneView: View {
                 }
             }
             .isHidden(!viewModel.bindings.pasteSheetShowing.wrappedValue)
+            .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
         }
         .navigationBarTitle("Idea",displayMode: .inline)
         .navigationBarItems(trailing:

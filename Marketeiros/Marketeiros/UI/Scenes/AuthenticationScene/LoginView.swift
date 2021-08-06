@@ -17,7 +17,7 @@ struct LoginView: View {
     var body: some View {
         VStack(spacing: 20){
             VStack{
-                TextField(NSLocalizedString("username", comment: ""),text: viewModel.bindings.loginEmail)
+                TextField(NSLocalizedString("email", comment: ""),text: viewModel.bindings.loginEmail)
                     .keyboardType(.emailAddress)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

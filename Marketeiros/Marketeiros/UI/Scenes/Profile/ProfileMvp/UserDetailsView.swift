@@ -23,7 +23,7 @@ struct UserDetailsView: View {
                    
                     Image("perfil")
                         .resizable()
-                        .frame(width: 100, height: 100)
+                        .frame(width: UIScreen.main.bounds.height * 0.1231, height: UIScreen.main.bounds.height * 0.1231)
                         .overlay(Image(systemName: "camera")
                                     .foregroundColor(Color("cameraColor")), alignment: .bottomTrailing)
                     
@@ -54,7 +54,7 @@ struct UserDetailsView: View {
                     ZStack(alignment:.trailing){
                         TextField(user.name, text: $name)
                             .padding()
-                            .frame(width: 280, height: 50)
+                            .frame(width: UIScreen.main.bounds.width * 0.704, height: UIScreen.main.bounds.height * 0.0517)
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                         
@@ -72,7 +72,7 @@ struct UserDetailsView: View {
                     ZStack(alignment:.trailing){
                         TextField(user.username, text: $username)
                             .padding()
-                            .frame(width: 280, height: 50)
+                            .frame(width: UIScreen.main.bounds.width * 0.704, height: UIScreen.main.bounds.height * 0.0517)
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                         
@@ -90,7 +90,7 @@ struct UserDetailsView: View {
                     ZStack(alignment:.trailing){
                         TextField(user.email, text: $email)
                             .padding()
-                            .frame(width: 280, height: 50)
+                            .frame(width: UIScreen.main.bounds.width * 0.704, height: UIScreen.main.bounds.height * 0.0615)
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                         

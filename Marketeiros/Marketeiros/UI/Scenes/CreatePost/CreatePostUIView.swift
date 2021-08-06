@@ -51,7 +51,7 @@ struct CreatePostUIView: View {
                     
                     HStack{
                         Text(NSLocalizedString("title", comment: "")).fontWeight(.regular)
-                            .font(.title3)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
                         Spacer()
@@ -59,7 +59,7 @@ struct CreatePostUIView: View {
                         ZStack(alignment:.trailing){
                             TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
                                 .padding()
-                                .frame(width: 253, height: 50)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
@@ -67,7 +67,7 @@ struct CreatePostUIView: View {
                     
                     HStack{
                         Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
-                            .font(.title3)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
                         Spacer()
@@ -75,7 +75,7 @@ struct CreatePostUIView: View {
                             TextField(NSLocalizedString("PH_caption", comment: ""), text: viewModel.bindings.legendPost)
                                 .padding()
                                 //.frame(height:reader.size.height * 0.052)
-                                .frame(width: 253, height: 100)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.1231)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
@@ -83,14 +83,14 @@ struct CreatePostUIView: View {
                     
                     HStack{
                         Text("Hashtags").fontWeight(.regular)
-                            .font(.title3)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField("#", text: viewModel.bindings.hastagPost)
                                 .padding()
-                                .frame(width: 253, height: 50)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
@@ -98,14 +98,14 @@ struct CreatePostUIView: View {
                     
                     HStack{
                         Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
-                            .font(.title3)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
                         Spacer()
                         ZStack(alignment:.trailing){
                             TextField("@", text: viewModel.bindings.markedPost)
                                 .padding()
-                                .frame(width: 253, height: 50)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                         }
@@ -113,7 +113,7 @@ struct CreatePostUIView: View {
                     
                     HStack(){
                         Text(NSLocalizedString("schedule", comment: "")).fontWeight(.regular)
-                            .font(.title3)
+                            .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         Toggle("", isOn: viewModel.bindings.showGreeting)
                             .toggleStyle(SwitchToggleStyle(tint: .blue))
@@ -135,6 +135,7 @@ struct CreatePostUIView: View {
                             .isHidden(!viewModel.states.isShowingDatePicker)
                     }
                     .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(8)
                     .animation(.easeOut)
                     .padding()
                 }
