@@ -31,7 +31,7 @@ struct ProfileView: View {
                         authenticationViewModel.signOut()
                     }) {
                         Image(systemName: "slider.horizontal.3")
-                            .frame(height: 40)
+                            .frame(height: UIScreen.main.bounds.size.height * 0.04962)
                     }
                     .isHidden(false)
                 }.padding(.bottom,0)
@@ -47,11 +47,11 @@ struct ProfileView: View {
                 HStack() {
                     VStack(alignment: .leading) {
                         Text(user.name)
-                            .font(.custom("SF Pro Display", size: 20))
+                            .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("NavBarTitle"))
                         Text(user.email)
-                            .font(.custom("SF Pro Display", size: 16))
+                            .font(.callout)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("UserProfileColor"))
                     }
@@ -69,7 +69,7 @@ struct ProfileView: View {
                     label: {
                         HStack{
                             Text(NSLocalizedString("account", comment: ""))
-                                .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                                .font(.title3)
                                 
                             Spacer()
                             Image(systemName: "person")
@@ -85,7 +85,7 @@ struct ProfileView: View {
                     label: {
                         HStack{
                             Text(NSLocalizedString("help", comment: ""))
-                                .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                                .font(.title3)
                             Spacer()
                             Image(systemName: "globe")
                                 .resizable()
@@ -98,7 +98,7 @@ struct ProfileView: View {
                     label: {
                         HStack{
                             Text(NSLocalizedString("about", comment: ""))
-                                .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                                .font(.title3)
                             Spacer()
                             Image(systemName: "questionmark.circle")
                                 .resizable()

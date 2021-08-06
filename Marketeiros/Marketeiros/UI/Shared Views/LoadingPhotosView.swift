@@ -38,6 +38,7 @@ struct LoadingPhotosView<Content>: View where Content: View {
             }.frame(width: UIScreen.main.bounds.size.width * 0.552, height: UIScreen.main.bounds.size.height * 0.1711, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .background(Color("loadingsBgColor"))
             .cornerRadius(10)
+            .shadow(radius: 6, x: 2, y: 4)
             .opacity(self.isShowing ? 1 : 0)
             
         }

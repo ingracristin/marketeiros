@@ -17,7 +17,8 @@ struct AppButtonView: View {
         }, label: {
             Text(label)
                 .foregroundColor(.white)
-                .font(Font.sfProDisplaySemiBold(sized: 14))
+                .font(.subheadline)
+                .fontWeight(.semibold)
                 .padding(.vertical,6)
                 .padding(.horizontal,15)
                 .background(RoundedRectangle(cornerRadius: 18)

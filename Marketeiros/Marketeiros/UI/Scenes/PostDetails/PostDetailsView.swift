@@ -150,7 +150,7 @@ struct PostDetailsView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }, label: {
-                    Text(NSLocalizedString("save", comment: "))
+                    Text(NSLocalizedString("save", comment: ""))
                         .font(Font.sfProDisplaySemiBold(sized: 17))
                         .foregroundColor(Color(UIColor.navBarItemsColor))
                         .font(.body)

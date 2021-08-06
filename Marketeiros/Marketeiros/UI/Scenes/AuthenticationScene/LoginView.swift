@@ -18,6 +18,7 @@ struct LoginView: View {
         VStack(spacing: 20){
             VStack{
                 TextField(NSLocalizedString("email", comment: ""),text: viewModel.bindings.loginEmail)
+                    .autocapitalization(.none)
                     .keyboardType(.emailAddress)
                     .padding(20)
                     .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

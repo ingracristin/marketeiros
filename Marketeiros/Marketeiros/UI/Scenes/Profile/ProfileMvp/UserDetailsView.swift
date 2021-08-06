@@ -39,22 +39,22 @@ struct UserDetailsView: View {
             }
             
             Text(NSLocalizedString("accountData", comment: ""))
-                .bold()
-                .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                .fontWeight(.semibold)
+                .font(.title2)
                 .foregroundColor(Color("NavBarTitle"))
                
             HStack{
                 HStack{
                     Text(NSLocalizedString("name", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
-                        .font(.custom("SF Pro Display", size: 20))
+                        .font(.body)
                 }
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
                         TextField(user.name, text: $name)
                             .padding()
-                            .frame(width: UIScreen.main.bounds.width * 0.704, height: UIScreen.main.bounds.height * 0.0517)
+                            .frame(width: UIScreen.main.bounds.width * 0.68, height: UIScreen.main.bounds.height * 0.0517)
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                         
@@ -65,14 +65,14 @@ struct UserDetailsView: View {
                 HStack{
                     Text(NSLocalizedString("user", comment: ""))
                         .foregroundColor(Color("NavBarTitle"))
-                        .font(.custom("SF Pro Display", size: 20))
+                        .font(.body)
                 }
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
                         TextField(user.username, text: $username)
                             .padding()
-                            .frame(width: UIScreen.main.bounds.width * 0.704, height: UIScreen.main.bounds.height * 0.0517)
+                            .frame(width: UIScreen.main.bounds.width * 0.68, height: UIScreen.main.bounds.height * 0.0517)
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                         
@@ -83,14 +83,14 @@ struct UserDetailsView: View {
                 HStack{
                     Text("E-mail")
                         .foregroundColor(Color("NavBarTitle"))
-                        .font(.custom("SF Pro Display", size: 20))
+                        .font(.body)
                 }
                 Spacer()
                 HStack{
                     ZStack(alignment:.trailing){
                         TextField(user.email, text: $email)
                             .padding()
-                            .frame(width: UIScreen.main.bounds.width * 0.704, height: UIScreen.main.bounds.height * 0.0615)
+                            .frame(width: UIScreen.main.bounds.width * 0.68, height: UIScreen.main.bounds.height * 0.0615)
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                         
@@ -102,9 +102,9 @@ struct UserDetailsView: View {
             HStack(){
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("Excluir conta")
+                    Text(NSLocalizedString("deleteAcc", comment: ""))
                         .foregroundColor(.red)
-                        .font(.custom("SF Pro Display", size: 20))
+                        .font(.body)
                     
                 })
                 Spacer()
@@ -112,7 +112,7 @@ struct UserDetailsView: View {
             
             
             
-        }.padding(.horizontal, 20)
+        }.padding(.init(top: 0, leading: 20, bottom: 10, trailing: 20))
         .navigationBarTitle(NSLocalizedString("account", comment: ""),displayMode: .inline )
         .onAppear {
             let currentUser = AuthService.current.user!

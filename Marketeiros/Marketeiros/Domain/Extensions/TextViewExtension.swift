@@ -26,7 +26,7 @@ struct CellSubTitle: ViewModifier {
 struct NavBarTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.coconBold(sized: 34))
+            .font(Font.custom("cocon-bold",size: 34, relativeTo: .largeTitle))
             .foregroundColor(Color(UIColor.navBarTitleColor))
     }
 }
