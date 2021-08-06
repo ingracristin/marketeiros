@@ -33,7 +33,7 @@ struct CreateIdeaSceneView: View {
                 
                 TextField("Título", text: viewModel.bindings.title)
                     .foregroundColor(Color(UIColor.lightGray))
-                    .font(Font.sfProDisplaySemiBold(sized: 24))
+                    .font(Font.sfProDisplaySemiBold(sized: 26))
                     .onTapGesture {
                         viewModel.okButtonIsShowing(true)
                     }
