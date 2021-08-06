@@ -10,6 +10,7 @@ import SwiftUI
 struct PostDetailsView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: PostDetailsViewModel
+    @State var value : CGFloat = 0
     
     init(post: Post, board: Board) {
         viewModel = .init(post: post, board: board)
@@ -127,9 +128,11 @@ struct PostDetailsView: View {
                             .isHidden(!viewModel.states.isShowingDatePicker)
                     }
                     .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .animation(.easeOut)
+                    .animation(.easeIn)
                     .padding()
                 }
+                .animation(.easeIn)
+                .offset(y: -self.value)
             }
             .navigationBarTitle("Post", displayMode: .inline)
             .toolbar {
@@ -142,6 +145,22 @@ struct PostDetailsView: View {
             .padding(.vertical,20)
             .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
                 ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
+            }
+            .onAppear {
+                
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ (noti) in
+                    
+                    let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                    
+                    let height = value.height
+                    self.value = height
+                }
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
+                    
+                    self.value = 0
+                }
+                
+                UIApplication.shared.addTapGestureRecognizer()
             }
            // .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing:

@@ -18,11 +18,11 @@ struct EditBoardView: View {
     
     var body: some View {
         ProgressBarView(isShowing: viewModel.bindings.alertViewShowing, value: viewModel.bindings.percentage) {
-            GeometryReader{ reader in
+            ScrollView{
                 VStack(alignment: .center ,spacing:25){
                     Capsule()
                         .fill(Color.gray.opacity(0.5))
-                        .frame(width: 50, height: 5)
+                        .frame(width: UIScreen.main.bounds.size.width * 0.1333, height: 5)
                         .padding(.top)
                         .padding(.bottom,5)
                     
@@ -48,7 +48,7 @@ struct EditBoardView: View {
                                 .font(.body)
                         })
                     }
-                    VStack(alignment:.leading, spacing: reader.size.height * 0.02){
+                    VStack(alignment:.leading, spacing: UIScreen.main.bounds.size.height * 0.02){
                         HStack(spacing: 0){
                             Text(NSLocalizedString("nameBoard", comment: "")).fontWeight(.regular)
                                 .font(.title3)
@@ -57,13 +57,13 @@ struct EditBoardView: View {
                             Spacer()
                         }
                         TextField(NSLocalizedString("PH_boardName", comment: ""), text: viewModel.bindings.title)
-                            .frame(height:reader.size.height * 0.052)
+                            .frame(height:UIScreen.main.bounds.size.height * 0.052)
                             .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                     }
                     
-                    VStack(alignment:.leading, spacing: reader.size.height * 0.02){
+                    VStack(alignment:.leading, spacing: UIScreen.main.bounds.size.height * 0.02){
                         HStack(spacing: 0){
                             Text(NSLocalizedString("linkInsta", comment: "")).fontWeight(.regular)
                                 .font(.title3)
@@ -71,19 +71,19 @@ struct EditBoardView: View {
                             Spacer()
                         }
                         TextField(NSLocalizedString("PH_link", comment: ""), text: viewModel.bindings.instragramAccount)
-                            .frame(height:reader.size.height * 0.052)
+                            .frame(height:UIScreen.main.bounds.size.height * 0.052)
                             .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                             .background(Color("TextField2"))
                             .cornerRadius(8)
                     }
                     
-                    VStack(alignment:.leading, spacing: reader.size.height * 0.02) {
+                    VStack(alignment:.leading, spacing: UIScreen.main.bounds.size.height * 0.02) {
                         Text(NSLocalizedString("boardBio", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                         
                         TextEditor(text: viewModel.bindings.description)
-                            .frame(height: reader.size.height * 0.1317,alignment: .topLeading)
+                            .frame(height: UIScreen.main.bounds.size.height * 0.1317,alignment: .topLeading)
                             .padding(.init(top: 10, leading: 10, bottom: 0, trailing: 0))
                             .multilineTextAlignment(.leading)
                             .background(Color("TextField2"))
@@ -91,7 +91,7 @@ struct EditBoardView: View {
                             .cornerRadius(8)
                     }
                     
-                    VStack(alignment:.leading, spacing: reader.size.height * 0.02){
+                    VStack(alignment:.leading, spacing: UIScreen.main.bounds.size.height * 0.02){
                         Text(NSLocalizedString("imageBoard", comment: "")).fontWeight(.regular)
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
@@ -106,20 +106,20 @@ struct EditBoardView: View {
                                         Image(uiImage: viewModel.states.inputImage!)
                                             .resizable()
                                             .scaledToFill()
-                                            .frame(width: reader.size.width * 0.90, height:reader.size.height * 0.2512)
+                                            .frame(width: UIScreen.main.bounds.size.width * 0.90, height:UIScreen.main.bounds.size.height * 0.2512)
                                             .clipped()
                                             
                                     } else {
                                         Image(systemName: "camera")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: reader.size.width * 0.1413, height: reader.size.height * 0.0529)
+                                            .frame(width: UIScreen.main.bounds.size.width * 0.1413, height: UIScreen.main.bounds.size.height * 0.0529)
                                         Text(NSLocalizedString("imageCaption", comment: ""))
                                     }
                                 }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                             }
                         })
-                        .frame(height:reader.size.height * 0.2512)
+                        .frame(height:UIScreen.main.bounds.size.height * 0.2512)
                         .cornerRadius(8)
                     }
                 }

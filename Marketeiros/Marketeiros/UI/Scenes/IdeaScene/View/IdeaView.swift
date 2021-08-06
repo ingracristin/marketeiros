@@ -12,8 +12,8 @@ struct IdeaView: View {
     @State var newPasteSheetIsShowing = false
     
     let layout = [
-        GridItem(.fixed(170),spacing: 15),
-        GridItem(.fixed(170),spacing: 15)
+        GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 15),
+        GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 15)
     ]
     
     var body: some View {
@@ -47,7 +47,7 @@ struct IdeaView: View {
                             .background(Color("IdeaViewColor"))
                             .cornerRadius(14)
                             .shadow(radius: 6, x: 2, y: 4)
-                            .padding(.leading)
+                            
                             .padding(.trailing,5)
                             .padding(.vertical, 10)
                             //.frame(width:UIScreen.main.bounds.size.width * 0.2933, height: UIScreen.main.bounds.size.height * 0.0566)
@@ -82,7 +82,7 @@ struct IdeaView: View {
                     .foregroundColor(Color("NavBarTitle"))
                 
                 ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: layout, spacing: 2) {
+                    LazyVGrid(columns: layout, spacing: 0) {
                         NavigationLink(
                             destination: CreateIdeaSceneView(board: viewModel.board, pastes: viewModel.states.pastes, completion: nil),
                             label: {
@@ -93,7 +93,7 @@ struct IdeaView: View {
                                     VStack(spacing: 5) {
                                         Image(systemName: "sparkles.rectangle.stack.fill")
                                             .resizable()
-                                            .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .frame(width: UIScreen.main.bounds.size.height * 0.0307, height: UIScreen.main.bounds.size.height * 0.0307, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             .aspectRatio(contentMode: .fit)
                                             .foregroundColor(Color("NavBarTitle"))
                                         //                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -108,7 +108,7 @@ struct IdeaView: View {
                                 .background(Color("IdeaViewColor"))
                                 .cornerRadius(22)
                                 .shadow(radius: 6, x: 2, y: 4)
-                                .padding(.horizontal)
+                                
                                 .padding(.vertical, 10)
                             })
                         ForEach(viewModel.states.ideas, id: \.uid) { idea in
@@ -130,7 +130,7 @@ struct IdeaView: View {
                                     .background(Color("IdeaViewColor"))
                                     .cornerRadius(22)
                                 }.shadow(radius: 6, x: 2, y: 4)
-                                .padding(.horizontal)
+                                
                                 .padding(.vertical, 10)
                             }
                         }
