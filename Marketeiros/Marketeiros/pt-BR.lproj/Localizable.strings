@@ -143,8 +143,9 @@
 //Share Post View
 "captionMessage" = "Ei! Sua legenda foi copiada para a área de transferência.";
 "captionTip" = "Cole a legenda no Instagram :)";
+"accountMessage" = "Antes de postar,";
+"accountTip" = "verifique se está conectado à conta em que realmente deseja fazer sua publicação.";
 "publishOnFeed" = "Publicar no feed";
-
 
 //loadings
 "loadingPhotos" = "Carregando fotos...";

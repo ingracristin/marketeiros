@@ -56,4 +56,18 @@ class UserProfileRepository {
 
         }
     }
+    
+    func update(user: UserProfile,completion: @escaping (Result<UserProfile,UserRepositoryErrors>) -> ()) {
+        collection.document(user.uid).setData(user.toJson()) { error in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.initializationError(err.localizedDescription)))
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(.success(user))
+                }
+            }
+        }
+    }
 }
