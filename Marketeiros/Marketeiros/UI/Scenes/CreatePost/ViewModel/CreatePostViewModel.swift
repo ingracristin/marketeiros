@@ -102,7 +102,7 @@ class CreatePostViewModel : ObservableObject {
                 "title": post.title,
                 "imagePath": post.photoPath,
                 "uid": post.uid,
-                "description": post.description,
+                "description": post.hashtags.isEmpty ? post.description: "\(post.description) \n \(post.hashtags)",
                 "boardUid": board.uid,
                 "boardTitle": board.title,
             ])

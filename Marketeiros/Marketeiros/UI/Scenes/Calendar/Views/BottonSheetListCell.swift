@@ -10,6 +10,10 @@ import SwiftUI
 struct BottonSheetListCell: View {
     var notification: ScheduledNotification
     
+    var description: String {
+        String(notification.description.split(separator: "\n").first ?? "\(notification.description)")
+    }
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             Color(UIColor.appBeige)
@@ -39,7 +43,7 @@ struct BottonSheetListCell: View {
                         Spacer()
                     }
                     HStack {
-                        Text(notification.description)
+                        Text(description)
                             .foregroundColor(Color(UIColor.appDarkBlue))
                             .cellSubTitle()
                             .lineLimit(1)

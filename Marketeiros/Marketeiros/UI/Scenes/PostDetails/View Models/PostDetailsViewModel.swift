@@ -106,25 +106,24 @@ class PostDetailsViewModel: ObservableObject {
     }
     
     func saveChangesToPost(completionHadler: @escaping (String?) -> ()) {
-        if !states.isShowingDatePicker {
-            UserNotificationService.shared.deleteNotificationWith(uids: [post.uid])
-        } else if states.scheduleDate != post.dateOfPublishing {
-            UserNotificationService.shared.deleteNotificationWith(uids: [post.uid])
-            UserNotificationService.shared.setUserNotification(on: states.scheduleDate, withData: [
-                "title": post.title,
-                "imagePath": post.photoPath,
-                "uid": post.uid,
-                "description": post.description,
-                "boardUid": board.uid,
-                "boardTitle": board.title,
-            ])
-        }
-        
         post.title = states.titlePost
         post.description = states.legendPost
         post.hashtags = [states.hashtag]
         post.markedAccountsOnPost = [states.markedAccountsOnPost]
         post.dateOfPublishing = (states.isShowingDatePicker) ? states.scheduleDate : nil
+        
+        UserNotificationService.shared.deleteNotificationWith(uids: [post.uid])
+        
+        if states.isShowingDatePicker {
+            UserNotificationService.shared.setUserNotification(on: states.scheduleDate, withData: [
+                "title": post.title,
+                "imagePath": post.photoPath,
+                "uid": post.uid,
+                "description": post.hashtags.isEmpty ? post.description: "\(post.description) \n \(post.hashtags)",
+                "boardUid": board.uid,
+                "boardTitle": board.title,
+            ])
+        }
         
         BoardsRepository.current.update(item: &post, to: board, on: .posts)
         
