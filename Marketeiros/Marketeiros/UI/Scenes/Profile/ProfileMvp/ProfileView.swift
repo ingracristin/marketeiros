@@ -30,8 +30,9 @@ struct ProfileView: View {
                     Button(action: {
                         authenticationViewModel.signOut()
                     }) {
-                        Image(systemName: "slider.horizontal.3")
-                            .frame(height: UIScreen.main.bounds.size.height * 0.04962)
+                        Text("Sign Out")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(UIColor.appDarkGrey))
                     }
                     .isHidden(false)
                 }.padding(.bottom,0)
@@ -65,7 +66,7 @@ struct ProfileView: View {
                 Spacer().frame(height:UIScreen.main.bounds.size.height * 0.035)
                 
                 NavigationLink(
-                    destination: UserDetailsView(),
+                    destination: UserDetailsView(user: $user),
                     label: {
                         HStack{
                             Text(NSLocalizedString("account", comment: ""))

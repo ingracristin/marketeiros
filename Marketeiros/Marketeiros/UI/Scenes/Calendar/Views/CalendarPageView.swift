@@ -41,10 +41,10 @@ struct CalendarPageView: View {
                         .navBarTitle()
                     Spacer()
                     
-                    AppButtonView(
-                        label: NSLocalizedString("creatEventBtn", comment: "")) {
-                        isShowing.toggle()
-                    }
+//                    AppButtonView(
+//                        label: NSLocalizedString("creatEventBtn", comment: "")) {
+//                        isShowing.toggle()
+//                    }
                 }
                 .padding(.bottom,8)
                 
