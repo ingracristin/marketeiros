@@ -52,14 +52,14 @@ struct SharePostView: View {
                 Spacer()
             }
             
-            HStack {
-                Text("#danca #conceito #verde")
-                    .multilineTextAlignment(.leading)
-                    .font(.custom("SF Pro Display", size: 14))
-                    .foregroundColor(Color("postText"))
-                    .padding(.leading,3)
-                Spacer()
-            }
+//            HStack {
+//                Text("#danca #conceito #verde")
+//                    .multilineTextAlignment(.leading)
+//                    .font(.custom("SF Pro Display", size: 14))
+//                    .foregroundColor(Color("postText"))
+//                    .padding(.leading,3)
+//                Spacer()
+//            }
             .padding(.bottom)
             
             HStack {
@@ -109,7 +109,7 @@ struct SharePostView: View {
 struct SharePostView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SharePostView(scheduledNotification: .constant(.init(uid: "", title: "", description: "wyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqw", boardUid: "", boardTitle: "", date: .init(), imagePath: "")))
+            SharePostView(scheduledNotification: .constant(.init(uid: "", title: "", description: "wyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqw \n #andias #sbdausybd", boardUid: "", boardTitle: "", date: .init(), imagePath: "")))
                 .preferredColorScheme(.dark)
                 .navigationBarHidden(true)
         }
