@@ -154,3 +154,7 @@
 
 "timePost" = "It's time to post";
 "postSchedule" = "You have a post scheduled, click to be directed to Instagram";
+
+"post" = "Post";
+"cancel" = "Cancel";
+"reg" = "Register";

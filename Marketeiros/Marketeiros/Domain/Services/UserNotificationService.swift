@@ -80,8 +80,8 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate, Observ
         let category = UNNotificationCategory(
             identifier: "myCategory",
             actions: [
-                .init(identifier: "Postar", title: "Postar", options: .foreground),
-                .init(identifier: "Cancelar", title: "Cancel", options: .destructive)
+                .init(identifier: "Postar", title: NSLocalizedString("post", comment: ""), options: .foreground),
+                .init(identifier: "Cancelar", title: NSLocalizedString("cancel", comment: ""), options: .destructive)
             ],
             intentIdentifiers: [],
             options: []
@@ -122,7 +122,7 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate, Observ
         let category = UNNotificationCategory(
             identifier: "myCategory",
             actions: [
-                .init(identifier: "Registrar", title: "Registrar", options: .foreground),
+                .init(identifier: "Registrar", title: NSLocalizedString("reg", comment: ""), options: .foreground),
             ],
             intentIdentifiers: [],
             options: []
@@ -148,7 +148,7 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate, Observ
         let category = UNNotificationCategory(
             identifier: Constants.categoryId,
             actions: [
-                .init(identifier: "Postar", title: "Postar", options: .foreground),
+                .init(identifier: "Postar", title: NSLocalizedString("post", comment: ""), options: .foreground),
                 //.init(identifier: "op2", title: "Opcao 2", options: .destructive)
             ],
             intentIdentifiers: [],
