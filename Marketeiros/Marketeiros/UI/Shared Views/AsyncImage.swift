@@ -102,6 +102,11 @@ class ImageLoader: ObservableObject {
     func load() {
         guard !isLoading else { return }
         
+        if let imageData = UserDefaults.standard.object(forKey: url.absoluteString) as? Data {
+            self.image = UIImage(data: imageData)
+            return
+        }
+        
         if let image = cache?[url] {
             self.image = image
             return
@@ -111,7 +116,7 @@ class ImageLoader: ObservableObject {
             .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
             .handleEvents(receiveSubscription: { [weak self] _ in self?.onStart() },
-                          receiveOutput: { [weak self] in self?.cache($0) },
+                          receiveOutput: { [weak self] in self?.cache($0);UserDefaults.standard.setValue($0?.jpeg(.medium),forKey: self?.url.absoluteString ?? "url")},
                           receiveCompletion: { [weak self] _ in self?.onFinish() },
                           receiveCancel: { [weak self] in self?.onFinish() })
             .subscribe(on: Self.imageProcessingQueue)

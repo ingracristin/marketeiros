@@ -32,15 +32,16 @@ struct TestWebView: UIViewRepresentable {
                 }
 
                 let document = HTMLDocument(string: html)
-                let allImages: [String] = document.querySelectorAll("img").compactMap { element in
+                var allImages: [String] = document.querySelectorAll("img").compactMap { element in
                     guard let image = element.attributes["src"] as? String else {
                         return nil
                     }
                     return image
                 }
                 
-                for image in allImages {
-                    print(image+"\n")
+                
+                if let _ = allImages.first {
+                    allImages.removeFirst()
                 }
                 
                 self.viewModel.imagesUrls = allImages.map({ url in
