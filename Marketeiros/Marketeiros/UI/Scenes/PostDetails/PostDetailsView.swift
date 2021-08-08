@@ -94,19 +94,19 @@ struct PostDetailsView: View {
                         }
                     }.padding(.horizontal,20)
                     
-                    HStack{
-                        Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
-                            .font(.body)
-                            .foregroundColor(Color("NavBarTitle"))
-                        Spacer()
-                        ZStack(alignment:.trailing){
-                            TextField("@", text: viewModel.bindings.markedPost)
-                                .padding()
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
-                                .background(Color("TextField2"))
-                                .cornerRadius(8)
-                        }
-                    }.padding(.horizontal,20)
+//                    HStack{
+//                        Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
+//                            .font(.body)
+//                            .foregroundColor(Color("NavBarTitle"))
+//                        Spacer()
+//                        ZStack(alignment:.trailing){
+//                            TextField("@", text: viewModel.bindings.markedPost)
+//                                .padding()
+//                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
+//                                .background(Color("TextField2"))
+//                                .cornerRadius(8)
+//                        }
+//                    }.padding(.horizontal,20)
 
                     HStack(){
                         Text(NSLocalizedString("schedule", comment: "")).fontWeight(.regular)

@@ -27,8 +27,7 @@ struct ErrorMessage<Content>: View where Content: View {
                     .resizable()
                     .frame(width: UIScreen.main.bounds.size.width * 0.1126, height: UIScreen.main.bounds.size.height * 0.0527, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     //.rotationEffect(Angle(degrees: self.isShowing ? 360.0 : 0.0))
-                    //.animation(self.foreverAnimation)
-                    
+                    //.animation(self.foreverAnimation)     
                 
                 Text(NSLocalizedString("ops", comment: ""))
                     .font(.callout)

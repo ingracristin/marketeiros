@@ -253,6 +253,7 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate, Observ
     
     func askUserNotificationPermission() {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            print(success)
             if success {
                 print("Aceito")
             } else if let error = error {

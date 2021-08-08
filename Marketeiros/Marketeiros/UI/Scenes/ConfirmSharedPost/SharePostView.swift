@@ -45,7 +45,7 @@ struct SharePostView: View {
                 .clipped()
                 .cornerRadius(24)
             HStack {
-                Text(scheduledNotification.description ?? "")
+                Text(scheduledNotification.description)
                     .multilineTextAlignment(.leading)
                     .font(.custom("SF Pro Display", size: 14))
                     .foregroundColor(Color("postText"))
@@ -115,7 +115,7 @@ struct SharePostView: View {
 struct SharePostView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SharePostView(scheduledNotification: .constant(.init(uid: "", title: "", description: "wyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqw \n #andias #sbdausybd", boardUid: "", boardTitle: "", date: .init(), imagePath: "")))
+            SharePostView(scheduledNotification: .constant(.init(uid: "", title: "", description: "wyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqwwyegqwueygqweqw \n#andias #sbdausybd", boardUid: "", boardTitle: "", date: .init(), imagePath: "")))
                 .preferredColorScheme(.dark)
                 .navigationBarHidden(true)
         }
