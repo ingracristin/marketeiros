@@ -155,3 +155,7 @@
 
 "account" = "Conta";
 "deleteAcc" = "Excluir conta";
+
+
+"timePost" = "Está na hora de postar!";
+"postSchedule" = "Você tem um post agendado, clique ser direcionado ao Instagram";

@@ -69,9 +69,9 @@ class UserNotificationService: NSObject,UNUserNotificationCenterDelegate, Observ
     }
     
     struct Constants {
-        static let appName = "Planni"
-        static let notificationSubtitle = "Está na hora de postar!"
-        static let notificationBody = "Você tem um post agendado, clique ser direcionado ao Instagram"
+        static let appName = "Plani"
+        static let notificationSubtitle = NSLocalizedString("timePost", comment: "")
+        static let notificationBody = NSLocalizedString("postSchedule", comment: "")
         static let categoryId = "myCategory"
     }
     

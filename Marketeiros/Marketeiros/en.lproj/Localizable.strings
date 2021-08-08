@@ -150,3 +150,7 @@
 "ops" = "Ops looks like something went wrong! Try again.";
 "account" = "Account";
 "deleteAcc" = "Delete Account";
+
+
+"timePost" = "It's time to post";
+"postSchedule" = "You have a post scheduled, click to be directed to Instagram";
