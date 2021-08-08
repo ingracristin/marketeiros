@@ -154,10 +154,11 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     private func initialize(user: User, with name: String, and username: String) {
-        UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) {   [weak self] result in
+        UserProfileRepository.current.initialize(user: UserProfile(uid: user.uid, email: user.email, name: name, username: username)) {  [weak self] result in
             switch result {
                 case .failure(let error):
                     self?.states.errorText = error.localizedDescription
+                    self?.states.isLoading.toggle()
                     self?.states.existError.toggle()
                 case .success(_):
                     var  board = Board.init(

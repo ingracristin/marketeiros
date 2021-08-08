@@ -115,8 +115,8 @@ struct InsideBoardView: View {
                                     }
                                     .frame(width: cellWidth,height: cellWidth, alignment: .center)
                             }
-                            if (vm.imagesUrls.count + viewModel.posts.count) < 18 {
-                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<18), id:\.self) {index in
+                            if (vm.imagesUrls.count + viewModel.posts.count) < 15 {
+                                ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<15), id:\.self) {index in
                                     
                                     Button(action: {viewModel.toggleAddPostView()}){
                                         Rectangle()
@@ -130,7 +130,8 @@ struct InsideBoardView: View {
                         
                         TestWebView(vm: vm)
                             .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                     }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                     }
+                    //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                     .toolbar {
                         ToolbarItemGroup(placement: .bottomBar) {
                             Button(action: {
@@ -168,10 +169,6 @@ struct InsideBoardView: View {
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
             .onAppear {
                 viewModel.getAllPosts()
-                
-//                if(vm.imagesUrls.first != nil){
-//                    vm.imagesUrls.removeFirst()
-//                }
             }
         }
     }

@@ -164,16 +164,31 @@ struct PostDetailsView: View {
             }
            // .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing:
-                Button(action: {
-                    viewModel.saveChangesToPost { _ in
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }, label: {
-                    Text(NSLocalizedString("save", comment: ""))
-                        .font(Font.sfProDisplaySemiBold(sized: 17))
-                        .foregroundColor(Color(UIColor.navBarItemsColor))
-                        .font(.body)
-                }))
+                    Menu(content: {
+                        Button(action: {
+                            viewModel.saveChangesToPost { _ in
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        }, label: {
+                            Text(NSLocalizedString("savePost", comment: ""))
+                                .font(.body)
+                            Image(systemName: "square.and.arrow.down")
+                        })
+                        Button(action:{
+                            viewModel.deletePost()
+                            presentationMode.wrappedValue.dismiss()
+                        }){
+                            HStack{
+                                Text(NSLocalizedString("deletePost", comment: ""))
+                                Image(systemName: "trash")
+                            }.foregroundColor(.red)
+                        }
+                    },label: {
+                        Text("...")
+                            .font(Font.sfProDisplaySemiBold(sized: 17))
+                            .foregroundColor(Color(UIColor.navBarItemsColor))
+                            
+                    }))
         }
     }
 }

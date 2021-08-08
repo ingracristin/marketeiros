@@ -78,11 +78,11 @@ class CreateIdeaSceneViewModel: ObservableObject {
             title: states.title,
             description: states.description)
         
+        BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
+        
         if let callback = completion {
             callback(idea)
         }
-        
-        BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
     }
 
     func togglePasteSheet() {

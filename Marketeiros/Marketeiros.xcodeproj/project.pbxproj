@@ -492,9 +492,9 @@
 			isa = PBXGroup;
 			children = (
 				AEB7B6A926BD15C800850114 /* ConfirmSharedPost */,
+				AED6CF7F26897EA700870BB2 /* AuthenticationScene */,
 				AED4845E269D88E500890E91 /* EditBoard */,
 				AEC80ED9269C488D0091F229 /* EditPaste */,
-				AED6CF7F26897EA700870BB2 /* AuthenticationScene */,
 				AEFFA800269025E800A86786 /* MainTabBar */,
 				795AB134267A3078006308B5 /* BoardView */,
 				EF745777268A1A11004A6C60 /* CreatePost */,

@@ -85,6 +85,7 @@
 "schedule" = "Schedule";
 "day" = "Day";
 "time" = "Time";
+"savePost" = "Save Changes";
 
 
 //Idea View
@@ -126,7 +127,6 @@
 
 "newToolBar" = "New";
 "colorsToolBar" = "Colors";
-
 
 //New event
 "newEvent" = "New Event";
