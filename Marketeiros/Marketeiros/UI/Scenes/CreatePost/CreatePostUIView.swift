@@ -11,7 +11,10 @@ struct CreatePostUIView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CreatePostViewModel
     @State var value : CGFloat = 0
-    
+    var firstTouch = true
+    @State var heightText: CGFloat = UIScreen.main.bounds.size.height * 0.1231
+    @State var lineNumbers = 0
+    @State var lastLineNumbers = 0
     init(board: Board) {
         viewModel = .init(board: board)
     }
@@ -47,55 +50,69 @@ struct CreatePostUIView: View {
                         viewModel.toggleImagePicker()
                     }
                     
-                    Spacer()
-                    
-                    HStack{
-                        Text(NSLocalizedString("title", comment: "")).fontWeight(.regular)
-                            .font(.body)
-                            .foregroundColor(Color("NavBarTitle"))
+                    VStack(alignment: .leading){
                         
-                        Spacer()
-                        
-                        ZStack(alignment:.trailing){
-                            TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
-                                .padding()
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
-                                .background(Color("TextField2"))
-                                .cornerRadius(8)
-                        }
-                    }.padding(.horizontal,20)
-                    
-                    HStack{
                         Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
-                        Spacer()
-                        ZStack(alignment:.trailing){
-                            TextField(NSLocalizedString("PH_caption", comment: ""), text: viewModel.bindings.legendPost)
+                        
+                       
+                            TextEditor(text: viewModel.bindings.legendPost)
                                 .padding()
                                 //.frame(height:reader.size.height * 0.052)
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.1231)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.90, height: heightText)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
-                        }
-                    }.padding(.horizontal,20)
+                                .onChange(of: viewModel.bindings.legendPost.wrappedValue, perform: {text in
+                                    self.lineNumbers = text.components(separatedBy: "\n").count
+                                    
+                                    if(lineNumbers > lastLineNumbers){
+                                        heightText += 10
+                                        lastLineNumbers = lineNumbers
+                                    }
+                                })
+                                .onTapGesture {
+                                    if(firstTouch == true){
+                                        
+                                        viewModel.bindings.legendPost.wrappedValue = ""
+                                    }
+                                }
+                        
+                        Spacer().frame(height: UIScreen.main.bounds.size.height * 0.0184)
                     
-                    HStack{
+                    
                         Text("Hashtags").fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
-                        Spacer()
-                        ZStack(alignment:.trailing){
+                        
+                        
                             TextField("#", text: viewModel.bindings.hastagPost)
                                 .padding()
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
-                        }
+                        
+                        Spacer().frame(height: UIScreen.main.bounds.size.height * 0.0184)
+                        
+                        Text(NSLocalizedString("identi", comment: "")).fontWeight(.regular)
+                            .font(.body)
+                            .foregroundColor(Color("NavBarTitle"))
+                        
+                        
+                        
+                        
+                            TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
+                                .padding()
+                                .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
+                                .background(Color("TextField2"))
+                                .cornerRadius(8)
+                        
                     }.padding(.horizontal,20)
                     
+                    
+                   
 //                    HStack{
 //                        Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
 //                            .font(.body)
@@ -123,8 +140,8 @@ struct CreatePostUIView: View {
                     }
                     .padding(20)
                     
+                    VStack{
                     
-                    VStack {
                         DatePicker(
                             "Agendar",
                             selection: viewModel.bindings.scheduleDate,
@@ -134,13 +151,13 @@ struct CreatePostUIView: View {
                             .background(Color("TextField2"))
                             .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                             .isHidden(!viewModel.states.isShowingDatePicker)
-                    }
-                    .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    }.frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                     .animation(.easeOut)
                     .padding()
                     .cornerRadius(8)
                 }
+                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 .offset(y: -self.value)
             }
             .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)

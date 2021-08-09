@@ -79,9 +79,9 @@
 //Creat Post View
 "createPost" = "Criar post";
 "chooseImg" = "Escolher imagem";
-"PH_title" = "Um título faz a diferença";
+"PH_title" = "Qual o assunto chave do seu post? (Isso não será postado.)";
 "caption" = "Legenda";
-"PH_caption" = "A legenda fundamental..";
+"PH_caption" = "A legenda é parte fundamental pro seu post, então escreva algo legal aqui....";
 "tagPeople" = "Marcados";
 "schedule" = "Agendar";
 "day" = "Dia";
@@ -170,3 +170,5 @@
 "newPaste" = "Nova Pasta";
 "folderName" = "Nome da Pasta";
 "justDelete" = "Apagar";
+
+"identi" = "Identificação";

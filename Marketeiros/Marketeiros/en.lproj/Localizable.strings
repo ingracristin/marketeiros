@@ -78,7 +78,7 @@
 //Creat Post View
 "createPost" = "Create post";
 "chooseImg" = "Choose a image";
-"PH_title" = "A title makes a difference";
+"PH_title" = "What is the key subject of your post? (This will not be posted.)";
 "caption" = "Caption";
 "PH_caption" = "The caption is a fundamental part of your post, so write something nice here....";
 "tagPeople" = "Tag People";
@@ -166,3 +166,5 @@
 "newPaste" = "New Folder";
 "folderName" = "Folder Name";
 "justDelete" = "Delete";
+
+"identi" = "Identification";

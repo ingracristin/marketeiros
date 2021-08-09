@@ -14,7 +14,7 @@ class CreatePostViewModel : ObservableObject {
     
     struct States {
         var titlePost = ""
-        var legendPost = ""
+        var legendPost = NSLocalizedString("PH_caption", comment: "")
         var hashtag = ""
         var markedAccountsOnPost = ""
         var scheduleDate = Date()
