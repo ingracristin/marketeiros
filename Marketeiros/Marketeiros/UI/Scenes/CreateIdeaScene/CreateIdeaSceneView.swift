@@ -31,7 +31,7 @@ struct CreateIdeaSceneView: View {
                     Spacer()
                 }
                 
-                TextField("Título", text: viewModel.bindings.title)
+                TextField(NSLocalizedString("title", comment: ""), text: viewModel.bindings.title)
                     .foregroundColor(Color(UIColor.lightGray))
                     .font(Font.sfProDisplaySemiBold(sized: 26))
                     .onTapGesture {
@@ -58,18 +58,18 @@ struct CreateIdeaSceneView: View {
                             viewModel.setNonePaste()
                             viewModel.togglePasteSheet()
                         }) {
-                            Text("Cancelar")
+                            Text(NSLocalizedString("cancel", comment: ""))
                                 .foregroundColor(.red)
                         }
                         Spacer()
-                        Text("Selecionar Pasta da idéia")
+                        Text(NSLocalizedString("selPaste", comment: ""))
                             .font(Font.sfProDisplaySemiBold(sized: 18))
                             .foregroundColor(Color(UIColor.navBarTitleColor))
                         Spacer()
                         Button(action: {
                             viewModel.togglePasteSheet()
                         }) {
-                            Text("Salvar")
+                            Text(NSLocalizedString("save", comment: ""))
                                 .foregroundColor(Color(UIColor.navBarTitleColor))
                         }
                     }.padding(.bottom)
@@ -98,13 +98,13 @@ struct CreateIdeaSceneView: View {
             .isHidden(!viewModel.bindings.pasteSheetShowing.wrappedValue)
             .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
         }
-        .navigationBarTitle("Idea",displayMode: .inline)
+        .navigationBarTitle(NSLocalizedString("ideas", comment: ""),displayMode: .inline)
         .navigationBarItems(trailing:
             HStack(spacing:20) {
                 Menu {
                     Button(action:{}) {
                         HStack{
-                            Text(NSLocalizedString("delete", comment: ""))
+                            Text(NSLocalizedString("delIdea", comment: ""))
                             Image(systemName: "trash")
                         }.foregroundColor(.red)
                     }

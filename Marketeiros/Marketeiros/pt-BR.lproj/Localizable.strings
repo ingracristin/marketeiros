@@ -163,3 +163,10 @@
 "post" = "Post";
 "cancel" = "Cancelar";
 "reg" = "Registrar";
+
+"delIdea" = "Deletar Ideia";
+"selPaste" = "Selecionar pasta da ideia";
+"createIdea" = "Criar Idea";
+"newPaste" = "Nova Pasta";
+"folderName" = "Nome da Pasta";
+"justDelete" = "Apagar";

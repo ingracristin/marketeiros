@@ -158,3 +158,11 @@
 "post" = "Post";
 "cancel" = "Cancel";
 "reg" = "Register";
+
+
+"delIdea" = "Delete Idea";
+"selPaste" = "Select idea folder";
+"createIdea" = "Create Idea";
+"newPaste" = "New Folder";
+"folderName" = "Folder Name";
+"justDelete" = "Delete";

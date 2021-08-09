@@ -44,18 +44,18 @@ struct EditIdeaView: View {
                         Button(action: {
                             viewModel.togglePasteSheet()
                         }) {
-                            Text("Cancelar")
+                            Text(NSLocalizedString("cancel", comment: ""))
                                 .foregroundColor(.red)
                         }
                         Spacer()
-                        Text("Selecionar Pasta da idéia")
+                        Text(NSLocalizedString("selPaste", comment: ""))
                             .font(Font.sfProDisplaySemiBold(sized: 18))
                             .foregroundColor(Color(UIColor.navBarTitleColor))
                         Spacer()
                         Button(action: {
                             viewModel.togglePasteSheet()
                         }) {
-                            Text("Salvar")
+                            Text(NSLocalizedString("save", comment: ""))
                                 .foregroundColor(Color(UIColor.navBarTitleColor))
                         }
                     }.padding(.bottom)
@@ -83,7 +83,7 @@ struct EditIdeaView: View {
             }
             .isHidden(!viewModel.bindings.pasteSheetShowing.wrappedValue)
         }
-        .navigationBarTitle("Criar idéia", displayMode: .inline)
+        .navigationBarTitle(NSLocalizedString("createIdea", comment: ""), displayMode: .inline)
         .navigationBarItems(
             trailing: Menu(content: {
                 Button {
@@ -91,7 +91,7 @@ struct EditIdeaView: View {
                     callback?(nil)
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Label("Deletar", systemImage: "trash")
+                    Label(NSLocalizedString("delIdea", comment: ""), systemImage: "trash")
                 }
 
                 Button {
@@ -99,7 +99,7 @@ struct EditIdeaView: View {
                     callback?(viewModel.idea)
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Label("Salvar", systemImage: "square.and.arrow.down")
+                    Label(NSLocalizedString("save", comment: ""), systemImage: "square.and.arrow.down")
                 }
             }, label: {
                 Image(systemName: "ellipsis.circle")

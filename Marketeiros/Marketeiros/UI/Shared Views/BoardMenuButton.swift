@@ -15,12 +15,12 @@ struct BoardMenuButton: View {
             Button {
                 editAction()
             } label: {
-                Label("Editar", systemImage: "square.and.pencil")
+                Label(NSLocalizedString("edit", comment: ""), systemImage: "square.and.pencil")
             }
             Button {
                 deleteAction()
             } label: {
-                Label("Apagar", systemImage: "trash")
+                Label(NSLocalizedString("justDelete", comment: ""), systemImage: "trash")
                     .foregroundColor(.red)
             }
         } label: {

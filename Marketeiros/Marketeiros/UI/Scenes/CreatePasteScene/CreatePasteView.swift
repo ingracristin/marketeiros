@@ -18,11 +18,11 @@ struct CreatePasteView: View {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                    Text("Cancelar")
+                    Text(NSLocalizedString("cancel", comment: ""))
                         .foregroundColor(.red)
                 }
                 Spacer()
-                Text("Nova Pasta")
+                Text(NSLocalizedString("newPaste", comment: ""))
                     .font(Font.sfProDisplaySemiBold(sized: 18))
                     .foregroundColor(Color(UIColor.navBarTitleColor))
                 Spacer()
@@ -32,19 +32,19 @@ struct CreatePasteView: View {
                     presentationMode.wrappedValue.dismiss()
 
                 }) {
-                    Text("Salvar")
+                    Text(NSLocalizedString("save", comment: ""))
                         .foregroundColor(Color(UIColor.navBarItemsColor))
                 }
             }.padding(.vertical)
             
             VStack(spacing:5) {
-                TextField("Nome da pasta", text: $title)
+                TextField(NSLocalizedString("folderName", comment: ""), text: $title)
                 Divider()
             }
             Spacer()
         }
         .padding()
-        .navigationTitle("Criar idéia")
+        .navigationTitle(NSLocalizedString("createIdea", comment: ""))
         .cornerRadius(50)
     }
 }

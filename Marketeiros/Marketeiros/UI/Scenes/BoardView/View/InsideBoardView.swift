@@ -126,7 +126,7 @@ struct InsideBoardView: View {
                                         
                                 }
                             }
-                        }
+                        }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                         
                         TestWebView(vm: vm)
                             .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
