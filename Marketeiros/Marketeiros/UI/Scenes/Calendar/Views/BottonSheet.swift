@@ -10,7 +10,7 @@ import SwiftUI
 struct BottomSheet : View {
     @Binding var offset : CGFloat
     @Binding var date : Date
-    var notifications: [Int: [ScheduledNotification]]
+    @Binding var notifications: [Int: [ScheduledNotification]]
     var value : CGFloat
     
     var body: some View {
@@ -71,6 +71,6 @@ struct BottomSheet : View {
 
 struct BottonSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(offset: .constant(0), date: .constant(.init()), notifications: [:], value: 400)
+        BottomSheet(offset: .constant(0), date: .constant(.init()), notifications: .constant([:]), value: 400)
     }
 }

@@ -123,6 +123,7 @@ struct CreatePostUIView: View {
                     }
                     .padding(20)
                     
+                    
                     VStack {
                         DatePicker(
                             "Agendar",
@@ -135,9 +136,10 @@ struct CreatePostUIView: View {
                             .isHidden(!viewModel.states.isShowingDatePicker)
                     }
                     .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(8)
+                    
                     .animation(.easeOut)
                     .padding()
+                    .cornerRadius(8)
                 }
                 .offset(y: -self.value)
             }

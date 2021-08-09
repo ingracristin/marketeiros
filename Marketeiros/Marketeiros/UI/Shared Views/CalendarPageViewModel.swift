@@ -16,12 +16,14 @@ class CalendarPageViewModel: ObservableObject {
         var date: Date = .init()
         var scheduledDates = [Date]()
         var isShowing = false
+        var notifications: [Int:[ScheduledNotification]] = [:]
     }
     
     var bindings: (
         date: Binding<Date>,
         isShowing: Binding<Bool>,
-        scheduledDates: Binding<[Date]>
+        scheduledDates: Binding<[Date]>,
+        notifications: Binding<[Int:[ScheduledNotification]]>
     ) {(
         date: Binding(
             get: {self.states.date},
@@ -31,7 +33,10 @@ class CalendarPageViewModel: ObservableObject {
             set: {self.states.isShowing = $0}),
         scheduledDates: Binding(
             get: {self.states.scheduledDates},
-            set: {self.states.scheduledDates = $0})
+            set: {self.states.scheduledDates = $0}),
+        notifications: Binding(
+            get: {self.states.notifications},
+            set: {self.states.notifications = $0})
     )}
     
     func toggleIsShowing() {
@@ -55,11 +60,18 @@ class CalendarPageViewModel: ObservableObject {
         return ntf
     }
     
+    func setNotifications(by date: Date) {
+        print("inside")
+        print(date)
+        self.bindings.notifications.wrappedValue = getWeekNotifications(of: date)
+    }
+    
     func getScheduledNotifications() {
         UserNotificationService.shared.getScheduledNotifications { scheduledNotifications in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 self.notifications = scheduledNotifications
                 self.bindings.scheduledDates.wrappedValue = scheduledNotifications.map({$0.date})
+                //self.setNotifications(by: self.states.date)
             }
         }
     }

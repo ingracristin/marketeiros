@@ -11,9 +11,33 @@ struct CalendarPageView: View {
     @State private var date = Date()
     @State var offset : CGFloat = 0
     @State var isShowing = false
-    //let aux : CGFloat = 400
+    @State var allNotifications = [ScheduledNotification]()
+    @State var weekNotifications = [Int:[ScheduledNotification]]()
+    @State var scheduledDates = [Date]()
     let aux : CGFloat = UIScreen.main.bounds.height * 0.35
-    @StateObject var viewModel = CalendarPageViewModel()
+    
+    func getWeekNotifications(of date: Date) -> [Int:[ScheduledNotification]] {
+        var ntf: [Int:[ScheduledNotification]] = [:]
+        let weekNotifications = getNotificationOnWeek(of: date)
+        
+        for weekNotification in weekNotifications {
+            let index = Calendar.current.getWeekDayIndexOf(date: weekNotification.date)
+            
+            if ntf[index] != nil {
+                ntf[index]!.append(weekNotification)
+            } else {
+                ntf[index] = [weekNotification]
+            }
+        }
+    
+        return ntf
+    }
+    
+    func getNotificationOnWeek(of date: Date) -> [ScheduledNotification] {
+        return allNotifications.filter { notification in
+            Calendar.current.isDate(notification.date, inCurrentWeekOf: date)!
+        }
+    }
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
@@ -48,13 +72,17 @@ struct CalendarPageView: View {
                 }
                 .padding(.bottom,8)
                 
-                AppDatePicker(anyDays: viewModel.bindings.scheduledDates, selectedDay: $date)
+                AppDatePicker(anyDays: $scheduledDates, selectedDay: $date)
             }
             .padding(.horizontal)
             
             GeometryReader { reader in
                 VStack {
-                    BottomSheet(offset: $offset, date: $date, notifications: viewModel.getWeekNotifications(of: date), value: (-reader.frame(in: .global).height + aux))
+                    BottomSheet(offset: $offset, date: $date, notifications: $weekNotifications, value: (-reader.frame(in: .global).height + aux))
+                        .onChange(of: date, perform: { value in
+                            print(value)
+                            weekNotifications = getWeekNotifications(of: value)
+                        })
                         .offset(y: reader.frame(in: .global).height - aux)
                         .offset(y: offset)
                         .gesture(DragGesture().onChanged({ (value) in
@@ -90,6 +118,7 @@ struct CalendarPageView: View {
                             }
                         }))
                         .ignoresSafeArea(.container, edges: .bottom)
+                        
                 }
             }
         }
@@ -98,7 +127,13 @@ struct CalendarPageView: View {
             AddNewEventView()
         })
         .onAppear {
-            viewModel.getScheduledNotifications()
+            UserNotificationService.shared.getScheduledNotifications { scheduledNotifications in
+                DispatchQueue.main.async { [self] in
+                    self.allNotifications = scheduledNotifications
+                    self.scheduledDates = scheduledNotifications.map({$0.date})
+                    self.weekNotifications = getWeekNotifications(of: date)
+                }
+            }
         }
     }
 }
