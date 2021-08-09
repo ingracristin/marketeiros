@@ -102,14 +102,14 @@ struct CalendarPageView: View {
                         .onEnded({ (value) in
                             withAnimation {
                                 if value.startLocation.y > reader.frame(in: .global).midX {
-                                    if -value.translation.height > reader.frame(in: .global).midX {
+                                    if -value.translation.height > (reader.frame(in: .global).midX - 100) {
                                         offset = (-reader.frame(in: .global).height + aux)
                                         return
                                     }
                                     offset = 0
                                 }
                                 if value.startLocation.y < reader.frame(in: .global).midX {
-                                    if value.translation.height < reader.frame(in: .global).midX {
+                                    if value.translation.height < (reader.frame(in: .global).midX - 120) {
                                         offset = (-reader.frame(in: .global).height + aux)
                                         return
                                     }
@@ -118,7 +118,6 @@ struct CalendarPageView: View {
                             }
                         }))
                         .ignoresSafeArea(.container, edges: .bottom)
-                        
                 }
             }
         }
