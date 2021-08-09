@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MonthDaysView: View {
     @EnvironmentObject var monthDataModel: AppDatePickerViewModel
+    @Environment(\.sizeCategory) var sizeCategory
     var cellSize: CGFloat
     var columns: [GridItem]
     
@@ -20,9 +21,15 @@ struct MonthDaysView: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 0) {
             ForEach(0..<monthDataModel.dayNames.count, id: \.self) { index in
-                Text(monthDataModel.dayNames[index].lowercased().removeCharactersContained(in: "."))
-                    .font(Font.sfProDisplaySemiBold(sized: 16))
-                    .foregroundColor(Color(UIColor.appYellow))
+                if sizeCategory > ContentSizeCategory.large {
+                    Text(Calendar.current.veryShortWeekdaySymbols[index])
+                        .font(Font.sfProDisplaySemiBold(sized: 16))
+                        .foregroundColor(Color(UIColor.appYellow))
+                } else {
+                    Text(monthDataModel.dayNames[index].lowercased().removeCharactersContained(in: "."))
+                        .font(Font.sfProDisplaySemiBold(sized: 16))
+                        .foregroundColor(Color(UIColor.appYellow))
+                }
             }
             .padding(.bottom, 10)
             
