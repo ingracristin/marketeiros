@@ -25,6 +25,7 @@ struct BoardMenuButton: View {
             }
         } label: {
             Image(systemName: "ellipsis")
+                .frame(width:UIScreen.main.bounds.size.width * 0.1066, height: UIScreen.main.bounds.size.height * 0.0517)
         }
     }
 }
