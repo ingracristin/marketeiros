@@ -27,11 +27,11 @@ struct EditPasteView: View {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                    Text("Cancelar")
+                    Text(NSLocalizedString("cancel", comment: ""))
                         .foregroundColor(.red)
                 }
                 Spacer()
-                Text("Nova Pasta")
+                Text(NSLocalizedString("newFolder", comment: ""))
                     .font(Font.sfProDisplaySemiBold(sized: 18))
                     .foregroundColor(Color(UIColor.navBarTitleColor))
                 Spacer()
@@ -43,16 +43,16 @@ struct EditPasteView: View {
                     presentationMode.wrappedValue.dismiss()
 
                 }) {
-                    Text("Salvar")
+                    Text(NSLocalizedString("save", comment: ""))
                         .foregroundColor(Color(UIColor.navBarItemsColor))
                 }
             }.padding(.vertical)
             
-            TextField("Nome da pasta", text: $title)
+            TextField(NSLocalizedString("folderName", comment: ""), text: $title)
             Spacer()
         }
         .padding()
-        .navigationTitle("Criar idéia")
+        .navigationTitle(NSLocalizedString("newFolder", comment: ""))
     }
 }
 

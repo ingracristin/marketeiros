@@ -20,6 +20,7 @@ struct CreateIdeaSceneView: View {
             VStack {
                 HStack {
                     Button(action: {
+                        UIApplication.shared.endEditing()
                         viewModel.togglePasteSheet()
                     }, label: {
                         HStack {

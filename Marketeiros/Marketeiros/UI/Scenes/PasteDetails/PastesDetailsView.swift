@@ -40,7 +40,7 @@ struct PastesDetailsView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(Color("NavBarTitle"))
     //                                                .frame(width: reader.size.width * 0.0826, height: reader.size.height * 0.0357, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                Text("Adicionar idéia")
+                                Text(NSLocalizedString("addIdea", comment: ""))
                                     .foregroundColor(Color("NavBarTitle"))
                                     .font(.body)
                                     .fontWeight(.regular)
@@ -91,13 +91,13 @@ struct PastesDetailsView: View {
                             presentationMode.wrappedValue.dismiss()
                         })
                     } label: {
-                        Label("Deletar", systemImage: "trash")
+                        Label(NSLocalizedString("justDelete", comment: ""), systemImage: "trash")
                     }
 
                     Button {
                         viewModel.toggleSheet()
                     } label: {
-                        Label("Editar", systemImage: "pencil")
+                        Label(NSLocalizedString("edit", comment: ""), systemImage: "pencil")
                     }
                 }, label: {
                     Image(systemName: "ellipsis.circle")
