@@ -30,6 +30,7 @@ struct AppButtonView: View {
 
 struct BoardView: View {
     @StateObject var viewModel = BoardListViewModel()
+    @State var hasChanges = false
     
     init(){
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "cocon-bold", size: 34)!, .foregroundColor: UIColor(named: "NavBarTitle")!]
@@ -79,9 +80,12 @@ struct BoardView: View {
                         LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: [], content: {
                             ForEach(viewModel.boards, id: \.uid) { board in
                                 NavigationLink(
-                                    destination: InsideBoardView(board: board),
+                                    destination: InsideBoardView(board: board, changesCallback: {b in
+                                        hasChanges.toggle()
+                                        //viewModel.change(board: board)
+                                    }),
                                     label: {
-                                        BoardCell(board: board)
+                                        BoardCell(board: board, reload: $hasChanges)
                                             .frame(height: UIScreen.main.bounds.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             .background(Color(#colorLiteral(red: 0.8469843268, green: 0.8471066356, blue: 0.8469573855, alpha: 1)))
                                             .cornerRadius(20)

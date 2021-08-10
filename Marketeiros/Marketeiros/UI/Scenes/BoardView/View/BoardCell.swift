@@ -10,42 +10,60 @@ import SwiftUI
 struct BoardCell: View {
     let board : Board
     @State var average = false
-    
+    @Binding var reload: Bool
     var body: some View {
         GeometryReader() { reader in
             ZStack(alignment: .bottomLeading) {
-                FirebaseImage(board: board, averageColorOn: $average, widthImg: reader.size.width, heightImg: reader.size.height) {
-                    
-                    Image("bgBoardCell")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipped()
-                        .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
-                    
-                    
-                    VStack(){
-                        HStack(){
+                if reload {
+                    FirebaseImage(board: board, averageColorOn: $average, widthImg: reader.size.width, heightImg: reader.size.height) {
+                        Image("bgBoardCell")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
+                        
+                        VStack(){
+                            HStack(){
+                                Spacer()
+                                Menu {
+                                    Button(NSLocalizedString("edit board", comment: ""), action: {
+                                        
+                                    })
+                                    
+                                } label: {
+                                    Text("...")
+                                        .fontWeight(.bold)
+                                        .font(.title)
+                                }.foregroundColor(Color("navbarColor"))
+                            }.padding(.trailing,20)
                             Spacer()
-                            Menu {
-                                Button(NSLocalizedString("edit board", comment: ""), action: {
+                        }.padding(.leading)
+                    }
+                } else {
+                    FirebaseImage(board: board, averageColorOn: $average, widthImg: reader.size.width, heightImg: reader.size.height) {
+                        Image("bgBoardCell")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: reader.size.width, height: reader.size.height,alignment: .center)
+                        
+                        VStack(){
+                            HStack(){
+                                Spacer()
+                                Menu {
+                                    Button(NSLocalizedString("edit board", comment: ""), action: {
+                                        
+                                    })
                                     
-                                })
-                                
-                            } label: {
-                                Text("...")
-                                    .fontWeight(.bold)
-                                    .font(.title)
-                            }.foregroundColor(Color("navbarColor"))
-                                    
-                            
-                            //.padding(.top)
-                            
-                        }.padding(.trailing,20)
-                        Spacer()
-                    }.padding(.leading)
-                    
-                    
-                    
+                                } label: {
+                                    Text("...")
+                                        .fontWeight(.bold)
+                                        .font(.title)
+                                }.foregroundColor(Color("navbarColor"))
+                            }.padding(.trailing,20)
+                            Spacer()
+                        }.padding(.leading)
+                    }
                 }
                 
                 Rectangle()
@@ -63,8 +81,6 @@ struct BoardCell: View {
                 }
                 .frame(height: reader.size.height * 0.3333)
                 .padding(.init(top: 0, leading: 20, bottom: 3, trailing: 0))
-                
-                
             }
         }
     }
@@ -72,6 +88,6 @@ struct BoardCell: View {
 
 struct BoardCell_Previews: PreviewProvider {
     static var previews: some View {
-        BoardCell(board: .init(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+        BoardCell(board: .init(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), reload: .constant(false))
     }
 }

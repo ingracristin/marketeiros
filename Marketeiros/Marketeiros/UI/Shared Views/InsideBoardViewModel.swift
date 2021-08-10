@@ -12,6 +12,7 @@ class InsideBoardViewModel: ObservableObject {
     @Published var posts = [Post]()
     @Published private(set) var states = States()
     @Published var board: Board
+    var changesCallback: (Board) -> ()
     
     struct States {
         var selectedIndex = 0
@@ -35,12 +36,14 @@ class InsideBoardViewModel: ObservableObject {
             set: {self.states.editBoardIsShowing = $0})
     )}
     
-    init(board: Board) {
+    init(board: Board, changesCallback: @escaping (Board) -> ()) {
         self.board = board
+        self.changesCallback = changesCallback
     }
     
     func change(board: Board) {
         self.board = board
+        changesCallback(board)
     }
     
     func toggleAddPostView() {

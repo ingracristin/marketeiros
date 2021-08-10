@@ -18,13 +18,15 @@ struct InsideBoardView: View {
     @State var postsCount = 0
     var firstPhoto = true
     
-    init(board: Board) {  
+    
+    init(board: Board, changesCallback: @escaping (Board) -> ()) {
         UIToolbar.appearance().barTintColor = UIColor.init(Color("ToolBarColor"))
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
-        _viewModel = StateObject(wrappedValue: InsideBoardViewModel(board: board))
+        _viewModel = StateObject(wrappedValue: InsideBoardViewModel(board: board,changesCallback: changesCallback))
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "")
+
     }
     
     var body: some View {
@@ -177,7 +179,7 @@ struct InsideBoardView: View {
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+            InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), changesCallback: {b in})
         }
     }
 }

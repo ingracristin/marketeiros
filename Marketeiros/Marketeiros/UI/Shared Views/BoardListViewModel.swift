@@ -66,6 +66,13 @@ class BoardListViewModel: ObservableObject {
         }
     }
     
+    func change(board: Board) {
+        if let index = boards.firstIndex{ $0.uid == board.uid} {
+            objectWillChange.send()
+            boards[index] = board
+        }
+    }
+    
     func toggleSheetView () {
         bindings.newBoardIsShowing.wrappedValue.toggle()
     }
