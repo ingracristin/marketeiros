@@ -96,6 +96,7 @@ struct EditBoardView: View {
                             .font(.title3)
                             .foregroundColor(Color("NavBarTitle"))
                         Button(action: {
+                            //UIApplication.shared.endEditing()
                             viewModel.toggleImagePicker()
                         }, label: {
                             ZStack(alignment: .center){
@@ -119,12 +120,14 @@ struct EditBoardView: View {
                                 }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                             }
                         })
+                        
                         .frame(height:UIScreen.main.bounds.size.height * 0.2512)
                         .cornerRadius(8)
                     }
                 }
                 .padding(.horizontal,20)
                 .sheet(isPresented: viewModel.bindings.showingImagePicker) {
+                    
                     ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.photoPath)
                 }
             }

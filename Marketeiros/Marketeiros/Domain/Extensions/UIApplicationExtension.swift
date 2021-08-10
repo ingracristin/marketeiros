@@ -16,6 +16,10 @@ extension UIApplication {
         tapGesture.delegate = self
         window.addGestureRecognizer(tapGesture)
     }
+    
+    func endEditing() {
+            sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
 }
 
 extension UIApplication: UIGestureRecognizerDelegate {

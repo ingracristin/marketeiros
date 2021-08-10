@@ -82,6 +82,7 @@ class EditBoardViewModel : ObservableObject {
         )}
     
     func toggleImagePicker() {
+        
         states.showingImagePicker.toggle()
     }
     

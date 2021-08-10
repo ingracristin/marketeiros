@@ -12,10 +12,15 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Binding var imagePath: String
     
+    
+        
+    
+    
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         let parent: ImagePicker
 
         init(_ parent: ImagePicker) {
+            
             self.parent = parent
         }
         
