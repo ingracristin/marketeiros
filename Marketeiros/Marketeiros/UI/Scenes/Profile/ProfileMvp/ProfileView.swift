@@ -28,9 +28,9 @@ struct ProfileView: View {
                 HStack(alignment: .lastTextBaseline,spacing:0) {
                     Spacer()
                     Button(action: {
-                        authenticationViewModel.signOut()
+                        
                     }) {
-                        Text("Sign Out")
+                        Text("")
                             .fontWeight(.semibold)
                             .foregroundColor(Color(UIColor.appDarkGrey))
                     }
@@ -115,15 +115,18 @@ struct ProfileView: View {
             .padding(.horizontal, 20)
             .navigationBarHidden(true)
             .onAppear {
-                let currentUser = AuthService.current.user!
-                UserProfileRepository.current.getUserWith(uid: currentUser.uid) { result in
-                    switch result {
-                    case .failure(_):
-                        print()
-                    case .success(let userProfile):
-                        self.user = userProfile
+                if let currentUser = AuthService.current.user{
+                    UserProfileRepository.current.getUserWith(uid: currentUser.uid) { result in
+                        switch result {
+                        case .failure(_):
+                            print()
+                        case .success(let userProfile):
+                            self.user = userProfile
+                        }
                     }
+                    
                 }
+                
             }
         }
     }

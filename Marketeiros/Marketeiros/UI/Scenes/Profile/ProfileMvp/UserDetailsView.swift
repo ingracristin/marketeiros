@@ -90,18 +90,18 @@ struct UserDetailsView: View {
             }.foregroundColor(Color(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)))
             
            Spacer()
-//            HStack(){
-//                Spacer()
-//                Button(action: {
-//                    authenticationViewModel.signOut()
-//                }, label: {
-//                    Text(NSLocalizedString("deleteAcc", comment: ""))
-//                        .foregroundColor(.red)
-//                        .font(.body)
-//
-//                })
-//                Spacer()
-//            }
+            HStack(){
+                Spacer()
+                Button(action: {
+                    authenticationViewModel.signOut()
+                }, label: {
+                    Text(NSLocalizedString("logOut", comment: ""))
+                        .foregroundColor(.red)
+                        .font(.body)
+
+                })
+                Spacer()
+            }
         }.padding(.init(top: 0, leading: 20, bottom: 10, trailing: 20))
         .navigationBarTitle(NSLocalizedString("account", comment: ""),displayMode: .inline)
         .navigationBarItems(trailing: Button(action: {
