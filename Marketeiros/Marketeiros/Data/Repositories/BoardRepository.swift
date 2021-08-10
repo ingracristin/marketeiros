@@ -40,8 +40,8 @@ class BoardsRepository {
         }
     }
     
-    func setListener(on board: Board, of user: User,completion: @escaping (Result<[Board],BoardsRepositoryErrors>) -> ()) {
-        collection.addSnapshotListener(includeMetadataChanges: false) { snapshot, error in
+    func setListenerOnBoards(of user: User,completion: @escaping (Result<[Board],BoardsRepositoryErrors>) -> ()) {
+        collection.whereField("ownerUid", in: [user.uid]).addSnapshotListener(includeMetadataChanges: false) { snapshot, error in
             if let err = error {
                 DispatchQueue.main.async {
                     completion(.failure(.boardsCollectionError(err.localizedDescription)))

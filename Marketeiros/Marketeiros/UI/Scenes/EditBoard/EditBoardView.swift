@@ -127,7 +127,6 @@ struct EditBoardView: View {
                 }
                 .padding(.horizontal,20)
                 .sheet(isPresented: viewModel.bindings.showingImagePicker) {
-                    
                     ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.photoPath)
                 }
             }

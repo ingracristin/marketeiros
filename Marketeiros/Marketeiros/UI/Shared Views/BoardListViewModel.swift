@@ -50,6 +50,22 @@ class BoardListViewModel: ObservableObject {
         }
     }
     
+    func listenToAllBoards() {
+        guard let user = AuthService.current.user else {return}
+        //let user = User(uid: "2F361KHcKpNBMLuqLT2CLrtnp3k1", email: "dasda", name: "dasda")
+        
+        BoardsRepository.current.setListenerOnBoards(of: user) { [weak self] result in
+            switch result {
+            case.failure(let message):
+                print(message) // é bom botar essa message pra aparece num alert
+            case .success(let boardsList):
+                if let self = self {
+                    self.boards = boardsList
+                }
+            }
+        }
+    }
+    
     func toggleSheetView () {
         bindings.newBoardIsShowing.wrappedValue.toggle()
     }

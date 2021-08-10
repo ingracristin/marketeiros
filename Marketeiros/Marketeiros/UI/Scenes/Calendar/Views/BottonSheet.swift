@@ -56,7 +56,7 @@ struct BottomSheet : View {
                                 .foregroundColor(.white)
                             Spacer()
                         }
-                        ForEach(Array(notifications[index]!), id:\.uid) { notification in
+                        ForEach(notifications[index]!, id:\.uid) { notification in
                             BottonSheetListCell(notification: notification)
                         }
                     }

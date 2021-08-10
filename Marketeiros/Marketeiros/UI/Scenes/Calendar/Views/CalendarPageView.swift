@@ -127,7 +127,7 @@ struct CalendarPageView: View {
         })
         .onAppear {
             UserNotificationService.shared.getScheduledNotifications { scheduledNotifications in
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.allNotifications = scheduledNotifications
                     self.scheduledDates = scheduledNotifications.map({$0.date})
                     self.weekNotifications = getWeekNotifications(of: date)

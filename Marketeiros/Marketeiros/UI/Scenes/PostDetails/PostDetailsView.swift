@@ -9,15 +9,19 @@ import SwiftUI
 
 struct PostDetailsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: PostDetailsViewModel
+    @StateObject var viewModel: PostDetailsViewModel
     @State var value : CGFloat = 0
+    var firstTouch = true
+    @State var heightText: CGFloat = UIScreen.main.bounds.size.height * 0.1231
+    @State var lineNumbers = 0
+    @State var lastLineNumbers = 0
     
     init(post: Post, board: Board) {
-        viewModel = .init(post: post, board: board)
+        _viewModel = StateObject(wrappedValue: .init(post: post, board: board))
     }
     
     var body: some View {
-        LoadingPost(isShowing: viewModel.bindings.showingAlertView){
+        LoadingPost(isShowing: viewModel.bindings.showingAlertView) {
             ScrollView(){
                 VStack(spacing: 10){
                     ZStack {
@@ -25,7 +29,7 @@ struct PostDetailsView: View {
                             .foregroundColor(Color(UIColor.emptyCellGridColor))
                             .frame(width: UIScreen.main.bounds.size.width * 0.9066, height: UIScreen.main.bounds.size.height * 0.3756)
                             .cornerRadius(24)
-
+                        
                         if viewModel.states.inputImage != nil {
                             Image(uiImage: viewModel.states.inputImage!)
                                 .resizable()
@@ -39,65 +43,68 @@ struct PostDetailsView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: UIScreen.main.bounds.size.width * 0.1413, height: UIScreen.main.bounds.size.height * 0.0529)
-                                Text("Adicione uma capa")
-                            }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
-                            
+                                Text(NSLocalizedString("chooseImg", comment: ""))
+                            }//.foregroundColor(Color( colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                         }
                     }
                     .onTapGesture {
                         viewModel.toggleImagePicker()
                     }
                     
-                    Spacer()
-                    
-                    HStack{
-                        Text(NSLocalizedString("title", comment: "")).fontWeight(.regular)
-                            .font(.body)
-                            .foregroundColor(Color("NavBarTitle"))
-                        Spacer()
+                    VStack(alignment: .leading){
                         
-                        ZStack(alignment:.trailing){
-                            TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
-                                .padding()
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
-                                .background(Color("TextField2"))
-                                .cornerRadius(8)
-                        }
-                    }.padding(.horizontal,20)
-                    
-                    HStack{
                         Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
-                        Spacer()
-                        ZStack(alignment:.trailing){
-                            TextField(NSLocalizedString("PH_caption", comment: ""), text: viewModel.bindings.legendPost)
+
+                            TextEditor(text: viewModel.bindings.legendPost)
+                                .disableAutocorrection(true)
                                 .padding()
                                 //.frame(height:reader.size.height * 0.052)
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.1231)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.90, height: heightText)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
-                        }
-                    }.padding(.horizontal,20)
-                    
-                    HStack{
-                        Text("Hashtags").fontWeight(.regular)
+                                .onChange(of: viewModel.bindings.legendPost.wrappedValue, perform: {text in
+                                    self.lineNumbers = text.components(separatedBy: "\n").count
+                                    
+                                    if(lineNumbers > lastLineNumbers){
+                                        heightText += 10
+                                        lastLineNumbers = lineNumbers
+                                    }
+                                })
+                        
+                        Spacer().frame(height: UIScreen.main.bounds.size.height * 0.0184)
+                                    
+                        Text("Hashtags")
+                            .fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
-                        Spacer()
-                        ZStack(alignment:.trailing){
-                            TextField("#", text: viewModel.bindings.hastagPost)
+                        
+                        TextField("#", text: viewModel.bindings.hastagPost)
+                            .disableAutocorrection(true)
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
+                            .background(Color("TextField2"))
+                            .cornerRadius(8)
+                        
+                        Spacer().frame(height: UIScreen.main.bounds.size.height * 0.0184)
+                        
+                        Text(NSLocalizedString("identi", comment: "")).fontWeight(.regular)
+                            .font(.body)
+                            .foregroundColor(Color("NavBarTitle"))
+                            TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
+                                .disableAutocorrection(true)
                                 .padding()
-                                .frame(width: UIScreen.main.bounds.size.width * 0.6746, height: UIScreen.main.bounds.size.height * 0.0517)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
-                        }
+                        
                     }.padding(.horizontal,20)
-                    
 //                    HStack{
 //                        Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
 //                            .font(.body)
 //                            .foregroundColor(Color("NavBarTitle"))
+//
 //                        Spacer()
 //                        ZStack(alignment:.trailing){
 //                            TextField("@", text: viewModel.bindings.markedPost)
@@ -107,7 +114,7 @@ struct PostDetailsView: View {
 //                                .cornerRadius(8)
 //                        }
 //                    }.padding(.horizontal,20)
-
+                    
                     HStack(){
                         Text(NSLocalizedString("schedule", comment: "")).fontWeight(.regular)
                             .font(.body)
@@ -117,78 +124,69 @@ struct PostDetailsView: View {
                     }
                     .padding(20)
                     
-                    VStack {
+                    VStack{
                         DatePicker(
                             "Agendar",
-                            selection: viewModel.bindings.scheduleDate)
+                            selection: viewModel.bindings.scheduleDate,
+                            in: Date()...)
                             .datePickerStyle(GraphicalDatePickerStyle())
                             .padding()
                             .background(Color("TextField2"))
-                                            .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
+                            //.foregroundColor(Color( colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                             .isHidden(!viewModel.states.isShowingDatePicker)
-                    }
-                    .frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .animation(.easeIn)
+                    }.frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .animation(.easeOut)
                     .padding()
+                    .cornerRadius(8)
                 }
-                .animation(.easeIn)
+                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 .offset(y: -self.value)
             }
-            .navigationBarTitle("Post", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                   Button("Help") {
-                       print("Help tapped!")
-                   }
-               }
-           }
+            .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)
             .padding(.vertical,20)
             .sheet(isPresented: viewModel.bindings.showingImagePicker, onDismiss: viewModel.loadImage) {
                 ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
             }
             .onAppear {
-                
+                UserNotificationService.shared.askUserNotificationPermission()
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ (noti) in
-                    
                     let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-                    
                     let height = value.height
                     self.value = height
                 }
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
-                    
                     self.value = 0
                 }
                 
                 UIApplication.shared.addTapGestureRecognizer()
             }
-           // .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing:
-                    Menu(content: {
-                        Button(action: {
-                            viewModel.saveChangesToPost { _ in
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                        }, label: {
-                            Text(NSLocalizedString("savePost", comment: ""))
-                                .font(.body)
-                            Image(systemName: "square.and.arrow.down")
-                        })
-                        Button(action:{
-                            viewModel.deletePost()
+                Menu(content: {
+                    Button(action: {
+                        viewModel.saveChangesToPost { _ in
                             presentationMode.wrappedValue.dismiss()
-                        }){
-                            HStack{
-                                Text(NSLocalizedString("deletePost", comment: ""))
-                                Image(systemName: "trash")
-                            }.foregroundColor(.red)
                         }
-                    },label: {
-                        Text("...")
-                            .font(Font.sfProDisplaySemiBold(sized: 17))
+                    }, label: {
+                        Text(NSLocalizedString("savePost", comment: ""))
+                            .font(.body)
+                        Image(systemName: "square.and.arrow.down")
+                    })
+                    Button(action:{
+                        viewModel.deletePost()
+                        presentationMode.wrappedValue.dismiss()
+                    }){
+                        HStack{
+                            Text(NSLocalizedString("deletePost", comment: ""))
+                            Image(systemName: "trash")
+                        }.foregroundColor(.red)
+                    }
+                },label: {
+                    HStack() {
+                        Spacer()
+                        Image(systemName: "ellipsis")
                             .foregroundColor(Color(UIColor.navBarItemsColor))
-                            
-                    }))
+                    }.frame(width:UIScreen.main.bounds.size.width * 0.1066, height: UIScreen.main.bounds.size.height * 0.0517)
+                }))
         }
     }
 }

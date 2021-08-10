@@ -76,22 +76,24 @@ struct CreateIdeaSceneView: View {
                     }.padding(.bottom)
                     VStack {
                         ForEach(viewModel.pastes, id:\.uid) { paste in
-                            Button(action: {
-                                viewModel.select(paste: paste)
-                            }) {
-                                VStack {
-                                    HStack {
-                                        Image(systemName: "folder")
-                                        Text(paste.title)
-                                        Spacer()
-                                        if (viewModel.states.paste.uid == paste.uid) {
-                                            Image(systemName:"checkmark")
+                            if paste.uid != "none" {
+                                Button(action: {
+                                    viewModel.select(paste: paste)
+                                }) {
+                                    VStack {
+                                        HStack {
+                                            Image(systemName: "folder")
+                                            Text(paste.title)
+                                            Spacer()
+                                            if (viewModel.states.paste.uid == paste.uid) {
+                                                Image(systemName:"checkmark")
+                                            }
                                         }
+                                        .foregroundColor(Color(UIColor.navBarTitleColor))
+                                        Divider()
                                     }
-                                    .foregroundColor(Color(UIColor.navBarTitleColor))
-                                    Divider()
-                                }
-                            }.padding()
+                                }.padding()
+                            }
                         }
                     }
                 }
@@ -117,9 +119,6 @@ struct CreateIdeaSceneView: View {
                     Button {
                         viewModel.saveIdea()
                         self.presentationMode.wrappedValue.dismiss()
-                        
-                        
-                        
                     } label: {
                         Text("ok")
                             .fontWeight(.semibold)

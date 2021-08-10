@@ -11,10 +11,11 @@ struct CreatePostUIView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CreatePostViewModel
     @State var value : CGFloat = 0
-    var firstTouch = true
+    @State var firstTouch = true
     @State var heightText: CGFloat = UIScreen.main.bounds.size.height * 0.1231
     @State var lineNumbers = 0
     @State var lastLineNumbers = 0
+    
     init(board: Board) {
         viewModel = .init(board: board)
     }
@@ -55,9 +56,7 @@ struct CreatePostUIView: View {
                         Text(NSLocalizedString("caption", comment: "")).fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
-                        
-                        
-                       
+
                             TextEditor(text: viewModel.bindings.legendPost)
                                 .padding()
                                 //.frame(height:reader.size.height * 0.052)
@@ -74,35 +73,28 @@ struct CreatePostUIView: View {
                                 })
                                 .onTapGesture {
                                     if(firstTouch == true){
-                                        
                                         viewModel.bindings.legendPost.wrappedValue = ""
+                                        firstTouch = false
                                     }
                                 }
                         
                         Spacer().frame(height: UIScreen.main.bounds.size.height * 0.0184)
-                    
-                    
+                                    
                         Text("Hashtags").fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
                         
-                        
-                        
-                            TextField("#", text: viewModel.bindings.hastagPost)
-                                .padding()
-                                .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
-                                .background(Color("TextField2"))
-                                .cornerRadius(8)
+                        TextField("#", text: viewModel.bindings.hastagPost)
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
+                            .background(Color("TextField2"))
+                            .cornerRadius(8)
                         
                         Spacer().frame(height: UIScreen.main.bounds.size.height * 0.0184)
                         
                         Text(NSLocalizedString("identi", comment: "")).fontWeight(.regular)
                             .font(.body)
                             .foregroundColor(Color("NavBarTitle"))
-                        
-                        
-                        
-                        
                             TextField(NSLocalizedString("PH_title", comment: ""), text: viewModel.bindings.titlePost)
                                 .padding()
                                 .frame(width: UIScreen.main.bounds.size.width * 0.90, height: UIScreen.main.bounds.size.height * 0.0517)
@@ -110,9 +102,6 @@ struct CreatePostUIView: View {
                                 .cornerRadius(8)
                         
                     }.padding(.horizontal,20)
-                    
-                    
-                   
 //                    HStack{
 //                        Text(NSLocalizedString("tagPeople", comment: "")).fontWeight(.regular)
 //                            .font(.body)
@@ -141,7 +130,6 @@ struct CreatePostUIView: View {
                     .padding(20)
                     
                     VStack{
-                    
                         DatePicker(
                             "Agendar",
                             selection: viewModel.bindings.scheduleDate,
@@ -152,7 +140,6 @@ struct CreatePostUIView: View {
                             .foregroundColor(Color(#colorLiteral(red: 0.7371894717, green: 0.7372970581, blue: 0.7371658683, alpha: 1)))
                             .isHidden(!viewModel.states.isShowingDatePicker)
                     }.frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
                     .animation(.easeOut)
                     .padding()
                     .cornerRadius(8)
@@ -166,22 +153,17 @@ struct CreatePostUIView: View {
                 ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.imagePath)
             }
             .onAppear {
-                
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ (noti) in
-                    
                     let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-                    
                     let height = value.height
                     self.value = height
                 }
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
-                    
                     self.value = 0
                 }
                 
                 UIApplication.shared.addTapGestureRecognizer()
             }
-            
             .navigationBarItems(trailing: Button(action: {
                 viewModel.addPostToBoard { _ in
                     presentationMode.wrappedValue.dismiss()
