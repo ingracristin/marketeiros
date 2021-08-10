@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HelpView: View {
+    
+    let urlSup = URL(string:"https://planiapp.wixsite.com/plani")
+    
     var body: some View {
         ZStack(alignment:.bottom){
             Image("profileBg")
@@ -16,21 +19,32 @@ struct HelpView: View {
                 .ignoresSafeArea()
                 .frame( height: UIScreen.main.bounds.size.height * 0.66, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             VStack(spacing: 20){
-                HStack{
-                    Text(NSLocalizedString("sup", comment: ""))
-                        .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
-                    
-                    Spacer()
-                    Image(systemName: "chevron.forward")
-                        .foregroundColor(Color("AppLightBlue"))
-                }.foregroundColor(Color("NavBarTitle"))
-                HStack{
-                    Text(NSLocalizedString("contact", comment: ""))
-                        .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
-                    Spacer()
-                    Image(systemName: "chevron.forward")
-                        .foregroundColor(Color("AppLightBlue"))
-                }.foregroundColor(Color("NavBarTitle"))
+                
+                Button(action: {
+                    UIApplication.shared.open(urlSup!)
+                }){
+                    HStack{
+                        Text(NSLocalizedString("sup", comment: ""))
+                            .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                        
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                            .foregroundColor(Color("AppLightBlue"))
+                    }.foregroundColor(Color("NavBarTitle"))
+                }
+                
+                Button(action: {
+                    UIApplication.shared.open(urlSup!)
+                }){
+                    HStack{
+                        Text(NSLocalizedString("contact", comment: ""))
+                            .font(.custom("SF Pro Display", size: 22, relativeTo: .headline))
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                            .foregroundColor(Color("AppLightBlue"))
+                    }.foregroundColor(Color("NavBarTitle"))
+                }
+                
                 
                 Spacer()
             }.padding()
