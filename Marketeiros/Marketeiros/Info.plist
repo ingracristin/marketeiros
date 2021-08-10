@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>We need to acces your media Library</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need acces of your photos library</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,10 +24,14 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need to acces your media Library</string>
 	<key>NSDocumentsFolderUsageDescription</key>
 	<string>Desejamos guardar informações na pasta de documentos do app</string>
 	<key>NSFileProviderDomainUsageDescription</key>
 	<string>Desejamos guardar informações na pasta de documentos do app</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need acces of your photos library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SFProDisplay-Semibold.ttf</string>

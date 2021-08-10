@@ -96,11 +96,11 @@
 		AED6CF7C26897D7300870BB2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7B26897D7300870BB2 /* Post.swift */; };
 		AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF7D26897E2300870BB2 /* AuthService.swift */; };
 		AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */; };
-		AED6CF8326897FAB00870BB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */; };
 		AEE1B9DE26A7BF9600BC45FA /* PostsGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1B9DD26A7BF9600BC45FA /* PostsGridCellView.swift */; };
 		AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */; };
 		AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFA8012690261900A86786 /* TabBarScene.swift */; };
 		CCDA2B977807C095FAD79017 /* Pods_Marketeiros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */; };
+		EF1A395F26C29C2E000550D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1A395E26C29C2E000550D9 /* GoogleService-Info.plist */; };
 		EF2D04F32693446800B9D7E5 /* MoodBoardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */; };
 		EF2D04F62693446D00B9D7E5 /* PinterestGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */; };
 		EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */; };
@@ -212,11 +212,11 @@
 		AED6CF7B26897D7300870BB2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Marketeiros/Data/Repositories/Post.swift; sourceTree = SOURCE_ROOT; };
 		AED6CF7D26897E2300870BB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AED6CF8026897ED200870BB2 /* AuthenticationWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWrapperView.swift; sourceTree = "<group>"; };
-		AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEE1B9DD26A7BF9600BC45FA /* PostsGridCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGridCellView.swift; sourceTree = "<group>"; };
 		AEFFA7FE2690243C00A86786 /* CalendarPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarPageViewModel.swift; path = "Marketeiros/UI/Shared Views/CalendarPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AEFFA8012690261900A86786 /* TabBarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarScene.swift; sourceTree = "<group>"; };
 		CAB90DFA4C5DAADCFD258618 /* Pods_Marketeiros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marketeiros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1A395E26C29C2E000550D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodBoardGridView.swift; sourceTree = "<group>"; };
 		EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestGrid.swift; sourceTree = "<group>"; };
 		EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardItemDetailsView.swift; sourceTree = "<group>"; };
@@ -691,7 +691,7 @@
 		EF30C35326779A9A00DB7644 = {
 			isa = PBXGroup;
 			children = (
-				AED6CF8226897FAB00870BB2 /* GoogleService-Info.plist */,
+				EF1A395E26C29C2E000550D9 /* GoogleService-Info.plist */,
 				EF30C35E26779A9A00DB7644 /* Marketeiros */,
 				EF30C35D26779A9A00DB7644 /* Products */,
 				10005C22C7FC71B65BB25C07 /* Pods */,
@@ -821,12 +821,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF30C36726779A9A00DB7644 /* Preview Assets.xcassets in Resources */,
+				EF1A395F26C29C2E000550D9 /* GoogleService-Info.plist in Resources */,
 				AE3C43A22693F34200013F79 /* cocon-bold.otf in Resources */,
 				AE3C43AD2693FAAD00013F79 /* SFProDisplay-Semibold.ttf in Resources */,
 				EF30C36426779A9A00DB7644 /* Assets.xcassets in Resources */,
 				AE3C43AC2693FAAD00013F79 /* SFProDisplay-Regular.ttf in Resources */,
 				79034D14269C701300AE97EA /* Localizable.strings in Resources */,
-				AED6CF8326897FAB00870BB2 /* GoogleService-Info.plist in Resources */,
 				AE3C43AB2693FAAD00013F79 /* SFProDisplay-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1127,9 +1127,9 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = Y22Z44SKH8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1137,8 +1137,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeirosss;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1155,9 +1155,9 @@
 				CODE_SIGN_ENTITLEMENTS = Marketeiros/Marketeiros.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = Y22Z44SKH8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1165,8 +1165,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeirosss;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
