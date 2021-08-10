@@ -15,6 +15,7 @@ struct CreatePostUIView: View {
     @State var heightText: CGFloat = UIScreen.main.bounds.size.height * 0.1231
     @State var lineNumbers = 0
     @State var lastLineNumbers = 0
+    @State var textColor = Color.gray
     
     init(board: Board) {
         viewModel = .init(board: board)
@@ -61,6 +62,7 @@ struct CreatePostUIView: View {
                                 .padding()
                                 //.frame(height:reader.size.height * 0.052)
                                 .frame(width: UIScreen.main.bounds.size.width * 0.90, height: heightText)
+                                .foregroundColor(textColor)
                                 .background(Color("TextField2"))
                                 .cornerRadius(8)
                                 .onChange(of: viewModel.bindings.legendPost.wrappedValue, perform: {text in
@@ -74,6 +76,7 @@ struct CreatePostUIView: View {
                                 .onTapGesture {
                                     if(firstTouch == true){
                                         viewModel.bindings.legendPost.wrappedValue = ""
+                                        textColor = Color("textColorCreatePost")
                                         firstTouch = false
                                     }
                                 }
