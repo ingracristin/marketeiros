@@ -141,6 +141,19 @@ struct PostDetailsView: View {
                 }
                 .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 .offset(y: -self.value)
+                Spacer().frame(height: UIScreen.main.bounds.size.height*0.0369)
+                VStack(){
+                    Button(action:{
+                        viewModel.deletePost()
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text(NSLocalizedString("deletePost", comment: ""))
+                            .font(.body)
+                            .foregroundColor(.red)
+                    })
+                }
+                
+                
             }
             .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)
             .padding(.vertical,20)
@@ -161,32 +174,16 @@ struct PostDetailsView: View {
                 UIApplication.shared.addTapGestureRecognizer()
             }
             .navigationBarItems(trailing:
-                Menu(content: {
                     Button(action: {
                         viewModel.saveChangesToPost { _ in
                             presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {
-                        Text(NSLocalizedString("savePost", comment: ""))
+                        Text(NSLocalizedString("save", comment: ""))
                             .font(.body)
-                        Image(systemName: "square.and.arrow.down")
-                    })
-                    Button(action:{
-                        viewModel.deletePost()
-                        presentationMode.wrappedValue.dismiss()
-                    }){
-                        HStack{
-                            Text(NSLocalizedString("deletePost", comment: ""))
-                            Image(systemName: "trash")
-                        }.foregroundColor(.red)
-                    }
-                },label: {
-                    HStack() {
-                        Spacer()
-                        Image(systemName: "ellipsis")
-                            .foregroundColor(Color(UIColor.navBarItemsColor))
-                    }.frame(width:UIScreen.main.bounds.size.width * 0.1066, height: UIScreen.main.bounds.size.height * 0.0517)
-                }))
+                       
+                    }))
+                    /**/
         }
     }
 }
