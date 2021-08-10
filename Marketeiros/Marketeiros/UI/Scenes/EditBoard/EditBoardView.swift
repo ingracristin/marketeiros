@@ -107,9 +107,8 @@ struct EditBoardView: View {
                                         Image(uiImage: viewModel.states.inputImage!)
                                             .resizable()
                                             .scaledToFill()
-                                            .frame(width: UIScreen.main.bounds.size.width * 0.90, height:UIScreen.main.bounds.size.height * 0.2512)
+                                            .frame(height: UIScreen.main.bounds.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             .clipped()
-                                            
                                     } else {
                                         Image(systemName: "camera")
                                             .resizable()
@@ -120,8 +119,7 @@ struct EditBoardView: View {
                                 }.foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.6039215686, blue: 0.6862745098, alpha: 1)))
                             }
                         })
-                        
-                        .frame(height:UIScreen.main.bounds.size.height * 0.2512)
+                        .frame(height: UIScreen.main.bounds.size.height * 0.2955, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .cornerRadius(8)
                     }
                 }
