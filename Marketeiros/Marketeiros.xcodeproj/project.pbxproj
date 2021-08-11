@@ -11,6 +11,7 @@
 		79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79034D0B269634CC00AE97EA /* UIApplicationExtension.swift */; };
 		79034D14269C701300AE97EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79034D16269C701300AE97EA /* Localizable.strings */; };
 		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
+		7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
@@ -125,6 +126,7 @@
 		79034D15269C701300AE97EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79034D17269C70B200AE97EA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMissingInformation.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				795E180626BC3CC400EEE63B /* ErrorMessage.swift */,
 				795E180226BC253900EEE63B /* LoadingPhotosView.swift */,
 				795E180426BC3B5D00EEE63B /* LoadingPost.swift */,
+				7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				AE3EB5DF26976CE60093AF7C /* CreateIdeaSceneView.swift in Sources */,
+				7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
 				AE3EB5D426976CDC0093AF7C /* IdeaView.swift in Sources */,
