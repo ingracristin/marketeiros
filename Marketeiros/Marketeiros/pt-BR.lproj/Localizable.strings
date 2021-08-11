@@ -177,3 +177,5 @@
 "newFolder" = "Nova Pasta";
 
 "logOut" = "Sair da Conta";
+
+"missing" = "Você precisa nomear e inserir uma capa ao quadro";

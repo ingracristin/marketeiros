@@ -174,3 +174,5 @@
 "newFolder" = "New Folder";
 "logOut" = "Sign Out";
 
+"missing" = "You need to name and add an cover to the board";
+

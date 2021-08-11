@@ -1,13 +1,13 @@
 //
-//  ErrorMessage.swift
+//  ErrorMissingInformation.swift
 //  Marketeiros
 //
-//  Created by João Guilherme on 05/08/21.
+//  Created by João Guilherme on 11/08/21.
 //
 
 import SwiftUI
 
-struct ErrorMessage<Content>: View where Content: View {
+struct ErrorMissingInformation<Content>: View where Content: View {
     @Binding var isShowing: Bool
     var content: () -> Content
     
@@ -23,7 +23,7 @@ struct ErrorMessage<Content>: View where Content: View {
                     .frame(width: UIScreen.main.bounds.size.width * 0.1126, height: UIScreen.main.bounds.size.height * 0.0527, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                 
-                Text(NSLocalizedString("ops", comment: ""))
+                Text(NSLocalizedString("missing", comment: ""))
                     .font(.callout)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
@@ -38,9 +38,9 @@ struct ErrorMessage<Content>: View where Content: View {
     }
 }
 
-struct ErrorMessage_Previews: PreviewProvider {
+struct ErrorMissingInformation_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorMessage(isShowing: .constant(true)) {
+        ErrorMissingInformation(isShowing: .constant(true)) {
             Text("")
         }
     }
