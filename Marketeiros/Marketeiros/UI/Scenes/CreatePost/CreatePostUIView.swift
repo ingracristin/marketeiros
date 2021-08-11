@@ -163,10 +163,8 @@ struct CreatePostUIView: View {
                     })
                     .padding()
                 }
-                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 .offset(y: -self.value)
-                
-                
             }
             .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)
             .padding(.vertical,20)

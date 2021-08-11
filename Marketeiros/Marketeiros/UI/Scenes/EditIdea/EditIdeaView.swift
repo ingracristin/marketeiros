@@ -87,19 +87,18 @@ struct EditIdeaView: View {
         .navigationBarItems(
             trailing: Menu(content: {
                 Button {
-                    viewModel.deleteIdea()
-                    callback?(nil)
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Label(NSLocalizedString("delIdea", comment: ""), systemImage: "trash")
-                }
-
-                Button {
                     viewModel.updateIdea()
                     callback?(viewModel.idea)
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Label(NSLocalizedString("save", comment: ""), systemImage: "square.and.arrow.down")
+                }
+                Button {
+                    viewModel.deleteIdea()
+                    callback?(nil)
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Label(NSLocalizedString("delIdea", comment: ""), systemImage: "trash")
                 }
             }, label: {
                 Image(systemName: "ellipsis.circle")
