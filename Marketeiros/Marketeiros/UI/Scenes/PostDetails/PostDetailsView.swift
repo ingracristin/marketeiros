@@ -136,13 +136,27 @@ struct PostDetailsView: View {
                             .isHidden(!viewModel.states.isShowingDatePicker)
                     }.frame(height: (viewModel.states.isShowingDatePicker) ? CGFloat(350) : 0.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .animation(.easeOut)
+                    .padding((viewModel.states.isShowingDatePicker) ? 18 : 0)
+                    //.cornerRadius(8)
+                    
+                    Button(action: {
+                        viewModel.publishNow()
+                    }, label: {
+                        HStack {
+                            Spacer()
+                            Text(NSLocalizedString("publishNow", comment: ""))
+                                .foregroundColor(.white)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Spacer()
+                        }
+                        .padding(.vertical,12)
+                        .background(RoundedRectangle(cornerRadius: 18)
+                                        .accentColor(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1))))
+                    })
                     .padding()
-                    .cornerRadius(8)
-                }
-                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
-                .offset(y: -self.value)
-                Spacer().frame(height: UIScreen.main.bounds.size.height*0.0369)
-                VStack(){
+                    .padding(.bottom,18)
+                    
                     Button(action:{
                         viewModel.deletePost()
                         presentationMode.wrappedValue.dismiss()
@@ -152,8 +166,8 @@ struct PostDetailsView: View {
                             .foregroundColor(.red)
                     })
                 }
-                
-                
+                .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                .offset(y: -self.value)
             }
             .navigationBarTitle(NSLocalizedString("createPost", comment: ""), displayMode: .inline)
             .padding(.vertical,20)

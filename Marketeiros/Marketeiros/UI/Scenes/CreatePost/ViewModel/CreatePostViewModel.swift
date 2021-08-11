@@ -123,6 +123,10 @@ class CreatePostViewModel : ObservableObject {
         }
     }
     
+    func publishNow() {
+        SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: ["imagePath": states.imagePath, "description": states.legendPost])
+    }
+    
     func requestUserNotification() {
         UserNotificationService.shared.askUserNotificationPermission()
     }
