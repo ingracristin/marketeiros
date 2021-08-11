@@ -85,6 +85,7 @@ class PostDetailsViewModel: ObservableObject {
         self.post = post
         self.board = board
         states.titlePost = post.title
+        states.imagePath = post.photoPath
         states.legendPost = post.description
         states.markedAccountsOnPost = post.markedAccountsOnPost.first ?? ""
         states.hashtag = post.hashtags.first ?? ""
@@ -108,6 +109,7 @@ class PostDetailsViewModel: ObservableObject {
     func saveChangesToPost(completionHadler: @escaping (String?) -> ()) {
         post.title = states.titlePost
         post.description = states.legendPost
+        post.photoPath = states.imagePath
         post.hashtags = [states.hashtag]
         post.markedAccountsOnPost = [states.markedAccountsOnPost]
         post.dateOfPublishing = (states.isShowingDatePicker) ? states.scheduleDate : nil
@@ -160,6 +162,10 @@ class PostDetailsViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func publishNow() {
+        SocialNetworkService.shared.open(socialNetwork: .instagram, andSend: ["imagePath": states.imagePath, "description": states.legendPost])
     }
     
     func loadImage() {
