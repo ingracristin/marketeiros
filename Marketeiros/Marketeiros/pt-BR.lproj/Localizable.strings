@@ -100,6 +100,7 @@
 "ideaCard" = "Cartões de ideias";
 "ideaBtn" = "Adicionar ideia";
 "descriptionIdea" = "Qual foi sua ideia incrível de hoje?";
+"deleteIdeaNow" = "Tem certeza que deseja deletar esta ideia?";
 
 
 //MoodBoard View

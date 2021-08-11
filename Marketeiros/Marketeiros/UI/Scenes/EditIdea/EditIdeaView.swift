@@ -94,14 +94,19 @@ struct EditIdeaView: View {
                     Label(NSLocalizedString("save", comment: ""), systemImage: "square.and.arrow.down")
                 }
                 Button {
-                    viewModel.deleteIdea()
-                    callback?(nil)
-                    presentationMode.wrappedValue.dismiss()
+                    viewModel.setErrorAlertIsShowing(true)
                 } label: {
                     Label(NSLocalizedString("delIdea", comment: ""), systemImage: "trash")
                 }
             }, label: {
                 Image(systemName: "ellipsis.circle")
+            })
+            .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
+                Alert(title: Text(viewModel.states.errorMessage), primaryButton: .default(Text(NSLocalizedString("yes", comment: "")), action: {
+                    viewModel.deleteIdea()
+                    callback?(nil)
+                    presentationMode.wrappedValue.dismiss()
+                }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
             })
                
 //            trailing: Button("Salvar", action: {

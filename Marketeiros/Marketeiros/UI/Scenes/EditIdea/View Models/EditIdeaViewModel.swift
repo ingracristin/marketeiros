@@ -28,13 +28,17 @@ class EditIdeaViewModel: ObservableObject {
         var description = "Descrição"
         var paste: Paste!
         var pasteSheetShowing = false
+        var errorAlertIsShowing = false
+        var errorMessage = ""
     }
     
     var bindings: (
         title: Binding<String>,
         description: Binding<String>,
         paste: Binding<Paste>,
-        pasteSheetShowing: Binding<Bool>
+        pasteSheetShowing: Binding<Bool>,
+        errorAlertIsShowing: Binding<Bool>,
+        errorMessage: Binding<String>
     ) {(
         title: Binding(
             get: {self.states.title},
@@ -47,7 +51,13 @@ class EditIdeaViewModel: ObservableObject {
             set: {self.states.paste = $0}),
         pasteSheetShowing: Binding(
             get: {self.states.pasteSheetShowing},
-            set: {self.states.pasteSheetShowing = $0})
+            set: {self.states.pasteSheetShowing = $0}),
+        errorAlertIsShowing:Binding(
+            get: {self.states.errorAlertIsShowing},
+            set: {self.states.errorAlertIsShowing = $0}),
+        errorMessage: Binding(
+            get: {self.states.errorMessage},
+            set: {self.states.errorMessage = $0})
     )}
     
     func select(paste: Paste) {
@@ -58,6 +68,11 @@ class EditIdeaViewModel: ObservableObject {
         BoardsRepository.current.delete(item: idea, to: board, on: .ideas) { _ in
             
         }
+    }
+    
+    func setErrorAlertIsShowing(_ value: Bool) {
+        states.errorMessage = NSLocalizedString("deleteIdeaNow", comment: "")
+        states.errorAlertIsShowing = value
     }
     
     func updateIdea() {

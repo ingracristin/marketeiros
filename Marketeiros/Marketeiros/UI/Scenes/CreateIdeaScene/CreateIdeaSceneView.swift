@@ -104,17 +104,7 @@ struct CreateIdeaSceneView: View {
         .navigationBarTitle(NSLocalizedString("ideas", comment: ""),displayMode: .inline)
         .navigationBarItems(trailing:
             HStack(spacing:20) {
-                Menu {
-                    Button(action:{}) {
-                        HStack{
-                            Text(NSLocalizedString("delIdea", comment: ""))
-                            Image(systemName: "trash")
-                        }.foregroundColor(.red)
-                    }
-
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                }.foregroundColor(Color(UIColor.navBarItemsColor))
+                
                 if viewModel.states.okButtonShowing {
                     Button {
                         viewModel.saveIdea()

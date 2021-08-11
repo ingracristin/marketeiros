@@ -42,6 +42,11 @@ struct TestWebView: UIViewRepresentable {
                 
                 if let _ = allImages.first {
                     allImages.removeFirst()
+                    UserDefaults.standard.set(allImages, forKey: "instagramUrls")
+                }
+                
+                if allImages.isEmpty {
+                    allImages = UserDefaults.standard.object(forKey: "instagramUrls") as? [String] ?? []
                 }
                 
                 self.viewModel.imagesUrls = allImages.map({ url in
