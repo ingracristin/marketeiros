@@ -43,6 +43,8 @@ class EditBoardViewModel : ObservableObject {
         var alertViewShowing = false
         var showingImagePicker = false
         var percentage: Float = 0
+        var errorAlertIsShowing = false
+        var errorMessage = ""
     }
     
     var bindings: (
@@ -53,7 +55,9 @@ class EditBoardViewModel : ObservableObject {
         alertViewShowing: Binding<Bool>,
         instragramAccount: Binding<String>,
         showingImagePicker: Binding<Bool>,
-        percentage: Binding<Float>)
+        percentage: Binding<Float>,
+        errorAlertIsShowing: Binding<Bool>,
+        errorMessage: Binding<String>)
     {(
         title: Binding(
             get: {self.states.title},
@@ -78,12 +82,22 @@ class EditBoardViewModel : ObservableObject {
             set: {self.states.showingImagePicker = $0}),
         percentage: Binding(
             get: {self.states.percentage},
-            set: {self.states.percentage = $0})
+            set: {self.states.percentage = $0}),
+        errorAlertIsShowing:Binding(
+            get: {self.states.errorAlertIsShowing},
+            set: {self.states.errorAlertIsShowing = $0}),
+        errorMessage: Binding(
+            get: {self.states.errorMessage},
+            set: {self.states.errorMessage = $0})
         )}
     
     func toggleImagePicker() {
-        
         states.showingImagePicker.toggle()
+    }
+    
+    func setErrorAlertIsShowing(_ value: Bool) {
+        states.errorMessage = NSLocalizedString("deleteBoardNow", comment: "")
+        states.errorAlertIsShowing = value
     }
     
     func saveChangesToBoard(completionHadler: @escaping (String?) -> ()) {

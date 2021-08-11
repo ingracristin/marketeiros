@@ -31,6 +31,7 @@
 // Inside Board view
 "edit board" = "Editar Quadro";
 "delete board" = "Deletar Quadro";
+"deleteBoardNow" = "Tem certeza que deseja deletar este quadro?";
 
 //NewBoard Sheet
 "cancelBtn" = "Cancelar";
@@ -88,6 +89,9 @@
 "time" = "Horário";
 "savePost" = "Salvar Alterações";
 "publishNow" = "Publicar Agora";
+"deletePostNow" = "Tem certeza que deseja deletar esse post ?";
+"yes" = "Sim";
+"no" = "Não";
 
 
 //Idea View
@@ -180,3 +184,7 @@
 "logOut" = "Sair da Conta";
 
 "missing" = "Você precisa nomear e inserir uma capa ao quadro";
+
+"missingTitleAndImage" = "Você precisa nomear e definir uma imagem para o quadro!";
+"missingTitle" = "Você precisa nomear seu quadro!";
+"missingImage" = "Você precisa definir uma imagem para o quadro!";

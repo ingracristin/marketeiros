@@ -22,7 +22,9 @@ class NewBoardViewModel : ObservableObject {
         var instragramAccount = "@"
         var photoPath: String = ""
         var inputImage: UIImage?
-        var alertViewShowing = false
+        var loadingAlertIsShowing = false
+        var errorAlertIsShowing = false
+        var errorMessage = ""
         var showingImagePicker = false
         var percentage: Float = 0
     }
@@ -33,6 +35,8 @@ class NewBoardViewModel : ObservableObject {
         photoPath: Binding<String>,
         inputImage: Binding<UIImage?>,
         alertViewShowing: Binding<Bool>,
+        errorAlertIsShowing: Binding<Bool>,
+        errorMessage: Binding<String>,
         instragramAccount: Binding<String>,
         showingImagePicker: Binding<Bool>,
         percentage: Binding<Float>)
@@ -50,8 +54,14 @@ class NewBoardViewModel : ObservableObject {
             get: {self.states.inputImage},
             set: {self.states.inputImage = $0}),
         alertViewShowing: Binding(
-            get: {self.states.alertViewShowing},
-            set: {self.states.alertViewShowing = $0}),
+            get: {self.states.loadingAlertIsShowing},
+            set: {self.states.loadingAlertIsShowing = $0}),
+        errorAlertIsShowing:Binding(
+            get: {self.states.errorAlertIsShowing},
+            set: {self.states.errorAlertIsShowing = $0}),
+        errorMessage: Binding(
+            get: {self.states.errorMessage},
+            set: {self.states.errorMessage = $0}),
         instragramAccount: Binding(
             get: {self.states.instragramAccount},
             set: {self.states.instragramAccount = $0}),
@@ -67,9 +77,24 @@ class NewBoardViewModel : ObservableObject {
         states.showingImagePicker.toggle()
     }
     
+    func setErrorAlertIsShowing(_ value: Bool) {
+        states.errorAlertIsShowing = value
+    }
+    
     func createBoard(completionHadler: @escaping (String?) -> ()) {
         guard let user = AuthService.current.user else {return}
-        guard let image = states.inputImage?.jpeg(.medium) else {return}
+        
+        guard let image = states.inputImage?.jpeg(.medium) else {
+            states.errorMessage = NSLocalizedString("missingImage", comment: "")
+            setErrorAlertIsShowing(true)
+            return
+        }
+        
+        if states.title.isEmpty {
+            states.errorMessage = NSLocalizedString("missingTitle", comment: "")
+            setErrorAlertIsShowing(true)
+            return
+        }
         
         let igAccount = states.instragramAccount.replacingOccurrences(of: " ", with: "").removeCharactersContained(in: "@")
         
@@ -85,7 +110,7 @@ class NewBoardViewModel : ObservableObject {
             ideasGridUid: " ",
             moodGridUid: " ")
         
-        states.alertViewShowing.toggle()
+        states.loadingAlertIsShowing.toggle()
         BoardsRepository.current.create(board: &board) { result in
             switch result {
             case.failure(let message):
@@ -94,7 +119,7 @@ class NewBoardViewModel : ObservableObject {
                 ImagesRepository.current.upload(imageData: image, of: &board) { [weak self] progress in
                     self?.states.percentage = Float(progress)
                 } completion: { [weak self] result in
-                    self?.states.alertViewShowing.toggle()
+                    self?.states.loadingAlertIsShowing.toggle()
                     switch result {
                     case.failure(let message):
                         completionHadler(message.localizedDescription)

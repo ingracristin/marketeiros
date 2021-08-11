@@ -17,7 +17,6 @@ struct NewBoardSheet: View {
     
     var body: some View {
         ProgressBarView(isShowing: viewModel.bindings.alertViewShowing, value: viewModel.bindings.percentage) {
-            
             ScrollView{
                 VStack(alignment: .center ,spacing:25){
                     Capsule()
@@ -127,6 +126,9 @@ struct NewBoardSheet: View {
                 .sheet(isPresented: viewModel.bindings.showingImagePicker) {
                     ImagePicker(image: viewModel.bindings.inputImage, imagePath: viewModel.bindings.photoPath)
                 }
+                .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
+                    Alert(title: Text(NSLocalizedString("Error", comment: "")), message: Text(viewModel.states.errorMessage), dismissButton: .cancel())
+                })
             }
         }
     }

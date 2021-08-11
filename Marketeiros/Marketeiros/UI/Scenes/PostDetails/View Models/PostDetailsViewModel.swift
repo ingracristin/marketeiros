@@ -27,6 +27,8 @@ class PostDetailsViewModel: ObservableObject {
         var imagePath: String = ""
         var inputImage: UIImage?
         var percentage: Float = 0
+        var errorAlertIsShowing = false
+        var errorMessage = ""
     }
     
     var bindings: (
@@ -41,7 +43,9 @@ class PostDetailsViewModel: ObservableObject {
         inputImage: Binding<UIImage?>,
         imagePath: Binding<String>,
         showingAlertView: Binding<Bool>,
-        percentage: Binding<Float>)
+        percentage: Binding<Float>,
+        errorAlertIsShowing: Binding<Bool>,
+        errorMessage: Binding<String>)
     {(
         titlePost: Binding(
             get: {self.states.titlePost},
@@ -78,7 +82,13 @@ class PostDetailsViewModel: ObservableObject {
             set: {self.states.showingAlertView = $0}),
         percentage: Binding(
             get: {self.states.percentage},
-            set: {self.states.percentage = $0})
+            set: {self.states.percentage = $0}),
+        errorAlertIsShowing:Binding(
+            get: {self.states.errorAlertIsShowing},
+            set: {self.states.errorAlertIsShowing = $0}),
+        errorMessage: Binding(
+            get: {self.states.errorMessage},
+            set: {self.states.errorMessage = $0})
     )}
     
     init(post: Post, board: Board) {
@@ -162,6 +172,11 @@ class PostDetailsViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func setErrorAlertIsShowing(_ value: Bool) {
+        states.errorMessage = NSLocalizedString("deletePostNow", comment: "")
+        states.errorAlertIsShowing = value
     }
     
     func publishNow() {

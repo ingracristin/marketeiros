@@ -18,13 +18,17 @@ class InsideBoardViewModel: ObservableObject {
         var selectedIndex = 0
         var editBoardIsShowing = false
         var addPostScreenShowing = false
+        var errorAlertIsShowing = false
+        var errorMessage = ""
     }
     
     var bindings: (
         selectedIndex: Binding<Int>,
         addPostScreenShowing: Binding<Bool>,
-        editBoardIsShowing: Binding<Bool>
-    ) {(
+        editBoardIsShowing: Binding<Bool>,
+        errorAlertIsShowing: Binding<Bool>,
+        errorMessage: Binding<String>)
+     {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
             set: {self.states.selectedIndex = $0}),
@@ -33,7 +37,13 @@ class InsideBoardViewModel: ObservableObject {
             set: {self.states.addPostScreenShowing = $0}),
         editBoardIsShowing: Binding(
             get: {self.states.editBoardIsShowing},
-            set: {self.states.editBoardIsShowing = $0})
+            set: {self.states.editBoardIsShowing = $0}),
+        errorAlertIsShowing:Binding(
+            get: {self.states.errorAlertIsShowing},
+            set: {self.states.errorAlertIsShowing = $0}),
+        errorMessage: Binding(
+            get: {self.states.errorMessage},
+            set: {self.states.errorMessage = $0})
     )}
     
     init(board: Board, changesCallback: @escaping (Board) -> ()) {
@@ -52,6 +62,11 @@ class InsideBoardViewModel: ObservableObject {
     
     func toggleEditBoardSheet() {
         states.editBoardIsShowing.toggle()
+    }
+    
+    func setErrorAlertIsShowing(_ value: Bool) {
+        states.errorMessage = NSLocalizedString("deleteBoardNow", comment: "")
+        states.errorAlertIsShowing = value
     }
     
     func getAllPosts() {

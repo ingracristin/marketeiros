@@ -44,6 +44,7 @@
 "PH_boardbio" = "Briefly describe your board...";
 "imageBoard" = "Board cover";
 "imageCaption" = "Add a image";
+"deleteBoardNow" = "Are you sure you want to delete this board?";
 
 //Calendar View
 "creatEventBtn" = "Create Event";
@@ -87,6 +88,10 @@
 "time" = "Time";
 "savePost" = "Save Changes";
 "publishNow" = "Publish Now";
+"deletePostNow" = "Are you sure you want to delete this post?";
+"yes" = "Yes";
+"no" = "No";
+
 
 
 //Idea View
@@ -175,5 +180,7 @@
 "newFolder" = "New Folder";
 "logOut" = "Sign Out";
 
-"missing" = "You need to name and add an cover to the board";
+"missingTitleAndImage" = "You need to name and set an image to the board!";
+"missingTitle" = "You need to name your board!";
+"missingImage" = "You need to set an image to the board!";
 

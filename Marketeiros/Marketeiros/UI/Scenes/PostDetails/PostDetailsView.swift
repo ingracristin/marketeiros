@@ -158,8 +158,7 @@ struct PostDetailsView: View {
                     .padding(.bottom,18)
                     
                     Button(action:{
-                        viewModel.deletePost()
-                        presentationMode.wrappedValue.dismiss()
+                        viewModel.setErrorAlertIsShowing(true)
                     }, label: {
                         Text(NSLocalizedString("deletePost", comment: ""))
                             .font(.body)
@@ -198,6 +197,12 @@ struct PostDetailsView: View {
                        
                     }))
                     /**/
+            .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
+                Alert(title: Text(viewModel.states.errorMessage), primaryButton: .default(Text(NSLocalizedString("yes", comment: "")), action: {
+                    viewModel.deletePost()
+                    presentationMode.wrappedValue.dismiss()
+                }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
+            })
         }
     }
 }

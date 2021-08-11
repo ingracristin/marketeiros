@@ -164,14 +164,21 @@ struct InsideBoardView: View {
                     viewModel.change(board: board)
                 }
             })
-            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {viewModel.deleteBoard { _ in
-                presentationMode.wrappedValue.dismiss()
-            }}))
+            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
+                viewModel.setErrorAlertIsShowing(true)
+            }))
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
             .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
             .onAppear {
                 viewModel.getAllPosts()
             }
+            .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
+                Alert(title: Text(viewModel.states.errorMessage), primaryButton: .default(Text(NSLocalizedString("yes", comment: "")), action: {
+                    viewModel.deleteBoard { _ in
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
+            })
         }
     }
 }
