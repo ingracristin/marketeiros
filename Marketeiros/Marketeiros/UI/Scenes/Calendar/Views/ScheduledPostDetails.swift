@@ -30,33 +30,6 @@ struct ScheduledPostDetails: View {
             }
             .padding(.bottom)
             
-            HStack {
-                Spacer()
-                VStack {
-                    Text(NSLocalizedString("captionMessage", comment: ""))
-                        .multilineTextAlignment(.center)
-                        .font(.custom("SF Pro Display", size: 13))
-                        .foregroundColor(Color("captionMessageColor"))
-                        .padding(.leading,3)
-                    Text(NSLocalizedString("captionTip", comment: ""))
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                        .font(.custom("SF Pro Display", size: 13))
-                        .foregroundColor(Color("CaptionWarningForegroundColor"))
-                        .padding(.leading,3)
-                        .padding(.bottom,1)
-                    Text("\(NSLocalizedString("accountMessage", comment: "")) \(Text(NSLocalizedString("accountTip", comment: "")).fontWeight(.bold).foregroundColor(Color("CaptionWarningForegroundColor")))")
-                        .multilineTextAlignment(.center)
-                        .font(.custom("SF Pro Display", size: 13))
-                        .foregroundColor(Color("captionMessageColor"))
-                        .padding(.leading,3)
-                }
-                Spacer()
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("CaptionWarningBackgroundCardColor")))
-            .shadow(radius: 6)
-            
             Spacer()
             Button(action: {
                 UserNotificationService.shared.deleteNotificationWith(uids: [scheduledNotification.uid])
