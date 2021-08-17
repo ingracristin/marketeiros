@@ -11,6 +11,8 @@ struct BottomSheet : View {
     @Binding var offset : CGFloat
     @Binding var date : Date
     @Binding var notifications: [Int: [ScheduledNotification]]
+    @State var isPostDetailsPresented = false
+    @State var selectedPost: ScheduledNotification = ScheduledNotification(uid: "", title: "", description: "", boardUid: "", boardTitle: "", date: .init(), imagePath: "")
     var value : CGFloat
     
     var body: some View {
@@ -58,6 +60,10 @@ struct BottomSheet : View {
                         }
                         ForEach(notifications[index]!, id:\.uid) { notification in
                             BottonSheetListCell(notification: notification)
+                                .onTapGesture {
+                                    selectedPost = notification
+                                    isPostDetailsPresented.toggle()
+                                }
                         }
                     }
                 })
@@ -66,6 +72,9 @@ struct BottomSheet : View {
             })
         }
         .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.appDarkBlue)))
+        .sheet(isPresented: $isPostDetailsPresented) {
+            ScheduledPostDetails(scheduledNotification: $selectedPost)
+        }
     }
 }
 

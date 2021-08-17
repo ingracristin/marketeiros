@@ -62,6 +62,7 @@
 		AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5DD26976CE60093AF7C /* CreatePasteView.swift */; };
 		AE3EB5E226976D090093AF7C /* DeviceDataPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5E126976D090093AF7C /* DeviceDataPersistenceService.swift */; };
 		AE3EB5E4269770860093AF7C /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5E3269770860093AF7C /* AuthenticationView.swift */; };
+		AE562EEC26CC0DC600B49226 /* ScheduledPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */; };
 		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
 		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
 		AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */; };
@@ -178,6 +179,7 @@
 		AE3EB5DD26976CE60093AF7C /* CreatePasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasteView.swift; sourceTree = "<group>"; };
 		AE3EB5E126976D090093AF7C /* DeviceDataPersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDataPersistenceService.swift; sourceTree = "<group>"; };
 		AE3EB5E3269770860093AF7C /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledPostDetails.swift; sourceTree = "<group>"; };
 		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
 		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		AE5B70532678EDFC00AFF32E /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				AE3A8370267998540016F435 /* BottonSheet.swift */,
 				AE647215267B942E009E5789 /* BottonSheetListCell.swift */,
 				AE37BC2F2683BA4400258D8B /* AddNewEventView.swift */,
+				AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -889,6 +892,7 @@
 				AED6CF7426897CE400870BB2 /* UserProfileRepository.swift in Sources */,
 				AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */,
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
+				AE562EEC26CC0DC600B49226 /* ScheduledPostDetails.swift in Sources */,
 				AE3EB5C426976C7E0093AF7C /* HalfModalView.swift in Sources */,
 				AE37BC302683BA4400258D8B /* AddNewEventView.swift in Sources */,
 				795E180726BC3CC400EEE63B /* ErrorMessage.swift in Sources */,
