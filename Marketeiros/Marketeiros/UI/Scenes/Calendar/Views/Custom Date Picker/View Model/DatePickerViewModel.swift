@@ -13,7 +13,7 @@ class AppDatePickerViewModel: NSObject, ObservableObject {
     @Published var title = ""
     @Published var dayInFocus = Date()
     let dayNames = Calendar.current.shortWeekdaySymbols
-    private var selectedDates: Binding<[Date]>!
+    var selectedDates: Binding<[Date]>!
     var selectedDay: Binding<Date>?
     private var numDays = 0
     
@@ -87,7 +87,7 @@ class AppDatePickerViewModel: NSObject, ObservableObject {
 }
 
 extension AppDatePickerViewModel {
-    private func buildDays() {
+    func buildDays() {
         let calendar = Calendar.current
         let year = calendar.component(.year, from: controlDate)
         let month = calendar.component(.month, from: controlDate)

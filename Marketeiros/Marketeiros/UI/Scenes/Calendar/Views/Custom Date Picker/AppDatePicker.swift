@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct AppDatePicker: View {
-    @ObservedObject var monthModel: AppDatePickerViewModel
+    @StateObject var monthModel: AppDatePickerViewModel
+    @Binding var days: [Date]
     
     init(anyDays: Binding<[Date]>,
          selectedDay: Binding<Date>,
          minDate: Date? = nil,
          maxDate: Date? = nil
     ) {
-        _monthModel = ObservedObject(wrappedValue: AppDatePickerViewModel(anyDays: anyDays, selectedDay: selectedDay))
+        _monthModel = StateObject(wrappedValue: AppDatePickerViewModel(anyDays: anyDays, selectedDay: selectedDay))
+        _days = anyDays
     }
     
     var body: some View {
         MonthView()
             .environmentObject(monthModel)
+            .onChange(of: days) { _ in
+                monthModel.buildDays()
+            }
     }
 }
 
