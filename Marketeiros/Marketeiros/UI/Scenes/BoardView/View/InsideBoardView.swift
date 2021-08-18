@@ -1,4 +1,4 @@
-//
+
 //  InsideBoardView.swift
 //  Marketeiros
 //
@@ -44,44 +44,52 @@ struct InsideBoardView: View {
             }
             
             VStack(spacing: 20) {
-                HStack(){
+                HStack(alignment: .center, spacing: 20){
                     Button(action: {
                         selectedIndex = 0
                     }, label: {
-                        Text("Grid")
-                            .font(.system(size: 20))
+                        Text("  Grid  ") //maracutaia - ajustar
+                            .font(Font.custom("cocon-bold",size: 18))
+                            .bold()
                             .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                     .background((selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                     .cornerRadius(13)
-                    .frame(width: (reader.size.width/3) - 40)
+                    //.frame(width: (reader.size.width/3) - 40)
                     Spacer()
                     Button(action: {
                         selectedIndex = 1
                     }, label: {
-                        Text(NSLocalizedString("ideas", comment: ""))
-                            .font(.system(size: 20))
+                        Text("Calendar")
+                            .font(Font.custom("cocon-bold",size: 18))
+                            .bold()
                             .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                     .background((selectedIndex == 1) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                     .cornerRadius(13)
-                    .frame(width: (reader.size.width/3) - 40)
-//                    Spacer()
-//                    Button(action: {
-//                        selectedIndex = 2
-//                    }, label: {
-//                        Text("Mood")
-//                            .font(.system(size: 20))
-//                            .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
-//                    })
-//                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-//                    .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
-//                    .cornerRadius(13)
-//                    .frame(width: (reader.size.width/3) - 40)
+                    //.frame(width: (reader.size.width/3) - 40)
+                    Spacer()
+                    Button(action: {
+                      selectedIndex = 2
+                        
+                    }, label: {
+                        
+                        Text(NSLocalizedString("Ideação", comment: ""))
+                            
+                            .font(Font.custom("cocon-bold",size: 18))
+                            .bold()
+                            .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
+                    })
+                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                    .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                    .cornerRadius(13)
+                    //.frame(width: (reader.size.width/3) - 40)
+                    
                    
                 }.padding(.bottom,0)
+                .padding(.horizontal)
                 .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 if viewModel.posts.count == 1 {
                     NavigationLink(destination: EmptyView()) {
@@ -153,10 +161,12 @@ struct InsideBoardView: View {
                         }
                     }
                 } else if (selectedIndex == 1) {
-                    IdeaView(viewModel: .init(board: viewModel.board))
-                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                    CalendarPageView()
+                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+
                 } else if (selectedIndex == 2) {
-                    MoodBoardView()
+                    IdeaView(viewModel: .init(board: viewModel.board)).padding(.horizontal,20)
+                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 }
             }
             .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
@@ -168,7 +178,7 @@ struct InsideBoardView: View {
                 viewModel.setErrorAlertIsShowing(true)
             }))
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
-            .padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
+            //.padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
             .onAppear {
                 viewModel.getAllPosts()
             }

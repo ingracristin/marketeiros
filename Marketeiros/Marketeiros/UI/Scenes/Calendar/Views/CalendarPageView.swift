@@ -41,40 +41,13 @@ struct CalendarPageView: View {
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
-            Image("calendarBackgroundImage")
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.09)
-                .ignoresSafeArea()
+            
             
             VStack(spacing:0) {
-                HStack(alignment: .lastTextBaseline,spacing:0) {
-                    Spacer()
-                    Button(action: {
-                        
-                    }) {
-                        Image(systemName: "slider.horizontal.3")
-                            .frame(height: 40)
-                            .foregroundColor(Color(UIColor.appDarkGrey))
-                            .isHidden(true)
-                    }
-                }.padding(.bottom,0)
-                    
-                HStack {
-                    Text(NSLocalizedString("calendar", comment: ""))
-                        .navBarTitle()
-                    Spacer()
-                    
-//                    AppButtonView(
-//                        label: NSLocalizedString("creatEventBtn", comment: "")) {
-//                        isShowing.toggle()
-//                    }
-                }
-                .padding(.bottom,8)
+
                 
                 AppDatePicker(anyDays: $scheduledDates, selectedDay: $date)
             }
-            .padding(.horizontal)
             
             GeometryReader { reader in
                 VStack {
@@ -121,7 +94,6 @@ struct CalendarPageView: View {
                 }
             }
         }
-        .navigationBarHidden(true)
         .sheet(isPresented: $isShowing, content: {
             AddNewEventView()
         })
