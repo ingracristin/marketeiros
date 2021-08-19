@@ -153,6 +153,9 @@
 "accountMessage" = "Antes de postar,";
 "accountTip" = "verifique se está conectado à conta em que realmente deseja fazer sua publicação.";
 "publishOnFeed" = "Publicar no feed";
+"hey" = "Ei!";
+"calendarPostScheduled" = "Seu post está agendado.";
+"calendarPostDetailsBox" = "Mas se quiser postar agora, lembre-se que a sua legenda será copiada para a área de transferência e que basta você colá-la no Instagram e verificar se está conectado à sua conta certa.";
 
 //loadings
 "loadingPhotos" = "Carregando fotos...";

@@ -30,6 +30,22 @@ struct ScheduledPostDetails: View {
             }
             .padding(.bottom)
             
+            HStack {
+                Spacer()
+                VStack {
+                    Text("\(NSLocalizedString("hey", comment: "")) \(Text(NSLocalizedString("calendarPostScheduled", comment: "")).fontWeight(.bold).foregroundColor(Color("CaptionWarningForegroundColor"))) \(NSLocalizedString("calendarPostDetailsBox", comment: ""))")
+                        .multilineTextAlignment(.center)
+                        .font(.custom("SF Pro Display", size: 13))
+                        .foregroundColor(Color("captionMessageColor"))
+                        .padding(.leading,3)
+                }
+                Spacer()
+                    
+            }
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("CaptionWarningBackgroundCardColor")))
+            .shadow(radius: 6)
+            
             Spacer()
             Button(action: {
                 UserNotificationService.shared.deleteNotificationWith(uids: [scheduledNotification.uid])
