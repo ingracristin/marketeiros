@@ -31,7 +31,7 @@ struct InsideBoardView: View {
     
     var body: some View {
         GeometryReader() { reader in
-            let cellWidth: CGFloat = (reader.size.width - 50) / 3
+            let cellWidth: CGFloat = (reader.size.width) / 3
                         
             let layout = [
                 GridItem(.fixed(cellWidth), spacing: 1),
