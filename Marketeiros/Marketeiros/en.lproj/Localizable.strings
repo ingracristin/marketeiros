@@ -149,6 +149,9 @@
 "accountMessage" = "Before posting,";
 "accountTip" = "make sure you are signed in to the account you want to post to.";
 "publishOnFeed" = "Publish on Feed";
+"hey" = "Hey!";
+"calendarPostScheduled" = "Your post is scheduled.";
+"calendarPostDetailsBox" = "But if you want to post now, remember that your caption will be copied to the clipboard and you just need to paste it to Instagram and make sure you're signed in to your right account.";
 
 //loadings
 
