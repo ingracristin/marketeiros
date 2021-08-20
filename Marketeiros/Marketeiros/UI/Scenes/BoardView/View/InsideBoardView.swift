@@ -18,15 +18,9 @@ struct InsideBoardView: View {
     @State var postsCount = 0
     var firstPhoto = true
     
-    
     init(board: Board, changesCallback: @escaping (Board) -> ()) {
-        UIToolbar.appearance().barTintColor = UIColor.init(Color("ToolBarColor"))
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-        
         _viewModel = StateObject(wrappedValue: InsideBoardViewModel(board: board,changesCallback: changesCallback))
         vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "")
-
     }
     
     var body: some View {
@@ -44,20 +38,22 @@ struct InsideBoardView: View {
             }
             
             VStack(spacing: 20) {
-                HStack(alignment: .center, spacing: 20){
-                    Button(action: {
-                        selectedIndex = 0
-                    }, label: {
-                        Text("  Grid  ") //maracutaia - ajustar
-                            .font(Font.custom("cocon-bold",size: 18))
-                            .bold()
-                            .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
-                    })
-                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                    .background((selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
-                    .cornerRadius(13)
-                    //.frame(width: (reader.size.width/3) - 40)
-                    Spacer()
+                ZStack {
+                    HStack {
+                        Button(action: {
+                            selectedIndex = 0
+                        }, label: {
+                            Text("Grid")
+                                .font(Font.custom("cocon-bold",size: 18))
+                                .bold()
+                                .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
+                                .fixedSize(horizontal: false, vertical: true)
+                        })
+                        .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                        .background((selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                        .cornerRadius(13)
+                        Spacer()
+                    }
                     Button(action: {
                         selectedIndex = 1
                     }, label: {
@@ -65,30 +61,28 @@ struct InsideBoardView: View {
                             .font(Font.custom("cocon-bold",size: 18))
                             .bold()
                             .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
+                            .fixedSize(horizontal: false, vertical: true)
                     })
                     .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
                     .background((selectedIndex == 1) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                     .cornerRadius(13)
-                    //.frame(width: (reader.size.width/3) - 40)
-                    Spacer()
-                    Button(action: {
-                      selectedIndex = 2
-                        
-                    }, label: {
-                        
-                        Text(NSLocalizedString("Ideação", comment: ""))
-                            
-                            .font(Font.custom("cocon-bold",size: 18))
-                            .bold()
-                            .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
-                    })
-                    .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                    .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
-                    .cornerRadius(13)
-                    //.frame(width: (reader.size.width/3) - 40)
-                    
-                   
-                }.padding(.bottom,0)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                          selectedIndex = 2
+                        }, label: {
+                            Text(NSLocalizedString("Ideação", comment: ""))
+                                .font(Font.custom("cocon-bold",size: 18))
+                                .bold()
+                                .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
+                                .fixedSize(horizontal: false, vertical: true)
+                        })
+                        .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
+                        .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                        .cornerRadius(13)
+                    }
+                }
+                .padding(.bottom,0)
                 .padding(.horizontal)
                 .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 if viewModel.posts.count == 1 {
@@ -178,7 +172,6 @@ struct InsideBoardView: View {
                 viewModel.setErrorAlertIsShowing(true)
             }))
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
-            //.padding(.init(top: 15, leading: 20, bottom: 0, trailing: 20))
             .onAppear {
                 viewModel.getAllPosts()
             }

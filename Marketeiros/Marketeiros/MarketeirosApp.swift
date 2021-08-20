@@ -52,7 +52,11 @@ extension MarketeirosApp {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().clipsToBounds = true
         UITabBar.appearance().isTranslucent = false
-        
+        // Toolbar
+        UIToolbar.appearance().barTintColor = UIColor.init(Color("ToolBarColor"))
+        // Segment controll
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         // textView
         UITextView.appearance().backgroundColor = .clear
     }
