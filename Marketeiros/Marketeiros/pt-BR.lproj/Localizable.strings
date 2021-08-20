@@ -50,6 +50,7 @@
 "creatEventBtn" = "criar evento";
 "eventWeek" = "Eventos da semana";
 "of" = "de";
+"emptyScheduledPosts" = "Ainda não há posts agendados\npara essa semana.";
 
 //NewEvent Sheet
 "addBtn" = "Adicionar";

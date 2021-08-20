@@ -49,27 +49,34 @@ struct BottomSheet : View {
                     .padding(.trailing,20)
                 }
             }
-            ScrollView(.vertical, showsIndicators: false, content: {
-                LazyVStack(alignment: .leading, spacing: 15, content: {
-                    ForEach(notifications.keys.sorted(), id:\.self) { index in
-                        HStack {
-                            Spacer()
-                            Text(Calendar.current.getDescriptionOf(date: notifications[index]!.first!.date))
-                                .foregroundColor(.white)
-                            Spacer()
+            if notifications.isEmpty {
+                EmptyScheduledPostsCard()
+                    .padding()
+                    //.padding(.top,30)
+                Spacer()
+            } else {
+                ScrollView(.vertical, showsIndicators: false, content: {
+                    LazyVStack(alignment: .leading, spacing: 15, content: {
+                        ForEach(notifications.keys.sorted(), id:\.self) { index in
+                            HStack {
+                                Spacer()
+                                Text(Calendar.current.getDescriptionOf(date: notifications[index]!.first!.date))
+                                    .foregroundColor(.white)
+                                Spacer()
+                            }
+                            ForEach(notifications[index]!, id:\.uid) { notification in
+                                BottonSheetListCell(notification: notification)
+                                    .onTapGesture {
+                                        selectedPost = notification
+                                        isPostDetailsPresented.toggle()
+                                    }
+                            }
                         }
-                        ForEach(notifications[index]!, id:\.uid) { notification in
-                            BottonSheetListCell(notification: notification)
-                                .onTapGesture {
-                                    selectedPost = notification
-                                    isPostDetailsPresented.toggle()
-                                }
-                        }
-                    }
+                    })
+                    //.padding(.vertical)
+                    .padding(.horizontal,25)
                 })
-                .padding(.vertical)
-                .padding(.horizontal,25)
-            })
+            }
         }
         .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.appDarkBlue)))
         .sheet(isPresented: $isPostDetailsPresented) {
