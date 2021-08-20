@@ -38,6 +38,21 @@ struct InsideBoardView: View {
             }
             
             VStack(spacing: 20) {
+                HStack(){
+                    Text("@arrobaPessoa")
+                        .font(Font.custom("cocon-bold",size: 24))
+                        .bold()
+                        .foregroundColor(Color("NavBarTitle"))
+                    Spacer()
+                    Image("perfil")
+                        .resizable()
+                        .frame(width: 42, height: 42)
+                    
+                    
+                }.padding(.horizontal, 20)
+                .padding(.bottom,0)
+                
+                Spacer()
                 ZStack {
                     HStack {
                         Button(action: {
@@ -163,11 +178,7 @@ struct InsideBoardView: View {
                     .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 }
             }
-            .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
-                EditBoardView(board: viewModel.board) { board in
-                    viewModel.change(board: board)
-                }
-            })
+           
             .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
                 viewModel.setErrorAlertIsShowing(true)
             }))
