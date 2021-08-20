@@ -11,6 +11,7 @@
 "username" = "Nome de usuário";
 "password" = "Digite sua senha";
 "logIn" = "Entrar";
+"onlyPass" = "Senha";
 
 //Create AccountView
 "name" = "Nome";
@@ -50,6 +51,7 @@
 "creatEventBtn" = "criar evento";
 "eventWeek" = "Eventos da semana";
 "of" = "de";
+"emptyScheduledPosts" = "Ainda não há posts agendados\npara essa semana.";
 
 //NewEvent Sheet
 "addBtn" = "Adicionar";
@@ -189,6 +191,11 @@
 
 "missing" = "Você precisa nomear e inserir uma capa ao quadro";
 
+"conpass" = "Confirmar senha";
+"passconfirmation" = "Confirmar senha";
+
 "missingTitleAndImage" = "Você precisa nomear e definir uma imagem para o quadro!";
 "missingTitle" = "Você precisa nomear seu quadro!";
 "missingImage" = "Você precisa definir uma imagem para o quadro!";
+
+

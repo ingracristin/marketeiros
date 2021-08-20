@@ -11,6 +11,7 @@
 "username" = "Username";
 "password" = "Password";
 "logIn" = "Log In";
+"onlyPass" = "Password";
 
 //Create AccountView
 "name" = "Name";
@@ -50,6 +51,7 @@
 "creatEventBtn" = "Create Event";
 "eventWeek" = "Events of the week";
 "of" = "of";
+"emptyScheduledPosts" = "There are no posts scheduled\nfor this week yet.";
 
 //NewEvent Sheet
 "addBtn" = "Add";
@@ -184,7 +186,11 @@
 "newFolder" = "New Folder";
 "logOut" = "Sign Out";
 
+"passconfirmation" = "Confirm password";
+"conpass" = "Confirm password";
+
 "missingTitleAndImage" = "You need to name and set an image to the board!";
 "missingTitle" = "You need to name your board!";
 "missingImage" = "You need to set an image to the board!";
+
 
