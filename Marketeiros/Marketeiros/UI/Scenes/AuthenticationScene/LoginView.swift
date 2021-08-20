@@ -16,19 +16,27 @@ struct LoginView: View {
     
     var body: some View {
         VStack(spacing: 20){
-            VStack{
-                TextField(NSLocalizedString("email", comment: ""),text: viewModel.bindings.loginEmail)
+            VStack(alignment: .leading){
+                Text("E-mail")
+                    .font(.title3)
+                    .foregroundColor(Color("UnselectedButton"))
+                
+                TextField("",text: viewModel.bindings.loginEmail)
                     .autocapitalization(.none)
                     .keyboardType(.emailAddress)
                     .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: UIScreen.main.bounds.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
-                    .cornerRadius(18)
-                SecureField(NSLocalizedString("password", comment: ""),text: viewModel.bindings.loginPassword)
+                    .cornerRadius(8)
+                    
+                Text(NSLocalizedString("onlyPass", comment: ""))
+                    .font(.title3)
+                    .foregroundColor(Color("UnselectedButton"))
+                SecureField("",text: viewModel.bindings.loginPassword)
                     .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: UIScreen.main.bounds.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
-                    .cornerRadius(18)
+                    .cornerRadius(8)
             }.padding(.horizontal,20)
             
             Spacer().frame(height: 60)

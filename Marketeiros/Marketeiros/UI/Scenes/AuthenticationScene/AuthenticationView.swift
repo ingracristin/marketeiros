@@ -62,9 +62,17 @@ struct AuthenticationView: View {
                             print("Authorisation failed: \(error.localizedDescription)")
                         }
                     }
+//                    SingInWithAppleButton()
+//
+//                        .frame(width: UIScreen.main.bounds.size.width * 0.8826, height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+
                     .signInWithAppleButtonStyle(colorScheme == .dark ? .black : .whiteOutline)
                     .border(colorScheme == .dark ? Color.white : Color.black.opacity(0))
+                    .cornerRadius(colorScheme == .dark ? 8 : 0)
+
+
                     .frame(width: UIScreen.main.bounds.size.width * 0.8826, height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
                     HStack{
                         Capsule()
                             .fill(Color.gray.opacity(0.5))
@@ -112,6 +120,7 @@ struct AuthenticationView: View {
             }
         }
     }
+    
 }
 
 struct AuthenticationView_Previews: PreviewProvider {

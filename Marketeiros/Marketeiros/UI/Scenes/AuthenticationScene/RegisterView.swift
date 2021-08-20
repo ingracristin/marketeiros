@@ -15,36 +15,46 @@ struct RegisterView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            VStack{
-                TextField(NSLocalizedString("name", comment: ""),text: viewModel.bindings.name)
+            VStack(alignment: .leading){
+                Text(NSLocalizedString("name", comment: ""))
+                    .font(.title3)
+                    .foregroundColor(Color("UnselectedButton"))
+                    
+                TextField("",text: viewModel.bindings.name)
                     .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: UIScreen.main.bounds.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
-                    .cornerRadius(18)
-                TextField(NSLocalizedString("username", comment: ""),text: viewModel.bindings.username)
-                    .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color("TextField"))
-                    .cornerRadius(18)
+                    .cornerRadius(8)
                 
-                TextField(NSLocalizedString("typeEmail", comment: ""),text: viewModel.bindings.email)
+                Text("E-mail")
+                    .font(.title3)
+                    .foregroundColor(Color("UnselectedButton"))
+                
+                
+                TextField("",text: viewModel.bindings.email)
                     .keyboardType(.emailAddress)
                     .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: .center)
+                    .frame(height: UIScreen.main.bounds.size.height * 0.0566, alignment: .center)
                     .background(Color("TextField"))
-                    .cornerRadius(18)
+                    .cornerRadius(8)
                 
-                SecureField(NSLocalizedString("typePass", comment: ""),text: viewModel.bindings.password)
+                Text(NSLocalizedString("onlyPass", comment: ""))
+                    .font(.title3)
+                    .foregroundColor(Color("UnselectedButton"))
+                SecureField("",text: viewModel.bindings.password)
                     .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: UIScreen.main.bounds.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
-                    .cornerRadius(18)
+                    .cornerRadius(8)
                 
-                SecureField(NSLocalizedString("typePassAgain", comment: ""),text: viewModel.bindings.confirmPassword)
+                Text(NSLocalizedString("passconfirmation", comment: ""))
+                    .font(.title3)
+                    .foregroundColor(Color("UnselectedButton"))
+                SecureField("",text: viewModel.bindings.confirmPassword)
                     .padding(20)
-                    .frame(height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(height: UIScreen.main.bounds.size.height * 0.0566, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color("TextField"))
-                    .cornerRadius(18)
+                    .cornerRadius(8)
             }.padding(.horizontal,20)
         
             Text(NSLocalizedString("termsCreate", comment: ""))
