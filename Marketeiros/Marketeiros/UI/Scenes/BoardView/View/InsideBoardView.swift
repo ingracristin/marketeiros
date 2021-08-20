@@ -38,6 +38,21 @@ struct InsideBoardView: View {
             }
             
             VStack(spacing: 20) {
+                HStack(){
+                    Text("@arrobaPessoa")
+                        .font(Font.custom("cocon-bold",size: 24))
+                        .bold()
+                        .foregroundColor(Color("NavBarTitle"))
+                    Spacer()
+                    Image("perfil")
+                        .resizable()
+                        .frame(width: 42, height: 42)
+                    
+                    
+                }.padding(.horizontal, 20)
+                .padding(.bottom,0)
+                
+                Spacer()
                 ZStack {
                     HStack {
                         Button(action: {
@@ -159,7 +174,7 @@ struct InsideBoardView: View {
                         .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
                 } else if (selectedIndex == 2) {
-                    IdeaView(viewModel: .init(board: viewModel.board)).padding(.horizontal,20)
+                    IdeaView(viewModel: .init(board: viewModel.board))
                     .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 }
             }
@@ -168,9 +183,9 @@ struct InsideBoardView: View {
                     viewModel.change(board: board)
                 }
             })
-            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
-                viewModel.setErrorAlertIsShowing(true)
-            }))
+//            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
+//                viewModel.setErrorAlertIsShowing(true)
+//            }))
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
             .onAppear {
                 viewModel.getAllPosts()
