@@ -174,14 +174,18 @@ struct InsideBoardView: View {
                         .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
                 } else if (selectedIndex == 2) {
-                    IdeaView(viewModel: .init(board: viewModel.board)).padding(.horizontal,20)
+                    IdeaView(viewModel: .init(board: viewModel.board))
                     .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 }
             }
-           
-            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
-                viewModel.setErrorAlertIsShowing(true)
-            }))
+            .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
+                EditBoardView(board: viewModel.board) { board in
+                    viewModel.change(board: board)
+                }
+            })
+//            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
+//                viewModel.setErrorAlertIsShowing(true)
+//            }))
             .navigationBarTitle(viewModel.board.title, displayMode: .inline)
             .onAppear {
                 viewModel.getAllPosts()
