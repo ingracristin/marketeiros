@@ -198,4 +198,8 @@
 "missingTitle" = "Você precisa nomear seu quadro!";
 "missingImage" = "Você precisa definir uma imagem para o quadro!";
 
+"addProfile" = "Adicionar perfil";
+
+"profileName" = "Profile Name";
+"linkInsta" = "Link to Instagram";
 

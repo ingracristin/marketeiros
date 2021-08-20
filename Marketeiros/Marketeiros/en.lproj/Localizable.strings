@@ -193,4 +193,7 @@
 "missingTitle" = "You need to name your board!";
 "missingImage" = "You need to set an image to the board!";
 
+"addProfile" = "Add profile";
 
+"profileName" = "Nome do perfil";
+"linkInsta" = "Vincular ao Instagram";
