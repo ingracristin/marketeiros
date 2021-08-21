@@ -13,7 +13,7 @@ struct AuthenticationWrapperView: View {
     var body: some View {
         VStack {
             if viewModel.states.isLoggedIn {
-                TabBarScene()
+               TabBarScene()
             } else  {
                 AuthenticationView(viewModel: viewModel)
             }

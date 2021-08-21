@@ -80,7 +80,7 @@ struct BoardView: View {
                         LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 5, pinnedViews: [], content: {
                             ForEach(viewModel.boards, id: \.uid) { board in
                                 NavigationLink(
-                                    destination: InsideBoardView(board: board, changesCallback: {b in
+                                    destination: InsideBoardView(changesCallback: {b in
                                         hasChanges.toggle()
                                         //viewModel.change(board: board)
                                     }),

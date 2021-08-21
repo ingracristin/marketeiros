@@ -11,15 +11,14 @@ import UniformTypeIdentifiers
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: InsideBoardViewModel
-    @ObservedObject var vm: ViewModel
+    @ObservedObject var vm = ViewModel()
     @State var selectedIndex = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
     var firstPhoto = true
     
-    init(board: Board, changesCallback: @escaping (Board) -> ()) {
-        _viewModel = StateObject(wrappedValue: InsideBoardViewModel(board: board,changesCallback: changesCallback))
-        vm = ViewModel(igUser: (board.instagramAccount.count > 1) ? board.instagramAccount : "")
+    init(changesCallback: @escaping (Board) -> ()) {
+        _viewModel = StateObject(wrappedValue: InsideBoardViewModel(changesCallback: changesCallback))
     }
     
     var body: some View {
@@ -153,7 +152,7 @@ struct InsideBoardView: View {
                             }
                         }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                         
-                        TestWebView(vm: vm)
+                        TestWebView(igUser: viewModel.bindings.igAccount, vm: vm)
                             .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                      }
                     //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
@@ -192,15 +191,15 @@ struct InsideBoardView: View {
 //            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
 //                viewModel.setErrorAlertIsShowing(true)
 //            }))
-            .navigationBarTitle(viewModel.board.title, displayMode: .inline)
+            .navigationBarHidden(true)
             .onAppear {
-                viewModel.getAllPosts()
+                viewModel.loadUserData()
             }
             .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
                 Alert(title: Text(viewModel.states.errorMessage), primaryButton: .default(Text(NSLocalizedString("yes", comment: "")), action: {
-                    viewModel.deleteBoard { _ in
-                        presentationMode.wrappedValue.dismiss()
-                    }
+//                    viewModel.deleteBoard { _ in
+//                        presentationMode.wrappedValue.dismiss()
+//                    }
                 }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
             })
         }
@@ -210,7 +209,7 @@ struct InsideBoardView: View {
 struct InsideBoardView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            InsideBoardView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), changesCallback: {b in})
+            InsideBoardView(changesCallback: {b in})
         }
     }
 }

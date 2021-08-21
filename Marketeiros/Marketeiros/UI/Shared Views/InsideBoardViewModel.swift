@@ -11,7 +11,18 @@ import SwiftUI
 class InsideBoardViewModel: ObservableObject {
     @Published var posts = [Post]()
     @Published private(set) var states = States()
-    @Published var board: Board
+    @Published private(set) var board: Board = Board.init(
+        uid: "",
+        imagePath: "",
+        title: "Plani Board",
+        description: "",
+        instagramAccount: "",
+        ownerUid: "",
+        colaboratorsUids: [],
+        postsGridUid: "",
+        ideasGridUid: "",
+        moodGridUid: "")
+    @Published private(set) var boards = [Board]()
     var changesCallback: (Board) -> ()
     
     var screenNavTitle: String {
@@ -26,6 +37,7 @@ class InsideBoardViewModel: ObservableObject {
         var errorAlertIsShowing = false
         var errorMessage = ""
         var isLoading = false
+        var igAccount = ""
     }
     
     var bindings: (
@@ -34,7 +46,8 @@ class InsideBoardViewModel: ObservableObject {
         editBoardIsShowing: Binding<Bool>,
         errorAlertIsShowing: Binding<Bool>,
         errorMessage: Binding<String>,
-        isLoading: Binding<Bool>)
+        isLoading: Binding<Bool>,
+        igAccount: Binding<String>)
      {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
@@ -53,11 +66,13 @@ class InsideBoardViewModel: ObservableObject {
             set: {self.states.errorMessage = $0}),
         isLoading: Binding(
             get: {self.states.isLoading},
-            set: {self.states.isLoading = $0})
+            set: {self.states.isLoading = $0}),
+        igAccount: Binding(
+            get: {self.states.igAccount},
+            set: {self.states.igAccount = $0})
     )}
     
-    init(board: Board, changesCallback: @escaping (Board) -> ()) {
-        self.board = board
+    init(changesCallback: @escaping (Board) -> ()) {
         self.changesCallback = changesCallback
     }
     
@@ -79,13 +94,77 @@ class InsideBoardViewModel: ObservableObject {
         states.errorAlertIsShowing = value
     }
     
-    func getAllPosts() {
+    func loadUserData() {
         self.states.isLoading.toggle()
+        getAllBoards()
+    }
+    
+    func getAllBoards() {
+        guard let user = AuthService.current.user else {
+            self.states.isLoading.toggle()
+            self.states.errorAlertIsShowing.toggle()
+            self.states.errorMessage = "No user Logged In"
+            return
+        }
+        //let user = User(uid: "2F361KHcKpNBMLuqLT2CLrtnp3k1", email: "dasda", name: "dasda")
+        
+        let currentBoard = LocalRepository.shared.getCurrentBoard()
+        
+        BoardsRepository.current.getAllBoards(of: user) { [weak self] result in
+            switch result {
+            case.failure(let message):
+                if let self = self {
+                    self.states.isLoading.toggle()
+                    self.states.errorAlertIsShowing.toggle()
+                    self.states.errorMessage = message.localizedDescription
+                    self.board = Board.init(
+                        uid: "",
+                        imagePath: "",
+                        title: "Plani Board",
+                        description: "",
+                        instagramAccount: "",
+                        ownerUid: user.uid,
+                        colaboratorsUids: [],
+                        postsGridUid: "",
+                        ideasGridUid: "",
+                        moodGridUid: "")
+                    LocalRepository.shared.saveCurrent(board: self.board)
+                }
+            case .success(let boardsList):
+                if let self = self {
+                    if currentBoard != nil {
+                        self.board = currentBoard!
+                    } else {
+                        self.board = boardsList.first ?? Board.init(
+                            uid: "",
+                            imagePath: "",
+                            title: "Plani Board",
+                            description: "",
+                            instagramAccount: "",
+                            ownerUid: user.uid,
+                            colaboratorsUids: [],
+                            postsGridUid: "",
+                            ideasGridUid: "",
+                            moodGridUid: "")
+                        LocalRepository.shared.saveCurrent(board: self.board)
+                    }
+                    self.boards = boardsList
+                    self.getAllPosts()
+                }
+            }
+            self?.states.igAccount = self?.board.instagramAccount ?? ""
+        }
+    }
+    
+    func getAllPosts() {
+        //self.states.isLoading.toggle()
         BoardsRepository.current.getAllItens(of: board, on: .posts,ofItemType: Post.self) { result in
             self.states.isLoading.toggle()
             switch result {
             case .failure(let message):
-                print(message)
+                self.states.isLoading.toggle()
+                self.states.errorAlertIsShowing.toggle()
+                self.states.errorMessage = message.localizedDescription
             case .success(let postsList):
                 self.posts = postsList
             }

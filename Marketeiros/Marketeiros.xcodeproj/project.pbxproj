@@ -402,7 +402,6 @@
 		AE3079F726D0B6470081948E /* Unused Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AEFFA800269025E800A86786 /* MainTabBar */,
 				AE3EB5DC26976CE60093AF7C /* CreatePasteScene */,
 				AEC80ED9269C488D0091F229 /* EditPaste */,
 				AE3EB5C526976CBC0093AF7C /* PasteDetails */,
@@ -555,6 +554,7 @@
 				AED6CF7F26897EA700870BB2 /* Authentication Scene */,
 				AE3079F326D088070081948E /* Main View */,
 				AEB7B6A926BD15C800850114 /* Confirm Shared Post */,
+				AEFFA800269025E800A86786 /* MainTabBar */,
 				AE3079F726D0B6470081948E /* Unused Scenes */,
 			);
 			path = Scenes;

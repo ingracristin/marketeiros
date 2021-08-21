@@ -10,11 +10,6 @@ import Foundation
 
 class ViewModel : ObservableObject {
     @Published var imagesUrls : [ImageUrl] = []
-    let igUser: String
-    
-    init(igUser: String) {
-        self.igUser = igUser
-    }
 }
 struct ImageUrl {
     var id = UUID()

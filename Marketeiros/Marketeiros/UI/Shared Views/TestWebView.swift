@@ -12,18 +12,18 @@ import HTMLKit
 
 struct TestWebView: UIViewRepresentable {
     let coordinator = Coordinator()
-    let urlString: String
+    //let urlString: String
     var viewModel: ViewModel
+    @Binding var igUser: String
     
-    init(vm : ViewModel) {
+    init(igUser: Binding<String>, vm : ViewModel) {
         self.coordinator.viewModel = vm
         self.viewModel = vm
-        self.urlString = "https://www.instagram.com/\(vm.igUser)/"
-        print(urlString)
+        self._igUser = igUser
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {
-        var viewModel : ViewModel!
+        var viewModel = ViewModel()
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             webView.evaluateJavaScript("document.body.innerHTML") { result, error in
@@ -61,6 +61,7 @@ struct TestWebView: UIViewRepresentable {
     }
 
     func makeUIView(context: UIViewRepresentableContext<TestWebView>) -> WKWebView {
+        let urlString = "https://www.instagram.com/\(igUser)/"
         let prefs = WKPreferences()
         prefs.javaScriptEnabled = true
         let config = WKWebViewConfiguration()
