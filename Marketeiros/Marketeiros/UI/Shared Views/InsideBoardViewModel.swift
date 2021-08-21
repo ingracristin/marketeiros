@@ -14,12 +14,18 @@ class InsideBoardViewModel: ObservableObject {
     @Published var board: Board
     var changesCallback: (Board) -> ()
     
+    var screenNavTitle: String {
+        let title = self.board.instagramAccount.removeCharactersContained(in: "@")
+        return (title.isEmpty) ? "@username" : "@\(title)"
+    }
+    
     struct States {
         var selectedIndex = 0
         var editBoardIsShowing = false
         var addPostScreenShowing = false
         var errorAlertIsShowing = false
         var errorMessage = ""
+        var isLoading = false
     }
     
     var bindings: (
@@ -27,7 +33,8 @@ class InsideBoardViewModel: ObservableObject {
         addPostScreenShowing: Binding<Bool>,
         editBoardIsShowing: Binding<Bool>,
         errorAlertIsShowing: Binding<Bool>,
-        errorMessage: Binding<String>)
+        errorMessage: Binding<String>,
+        isLoading: Binding<Bool>)
      {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
@@ -43,7 +50,10 @@ class InsideBoardViewModel: ObservableObject {
             set: {self.states.errorAlertIsShowing = $0}),
         errorMessage: Binding(
             get: {self.states.errorMessage},
-            set: {self.states.errorMessage = $0})
+            set: {self.states.errorMessage = $0}),
+        isLoading: Binding(
+            get: {self.states.isLoading},
+            set: {self.states.isLoading = $0})
     )}
     
     init(board: Board, changesCallback: @escaping (Board) -> ()) {
@@ -70,7 +80,9 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func getAllPosts() {
+        self.states.isLoading.toggle()
         BoardsRepository.current.getAllItens(of: board, on: .posts,ofItemType: Post.self) { result in
+            self.states.isLoading.toggle()
             switch result {
             case .failure(let message):
                 print(message)

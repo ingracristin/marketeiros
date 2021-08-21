@@ -164,7 +164,7 @@ class AuthenticationViewModel: ObservableObject {
                     var  board = Board.init(
                         uid: "",
                         imagePath: "",
-                        title: "Planni Board",
+                        title: "Plani Board",
                         description: "",
                         instagramAccount: "",
                         ownerUid: user.uid,
@@ -179,6 +179,7 @@ class AuthenticationViewModel: ObservableObject {
                             self?.states.existError.toggle()
                             self?.states.errorText = error.localizedDescription
                         case .success(_):
+                            LocalRepository.shared.saveCurrent(board: board)
                             if let self = self {
                                 self.states.isLoggedIn.toggle()
                             }

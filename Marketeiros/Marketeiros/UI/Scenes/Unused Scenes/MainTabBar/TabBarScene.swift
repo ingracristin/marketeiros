@@ -15,14 +15,14 @@ struct TabBarScene: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(
-                    destination:
-                        SharePostView(scheduledNotification: UserNotificationService.shared.bindings.scheduledNotification)
-                        .navigationBarHidden(true),
-                    isActive: UserNotificationService.shared.bindings.hasNotification,
-                    label: {
-                        EmptyView()
-                    })
+//                NavigationLink(
+//                    destination:
+//                        SharePostView(scheduledNotification: UserNotificationService.shared.bindings.scheduledNotification)
+//                        .navigationBarHidden(true),
+//                    isActive: UserNotificationService.shared.bindings.hasNotification,
+//                    label: {
+//                        EmptyView()
+//                    })
                 TabView(selection: $tabSelection){
                     BoardView()
                     .tabItem {
@@ -46,7 +46,7 @@ struct TabBarScene: View {
                         .tag(2)
                         .accentColor(Color("tabBarItem"))
                         .navigationBarHidden(true)
-                }.accentColor(Color(UIColor.appLightBlue))
+                } .accentColor(Color(UIColor.appLightBlue))
                 .onChange(of: tabSelection, perform: { value in
                     switch tabSelection{
                     case 0:

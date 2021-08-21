@@ -15,7 +15,6 @@ struct InsideBoardView: View {
     @State var selectedIndex = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
-    @State var postsCount = 0
     var firstPhoto = true
     
     init(board: Board, changesCallback: @escaping (Board) -> ()) {
@@ -37,9 +36,18 @@ struct InsideBoardView: View {
                 EmptyView()
             }
             
-            VStack(spacing: 20) {
+            NavigationLink(
+                destination:
+                    SharePostView(scheduledNotification: UserNotificationService.shared.bindings.scheduledNotification)
+                    .navigationBarHidden(true),
+                isActive: UserNotificationService.shared.bindings.hasNotification,
+                label: {
+                    EmptyView()
+                })
+            
+            VStack(spacing: 10) {
                 HStack(){
-                    Text("@arrobaPessoa")
+                    Text(viewModel.screenNavTitle)
                         .font(Font.custom("cocon-bold",size: 24))
                         .bold()
                         .foregroundColor(Color("NavBarTitle"))
@@ -47,9 +55,8 @@ struct InsideBoardView: View {
                     Image("perfil")
                         .resizable()
                         .frame(width: 42, height: 42)
-                    
-                    
-                }.padding(.horizontal, 20)
+                }
+                .padding(.horizontal, 20)
                 .padding(.bottom,0)
                 
                 Spacer()
@@ -100,12 +107,11 @@ struct InsideBoardView: View {
                 .padding(.bottom,0)
                 .padding(.horizontal)
                 .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
-                if viewModel.posts.count == 1 {
-                    NavigationLink(destination: EmptyView()) {
-                        EmptyView()
-                    }
+                
+                NavigationLink(destination: EmptyView()) {
+                    EmptyView()
                 }
-
+            
                 if (selectedIndex == 0) {
                     ScrollView(){
                         LazyVGrid(columns: layout, spacing: 1) {
@@ -171,11 +177,11 @@ struct InsideBoardView: View {
                     }
                 } else if (selectedIndex == 1) {
                     CalendarPageView()
-                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                       // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
                 } else if (selectedIndex == 2) {
                     IdeaView(viewModel: .init(board: viewModel.board))
-                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                   // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                 }
             }
             .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {

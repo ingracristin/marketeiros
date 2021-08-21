@@ -14,7 +14,7 @@ struct CalendarPageView: View {
     @State var allNotifications = [ScheduledNotification]()
     @State var weekNotifications = [Int:[ScheduledNotification]]()
     @State var scheduledDates = [Date]()
-    let aux : CGFloat = UIScreen.main.bounds.height * 0.35
+    let aux : CGFloat = UIScreen.main.bounds.height * 0.32
     
     func getWeekNotifications(of date: Date) -> [Int:[ScheduledNotification]] {
         var ntf: [Int:[ScheduledNotification]] = [:]
@@ -29,7 +29,6 @@ struct CalendarPageView: View {
                 ntf[index] = [weekNotification]
             }
         }
-    
         return ntf
     }
     
@@ -41,11 +40,7 @@ struct CalendarPageView: View {
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
-            
-            
             VStack(spacing:0) {
-
-                
                 AppDatePicker(anyDays: $scheduledDates, selectedDay: $date)
             }
             

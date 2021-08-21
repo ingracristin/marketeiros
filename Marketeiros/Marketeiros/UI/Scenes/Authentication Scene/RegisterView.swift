@@ -30,7 +30,6 @@ struct RegisterView: View {
                     .font(.title3)
                     .foregroundColor(Color("UnselectedButton"))
                 
-                
                 TextField("",text: viewModel.bindings.email)
                     .keyboardType(.emailAddress)
                     .padding(20)
