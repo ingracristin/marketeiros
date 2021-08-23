@@ -285,17 +285,9 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				795AB137267A30A3006308B5 /* BoardView.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
-				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
 				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
-				EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */,
-				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
-				EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */,
 				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
-				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
-				EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */,
-				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
 				AEE1B9DD26A7BF9600BC45FA /* PostsGridCellView.swift */,
 			);
 			path = View;
@@ -309,6 +301,21 @@
 				AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		AE03463D26D32CA800FC103C /* Boards */ = {
+			isa = PBXGroup;
+			children = (
+				795AB137267A30A3006308B5 /* BoardView.swift */,
+				EF2D04FA2693491000B9D7E5 /* MoodBoardItemDetailsView.swift */,
+				EF2D04F52693446D00B9D7E5 /* PinterestGrid.swift */,
+				EF2D050526935FF200B9D7E5 /* MoodBoardView.swift */,
+				EF2D05012693566100B9D7E5 /* MoodHalfModalView.swift */,
+				795AB13D267B8D37006308B5 /* IdeaCell.swift */,
+				EF2D04F22693446700B9D7E5 /* MoodBoardGridView.swift */,
+				795AB13B267A3CCB006308B5 /* BoardCell.swift */,
+			);
+			path = Boards;
 			sourceTree = "<group>";
 		};
 		AE119B5B268EC06B00327D39 /* Post Details */ = {
@@ -360,14 +367,14 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		AE3079F326D088070081948E /* Main View */ = {
+		AE3079F326D088070081948E /* Main Scene */ = {
 			isa = PBXGroup;
 			children = (
 				AE3079F426D088300081948E /* Account Scene */,
 				AE3079F526D088420081948E /* Calendar Scene */,
 				AE3079F626D0884D0081948E /* Ideas Scene */,
 			);
-			path = "Main View";
+			path = "Main Scene";
 			sourceTree = "<group>";
 		};
 		AE3079F426D088300081948E /* Account Scene */ = {
@@ -402,6 +409,7 @@
 		AE3079F726D0B6470081948E /* Unused Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AE03463D26D32CA800FC103C /* Boards */,
 				AE3EB5DC26976CE60093AF7C /* CreatePasteScene */,
 				AEC80ED9269C488D0091F229 /* EditPaste */,
 				AE3EB5C526976CBC0093AF7C /* PasteDetails */,
@@ -552,7 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				AED6CF7F26897EA700870BB2 /* Authentication Scene */,
-				AE3079F326D088070081948E /* Main View */,
+				AE3079F326D088070081948E /* Main Scene */,
 				AEB7B6A926BD15C800850114 /* Confirm Shared Post */,
 				AEFFA800269025E800A86786 /* MainTabBar */,
 				AE3079F726D0B6470081948E /* Unused Scenes */,
