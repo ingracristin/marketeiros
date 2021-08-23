@@ -59,17 +59,32 @@ struct IdeaView: View {
         //                                    .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
                                             
                                         }
-                                        .padding(.horizontal, 50)
+                                        .padding(.horizontal, 40)
                                         .padding(.vertical, 60)
                                         .background(Color("IdeaViewColor"))
                                         .cornerRadius(22)
                                         .shadow(radius: 6, x: 2, y: 4)
                                         
                                     })
+                               
                                 Spacer()
                             }
+                            
+                            Text("Você ainda não           possui cartões de ideias")
+                                .font(Font.custom("cocon-bold",size: 24))
+                                .bold()
+                                //.fixedSize(horizontal: false, vertical: true)
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal,50)
+                                .foregroundColor(Color("NavBarTitle"))
+                                .padding(.top,10)
+                            Text("Crie um clicando em ''Nova ideia''")
+                                .foregroundColor(Color("NavBarTitle"))
+                            Spacer()
                             Spacer()
                         }
+                        
                         
                     }else{
                         ScrollView(showsIndicators: false) {
