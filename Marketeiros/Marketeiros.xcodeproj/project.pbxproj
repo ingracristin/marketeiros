@@ -13,6 +13,7 @@
 		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
 		7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
+		794E0D3E26D5426D00EE14E2 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
@@ -131,6 +132,7 @@
 		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMissingInformation.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
+		794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileView.swift; path = ../../../../../../../../../AddProfileView.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
 				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
@@ -954,6 +957,7 @@
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				AE247DE726AB12AC0059CBEB /* DatePickerViewModel.swift in Sources */,
+				794E0D3E26D5426D00EE14E2 /* AddProfileView.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
 				AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */,
 				AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */,
