@@ -22,16 +22,40 @@ struct IdeaView: View {
                 Image("BgIdea")
                     .resizable()
                     .frame(width: UIScreen.main.bounds.size.width)
+                    .aspectRatio(contentMode: .fit)
             }
             
            
             GeometryReader { reader in
                 VStack(alignment: .leading) {
-                    Text(NSLocalizedString("ideaCard", comment: ""))
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("NavBarTitle"))
-                        .padding(.horizontal, 20)
+                    HStack(){
+                        Text(NSLocalizedString("ideaCard", comment: ""))
+                            .font(.system(size: 24))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("NavBarTitle"))
+                            .padding(.horizontal, 20)
+                        Spacer()
+                        Menu {
+                            Button {
+                               // inserir as categorias aqui (TAGS)
+                            } label: {
+                                Label(NSLocalizedString("edit", comment: ""), systemImage: "square.and.pencil")
+                            }
+                            
+                        } label: {
+                            Image(systemName: "slider.horizontal.3")
+                                .resizable()
+                                .frame(width: 22, height: 22)
+                                .foregroundColor(Color("NavBarTitle"))
+                                .padding()
+ 
+                                
+                                
+                        }
+                        
+                    }
+                    
+                    
                     if(viewModel.states.ideas.isEmpty){
                         VStack(){
                             Spacer()
@@ -41,9 +65,6 @@ struct IdeaView: View {
                                     destination: CreateIdeaSceneView(board: viewModel.board, pastes: viewModel.states.pastes, completion: nil),
                                     label: {
                                         ZStack {
-    //                                        Rectangle()
-    //                                            .foregroundColor(Color("IdeaViewColor"))
-    //                                            .cornerRadius(22)
                                             VStack(spacing: 5) {
                                                 Image(systemName: "sparkles.rectangle.stack.fill")
                                                     .resizable()
@@ -70,7 +91,7 @@ struct IdeaView: View {
                                 Spacer()
                             }
                             
-                            Text("Você ainda não           possui cartões de ideias")
+                            Text("Você ainda não possui ideias anotadas")
                                 .font(Font.custom("cocon-bold",size: 24))
                                 .bold()
                                 //.fixedSize(horizontal: false, vertical: true)
