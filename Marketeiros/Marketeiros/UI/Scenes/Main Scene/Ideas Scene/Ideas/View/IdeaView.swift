@@ -91,7 +91,7 @@ struct IdeaView: View {
                                 Spacer()
                             }
                             
-                            Text("Você ainda não possui ideias anotadas")
+                            Text("Você ainda não\n possui ideias anotadas")
                                 .font(Font.custom("cocon-bold",size: 24))
                                 .bold()
                                 //.fixedSize(horizontal: false, vertical: true)
