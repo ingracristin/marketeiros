@@ -34,19 +34,19 @@
       "scale" : "3x"
     },
     {
-      "filename" : "OnboardingImg2.png",
+      "filename" : "OnboardImg2.png",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "1x"
     },
     {
-      "filename" : "OnboardingImg2@2x.png",
+      "filename" : "OnboardImg2@2x.png",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "2x"
     },
     {
-      "filename" : "OnboardingImg2@3x.png",
+      "filename" : "OnboardImg2@3x.png",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "3x"

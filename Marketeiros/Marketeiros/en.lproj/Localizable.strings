@@ -197,3 +197,12 @@
 
 "profileName" = "Nome do perfil";
 "linkInsta" = "Vincular ao Instagram";
+
+//onboarding
+"planOnboard" = "Plan your next posts";
+"scheduleOnboard" = "Schedule your posts";
+"adminOnboard" = "Manage mutiple profiles";
+
+"nextBtn" = "Next";
+"letsGo" = "Let's go!";
+"skip" = "Skip";

@@ -203,3 +203,11 @@
 "profileName" = "Profile Name";
 "linkInsta" = "Link to Instagram";
 
+//onboarding
+"planOnboard" = "Planeje seus próximos posts";
+"scheduleOnboard" = "Agende suas publicações";
+"adminOnboard" = "Administre múltiplos perfis";
+
+"nextBtn" = "Próximo";
+"letsGo" = "Vamos lá!";
+"skip" = "Pular";
