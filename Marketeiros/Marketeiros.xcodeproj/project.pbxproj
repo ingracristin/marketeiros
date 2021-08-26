@@ -13,7 +13,6 @@
 		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
 		7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
-		794E0D3E26D5426D00EE14E2 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
@@ -117,6 +116,7 @@
 		EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */; };
 		EF8646C126974BAC0037DAB1 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8646C026974BAC0037DAB1 /* HelpView.swift */; };
 		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
+		EFAB077026D7D64E004CDFF1 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB076F26D7D64E004CDFF1 /* AddProfileView.swift */; };
 		EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E52695DBFB00D16D0D /* ProfileView.swift */; };
 		EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */; };
 		EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910EC2695F88400D16D0D /* AboutView.swift */; };
@@ -132,7 +132,6 @@
 		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMissingInformation.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
-		794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileView.swift; path = ../../../../../../../../../AddProfileView.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
@@ -240,6 +239,7 @@
 		EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUIView.swift; sourceTree = "<group>"; };
 		EF8646C026974BAC0037DAB1 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
+		EFAB076F26D7D64E004CDFF1 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileView.swift; path = ../../../../../../../../../../AddProfileView.swift; sourceTree = "<group>"; };
 		EFF910E52695DBFB00D16D0D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailsView.swift; sourceTree = "<group>"; };
 		EFF910EC2695F88400D16D0D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */,
+				EFAB076F26D7D64E004CDFF1 /* AddProfileView.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
 				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
@@ -957,7 +957,6 @@
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
 				AE247DE726AB12AC0059CBEB /* DatePickerViewModel.swift in Sources */,
-				794E0D3E26D5426D00EE14E2 /* AddProfileView.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
 				AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */,
 				AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */,
@@ -977,6 +976,7 @@
 				AE3EB5D326976CDC0093AF7C /* IdeaViewModel.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
+				EFAB077026D7D64E004CDFF1 /* AddProfileView.swift in Sources */,
 				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,
 				AE5D32262695481F002BD62F /* SignUpViewModel.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
