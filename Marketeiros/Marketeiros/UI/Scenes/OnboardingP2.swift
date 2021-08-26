@@ -14,6 +14,8 @@ struct OnboardingP2: View {
         return text.split(separator: " ", maxSplits: 1).map(String.init)
     }
     
+    @Binding var selection: Int
+    
     var body: some View {
         Color(#colorLiteral(red: 0.9798260331, green: 0.9811581969, blue: 0.9283676147, alpha: 1))
             .ignoresSafeArea()
@@ -25,7 +27,7 @@ struct OnboardingP2: View {
                             .resizable()
                             .ignoresSafeArea()
                             .frame(height: UIScreen.main.bounds.size.height * 0.6711)
-                        Spacer()
+                        
                         Group{
                             Text(stringSplit[0] + " ")
                                 .font(Font.custom("cocon-bold",size: 24))
@@ -38,7 +40,12 @@ struct OnboardingP2: View {
                         }.frame(width:200)
                         .multilineTextAlignment(.center)
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {
+                            withAnimation{
+                                self.selection += 1
+                            }
+                            
+                        }, label: {
                             Text(NSLocalizedString("nextBtn", comment: ""))
                                 .font(Font.custom("cocon-bold",size: 16))
                                 .fontWeight(.regular)
@@ -48,15 +55,15 @@ struct OnboardingP2: View {
                         .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
                         .cornerRadius(20)
                         
-                        Spacer()
+                        Spacer().frame(height:UIScreen.main.bounds.size.height * 0.0338)
                     }
                    
             )
     }
 }
 
-struct OnboardingP2_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingP2()
-    }
-}
+//struct OnboardingP2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnboardingP2(selection: <#Binding<Int>#>)
+//    }
+//}
