@@ -211,3 +211,5 @@
 "nextBtn" = "Próximo";
 "letsGo" = "Vamos lá!";
 "skip" = "Pular";
+
+"error6char" = "A senha precisa conter no mínimo 6 caracteres.";

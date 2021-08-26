@@ -13,7 +13,8 @@
 		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
 		7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
-		794E0D3E26D5426D00EE14E2 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */; };
+		793F903E26D7E8AC00436B44 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793F903D26D7E8AC00436B44 /* AddProfileView.swift */; };
+		793F904026D7EA7A00436B44 /* Error6charecterPasswd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */; };
 		794E0D4126D6761E00EE14E2 /* OnboardingP1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4026D6761E00EE14E2 /* OnboardingP1.swift */; };
 		794E0D4326D698B500EE14E2 /* OnboardingP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4226D698B500EE14E2 /* OnboardingP2.swift */; };
 		794E0D4526D69B7D00EE14E2 /* OnboardingP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4426D69B7D00EE14E2 /* OnboardingP3.swift */; };
@@ -121,7 +122,6 @@
 		EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */; };
 		EF8646C126974BAC0037DAB1 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8646C026974BAC0037DAB1 /* HelpView.swift */; };
 		EFA0B9012684E037009545B2 /* NotificationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0B9002684E037009545B2 /* NotificationsUIView.swift */; };
-		EFAB077026D7D64E004CDFF1 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB076F26D7D64E004CDFF1 /* AddProfileView.swift */; };
 		EFF910E62695DBFB00D16D0D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E52695DBFB00D16D0D /* ProfileView.swift */; };
 		EFF910EA2695EDF300D16D0D /* NotificationsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */; };
 		EFF910ED2695F88400D16D0D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF910EC2695F88400D16D0D /* AboutView.swift */; };
@@ -137,7 +137,8 @@
 		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMissingInformation.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
-		794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileView.swift; path = ../../../../../../../../../AddProfileView.swift; sourceTree = "<group>"; };
+		793F903D26D7E8AC00436B44 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfileView.swift; sourceTree = "<group>"; };
+		793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error6charecterPasswd.swift; sourceTree = "<group>"; };
 		794E0D4026D6761E00EE14E2 /* OnboardingP1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingP1.swift; sourceTree = "<group>"; };
 		794E0D4226D698B500EE14E2 /* OnboardingP2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingP2.swift; sourceTree = "<group>"; };
 		794E0D4426D69B7D00EE14E2 /* OnboardingP3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingP3.swift; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		EF745779268A1A4F004A6C60 /* CreatePostUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUIView.swift; sourceTree = "<group>"; };
 		EF8646C026974BAC0037DAB1 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		EFA0B9002684E037009545B2 /* NotificationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUIView.swift; sourceTree = "<group>"; };
-		EFAB076F26D7D64E004CDFF1 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileView.swift; path = ../../../../../../../../../../AddProfileView.swift; sourceTree = "<group>"; };
 		EFF910E52695DBFB00D16D0D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDetailsView.swift; sourceTree = "<group>"; };
 		EFF910EC2695F88400D16D0D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EFAB076F26D7D64E004CDFF1 /* AddProfileView.swift */,
+				793F903D26D7E8AC00436B44 /* AddProfileView.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
 				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
@@ -464,6 +464,7 @@
 				795E180226BC253900EEE63B /* LoadingPhotosView.swift */,
 				795E180426BC3B5D00EEE63B /* LoadingPost.swift */,
 				7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */,
+				793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -969,6 +970,7 @@
 				AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */,
 				AED48460269D88FB00890E91 /* EditBoardView.swift in Sources */,
 				AED6CF7426897CE400870BB2 /* UserProfileRepository.swift in Sources */,
+				793F903E26D7E8AC00436B44 /* AddProfileView.swift in Sources */,
 				AED6CF7E26897E2300870BB2 /* AuthService.swift in Sources */,
 				AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */,
 				AE562EEC26CC0DC600B49226 /* ScheduledPostDetails.swift in Sources */,
@@ -1000,7 +1002,6 @@
 				AE3EB5D326976CDC0093AF7C /* IdeaViewModel.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
-				EFAB077026D7D64E004CDFF1 /* AddProfileView.swift in Sources */,
 				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,
 				AE5D32262695481F002BD62F /* SignUpViewModel.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
@@ -1060,6 +1061,7 @@
 				AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
 				AE3079F926D0BA7C0081948E /* LocalRepository.swift in Sources */,
+				793F904026D7EA7A00436B44 /* Error6charecterPasswd.swift in Sources */,
 				AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */,
 				EF8646C126974BAC0037DAB1 /* HelpView.swift in Sources */,
 				AEFFA7FF2690243C00A86786 /* CalendarPageViewModel.swift in Sources */,
