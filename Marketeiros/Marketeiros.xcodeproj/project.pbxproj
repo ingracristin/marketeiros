@@ -13,6 +13,11 @@
 		79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79098F92268E189B0033B758 /* UIImageExtension.swift */; };
 		7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */; };
 		792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */; };
+		794E0D3E26D5426D00EE14E2 /* AddProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */; };
+		794E0D4126D6761E00EE14E2 /* OnboardingP1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4026D6761E00EE14E2 /* OnboardingP1.swift */; };
+		794E0D4326D698B500EE14E2 /* OnboardingP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4226D698B500EE14E2 /* OnboardingP2.swift */; };
+		794E0D4526D69B7D00EE14E2 /* OnboardingP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4426D69B7D00EE14E2 /* OnboardingP3.swift */; };
+		794E0D4726D7CEB100EE14E2 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E0D4626D7CEB100EE14E2 /* OnboardingPageView.swift */; };
 		795AB138267A30A3006308B5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB137267A30A3006308B5 /* BoardView.swift */; };
 		795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13B267A3CCB006308B5 /* BoardCell.swift */; };
 		795AB13E267B8D37006308B5 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795AB13D267B8D37006308B5 /* IdeaCell.swift */; };
@@ -132,6 +137,11 @@
 		79098F92268E189B0033B758 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMissingInformation.swift; sourceTree = "<group>"; };
 		792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBoardSheet.swift; sourceTree = "<group>"; };
+		794E0D3D26D5426D00EE14E2 /* AddProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileView.swift; path = ../../../../../../../../../AddProfileView.swift; sourceTree = "<group>"; };
+		794E0D4026D6761E00EE14E2 /* OnboardingP1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingP1.swift; sourceTree = "<group>"; };
+		794E0D4226D698B500EE14E2 /* OnboardingP2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingP2.swift; sourceTree = "<group>"; };
+		794E0D4426D69B7D00EE14E2 /* OnboardingP3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingP3.swift; sourceTree = "<group>"; };
+		794E0D4626D7CEB100EE14E2 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		795AB137267A30A3006308B5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		795AB13B267A3CCB006308B5 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		795AB13D267B8D37006308B5 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
@@ -273,6 +283,17 @@
 				973B31595F71E5ED16B930A4 /* Pods-Marketeiros.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		794E0D3F26D6759C00EE14E2 /* Onboarding Scene */ = {
+			isa = PBXGroup;
+			children = (
+				794E0D4026D6761E00EE14E2 /* OnboardingP1.swift */,
+				794E0D4226D698B500EE14E2 /* OnboardingP2.swift */,
+				794E0D4426D69B7D00EE14E2 /* OnboardingP3.swift */,
+				794E0D4626D7CEB100EE14E2 /* OnboardingPageView.swift */,
+			);
+			name = "Onboarding Scene";
 			sourceTree = "<group>";
 		};
 		795AB134267A3078006308B5 /* Board */ = {
@@ -563,6 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				AED6CF7F26897EA700870BB2 /* Authentication Scene */,
+				794E0D3F26D6759C00EE14E2 /* Onboarding Scene */,
 				AE3079F326D088070081948E /* Main Scene */,
 				AEB7B6A926BD15C800850114 /* Confirm Shared Post */,
 				AEFFA800269025E800A86786 /* MainTabBar */,
@@ -956,6 +978,8 @@
 				AE247DE226AB12AC0059CBEB /* DayOfMonth.swift in Sources */,
 				EF74577A268A1A4F004A6C60 /* CreatePostUIView.swift in Sources */,
 				AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */,
+				794E0D4726D7CEB100EE14E2 /* OnboardingPageView.swift in Sources */,
+				794E0D4126D6761E00EE14E2 /* OnboardingP1.swift in Sources */,
 				AE247DE726AB12AC0059CBEB /* DatePickerViewModel.swift in Sources */,
 				79AC0D3E2689FFCB00064670 /* InsideBoardView.swift in Sources */,
 				AED48463269D893900890E91 /* EditBoardViewModel.swift in Sources */,
@@ -980,6 +1004,8 @@
 				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,
 				AE5D32262695481F002BD62F /* SignUpViewModel.swift in Sources */,
 				AE37BC332683BA9C00258D8B /* AsyncImage.swift in Sources */,
+				794E0D4326D698B500EE14E2 /* OnboardingP2.swift in Sources */,
+				794E0D4526D69B7D00EE14E2 /* OnboardingP3.swift in Sources */,
 				AE247DEB26AB13870059CBEB /* StringExtension.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
@@ -1197,7 +1223,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1206,7 +1232,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1225,7 +1251,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = MHP7RSV892;
+				DEVELOPMENT_TEAM = R5H255ZF9U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1234,7 +1260,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
