@@ -80,6 +80,10 @@
 		AE647214267B93F5009E5789 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647213267B93F5009E5789 /* TextViewExtension.swift */; };
 		AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE647215267B942E009E5789 /* BottonSheetListCell.swift */; };
 		AE66B15026B77176007518AC /* BoardMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66B14F26B77176007518AC /* BoardMenuButton.swift */; };
+		AE6C8BA826D88ED7003D2940 /* TestProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */; };
+		AE6C8BA926D88ED7003D2940 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */; };
+		AE6C8BAA26D88ED7003D2940 /* ProfileListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */; };
+		AE6C8BAB26D88ED7003D2940 /* ProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6C8BA726D88ED7003D2940 /* ProfileSheet.swift */; };
 		AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE799667268E778F00AD80F4 /* ImagesRepository.swift */; };
 		AE8A5206268B7D9E00E14EBD /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */; };
 		AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5207268B834000E14EBD /* ViewExtension.swift */; };
@@ -206,6 +210,10 @@
 		AE647213267B93F5009E5789 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		AE647215267B942E009E5789 /* BottonSheetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheetListCell.swift; sourceTree = "<group>"; };
 		AE66B14F26B77176007518AC /* BoardMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMenuButton.swift; sourceTree = "<group>"; };
+		AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestProfileSheet.swift; sourceTree = "<group>"; };
+		AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileListCellView.swift; sourceTree = "<group>"; };
+		AE6C8BA726D88ED7003D2940 /* ProfileSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSheet.swift; sourceTree = "<group>"; };
 		AE799667268E778F00AD80F4 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
 		AE8A5205268B7D9E00E14EBD /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		AE8A5207268B834000E14EBD /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -408,6 +416,7 @@
 				EF745777268A1A11004A6C60 /* Create Post */,
 				AE119B5B268EC06B00327D39 /* Post Details */,
 				AED4845E269D88E500890E91 /* Edit Board */,
+				AE6C8BA326D88ED7003D2940 /* Profile  */,
 			);
 			path = "Account Scene";
 			sourceTree = "<group>";
@@ -677,6 +686,17 @@
 				AE5D322826955BCA002BD62F /* AuthenticationViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		AE6C8BA326D88ED7003D2940 /* Profile  */ = {
+			isa = PBXGroup;
+			children = (
+				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
+				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
+				AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */,
+				AE6C8BA726D88ED7003D2940 /* ProfileSheet.swift */,
+			);
+			path = "Profile ";
 			sourceTree = "<group>";
 		};
 		AE8A5204268B7D8800E14EBD /* ViewModel */ = {
@@ -991,7 +1011,9 @@
 				EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */,
 				AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */,
 				AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */,
+				AE6C8BA926D88ED7003D2940 /* BottomSheetView.swift in Sources */,
 				AE3C43A72693F72B00013F79 /* UiColorExtension.swift in Sources */,
+				AE6C8BAA26D88ED7003D2940 /* ProfileListCellView.swift in Sources */,
 				AEB7B6AD26BD15C800850114 /* SharePostView.swift in Sources */,
 				795AB13C267A3CCB006308B5 /* BoardCell.swift in Sources */,
 				AE21AA01268BDB4D00AF3797 /* BoardListViewModel.swift in Sources */,
@@ -1055,11 +1077,13 @@
 				AE3EB5E226976D090093AF7C /* DeviceDataPersistenceService.swift in Sources */,
 				79747F62269362EB004BAAC9 /* RegisterView.swift in Sources */,
 				AE3EB5CA26976CBC0093AF7C /* PastesDetailsView.swift in Sources */,
+				AE6C8BA826D88ED7003D2940 /* TestProfileSheet.swift in Sources */,
 				AED4845B269D5EEF00890E91 /* ActivityIndicator.swift in Sources */,
 				AEFFA8022690261900A86786 /* TabBarScene.swift in Sources */,
 				AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */,
 				AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
+				AE6C8BAB26D88ED7003D2940 /* ProfileSheet.swift in Sources */,
 				AE3079F926D0BA7C0081948E /* LocalRepository.swift in Sources */,
 				793F904026D7EA7A00436B44 /* Error6charecterPasswd.swift in Sources */,
 				AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */,
@@ -1225,7 +1249,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1234,7 +1258,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1253,7 +1277,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Marketeiros/Preview Content\"";
-				DEVELOPMENT_TEAM = R5H255ZF9U;
+				DEVELOPMENT_TEAM = MHP7RSV892;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Marketeiros/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1262,7 +1286,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiross;
+				PRODUCT_BUNDLE_IDENTIFIER = ingratope.Marketeiros;
 				PRODUCT_NAME = Plani;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

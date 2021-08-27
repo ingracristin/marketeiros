@@ -22,7 +22,7 @@ class InsideBoardViewModel: ObservableObject {
         postsGridUid: "",
         ideasGridUid: "",
         moodGridUid: "")
-    @Published private(set) var boards = [Board]()
+    //@Published private(set) var boards = [Board]()
     var changesCallback: (Board) -> ()
     
     var screenNavTitle: String {
@@ -38,6 +38,7 @@ class InsideBoardViewModel: ObservableObject {
         var errorMessage = ""
         var isLoading = false
         var igAccount = ""
+        var boards = [Board]()
     }
     
     var bindings: (
@@ -47,7 +48,8 @@ class InsideBoardViewModel: ObservableObject {
         errorAlertIsShowing: Binding<Bool>,
         errorMessage: Binding<String>,
         isLoading: Binding<Bool>,
-        igAccount: Binding<String>)
+        igAccount: Binding<String>,
+        boards: Binding<[Board]>)
      {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
@@ -69,7 +71,10 @@ class InsideBoardViewModel: ObservableObject {
             set: {self.states.isLoading = $0}),
         igAccount: Binding(
             get: {self.states.igAccount},
-            set: {self.states.igAccount = $0})
+            set: {self.states.igAccount = $0}),
+        boards: Binding(
+            get: {self.states.boards},
+            set: {self.states.boards = $0})
     )}
     
     init(changesCallback: @escaping (Board) -> ()) {
@@ -148,7 +153,7 @@ class InsideBoardViewModel: ObservableObject {
                             moodGridUid: "")
                         LocalRepository.shared.saveCurrent(board: self.board)
                     }
-                    self.boards = boardsList
+                    self.states.boards = boardsList
                     self.getAllPosts()
                 }
             }
