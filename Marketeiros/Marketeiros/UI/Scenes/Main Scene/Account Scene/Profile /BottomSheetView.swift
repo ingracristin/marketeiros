@@ -69,7 +69,7 @@ struct BottomSheetView_Previews: PreviewProvider {
         }, sheet: {
             ProfileSheet(boards: .constant(
                             [.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""),
-                            ]), okButtonCallback: {})
+                            ]), board: .constant(.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: "")), okButtonCallback: {})
         })
     }
 }

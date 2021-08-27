@@ -41,7 +41,7 @@ struct InsideBoardView: View {
                     GridItem(.fixed(cellWidth), spacing: 1),
                 ]
                 
-                NavigationLink(destination: CreatePostUIView(board: viewModel.board), isActive: viewModel.bindings.addPostScreenShowing){
+                NavigationLink(destination: CreatePostUIView(board: viewModel.states.board), isActive: viewModel.bindings.addPostScreenShowing){
                     EmptyView()
                 }
                 
@@ -128,10 +128,10 @@ struct InsideBoardView: View {
                         ScrollView(){
                             LazyVGrid(columns: layout, spacing: 1) {
                                 ForEach(viewModel.posts, id: \.uid) { post in
-                                    NavigationLink(destination: PostDetailsView(post: post,board: viewModel.board)) {
+                                    NavigationLink(destination: PostDetailsView(post: post,board: viewModel.states.board)) {
                                         PostsGridCellView(
                                             post: post,
-                                            board: viewModel.board,
+                                            board: viewModel.states.board,
                                             height: cellWidth,
                                             width: cellWidth,
                                             averageColorOn: $averageColorOn)
@@ -192,12 +192,12 @@ struct InsideBoardView: View {
                            // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
                     } else if (selectedIndex == 2) {
-                        IdeaView(viewModel: .init(board: viewModel.board))
+                        IdeaView(viewModel: .init(board: viewModel.states.board))
                        // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                     }
                 }
                 .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
-                    EditBoardView(board: viewModel.board) { board in
+                    EditBoardView(board: viewModel.states.board) { board in
                         viewModel.change(board: board)
                     }
                 })
@@ -217,7 +217,7 @@ struct InsideBoardView: View {
                 })
             }
         } sheet: {
-            ProfileSheet(boards: viewModel.bindings.boards, okButtonCallback: {toggleBottomSheet()})
+            ProfileSheet(boards: viewModel.bindings.boards, board: viewModel.bindings.board, okButtonCallback: {toggleBottomSheet()})
         }
     }
 }

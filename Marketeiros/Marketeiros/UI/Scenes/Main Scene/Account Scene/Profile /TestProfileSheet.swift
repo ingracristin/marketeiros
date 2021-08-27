@@ -29,7 +29,7 @@ struct TestProfileSheet: View {
         } sheet: {
             ProfileSheet(boards: .constant(
                             [.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""),
-                            ]), okButtonCallback: {toggleBottomSheet()}) 
+                            ]), board: .constant(.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: "")), okButtonCallback: {toggleBottomSheet()})
         }
     }
     

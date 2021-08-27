@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileSheet: View {
     @Binding var boards: [Board]
+    @Binding var board: Board
     var okButtonCallback: () -> ()
     
     var body: some View {
@@ -41,6 +42,9 @@ struct ProfileSheet: View {
                     VStack {
                         ProfileListCellView(board: board)
                             .padding()
+                            .onTapGesture {
+                                self.board = board
+                            }
                         Divider()
                     }
                 }
@@ -110,7 +114,7 @@ struct ProfileSheet_Previews: PreviewProvider {
             }
             ProfileSheet(boards: .constant(
                             [.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""),
-                            ]), okButtonCallback: {})
+                            ]), board: .constant(.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: "")), okButtonCallback: {})
                 .ignoresSafeArea()
                 //.background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).accentColor(.red))
                 .frame(height: 400)
