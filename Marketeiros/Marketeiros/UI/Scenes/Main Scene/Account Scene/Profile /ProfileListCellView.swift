@@ -9,11 +9,32 @@ import SwiftUI
 
 struct ProfileListCellView: View {
     let board: Board
+    @State var image: UIImage!
+    
+    func getImage() {
+        ImagesRepository.current.getImage(of: board) { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let image):
+                self.image = image
+            }
+        }
+    }
+    
     var body: some View {
         HStack {
-            Image("ImageTest")
-                .resizable()
-                .frame(width: 48, height:48)
+            if image == nil {
+                Circle()
+                    .foregroundColor(.gray)
+                    .frame(width: 48, height:48)
+            } else {
+                Image(uiImage: image)
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 48, height:48)
+            }
+            
             VStack(alignment: .leading) {
                 Text(board.title)
                     .font(Font.sfProDisplayMedium(sized: 18))
