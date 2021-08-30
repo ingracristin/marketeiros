@@ -1,13 +1,13 @@
 //
-//  ErrorMissingInformation.swift
+//  Error6charecterPasswd.swift
 //  Marketeiros
 //
-//  Created by João Guilherme on 11/08/21.
+//  Created by João Guilherme on 26/08/21.
 //
 
 import SwiftUI
 
-struct ErrorMissingInformation<Content>: View where Content: View {
+struct Error6charecterPasswd<Content>: View where Content: View {
     @Binding var isShowing: Bool
     var content: () -> Content
     
@@ -24,7 +24,7 @@ struct ErrorMissingInformation<Content>: View where Content: View {
                     .frame(width: UIScreen.main.bounds.size.width * 0.1466, height: UIScreen.main.bounds.size.height * 0.0527, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                 
-                Text(NSLocalizedString("missing", comment: ""))
+                Text(NSLocalizedString("error6char", comment: ""))
                     .font(.callout)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
@@ -39,9 +39,9 @@ struct ErrorMissingInformation<Content>: View where Content: View {
     }
 }
 
-struct ErrorMissingInformation_Previews: PreviewProvider {
+struct Error6charecterPasswd_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorMissingInformation(isShowing: .constant(true)) {
+        Error6charecterPasswd(isShowing: .constant(true)) {
             Text("")
         }
     }

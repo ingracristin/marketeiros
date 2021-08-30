@@ -13,6 +13,7 @@ struct OnboardingP1: View {
     var stringSplit : [String]{
         return text.split(separator: " ", maxSplits: 1).map(String.init)
     }
+    @Binding var selection: Int
     
     
     var body: some View {
@@ -25,7 +26,7 @@ struct OnboardingP1: View {
                             .resizable()
                             .edgesIgnoringSafeArea(.horizontal)
                             .frame(height: UIScreen.main.bounds.size.height * 0.6711)
-                        Spacer()
+                        
                         Group{
                             Text(stringSplit[0] + " ")
                                 .font(Font.custom("cocon-bold",size: 24))
@@ -38,7 +39,12 @@ struct OnboardingP1: View {
                         }.frame(width:200)
                         .multilineTextAlignment(.center)
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {
+                            withAnimation{
+                                self.selection += 1
+                            }
+                            
+                        }, label: {
                             Text(NSLocalizedString("nextBtn", comment: ""))
                                 .font(Font.custom("cocon-bold",size: 16))
                                 .fontWeight(.regular)
@@ -48,7 +54,7 @@ struct OnboardingP1: View {
                         .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
                         .cornerRadius(20)
                         
-                        Spacer()
+                        Spacer().frame(height:UIScreen.main.bounds.size.height * 0.0338)
                     }
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         Text(NSLocalizedString("skip", comment: ""))
@@ -64,8 +70,8 @@ struct OnboardingP1: View {
     }
 }
 
-struct OnboardingP1_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingP1()
-    }
-}
+//struct OnboardingP1_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnboardingP1(selection: <#Binding<Int>#>)
+//    }
+//}

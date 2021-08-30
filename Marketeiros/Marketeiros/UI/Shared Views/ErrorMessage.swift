@@ -20,7 +20,8 @@ struct ErrorMessage<Content>: View where Content: View {
             VStack(alignment:.center, spacing:15){
                 Image("errorImage")
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.size.width * 0.1126, height: UIScreen.main.bounds.size.height * 0.0527, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .frame(width: UIScreen.main.bounds.size.width * 0.1466, height: UIScreen.main.bounds.size.height * 0.0527, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                 
                 Text(NSLocalizedString("ops", comment: ""))

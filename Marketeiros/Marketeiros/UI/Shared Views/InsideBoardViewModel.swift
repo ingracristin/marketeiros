@@ -11,22 +11,22 @@ import SwiftUI
 class InsideBoardViewModel: ObservableObject {
     @Published var posts = [Post]()
     @Published private(set) var states = States()
-    @Published private(set) var board: Board = Board.init(
-        uid: "",
-        imagePath: "",
-        title: "Plani Board",
-        description: "",
-        instagramAccount: "",
-        ownerUid: "",
-        colaboratorsUids: [],
-        postsGridUid: "",
-        ideasGridUid: "",
-        moodGridUid: "")
-    @Published private(set) var boards = [Board]()
+//    @Published private(set) var board: Board = Board.init(
+//        uid: "",
+//        imagePath: "",
+//        title: "Plani Board",
+//        description: "",
+//        instagramAccount: "",
+//        ownerUid: "",
+//        colaboratorsUids: [],
+//        postsGridUid: "",
+//        ideasGridUid: "",
+//        moodGridUid: "")
+    //@Published private(set) var boards = [Board]()
     var changesCallback: (Board) -> ()
     
     var screenNavTitle: String {
-        let title = self.board.instagramAccount.removeCharactersContained(in: "@")
+        let title = self.states.board.instagramAccount.removeCharactersContained(in: "@")
         return (title.isEmpty) ? "@username" : "@\(title)"
     }
     
@@ -38,6 +38,18 @@ class InsideBoardViewModel: ObservableObject {
         var errorMessage = ""
         var isLoading = false
         var igAccount = ""
+        var boards = [Board]()
+        var board: Board = Board.init(
+            uid: "",
+            imagePath: "",
+            title: "Plani Board",
+            description: "",
+            instagramAccount: "",
+            ownerUid: "",
+            colaboratorsUids: [],
+            postsGridUid: "",
+            ideasGridUid: "",
+            moodGridUid: "")
     }
     
     var bindings: (
@@ -47,7 +59,9 @@ class InsideBoardViewModel: ObservableObject {
         errorAlertIsShowing: Binding<Bool>,
         errorMessage: Binding<String>,
         isLoading: Binding<Bool>,
-        igAccount: Binding<String>)
+        igAccount: Binding<String>,
+        boards: Binding<[Board]>,
+        board: Binding<Board>)
      {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
@@ -69,7 +83,16 @@ class InsideBoardViewModel: ObservableObject {
             set: {self.states.isLoading = $0}),
         igAccount: Binding(
             get: {self.states.igAccount},
-            set: {self.states.igAccount = $0})
+            set: {self.states.igAccount = $0}),
+        boards: Binding(
+            get: {self.states.boards},
+            set: {self.states.boards = $0}),
+        board: Binding(
+            get: {self.states.board},
+            set: {
+                self.states.board = $0
+                self.getAllPosts()
+            })
     )}
     
     init(changesCallback: @escaping (Board) -> ()) {
@@ -77,7 +100,7 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func change(board: Board) {
-        self.board = board
+        self.states.board = board
         changesCallback(board)
     }
     
@@ -117,7 +140,7 @@ class InsideBoardViewModel: ObservableObject {
                     self.states.isLoading.toggle()
                     self.states.errorAlertIsShowing.toggle()
                     self.states.errorMessage = message.localizedDescription
-                    self.board = Board.init(
+                    self.states.board = Board.init(
                         uid: "",
                         imagePath: "",
                         title: "Plani Board",
@@ -128,14 +151,14 @@ class InsideBoardViewModel: ObservableObject {
                         postsGridUid: "",
                         ideasGridUid: "",
                         moodGridUid: "")
-                    LocalRepository.shared.saveCurrent(board: self.board)
+                    LocalRepository.shared.saveCurrent(board: self.states.board)
                 }
             case .success(let boardsList):
                 if let self = self {
                     if currentBoard != nil {
-                        self.board = currentBoard!
+                        self.states.board = currentBoard!
                     } else {
-                        self.board = boardsList.first ?? Board.init(
+                        self.states.board = boardsList.first ?? Board.init(
                             uid: "",
                             imagePath: "",
                             title: "Plani Board",
@@ -146,19 +169,19 @@ class InsideBoardViewModel: ObservableObject {
                             postsGridUid: "",
                             ideasGridUid: "",
                             moodGridUid: "")
-                        LocalRepository.shared.saveCurrent(board: self.board)
+                        LocalRepository.shared.saveCurrent(board: self.states.board)
                     }
-                    self.boards = boardsList
+                    self.states.boards = boardsList
                     self.getAllPosts()
                 }
             }
-            self?.states.igAccount = self?.board.instagramAccount ?? ""
+            self?.states.igAccount = self?.states.board.instagramAccount ?? ""
         }
     }
     
     func getAllPosts() {
         //self.states.isLoading.toggle()
-        BoardsRepository.current.getAllItens(of: board, on: .posts,ofItemType: Post.self) { result in
+        BoardsRepository.current.getAllItens(of: self.states.board, on: .posts,ofItemType: Post.self) { result in
             self.states.isLoading.toggle()
             switch result {
             case .failure(let message):
@@ -174,7 +197,7 @@ class InsideBoardViewModel: ObservableObject {
     func deleteBoard(completion: @escaping (Bool) -> ()) {
         let uids = posts.map {$0.uid}
         UserNotificationService.shared.deleteNotificationWith(uids: uids)
-        BoardsRepository.current.delete(board: board) { result in
+        BoardsRepository.current.delete(board: self.states.board) { result in
             switch result {
             case .failure(_):
                 completion(false)
