@@ -19,6 +19,15 @@ class IdeaViewModel: ObservableObject {
     struct States {
         var pastes = [Paste]()
         var ideas = [Idea]()
+        var filteredIdeas = [Idea]()
+    }
+    
+    func filterIdeas(by query: String) {
+        states.filteredIdeas = states.ideas.filter({$0.title == query})
+    }
+    
+    func resetFilter() {
+        states.filteredIdeas = states.ideas
     }
     
     func getPastes() {
@@ -88,6 +97,7 @@ class IdeaViewModel: ObservableObject {
             case .success(let ideas):
                 if let self = self {
                     self.states.ideas = ideas
+                    self.states.filteredIdeas = ideas
                 }
             }
         }

@@ -10,7 +10,8 @@ import SwiftUI
 struct IdeaView: View {
     @StateObject var viewModel: IdeaViewModel
     @State var newPasteSheetIsShowing = false
-    @State var sort: Int = 0
+    @State var sort: String = ""
+    //@State var filteredIdeas = [Idea]()
     
     let layout = [
         GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 5),
@@ -25,8 +26,7 @@ struct IdeaView: View {
                     .frame(width: UIScreen.main.bounds.size.width)
                     .aspectRatio(contentMode: .fit)
             }
-            
-           
+        
             GeometryReader { reader in
                 VStack(alignment: .leading) {
                     HStack(){
@@ -38,9 +38,12 @@ struct IdeaView: View {
                         Spacer()
                         Menu {
                             Picker(selection: $sort, label: Text("Sorting options")) {
-                                Text("Image").tag(0)
-                                Text("Video").tag(1)
-                                Text("Tuche").tag(2)
+                                
+                                Text("Todos os cartões").tag("todos")
+                                ForEach(viewModel.states.pastes, id: \.uid) { paste in
+                                    Text(paste.title).tag(paste.title)
+                                }
+                                Text("Criar filtro").tag("criar")
                             }
                         }
                         label: {
@@ -55,19 +58,6 @@ struct IdeaView: View {
                                      .padding()
                             }
                         }
-                        
-    
-                           /* Image(systemName: "slider.horizontal.3")
-                                .resizable()
-                                .frame(width: 22, height: 22)
-                                .foregroundColor(Color("NavBarTitle"))
-                                .padding()
- */
-                                
-                                
-                        
-                        
-                    
                     }
                     
                     if(viewModel.states.ideas.isEmpty){
@@ -119,8 +109,7 @@ struct IdeaView: View {
                             Spacer()
                             Spacer()
                         }
-                        
-                        
+
                     }else{
                         ScrollView(showsIndicators: false) {
                             LazyVGrid(columns: layout, spacing: 0) {
@@ -152,7 +141,7 @@ struct IdeaView: View {
                                         .padding(.horizontal)
                                         .padding(.vertical, 10)
                                     })
-                                ForEach(viewModel.states.ideas, id: \.uid) { idea in
+                                ForEach(viewModel.states.filteredIdeas, id: \.uid) { idea in
                                     NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.states.pastes.first(where: { paste in
                                         paste.uid == idea.pasteUid
                                     }) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
@@ -185,9 +174,18 @@ struct IdeaView: View {
             .sheet(isPresented: $newPasteSheetIsShowing, content: {
                 CreatePasteView(board: viewModel.board)
             })
+            .onChange(of: sort) { _ in
+                if (sort == "criar") {
+                    sort = ""
+                    newPasteSheetIsShowing.toggle()
+                } else if(sort == "todos") {
+                    viewModel.resetFilter()
+                } else if(sort != "") {
+                    viewModel.filterIdeas(by: sort)
+                }
+            }
         }
-        }
-        
+    }
 }
 
 struct SceneView_Previews: PreviewProvider {
