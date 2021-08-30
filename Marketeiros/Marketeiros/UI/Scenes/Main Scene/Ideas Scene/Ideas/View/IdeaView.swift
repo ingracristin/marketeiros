@@ -10,6 +10,7 @@ import SwiftUI
 struct IdeaView: View {
     @StateObject var viewModel: IdeaViewModel
     @State var newPasteSheetIsShowing = false
+    @State var sort: Int = 0
     
     let layout = [
         GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 5),
@@ -36,25 +37,38 @@ struct IdeaView: View {
                             .padding(.horizontal, 20)
                         Spacer()
                         Menu {
-                            Button {
-                               // inserir as categorias aqui (TAGS)
-                            } label: {
-                                Label(NSLocalizedString("edit", comment: ""), systemImage: "square.and.pencil")
+                            Picker(selection: $sort, label: Text("Sorting options")) {
+                                Text("Image").tag(0)
+                                Text("Video").tag(1)
+                                Text("Tuche").tag(2)
                             }
-                            
-                        } label: {
-                            Image(systemName: "slider.horizontal.3")
+                        }
+                        label: {
+                            Label {
+                                Text("")
+                                    
+                            } icon: {
+                                Image(systemName: "slider.horizontal.3")
+                                     .resizable()
+                                     .frame(width: 22, height: 22)
+                                     .foregroundColor(Color("NavBarTitle"))
+                                     .padding()
+                            }
+                        }
+                        
+    
+                           /* Image(systemName: "slider.horizontal.3")
                                 .resizable()
                                 .frame(width: 22, height: 22)
                                 .foregroundColor(Color("NavBarTitle"))
                                 .padding()
- 
+ */
                                 
                                 
-                        }
                         
-                    }
+                        
                     
+                    }
                     
                     if(viewModel.states.ideas.isEmpty){
                         VStack(){
@@ -91,7 +105,7 @@ struct IdeaView: View {
                                 Spacer()
                             }
                             
-                            Text("Você ainda não\n possui ideias anotadas")
+                            Text(NSLocalizedString("noIdea", comment: ""))
                                 .font(Font.custom("cocon-bold",size: 24))
                                 .bold()
                                 //.fixedSize(horizontal: false, vertical: true)
@@ -100,7 +114,7 @@ struct IdeaView: View {
                                 .padding(.horizontal,50)
                                 .foregroundColor(Color("NavBarTitle"))
                                 .padding(.top,10)
-                            Text("Crie um clicando em ''Nova ideia''")
+                            Text(NSLocalizedString("createIdeaClik", comment: ""))
                                 .foregroundColor(Color("NavBarTitle"))
                             Spacer()
                             Spacer()
