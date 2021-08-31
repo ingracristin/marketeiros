@@ -103,7 +103,8 @@
 "ideaBtn" = "Adicionar ideia";
 "descriptionIdea" = "Qual foi sua ideia incrível de hoje?";
 "deleteIdeaNow" = "Tem certeza que deseja deletar esta ideia?";
-
+"noIdea" = "Você ainda não \n possui ideias anotadas";
+"createIdeaClik" = "Crie um clicando em ''Nova ideia''";
 
 //MoodBoard View
 "emptyMessage" = "Seu moodboard está meio vazio...";

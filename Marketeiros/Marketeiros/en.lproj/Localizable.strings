@@ -103,6 +103,8 @@
 "ideaBtn" = "Add idea";
 "descriptionIdea" = "What was your amazing idea today?";
 "deleteIdeaNow" = "Are you sure you want to delete this idea?";
+"noIdea" = "You don't \n have ideas annotated yet";
+"createIdeaClik" = "Create one by clicking on ''New idea''";
 
 
 //MoodBoard View

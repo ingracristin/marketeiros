@@ -10,6 +10,8 @@ import SwiftUI
 struct IdeaView: View {
     @StateObject var viewModel: IdeaViewModel
     @State var newPasteSheetIsShowing = false
+    @State var sort: String = ""
+    //@State var filteredIdeas = [Idea]()
     
     let layout = [
         GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 5),
@@ -24,8 +26,7 @@ struct IdeaView: View {
                     .frame(width: UIScreen.main.bounds.size.width)
                     .aspectRatio(contentMode: .fit)
             }
-            
-           
+        
             GeometryReader { reader in
                 VStack(alignment: .leading) {
                     HStack(){
@@ -36,25 +37,28 @@ struct IdeaView: View {
                             .padding(.horizontal, 20)
                         Spacer()
                         Menu {
-                            Button {
-                               // inserir as categorias aqui (TAGS)
-                            } label: {
-                                Label(NSLocalizedString("edit", comment: ""), systemImage: "square.and.pencil")
+                            Picker(selection: $sort, label: Text("Sorting options")) {
+                                
+                                Text("Todos os cartões").tag("todos")
+                                ForEach(viewModel.states.pastes, id: \.uid) { paste in
+                                    Text(paste.title).tag(paste.title)
+                                }
+                                Text("Criar filtro").tag("criar")
                             }
-                            
-                        } label: {
-                            Image(systemName: "slider.horizontal.3")
-                                .resizable()
-                                .frame(width: 22, height: 22)
-                                .foregroundColor(Color("NavBarTitle"))
-                                .padding()
- 
-                                
-                                
                         }
-                        
+                        label: {
+                            Label {
+                                Text("")
+                                    
+                            } icon: {
+                                Image(systemName: "slider.horizontal.3")
+                                     .resizable()
+                                     .frame(width: 22, height: 22)
+                                     .foregroundColor(Color("NavBarTitle"))
+                                     .padding()
+                            }
+                        }
                     }
-                    
                     
                     if(viewModel.states.ideas.isEmpty){
                         VStack(){
@@ -91,7 +95,7 @@ struct IdeaView: View {
                                 Spacer()
                             }
                             
-                            Text("Você ainda não\n possui ideias anotadas")
+                            Text(NSLocalizedString("noIdea", comment: ""))
                                 .font(Font.custom("cocon-bold",size: 24))
                                 .bold()
                                 //.fixedSize(horizontal: false, vertical: true)
@@ -100,13 +104,12 @@ struct IdeaView: View {
                                 .padding(.horizontal,50)
                                 .foregroundColor(Color("NavBarTitle"))
                                 .padding(.top,10)
-                            Text("Crie um clicando em ''Nova ideia''")
+                            Text(NSLocalizedString("createIdeaClik", comment: ""))
                                 .foregroundColor(Color("NavBarTitle"))
                             Spacer()
                             Spacer()
                         }
-                        
-                        
+
                     }else{
                         ScrollView(showsIndicators: false) {
                             LazyVGrid(columns: layout, spacing: 0) {
@@ -138,7 +141,7 @@ struct IdeaView: View {
                                         .padding(.horizontal)
                                         .padding(.vertical, 10)
                                     })
-                                ForEach(viewModel.states.ideas, id: \.uid) { idea in
+                                ForEach(viewModel.states.filteredIdeas, id: \.uid) { idea in
                                     NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.states.pastes.first(where: { paste in
                                         paste.uid == idea.pasteUid
                                     }) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
@@ -171,9 +174,18 @@ struct IdeaView: View {
             .sheet(isPresented: $newPasteSheetIsShowing, content: {
                 CreatePasteView(board: viewModel.board)
             })
+            .onChange(of: sort) { _ in
+                if (sort == "criar") {
+                    sort = ""
+                    newPasteSheetIsShowing.toggle()
+                } else if(sort == "todos") {
+                    viewModel.resetFilter()
+                } else if(sort != "") {
+                    viewModel.filterIdeas(by: sort)
+                }
+            }
         }
-        }
-        
+    }
 }
 
 struct SceneView_Previews: PreviewProvider {
