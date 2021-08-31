@@ -39,11 +39,11 @@ struct IdeaView: View {
                         Menu {
                             Picker(selection: $sort, label: Text("Sorting options")) {
                                 
-                                Text("Todos os cartões").tag("todos")
+                                Text(NSLocalizedString("allCards", comment: "")).tag("todos")
                                 ForEach(viewModel.states.pastes, id: \.uid) { paste in
                                     Text(paste.title).tag(paste.title)
                                 }
-                                Text("Criar filtro").tag("criar")
+                                Text(NSLocalizedString("createFilter", comment: "")).tag("criar")
                             }
                         }
                         label: {

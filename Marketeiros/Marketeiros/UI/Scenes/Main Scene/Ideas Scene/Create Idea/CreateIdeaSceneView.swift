@@ -24,7 +24,10 @@ struct CreateIdeaSceneView: View {
                         viewModel.togglePasteSheet()
                     }, label: {
                         HStack {
-                            Image(systemName: "folder")
+                            Image(systemName: "slider.horizontal.3")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color("NavBarTitle"))
                             Spacer()
                         }
                     }).padding(.vertical)
@@ -63,15 +66,17 @@ struct CreateIdeaSceneView: View {
                                 .foregroundColor(.red)
                         }
                         Spacer()
-                        Text(NSLocalizedString("selPaste", comment: ""))
+                        Text(NSLocalizedString("Categorizar   ", comment: "")) //trad
                             .font(Font.sfProDisplaySemiBold(sized: 18))
                             .foregroundColor(Color(UIColor.navBarTitleColor))
                         Spacer()
                         Button(action: {
                             viewModel.togglePasteSheet()
                         }) {
-                            Text(NSLocalizedString("save", comment: ""))
-                                .foregroundColor(Color(UIColor.navBarTitleColor))
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width: 18, height: 18)
+                          
                         }
                     }.padding(.bottom)
                     VStack {

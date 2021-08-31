@@ -105,6 +105,8 @@
 "deleteIdeaNow" = "Tem certeza que deseja deletar esta ideia?";
 "noIdea" = "Você ainda não \n possui ideias anotadas";
 "createIdeaClik" = "Crie um clicando em ''Nova ideia''";
+"allCards" = "Todos os cartões";
+"createFilter" = "Criar filtro";
 
 //MoodBoard View
 "emptyMessage" = "Seu moodboard está meio vazio...";
