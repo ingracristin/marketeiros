@@ -23,8 +23,8 @@ struct IdeaView: View {
             if(viewModel.states.ideas.isEmpty){
                 Image("BgIdea")
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.size.width)
-                    .aspectRatio(contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.6724)
+                    .aspectRatio(contentMode: .fill)
             }
         
             GeometryReader { reader in
@@ -39,11 +39,11 @@ struct IdeaView: View {
                         Menu {
                             Picker(selection: $sort, label: Text("Sorting options")) {
                                 
-                                Text("Todos os cartões").tag("todos")
+                                Text(NSLocalizedString("allcards", comment: "")).tag("todos")
                                 ForEach(viewModel.states.pastes, id: \.uid) { paste in
                                     Text(paste.title).tag(paste.title)
                                 }
-                                Text("Criar filtro").tag("criar")
+                                Text(NSLocalizedString("createFilter", comment: "")).tag("criar")
                             }
                         }
                         label: {
@@ -52,10 +52,10 @@ struct IdeaView: View {
                                     
                             } icon: {
                                 Image(systemName: "slider.horizontal.3")
-                                     .resizable()
-                                     .frame(width: 22, height: 22)
+                                     
+                                    .frame(width: UIScreen.main.bounds.size.height * 0.04)
                                      .foregroundColor(Color("NavBarTitle"))
-                                     .padding()
+                                    .aspectRatio(contentMode: .fit)
                             }
                         }
                     }

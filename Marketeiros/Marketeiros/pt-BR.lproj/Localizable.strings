@@ -104,7 +104,7 @@
 "descriptionIdea" = "Qual foi sua ideia incrível de hoje?";
 "deleteIdeaNow" = "Tem certeza que deseja deletar esta ideia?";
 "noIdea" = "Você ainda não \n possui ideias anotadas";
-"createIdeaClik" = "Crie um clicando em ''Nova ideia''";
+"createIdeaClik" = "Crie um clicando em ''Adiconar ideia''";
 
 //MoodBoard View
 "emptyMessage" = "Seu moodboard está meio vazio...";
@@ -214,3 +214,6 @@
 "skip" = "Pular";
 
 "error6char" = "A senha precisa conter no mínimo 6 caracteres.";
+
+"allcards" = "Todos os cartões";
+"createFilter" = "Criar filtro";
