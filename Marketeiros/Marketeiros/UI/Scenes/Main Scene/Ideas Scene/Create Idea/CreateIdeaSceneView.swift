@@ -76,7 +76,6 @@ struct CreateIdeaSceneView: View {
                             Image(systemName: "plus")
                                 .resizable()
                                 .frame(width: 18, height: 18)
-                          
                         }
                     }.padding(.bottom)
                     VStack {
@@ -85,7 +84,7 @@ struct CreateIdeaSceneView: View {
                                 Button(action: {
                                     viewModel.select(paste: paste)
                                 }) {
-                                    VStack {
+                                    /*VStack {
                                         HStack {
                                             Image(systemName: "folder")
                                             Text(paste.title)
@@ -96,7 +95,7 @@ struct CreateIdeaSceneView: View {
                                         }
                                         .foregroundColor(Color(UIColor.navBarTitleColor))
                                         Divider()
-                                    }
+                                    }*/
                                 }.padding()
                             }
                         }

@@ -26,7 +26,10 @@ struct EditIdeaView: View {
                     viewModel.togglePasteSheet()
                 }, label: {
                     HStack {
-                        Image(systemName: "folder")
+                        Image(systemName: "slider.horizontal.3")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                     }
                 }).padding(.vertical)
@@ -48,15 +51,16 @@ struct EditIdeaView: View {
                                 .foregroundColor(.red)
                         }
                         Spacer()
-                        Text(NSLocalizedString("selPaste", comment: ""))
+                        Text(NSLocalizedString("Categorizar   ", comment: "")) //trad
                             .font(Font.sfProDisplaySemiBold(sized: 18))
                             .foregroundColor(Color(UIColor.navBarTitleColor))
                         Spacer()
                         Button(action: {
                             viewModel.togglePasteSheet()
                         }) {
-                            Text(NSLocalizedString("save", comment: ""))
-                                .foregroundColor(Color(UIColor.navBarTitleColor))
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width: 18, height: 18)
                         }
                     }.padding(.bottom)
                     VStack {
@@ -65,7 +69,7 @@ struct EditIdeaView: View {
                                 viewModel.select(paste: paste)
                             }) {
                                 VStack {
-                                    HStack {
+                                    /*HStack {
                                         Image(systemName: "folder")
                                         Text(paste.title)
                                         Spacer()
@@ -74,7 +78,7 @@ struct EditIdeaView: View {
                                         }
                                     }
                                     .foregroundColor(Color(UIColor.navBarTitleColor))
-                                    Divider()
+                                    Divider()*/
                                 }
                             }.padding()
                         }
@@ -86,13 +90,13 @@ struct EditIdeaView: View {
         .navigationBarTitle(NSLocalizedString("createIdea", comment: ""), displayMode: .inline)
         .navigationBarItems(
             trailing: Menu(content: {
-                Button {
+               /* Button {
                     viewModel.updateIdea()
                     callback?(viewModel.idea)
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Label(NSLocalizedString("save", comment: ""), systemImage: "square.and.arrow.down")
-                }
+                }*/
                 Button {
                     viewModel.setErrorAlertIsShowing(true)
                 } label: {
