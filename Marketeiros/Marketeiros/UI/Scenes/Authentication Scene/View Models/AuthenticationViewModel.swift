@@ -24,6 +24,7 @@ class AuthenticationViewModel: ObservableObject {
         var isLoggedIn = false
         var existError = false
         var errorText = "Error Description"
+        var isLess6Char = false
     }
     
     @Published private(set) var states = States()
@@ -39,7 +40,8 @@ class AuthenticationViewModel: ObservableObject {
         isLoading: Binding<Bool>,
         isLoggedIn: Binding<Bool>,
         existError: Binding<Bool>,
-        errorText: Binding<String>
+        errorText: Binding<String>,
+        isLess6char: Binding<Bool>
     ) {(
         loginEmail: Binding(
             get: {self.states.loginEmail},
@@ -73,7 +75,10 @@ class AuthenticationViewModel: ObservableObject {
             set: {self.states.existError = $0}),
         errorText: Binding(
             get: {self.states.errorText},
-            set: {self.states.errorText = $0})
+            set: {self.states.errorText = $0}),
+        isLess6char: Binding(
+            get: {self.states.isLess6Char},
+            set: {self.states.isLess6Char = $0})
     )}
     
     func signIn() {
@@ -95,6 +100,15 @@ class AuthenticationViewModel: ObservableObject {
         let name = states.name
         let username = states.username
         
+        if(states.password.count < 6){
+            states.isLess6Char.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+                self.states.isLess6Char.toggle()
+            }
+            states.isLoading.toggle()
+            return
+        }
+        
         if name.isEmpty ||
            username.isEmpty ||
             states.email.isEmpty ||
@@ -113,6 +127,8 @@ class AuthenticationViewModel: ObservableObject {
             states.existError.toggle()
             return
         }
+        
+        
         
         AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self] result in
             switch result {

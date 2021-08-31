@@ -212,3 +212,6 @@
 "skip" = "Skip";
 
 "error6char" = "The password must contain at least 6 characters.";
+
+"allcards" = "All cards";
+"createFilter" = "Create Filter";
