@@ -24,7 +24,7 @@ struct BoardImageView: View {
     
     var body: some View {
         VStack(spacing:0) {
-            if !board.uid.isEmpty {
+            if !board.title.isEmpty {
                 if image == nil {
                     Circle()
                         .foregroundColor(.gray)
