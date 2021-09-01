@@ -146,6 +146,7 @@ struct IdeaView: View {
                                         paste.uid == idea.pasteUid
                                     }) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
                                         ZStack {
+                                            
                                             Rectangle()
                                                 .foregroundColor(Color("IdeaViewColor"))
                                                 .cornerRadius(22)
@@ -159,6 +160,26 @@ struct IdeaView: View {
                                             .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
                                             .background(Color("IdeaViewColor"))
                                             .cornerRadius(22)
+                                            VStack(alignment: .leading){
+                                                HStack(alignment: .firstTextBaseline){
+                                                    ZStack(alignment:.center){
+                                                        Rectangle()
+                                                            .frame(width: 60, height:  15)
+                                                            .foregroundColor(Color(#colorLiteral(red: 0.4101037265, green: 0.4512251871, blue: 0.6742333652, alpha: 0.9250261925)))
+                                                            .cornerRadius(3)
+                                                            //.shadow(radius: 6, x: 2, y: 4)
+                                                        Text(viewModel.states.pastes.first(where: { paste -> Bool in
+                                                            paste.uid == idea.pasteUid
+                                                        })?.title ?? "")
+                                                            .font(.custom("SF Pro Display", size: 8))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(.white)
+                                                    }.padding(.init(top: 15, leading: 15, bottom: 0, trailing: 5))
+                                                    Spacer()
+                                                }
+                                                Spacer()
+                                            }
+                                                
                                         }.shadow(radius: 6, x: 2, y: 4)
                                         .padding(.horizontal)
                                         .padding(.vertical, 10)
