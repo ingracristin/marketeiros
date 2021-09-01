@@ -11,19 +11,23 @@ import SwiftUI
 import HTMLKit
 
 struct TestWebView: UIViewRepresentable {
-    let coordinator = Coordinator()
-    //let urlString: String
-    var viewModel: ViewModel
     @Binding var igUser: String
+    @Binding var imagesUrls: [ImageUrl]
+    static private var account: String = ""
     
-    init(igUser: Binding<String>, vm : ViewModel) {
-        self.coordinator.viewModel = vm
-        self.viewModel = vm
+    init(igUser: Binding<String>, imagesUrls: Binding<[ImageUrl]>) {
+        self._imagesUrls = imagesUrls
         self._igUser = igUser
     }
-    
+
     class Coordinator: NSObject, WKNavigationDelegate {
-        var viewModel = ViewModel()
+        @Binding var igUser: String
+        @Binding var imagesUrls: [ImageUrl]
+        
+        init(igUser: Binding<String>, imagesUrls: Binding<[ImageUrl]>) {
+            self._imagesUrls = imagesUrls
+            self._igUser = igUser
+        }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             webView.evaluateJavaScript("document.body.innerHTML") { result, error in
@@ -39,17 +43,16 @@ struct TestWebView: UIViewRepresentable {
                     return image
                 }
                 
-                
                 if let _ = allImages.first {
                     allImages.removeFirst()
-                    UserDefaults.standard.set(allImages, forKey: "instagramUrls")
+                    UserDefaults.standard.set(allImages, forKey: "instagramUrlsFrom=\(self.igUser)")
                 }
                 
                 if allImages.isEmpty {
-                    allImages = UserDefaults.standard.object(forKey: "instagramUrls") as? [String] ?? []
+                    allImages = UserDefaults.standard.object(forKey: "instagramUrlsFrom=\(self.igUser)") as? [String] ?? []
                 }
                 
-                self.viewModel.imagesUrls = allImages.map({ url in
+                self.imagesUrls = allImages.map({ url in
                     ImageUrl(imageUrl: url)
                 })
             }
@@ -57,7 +60,7 @@ struct TestWebView: UIViewRepresentable {
     }
     // essas outras 3 funções são funções padrão de um ViewRepresentable
     func makeCoordinator() -> TestWebView.Coordinator {
-        return coordinator
+        return Coordinator(igUser: $igUser, imagesUrls: $imagesUrls)
     }
 
     func makeUIView(context: UIViewRepresentableContext<TestWebView>) -> WKWebView {
@@ -67,7 +70,7 @@ struct TestWebView: UIViewRepresentable {
         let config = WKWebViewConfiguration()
         config.preferences = prefs
         let wb = WKWebView(frame: .zero, configuration: config)
-        wb.navigationDelegate = coordinator
+        wb.navigationDelegate = context.coordinator
         let url = URL(string: urlString)!
         wb.load(URLRequest(url: url))
         //wb.isHidden = true
@@ -75,6 +78,11 @@ struct TestWebView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<TestWebView>) {
-        
+        if TestWebView.account != igUser {
+            let urlString = "https://www.instagram.com/\(igUser)/"
+            TestWebView.account = igUser
+            let url = URL(string: urlString)!
+            uiView.load(URLRequest(url: url))
+        }
     }
 }

@@ -13,7 +13,7 @@ struct ProfileSheet: View {
     var okButtonCallback: () -> ()
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 Capsule()
                     .fill(Color.gray)
@@ -26,45 +26,53 @@ struct ProfileSheet: View {
                         
                     }, label: {
                         Text("Ok")
+                            .foregroundColor(Color(UIColor.appLightBlue))
                     }).isHidden(true)
                     Spacer()
                     Text("Perfil")
-                        .foregroundColor(Color("captionMessageColor"))
+                        .font(Font.sfProDisplaySemiBold(sized: 15))
+                        .foregroundColor(Color("SheetHeaderColor"))
                     Spacer()
                     Button(action: {
                         okButtonCallback()
                     }, label: {
                         Text("Ok")
+                            .font(Font.sfProDisplaySemiBold(sized: 15))
+                            .foregroundColor(Color(UIColor.appLightBlue))
                     })
-                }.padding()
+                }.padding(.horizontal,20)
 
                 ForEach(boards, id: \.uid) { board in
                     VStack {
                         ProfileListCellView(board: board)
-                            .padding()
+                            .padding(.vertical)
                             .onTapGesture {
+                                LocalRepository.shared.saveCurrent(board: board)
                                 self.board = board
                             }
-                        Divider()
-                    }
+                        Rectangle()
+                            .frame(height: 0.5)
+                            .foregroundColor(Color("DividerColor"))
+                            
+                    }.padding(.horizontal)
                 }
                 VStack(spacing: 25) {
-                    Button(action: {
-                        
-                    }, label: {
-                        HStack {
-                            Spacer()
-                            Image(systemName: "person.badge.plus")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                            Text("Adicionar Perfil")
-                                .font(Font.sfProDisplayRegular(sized: 18))
-                            Spacer()
-                        }
-                        .foregroundColor(.white)
-                    })
-                    .padding(.vertical, 10)
-                    .background(RoundedRectangle(cornerRadius: 25).foregroundColor(Color(UIColor.appLightBlue)))
+                    NavigationLink(
+                        destination: AddProfileView(),
+                        label: {
+                            HStack {
+                                Spacer()
+                                Image(systemName: "person.badge.plus")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                Text("Adicionar Perfil")
+                                    .font(Font.sfProDisplayRegular(sized: 18))
+                                Spacer()
+                            }
+                            .padding(.vertical, 10)
+                            .foregroundColor(.white)
+                            .background(RoundedRectangle(cornerRadius: 25).foregroundColor(Color(UIColor.appLightBlue)))
+                        })
                     
                     HStack {
                         Spacer()
@@ -96,11 +104,12 @@ struct ProfileSheet: View {
                                 .foregroundColor(.gray)
                         })
                     }
-                    .padding(.horizontal)
-                    
+                    //.padding(.horizontal)
+                    .padding(.bottom)
                 }.padding()
             }
         }
+        .padding(.horizontal)
         .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.systemBackground)))
     }
 }

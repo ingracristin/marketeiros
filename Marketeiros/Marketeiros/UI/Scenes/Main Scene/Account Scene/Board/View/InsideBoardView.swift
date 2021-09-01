@@ -11,7 +11,6 @@ import UniformTypeIdentifiers
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: InsideBoardViewModel
-    @ObservedObject var vm = ViewModel()
     @State var selectedIndex = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
@@ -55,23 +54,24 @@ struct InsideBoardView: View {
                     })
                 
                 VStack(spacing: 10) {
-                    HStack(){
+                    HStack{
                         Text(viewModel.screenNavTitle)
                             .font(Font.custom("cocon-bold",size: 24))
                             .bold()
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
-                        Image("perfil")
-                            .resizable()
-                            .frame(width: 42, height: 42)
+                        BoardImageView(board: viewModel.bindings.board)
+//                        Image("perfil")
+//                            .resizable()
+//                            .frame(width: 42, height: 42)
                     }
                     .padding(.horizontal, 20)
-                    .padding(.bottom,0)
+                    .padding(.vertical)
                     .onTapGesture {
                         toggleBottomSheet()
                     }
                     
-                    Spacer()
+                    //Spacer()
                     ZStack {
                         HStack {
                             Button(action: {
@@ -125,6 +125,7 @@ struct InsideBoardView: View {
                     }
                 
                     if (selectedIndex == 0) {
+                        ZStack {
                         ScrollView(){
                             LazyVGrid(columns: layout, spacing: 1) {
                                 ForEach(viewModel.posts, id: \.uid) { post in
@@ -142,7 +143,7 @@ struct InsideBoardView: View {
                                     }.onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: post, listData: $viewModel.posts, current: $dragging))
                                 }
                                 
-                                ForEach(vm.imagesUrls, id: \.id) { imageUrl in
+                                ForEach(viewModel.states.imagesUrls, id: \.id) { imageUrl in
                                     AsyncImage(url: URL(string: imageUrl.imageUrl)!, averageColorOn: $averageColorOn, height: cellWidth, width: cellWidth) {
                                             Rectangle()
                                                 .foregroundColor(Color(UIColor.emptyCellGridColor))
@@ -152,8 +153,8 @@ struct InsideBoardView: View {
                                         }
                                         .frame(width: cellWidth,height: cellWidth, alignment: .center)
                                 }
-                                if (vm.imagesUrls.count + viewModel.posts.count) < 15 {
-                                    ForEach(((vm.imagesUrls.count + viewModel.posts.count)..<15), id:\.self) {index in
+                                if (viewModel.states.imagesUrls.count + viewModel.posts.count) < 15 {
+                                    ForEach(((viewModel.states.imagesUrls.count + viewModel.posts.count)..<15), id:\.self) {index in
                                         
                                         Button(action: {viewModel.toggleAddPostView()}){
                                             Rectangle()
@@ -165,28 +166,36 @@ struct InsideBoardView: View {
                                 }
                             }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                             
-                            TestWebView(igUser: viewModel.bindings.igAccount, vm: vm)
+                            TestWebView(igUser: viewModel.bindings.igAccount, imagesUrls: viewModel.bindings.imagesUrls)
                                 .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                         }
-                        //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
-                        .toolbar {
-                            ToolbarItemGroup(placement: .bottomBar) {
-                                Button(action: {
-                                    viewModel.toggleAddPostView()
-                                }, label: {
-                                    Text(NSLocalizedString("newToolBar", comment: ""))
-                                }).padding(.horizontal)
-                                
+                            
+                            
+                        }
+                            VStack(spacing:0){
                                 Spacer()
-                                
-                                Button(action: {
-                                    self.averageColorOn.toggle()
-                                }, label: {
-                                    Text(NSLocalizedString("colorsToolBar", comment: ""))
-                                      
-                                }).padding(.horizontal)
+                                HStack {
+                                    Button(action: {
+                                        viewModel.toggleAddPostView()
+                                    }, label: {
+                                        Text(NSLocalizedString("newToolBar", comment: ""))
+                                    })
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        self.averageColorOn.toggle()
+                                    }, label: {
+                                        Text(NSLocalizedString("colorsToolBar", comment: ""))
+                                          
+                                    })
+                                }
+                                .padding(.horizontal,20)
+                                .padding(.vertical, 32)
+                                .background(Color("ToolBarColor"))
                             }
                         }
+                        //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                        
                     } else if (selectedIndex == 1) {
                         CalendarPageView()
                            // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)

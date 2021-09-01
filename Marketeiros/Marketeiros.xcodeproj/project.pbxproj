@@ -97,6 +97,8 @@
 		AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */; };
 		AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80EDA269C48AC0091F229 /* EditPasteView.swift */; };
 		AECB11A626BA35220007BB2C /* CornerShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB11A526BA35220007BB2C /* CornerShapeView.swift */; };
+		AECFA5F326DF28E400728494 /* AddProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECFA5F226DF28E400728494 /* AddProfileViewModel.swift */; };
+		AECFA5F526DF294D00728494 /* BoardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECFA5F426DF294D00728494 /* BoardImageView.swift */; };
 		AED48457269D5EE100890E91 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48456269D5EE100890E91 /* LoadingView.swift */; };
 		AED48459269D5EE700890E91 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48458269D5EE700890E91 /* ProgressBar.swift */; };
 		AED4845B269D5EEF00890E91 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */; };
@@ -227,6 +229,8 @@
 		AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaViewModel.swift; sourceTree = "<group>"; };
 		AEC80EDA269C48AC0091F229 /* EditPasteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasteView.swift; sourceTree = "<group>"; };
 		AECB11A526BA35220007BB2C /* CornerShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerShapeView.swift; sourceTree = "<group>"; };
+		AECFA5F226DF28E400728494 /* AddProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfileViewModel.swift; sourceTree = "<group>"; };
+		AECFA5F426DF294D00728494 /* BoardImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardImageView.swift; sourceTree = "<group>"; };
 		AED48456269D5EE100890E91 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		AED48458269D5EE700890E91 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */,
 				AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */,
 				AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */,
+				AECFA5F226DF28E400728494 /* AddProfileViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
 				AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */,
 				AE6C8BA726D88ED7003D2940 /* ProfileSheet.swift */,
+				AECFA5F426DF294D00728494 /* BoardImageView.swift */,
 			);
 			path = "Profile ";
 			sourceTree = "<group>";
@@ -1010,6 +1016,7 @@
 				EF2D050626935FF200B9D7E5 /* MoodBoardView.swift in Sources */,
 				EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */,
 				AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */,
+				AECFA5F326DF28E400728494 /* AddProfileViewModel.swift in Sources */,
 				AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */,
 				AE6C8BA926D88ED7003D2940 /* BottomSheetView.swift in Sources */,
 				AE3C43A72693F72B00013F79 /* UiColorExtension.swift in Sources */,
@@ -1022,6 +1029,7 @@
 				AE119B60268EC0D000327D39 /* PostDetailsViewModel.swift in Sources */,
 				AE3C43AF2693FBC200013F79 /* FontExtension.swift in Sources */,
 				AE3EB5D326976CDC0093AF7C /* IdeaViewModel.swift in Sources */,
+				AECFA5F526DF294D00728494 /* BoardImageView.swift in Sources */,
 				79098F93268E189B0033B758 /* UIImageExtension.swift in Sources */,
 				AED6CF7C26897D7300870BB2 /* Post.swift in Sources */,
 				AE799668268E778F00AD80F4 /* ImagesRepository.swift in Sources */,

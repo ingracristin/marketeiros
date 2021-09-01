@@ -50,6 +50,7 @@ class InsideBoardViewModel: ObservableObject {
             postsGridUid: "",
             ideasGridUid: "",
             moodGridUid: "")
+        var imagesUrls = [ImageUrl]()
     }
     
     var bindings: (
@@ -61,7 +62,8 @@ class InsideBoardViewModel: ObservableObject {
         isLoading: Binding<Bool>,
         igAccount: Binding<String>,
         boards: Binding<[Board]>,
-        board: Binding<Board>)
+        board: Binding<Board>,
+        imagesUrls: Binding<[ImageUrl]>)
      {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
@@ -92,7 +94,10 @@ class InsideBoardViewModel: ObservableObject {
             set: {
                 self.states.board = $0
                 self.getAllPosts()
-            })
+            }),
+        imagesUrls: Binding(
+            get: {self.states.imagesUrls},
+            set: {self.states.imagesUrls = $0})
     )}
     
     init(changesCallback: @escaping (Board) -> ()) {
@@ -181,6 +186,7 @@ class InsideBoardViewModel: ObservableObject {
     
     func getAllPosts() {
         //self.states.isLoading.toggle()
+        self.states.igAccount = self.states.board.instagramAccount
         BoardsRepository.current.getAllItens(of: self.states.board, on: .posts,ofItemType: Post.self) { result in
             self.states.isLoading.toggle()
             switch result {

@@ -22,6 +22,11 @@ struct ProfileListCellView: View {
         }
     }
     
+    var instagramAccount: String {
+        let title = board.instagramAccount.removeCharactersContained(in: "@")
+        return (title.isEmpty) ? "@username" : "@\(title)"
+    }
+    
     var body: some View {
         HStack {
             if image == nil {
@@ -38,19 +43,23 @@ struct ProfileListCellView: View {
             VStack(alignment: .leading) {
                 Text(board.title)
                     .font(Font.sfProDisplayMedium(sized: 18))
-                    .foregroundColor(Color(UIColor.appDarkBlue))
-                Text(board.instagramAccount)
+                    .foregroundColor(Color("cameraColor"))
+                Text(instagramAccount)
                     .font(Font.sfProDisplayMedium(sized: 12))
                     .fontWeight(.light)
-                    .foregroundColor(Color(UIColor.appLightGrey))
+                    .foregroundColor(Color("captionMessageColor"))
             }
             Spacer()
             Button(action: {
                 
             }, label: {
                 Image(systemName: "pencil.circle")
+                    .foregroundColor(Color(UIColor.appLightBlue))
             })
-        }
+            .padding(.trailing)
+        }.onAppear(perform: {
+            getImage()
+        })
     }
 }
 

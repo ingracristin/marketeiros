@@ -26,7 +26,7 @@ struct BottomSheetView<Placeholder: View, Sheet: View>: View {
             
             VStack{
                 if !isCollpsed {
-                    BlurView(style: .light)
+                    BlurView(style: .regular)
                         .transition(.opacity)
                         .onTapGesture {
                             toggleBottomSheet()
@@ -37,7 +37,7 @@ struct BottomSheetView<Placeholder: View, Sheet: View>: View {
             sheet
                 .ignoresSafeArea(.container,edges: .bottom)
                 .frame(height: offset)
-                .padding(.horizontal,1)
+                .padding(.horizontal,2)
         }.ignoresSafeArea(.container,edges: .bottom)
     }
     
@@ -65,7 +65,7 @@ struct BottomSheetView_Previews: PreviewProvider {
                 })
                 Spacer()
             }
-            .background(Color(.red)) 
+            .background(Color(.red))
         }, sheet: {
             ProfileSheet(boards: .constant(
                             [.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""),
