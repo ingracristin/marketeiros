@@ -14,7 +14,8 @@ struct CalendarPageView: View {
     @State var allNotifications = [ScheduledNotification]()
     @State var weekNotifications = [Int:[ScheduledNotification]]()
     @State var scheduledDates = [Date]()
-    let aux : CGFloat = UIScreen.main.bounds.height * 0.32
+    @Binding var board: Board
+    let aux : CGFloat = UIScreen.main.bounds.height * 0.38
     
     func getWeekNotifications(of date: Date) -> [Int:[ScheduledNotification]] {
         var ntf: [Int:[ScheduledNotification]] = [:]
@@ -92,13 +93,21 @@ struct CalendarPageView: View {
         .sheet(isPresented: $isShowing, content: {
             AddNewEventView()
         })
+        .onChange(of: board.uid, perform: { _ in
+            getNotifications()
+        })
         .onAppear {
-            UserNotificationService.shared.getScheduledNotifications { scheduledNotifications in
-                DispatchQueue.main.async {
-                    self.allNotifications = scheduledNotifications
-                    self.scheduledDates = scheduledNotifications.map({$0.date})
-                    self.weekNotifications = getWeekNotifications(of: date)
-                }
+            getNotifications()
+        }
+    }
+    
+    func getNotifications() {
+        UserNotificationService.shared.getScheduledNotifications { scheduledNotifications in
+            let filteredNotifications = scheduledNotifications.filter {$0.boardUid == board.uid}
+            DispatchQueue.main.async {
+                self.allNotifications = filteredNotifications
+                self.scheduledDates = filteredNotifications.map({$0.date})
+                self.weekNotifications = getWeekNotifications(of: date)
             }
         }
     }
@@ -107,7 +116,7 @@ struct CalendarPageView: View {
 struct CalendarPageView_Previews: PreviewProvider {
     static var previews: some View {
         TabView {
-            CalendarPageView()
+            CalendarPageView( board: .constant(.init(uid: "", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: "")))
         }
     }
 }

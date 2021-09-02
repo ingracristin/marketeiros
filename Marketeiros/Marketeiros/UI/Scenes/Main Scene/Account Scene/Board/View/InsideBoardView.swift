@@ -161,15 +161,12 @@ struct InsideBoardView: View {
                                                 .foregroundColor(Color(UIColor.emptyCellGridColor))
                                                 .frame(width: cellWidth,height: cellWidth, alignment: .center)
                                         }
-                                            
                                     }
                                 }
                             }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                             
                             TestWebView(igUser: viewModel.bindings.igAccount, imagesUrls: viewModel.bindings.imagesUrls)
                                 .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            
-                            
                         }
                             VStack(spacing:0){
                                 Spacer()
@@ -197,7 +194,7 @@ struct InsideBoardView: View {
                         //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                         
                     } else if (selectedIndex == 1) {
-                        CalendarPageView()
+                        CalendarPageView(board: viewModel.bindings.board)
                            // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
                     } else if (selectedIndex == 2) {
