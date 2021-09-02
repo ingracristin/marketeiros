@@ -43,14 +43,16 @@ struct TestWebView: UIViewRepresentable {
                     return image
                 }
                 
-                if let first = allImages.first {
-                    if first == allImages.last {
-                        allImages.removeLast()
-                    }
-                    allImages.removeFirst()
-                    UserDefaults.standard.set(allImages, forKey: "instagramUrlsFrom=\(self.igUser)")
-                } else if allImages.isEmpty {
+                if allImages.isEmpty {
                     allImages = UserDefaults.standard.object(forKey: "instagramUrlsFrom=\(self.igUser)") as? [String] ?? []
+                } else if !allImages.contains("//static.facebook.com/images/logos/facebook_2x.png") {
+                    if let first = allImages.first {
+                        if first == allImages.last {
+                            allImages.removeLast()
+                        }
+                        allImages.removeFirst()
+                        UserDefaults.standard.set(allImages, forKey: "instagramUrlsFrom=\(self.igUser)")
+                    }
                 }
                 
                 self.imagesUrls = allImages.map({ url in
