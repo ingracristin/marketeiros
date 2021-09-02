@@ -69,14 +69,15 @@
 "about" = "Sobre";
 "user" = "Usuário";
 "email" = "E-mail";
-"terms" = "Termos e condições";
+"terms" = "Termos e Política";
 "rate" = "Classificar app na App Store";
 "site" = "Website";
 "version" = "Versão";
 "sup" = "Suporte";
 "contact" = "Contate a gente";
 "save" = "Salvar";
-
+"addProfile" = "Adicionar Perfil";
+"editProfile" = "Editar Perfil";
 
 
 //Creat Post View
@@ -190,7 +191,7 @@
 "addIdea" = "Adicionar ideia";
 "newFolder" = "Nova Pasta";
 
-"logOut" = "Sair da Conta";
+"logOut" = "Sair";
 
 "missing" = "Você precisa nomear e inserir uma capa ao quadro";
 
@@ -202,9 +203,6 @@
 "missingImage" = "Você precisa definir uma imagem para o quadro!";
 
 "addProfile" = "Adicionar perfil";
-
-"profileName" = "Profile Name";
-"linkInsta" = "Link to Instagram";
 
 //onboarding
 "planOnboard" = "Planeje seus próximos posts";

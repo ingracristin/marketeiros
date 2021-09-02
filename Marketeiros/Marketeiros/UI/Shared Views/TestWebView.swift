@@ -1,5 +1,5 @@
 //
-//  SeiNão.swift
+//  SeiNão.swift
 //  instagramScrap
 //
 //  Created by Gonzalo Ivan Santos Portales on 22/06/21.
@@ -43,12 +43,13 @@ struct TestWebView: UIViewRepresentable {
                     return image
                 }
                 
-                if let _ = allImages.first {
+                if let first = allImages.first {
+                    if first == allImages.last {
+                        allImages.removeLast()
+                    }
                     allImages.removeFirst()
                     UserDefaults.standard.set(allImages, forKey: "instagramUrlsFrom=\(self.igUser)")
-                }
-                
-                if allImages.isEmpty {
+                } else if allImages.isEmpty {
                     allImages = UserDefaults.standard.object(forKey: "instagramUrlsFrom=\(self.igUser)") as? [String] ?? []
                 }
                 

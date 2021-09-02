@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileSheet: View {
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @Binding var boards: [Board]
     @Binding var board: Board
     var okButtonCallback: () -> ()
@@ -29,7 +30,7 @@ struct ProfileSheet: View {
                             .foregroundColor(Color(UIColor.appLightBlue))
                     }).isHidden(true)
                     Spacer()
-                    Text("Perfil")
+                    Text(NSLocalizedString("profile", comment: ""))
                         .font(Font.sfProDisplaySemiBold(sized: 15))
                         .foregroundColor(Color("SheetHeaderColor"))
                     Spacer()
@@ -65,7 +66,7 @@ struct ProfileSheet: View {
                                 Image(systemName: "person.badge.plus")
                                     .resizable()
                                     .frame(width: 24, height: 24)
-                                Text("Adicionar Perfil")
+                                Text(NSLocalizedString("addProfile", comment: ""))
                                     .font(Font.sfProDisplayRegular(sized: 18))
                                 Spacer()
                             }
@@ -77,9 +78,9 @@ struct ProfileSheet: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            
+                            authenticationViewModel.signOut()
                         }, label: {
-                            Text("Sair")
+                            Text(NSLocalizedString("logOut", comment: ""))
                         })
                         Spacer()
                     }
@@ -91,7 +92,7 @@ struct ProfileSheet: View {
                         Button(action: {
                             
                         }, label: {
-                            Text("Termos e Política")
+                            Text(NSLocalizedString("terms", comment: ""))
                                 .font(Font.sfProDisplayRegular(sized: 18))
                                 .foregroundColor(.gray)
                         })
@@ -99,7 +100,7 @@ struct ProfileSheet: View {
                         Button(action: {
                             
                         }, label: {
-                            Text("Ajuda")
+                            Text(NSLocalizedString("help", comment: ""))
                                 .font(Font.sfProDisplayRegular(sized: 18))
                                 .foregroundColor(.gray)
                         })

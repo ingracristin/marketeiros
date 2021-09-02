@@ -49,6 +49,8 @@
 		AE37BC352683BC4800258D8B /* UserProfileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC342683BC4800258D8B /* UserProfileGridView.swift */; };
 		AE37BC372683BC9A00258D8B /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC362683BC9A00258D8B /* TestViewModel.swift */; };
 		AE37BC392683BCE000258D8B /* TestWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37BC382683BCE000258D8B /* TestWebView.swift */; };
+		AE380BE626E05B2900487D3C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE380BE526E05B2900487D3C /* EditProfileView.swift */; };
+		AE380BE926E05B7D00487D3C /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE380BE826E05B7D00487D3C /* EditProfileViewModel.swift */; };
 		AE3A8371267998540016F435 /* BottonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A8370267998540016F435 /* BottonSheet.swift */; };
 		AE3C43A22693F34200013F79 /* cocon-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C43A12693F34200013F79 /* cocon-bold.otf */; };
 		AE3C43A72693F72B00013F79 /* UiColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3C43A62693F72B00013F79 /* UiColorExtension.swift */; };
@@ -180,6 +182,8 @@
 		AE37BC342683BC4800258D8B /* UserProfileGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGridView.swift; sourceTree = "<group>"; };
 		AE37BC362683BC9A00258D8B /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		AE37BC382683BCE000258D8B /* TestWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWebView.swift; sourceTree = "<group>"; };
+		AE380BE526E05B2900487D3C /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		AE380BE826E05B7D00487D3C /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		AE3A8370267998540016F435 /* BottonSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonSheet.swift; sourceTree = "<group>"; };
 		AE3C43A12693F34200013F79 /* cocon-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cocon-bold.otf"; sourceTree = "<group>"; };
 		AE3C43A62693F72B00013F79 /* UiColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiColorExtension.swift; sourceTree = "<group>"; };
@@ -320,7 +324,6 @@
 		795AB135267A3085006308B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				793F903D26D7E8AC00436B44 /* AddProfileView.swift */,
 				792CCD26267CE79300E5BDE9 /* NewBoardSheet.swift */,
 				79AC0D3D2689FFCB00064670 /* InsideBoardView.swift */,
 				79034D092695DA5200AE97EA /* DragRelocateDelegate.swift */,
@@ -335,7 +338,6 @@
 				AE21AA00268BDB4D00AF3797 /* BoardListViewModel.swift */,
 				AE21A9FE268BC0BF00AF3797 /* NewBoardViewModel.swift */,
 				AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */,
-				AECFA5F226DF28E400728494 /* AddProfileViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -473,14 +475,26 @@
 				AE3EB5C326976C7E0093AF7C /* HalfModalView.swift */,
 				AED4845C269D69D600890E91 /* ProgressBarView.swift */,
 				AE66B14F26B77176007518AC /* BoardMenuButton.swift */,
+				AECFA5F426DF294D00728494 /* BoardImageView.swift */,
 				AECB11A526BA35220007BB2C /* CornerShapeView.swift */,
 				795E180626BC3CC400EEE63B /* ErrorMessage.swift */,
 				795E180226BC253900EEE63B /* LoadingPhotosView.swift */,
 				795E180426BC3B5D00EEE63B /* LoadingPost.swift */,
 				7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */,
 				793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */,
+				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
+				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
 			);
 			path = "Shared Views";
+			sourceTree = "<group>";
+		};
+		AE380BE726E05B6800487D3C /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				AECFA5F226DF28E400728494 /* AddProfileViewModel.swift */,
+				AE380BE826E05B7D00487D3C /* EditProfileViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		AE3C43A32693F35400013F79 /* Utils */ = {
@@ -696,11 +710,11 @@
 		AE6C8BA326D88ED7003D2940 /* Profile  */ = {
 			isa = PBXGroup;
 			children = (
-				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
-				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
-				AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */,
+				AE380BE726E05B6800487D3C /* View Model */,
 				AE6C8BA726D88ED7003D2940 /* ProfileSheet.swift */,
-				AECFA5F426DF294D00728494 /* BoardImageView.swift */,
+				793F903D26D7E8AC00436B44 /* AddProfileView.swift */,
+				AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */,
+				AE380BE526E05B2900487D3C /* EditProfileView.swift */,
 			);
 			path = "Profile ";
 			sourceTree = "<group>";
@@ -1040,6 +1054,7 @@
 				AE247DEB26AB13870059CBEB /* StringExtension.swift in Sources */,
 				AE3A8371267998540016F435 /* BottonSheet.swift in Sources */,
 				EF30C36026779A9A00DB7644 /* MarketeirosApp.swift in Sources */,
+				AE380BE926E05B7D00487D3C /* EditProfileViewModel.swift in Sources */,
 				AE5B70542678EDFC00AFF32E /* CalendarPageView.swift in Sources */,
 				AE3EB5DE26976CE60093AF7C /* CreateIdeaSceneViewModel.swift in Sources */,
 				AE647216267B942E009E5789 /* BottonSheetListCell.swift in Sources */,
@@ -1055,6 +1070,7 @@
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				AE3EB5DF26976CE60093AF7C /* CreateIdeaSceneView.swift in Sources */,
 				7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */,
+				AE380BE626E05B2900487D3C /* EditProfileView.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
 				AE3EB5D426976CDC0093AF7C /* IdeaView.swift in Sources */,

@@ -76,6 +76,8 @@
 "sup" = "Support";
 "contact" = "Contact us";
 "save" = "Save";
+"addProfile" = "Add Profile";
+"editProfile" = "Edit Profile";
 
 
 //Creat Post View
@@ -199,8 +201,7 @@
 
 "addProfile" = "Add profile";
 
-"profileName" = "Nome do perfil";
-"linkInsta" = "Vincular ao Instagram";
+"profileName" = "Profile Name";
 
 //onboarding
 "planOnboard" = "Plan your next posts";
