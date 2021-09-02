@@ -42,12 +42,13 @@ struct TestWebView: UIViewRepresentable {
                     }
                     return image
                 }
+                print(allImages)
                 
-                if allImages.isEmpty {
+                if allImages.isEmpty || allImages.contains("//static.facebook.com/images/logos/facebook_2x.png"){
                     allImages = UserDefaults.standard.object(forKey: "instagramUrlsFrom=\(self.igUser)") as? [String] ?? []
-                } else if !allImages.contains("//static.facebook.com/images/logos/facebook_2x.png") {
+                } else {
                     if let first = allImages.first {
-                        if first == allImages.last {
+                        if first == allImages.last && allImages.count > 1 {
                             allImages.removeLast()
                         }
                         allImages.removeFirst()
