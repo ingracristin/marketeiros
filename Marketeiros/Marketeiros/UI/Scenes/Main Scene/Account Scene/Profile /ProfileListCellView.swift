@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ProfileListCellView: View {
-    let board: Board
+    @State var board: Board
     @State var image: UIImage!
+    
+    init(board: Board) {
+        self.board = board
+    }
     
     func getImage() {
         ImagesRepository.current.getImage(of: board) { result in
@@ -50,13 +54,14 @@ struct ProfileListCellView: View {
                     .foregroundColor(Color("captionMessageColor"))
             }
             Spacer()
-            Button(action: {
-                
-            }, label: {
+            NavigationLink(destination: EditProfileView(board: board, callback: {newBoard in
+                self.board = newBoard
+            })) {
                 Image(systemName: "pencil.circle")
                     .foregroundColor(Color(UIColor.appLightBlue))
-            })
+            }
             .padding(.trailing)
+            
         }.onAppear(perform: {
             getImage()
         })
