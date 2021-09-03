@@ -168,30 +168,32 @@ struct InsideBoardView: View {
                             TestWebView(igUser: viewModel.bindings.igAccount, imagesUrls: viewModel.bindings.imagesUrls)
                                 .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         }
-                            VStack(spacing:0){
+                            
+                        VStack(spacing:0){
+                            Spacer()
+                            HStack {
+                                Button(action: {
+                                    viewModel.toggleAddPostView()
+                                }, label: {
+                                    Text(NSLocalizedString("newToolBar", comment: ""))
+                                        .foregroundColor(Color("ToolBarButtonsColor"))
+                                })
+                                
                                 Spacer()
-                                HStack {
-                                    Button(action: {
-                                        viewModel.toggleAddPostView()
-                                    }, label: {
-                                        Text(NSLocalizedString("newToolBar", comment: ""))
-                                    })
-                                    
-                                    Spacer()
-                                    
-                                    Button(action: {
-                                        self.averageColorOn.toggle()
-                                    }, label: {
-                                        Text(NSLocalizedString("colorsToolBar", comment: ""))
-                                          
-                                    })
-                                }
-                                .padding(.horizontal,20)
-                                .padding(.vertical, 32)
-                                .background(Color("ToolBarColor"))
+                                
+                                Button(action: {
+                                    self.averageColorOn.toggle()
+                                }, label: {
+                                    Text(NSLocalizedString("colorsToolBar", comment: ""))
+                                        .foregroundColor(Color("ToolBarButtonsColor"))
+                                })
                             }
+                            .padding(.horizontal,20)
+                            .padding(.vertical, 30)
+                            .background(Color("ToolBarColor"))
                         }
-                        //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                    }
+                    //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                         
                     } else if (selectedIndex == 1) {
                         CalendarPageView(board: viewModel.bindings.board)
