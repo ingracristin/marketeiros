@@ -10,8 +10,16 @@ import SwiftUI
 struct EditIdeaView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: EditIdeaViewModel
-    @State var isHidden = true
     var callback: ((Idea?) -> ())?
+    @State var offset: CGFloat = 0
+    @State var isCollpsed: Bool = true
+    
+    func toggleBottomSheet() {
+        withAnimation {
+            offset = isCollpsed ? 350 : 0
+            isCollpsed.toggle()
+        }
+    }
     
     init(board: Board, paste: Paste, idea: Idea, callback: ((Idea?) -> ())?) {
         self.viewModel = EditIdeaViewModel(board: board, paste: paste, idea: idea)
@@ -19,11 +27,11 @@ struct EditIdeaView: View {
     }
     
     var body: some View {
-        ZStack {
+        IdeasBottomSheetView(offset: $offset, isCollpsed: $isCollpsed) {
             VStack {
                 Button(action: {
-                    isHidden.toggle()
-                    viewModel.togglePasteSheet()
+                    toggleBottomSheet()
+                    //viewModel.togglePasteSheet()
                 }, label: {
                     HStack {
                         Image(systemName: "slider.horizontal.3")
@@ -40,52 +48,52 @@ struct EditIdeaView: View {
                     .foregroundColor(Color(UIColor.lightGray))
                     .font(Font.sfProDisplaySemiBold(sized: 14))
             }.padding()
-
-            HalfModalView(isShown: viewModel.bindings.pasteSheetShowing, modalHeight: 350) {
-                ScrollView(.vertical, showsIndicators: false) {
-                    HStack {
+        } sheet: {
+            ScrollView(.vertical, showsIndicators: false) {
+                HStack {
+                    Button(action: {
+                        //viewModel.togglePasteSheet()
+                        toggleBottomSheet()
+                    }) {
+                        Text(NSLocalizedString("cancel", comment: ""))
+                            .foregroundColor(.red)
+                    }
+                    Spacer()
+                    Text(NSLocalizedString("Categorizar   ", comment: "")) //trad
+                        .font(Font.sfProDisplaySemiBold(sized: 18))
+                        .foregroundColor(Color(UIColor.navBarTitleColor))
+                    Spacer()
+                    Button(action: {
+                        viewModel.togglePasteSheet()
+                    }) {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                    }
+                }.padding(.bottom)
+                VStack {
+                    ForEach(Array(arrayLiteral: viewModel.paste), id:\.uid) { paste in
                         Button(action: {
-                            viewModel.togglePasteSheet()
+                            viewModel.select(paste: paste)
                         }) {
-                            Text(NSLocalizedString("cancel", comment: ""))
-                                .foregroundColor(.red)
-                        }
-                        Spacer()
-                        Text(NSLocalizedString("Categorizar   ", comment: "")) //trad
-                            .font(Font.sfProDisplaySemiBold(sized: 18))
-                            .foregroundColor(Color(UIColor.navBarTitleColor))
-                        Spacer()
-                        Button(action: {
-                            viewModel.togglePasteSheet()
-                        }) {
-                            Image(systemName: "plus")
-                                .resizable()
-                                .frame(width: 18, height: 18)
-                        }
-                    }.padding(.bottom)
-                    VStack {
-                        ForEach(Array(arrayLiteral: viewModel.paste), id:\.uid) { paste in
-                            Button(action: {
-                                viewModel.select(paste: paste)
-                            }) {
-                                VStack {
-                                    /*HStack {
-                                        Image(systemName: "folder")
-                                        Text(paste.title)
-                                        Spacer()
-                                        if (viewModel.states.paste.uid == paste.uid) {
-                                            Image(systemName:"checkmark")
-                                        }
+                            VStack {
+                                /*HStack {
+                                    Image(systemName: "folder")
+                                    Text(paste.title)
+                                    Spacer()
+                                    if (viewModel.states.paste.uid == paste.uid) {
+                                        Image(systemName:"checkmark")
                                     }
-                                    .foregroundColor(Color(UIColor.navBarTitleColor))
-                                    Divider()*/
                                 }
-                            }.padding()
-                        }
+                                .foregroundColor(Color(UIColor.navBarTitleColor))
+                                Divider()*/
+                            }
+                        }.padding()
                     }
                 }
             }
-            .isHidden(!viewModel.bindings.pasteSheetShowing.wrappedValue)
+            .padding()
+            .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.systemBackground)))
         }
         .navigationBarTitle(NSLocalizedString("createIdea", comment: ""), displayMode: .inline)
         .navigationBarItems(

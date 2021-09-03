@@ -92,6 +92,7 @@
 		AE8A520A268B8C7100E14EBD /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A5209268B8C7100E14EBD /* BlurView.swift */; };
 		AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */; };
 		AE8CD2E3268BFC9E008DD887 /* InsideBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */; };
+		AE9E77FE26E28D9A009BE6B7 /* IdeasBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9E77FD26E28D9A009BE6B7 /* IdeasBottomSheetView.swift */; };
 		AEAB4EF126CFE96600918DE5 /* EmptyScheduledPostsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB4EF026CFE96600918DE5 /* EmptyScheduledPostsCard.swift */; };
 		AEB7B6AD26BD15C800850114 /* SharePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B6AA26BD15C800850114 /* SharePostView.swift */; };
 		AEB7B6AE26BD15C800850114 /* SharePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */; };
@@ -226,6 +227,7 @@
 		AE8A5209268B8C7100E14EBD /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		AE8CD2E2268BFC9E008DD887 /* InsideBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InsideBoardViewModel.swift; path = "Marketeiros/UI/Shared Views/InsideBoardViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		AE9E77FD26E28D9A009BE6B7 /* IdeasBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeasBottomSheetView.swift; sourceTree = "<group>"; };
 		AEAB4EF026CFE96600918DE5 /* EmptyScheduledPostsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScheduledPostsCard.swift; sourceTree = "<group>"; };
 		AEB7B6AA26BD15C800850114 /* SharePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePostView.swift; sourceTree = "<group>"; };
 		AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePostViewModel.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */,
 				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
 				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
+				AE9E77FD26E28D9A009BE6B7 /* IdeasBottomSheetView.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -1061,6 +1064,7 @@
 				AED6CF8126897ED200870BB2 /* AuthenticationWrapperView.swift in Sources */,
 				795E180326BC253900EEE63B /* LoadingPhotosView.swift in Sources */,
 				AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */,
+				AE9E77FE26E28D9A009BE6B7 /* IdeasBottomSheetView.swift in Sources */,
 				AE247DE926AB132C0059CBEB /* AppDatePicker.swift in Sources */,
 				79034D0C269634CC00AE97EA /* UIApplicationExtension.swift in Sources */,
 				79747F60269348B7004BAAC9 /* LoginView.swift in Sources */,
