@@ -108,7 +108,6 @@ struct CreateIdeaSceneView: View {
         .navigationBarTitle(NSLocalizedString("ideas", comment: ""),displayMode: .inline)
         .navigationBarItems(trailing:
             HStack(spacing:20) {
-                
                 if viewModel.states.okButtonShowing {
                     Button {
                         viewModel.saveIdea()

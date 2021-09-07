@@ -101,6 +101,11 @@ class ImagesRepository {
             return
         }
         
+//        if let storedImage = try? UserDefaults.standard.getObject(forKey: path, castTo: Data.self) {
+//            completion(.success(UIImage(data: storedImage)!))
+//            return
+//        }
+        
         let imageRef = storageRoot.child(path)
         
         imageRef.getData(maxSize: .max) { (imageData, error) in
@@ -124,6 +129,7 @@ class ImagesRepository {
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
+        UserDefaults.standard.setValue(data,forKey: imagePath)
         
         let uploadProgressTask = imageRef.putData(data, metadata: metadata) { (_, error) in
             if let errorMessage = error?.localizedDescription {
@@ -132,7 +138,6 @@ class ImagesRepository {
                 }
             } else {
                 DispatchQueue.main.async {
-                    UserDefaults.standard.setValue(data,forKey: imagePath)
                     completion(.success(true))
                 }
             }

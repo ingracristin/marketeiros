@@ -57,6 +57,7 @@ struct ProfileSheet: View {
                             
                     }.padding(.horizontal)
                 }
+                Spacer()
                 VStack(spacing: 25) {
                     NavigationLink(
                         destination: AddProfileView(),
