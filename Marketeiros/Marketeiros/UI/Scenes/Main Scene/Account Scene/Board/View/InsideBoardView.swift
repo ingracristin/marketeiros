@@ -61,9 +61,6 @@ struct InsideBoardView: View {
                             .foregroundColor(Color("NavBarTitle"))
                         Spacer()
                         BoardImageView(board: viewModel.bindings.board)
-//                        Image("perfil")
-//                            .resizable()
-//                            .frame(width: 42, height: 42)
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical)
@@ -118,7 +115,6 @@ struct InsideBoardView: View {
                     }
                     .padding(.bottom,0)
                     .padding(.horizontal)
-                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                     
                     NavigationLink(destination: EmptyView()) {
                         EmptyView()
@@ -163,9 +159,9 @@ struct InsideBoardView: View {
                                         }
                                     }
                                 }
-                            }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                            }.animation(.linear)
                             
-                            TestWebView(igUser: viewModel.bindings.igAccount, imagesUrls: viewModel.bindings.imagesUrls)
+                            IgWebView(igUser: viewModel.bindings.igAccount, imagesUrls: viewModel.bindings.imagesUrls)
                                 .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         }
                             

@@ -10,7 +10,7 @@ import WebKit
 import SwiftUI
 import HTMLKit
 
-struct TestWebView: UIViewRepresentable {
+struct IgWebView: UIViewRepresentable {
     @Binding var igUser: String
     @Binding var imagesUrls: [ImageUrl]
     static private var account: String = ""
@@ -23,6 +23,7 @@ struct TestWebView: UIViewRepresentable {
     class Coordinator: NSObject, WKNavigationDelegate {
         @Binding var igUser: String
         @Binding var imagesUrls: [ImageUrl]
+        let localRepository = ImagesLocalRepository.shared
         
         init(igUser: Binding<String>, imagesUrls: Binding<[ImageUrl]>) {
             self._imagesUrls = imagesUrls
@@ -45,14 +46,14 @@ struct TestWebView: UIViewRepresentable {
                 print(allImages)
                 
                 if allImages.isEmpty || allImages.contains("//static.facebook.com/images/logos/facebook_2x.png"){
-                    allImages = UserDefaults.standard.object(forKey: "instagramUrlsFrom=\(self.igUser)") as? [String] ?? []
+                    allImages = self.localRepository.getImagesUrls(from: "instagramUrlsFrom=\(self.igUser)")
                 } else {
                     if let first = allImages.first {
                         if first == allImages.last && allImages.count > 1 {
                             allImages.removeLast()
                         }
                         allImages.removeFirst()
-                        UserDefaults.standard.set(allImages, forKey: "instagramUrlsFrom=\(self.igUser)")
+                        self.localRepository.saveImages(urls: allImages, on: "instagramUrlsFrom=\(self.igUser)")
                     }
                 }
                 
@@ -63,11 +64,11 @@ struct TestWebView: UIViewRepresentable {
         }
     }
     // essas outras 3 funções são funções padrão de um ViewRepresentable
-    func makeCoordinator() -> TestWebView.Coordinator {
+    func makeCoordinator() -> IgWebView.Coordinator {
         return Coordinator(igUser: $igUser, imagesUrls: $imagesUrls)
     }
 
-    func makeUIView(context: UIViewRepresentableContext<TestWebView>) -> WKWebView {
+    func makeUIView(context: UIViewRepresentableContext<IgWebView>) -> WKWebView {
         let urlString = "https://www.instagram.com/\(igUser)/"
         let prefs = WKPreferences()
         prefs.javaScriptEnabled = true
@@ -81,10 +82,10 @@ struct TestWebView: UIViewRepresentable {
         return wb
     }
 
-    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<TestWebView>) {
-        if TestWebView.account != igUser {
+    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<IgWebView>) {
+        if IgWebView.account != igUser {
             let urlString = "https://www.instagram.com/\(igUser)/"
-            TestWebView.account = igUser
+            IgWebView.account = igUser
             let url = URL(string: urlString)!
             uiView.load(URLRequest(url: url))
         }

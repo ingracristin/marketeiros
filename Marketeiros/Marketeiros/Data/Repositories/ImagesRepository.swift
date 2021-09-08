@@ -24,6 +24,7 @@ enum ImagesAcessibilityAtributes : String {
 class ImagesRepository {
     static let current = ImagesRepository()
     private let storageRoot = Storage.storage().reference()
+    private let localRepository = ImagesLocalRepository.shared
     private let cache = NSCache<NSString,UIImage>()
     
     private init() {}
@@ -41,11 +42,7 @@ class ImagesRepository {
     
     func getImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<UIImage,ImagesRepositoryErrors>) -> ()) {
         let imagePath = "\(board.uid)/posts/\(post.uid)"
-        if let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data {
-            completion(.success(UIImage(data: imageData)!))
-        } else {
-            getImage(of: imagePath , completion: completion)
-        }
+        getImage(of: imagePath , completion: completion)
     }
     
     func deleteImage(of post: Post, ofBoard board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
@@ -61,11 +58,7 @@ class ImagesRepository {
     
     func getImage(of board: Board, completion: @escaping (Result<UIImage, ImagesRepositoryErrors>) -> ()) {
         let imagePath = "\(board.uid)/cover.png"
-        if let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data {
-            completion(.success(UIImage(data: imageData)!))
-        } else {
-            getImage(of: imagePath , completion: completion)
-        }
+        getImage(of: imagePath , completion: completion)
     }
     
     func deleteImage(of board: Board, completion: @escaping (Result<Bool,ImagesRepositoryErrors>) -> ()) {
@@ -73,18 +66,13 @@ class ImagesRepository {
         deleteImage(of: imagePath, completion: completion)
     }
     
-    
     func getImageOfScheduledPost(withUid uid: String, ofBoardWithUid boardUid: String) -> UIImage {
         let imagePath = "\(boardUid)/posts/\(uid)"
-        guard let imageData = UserDefaults.standard.object(forKey: imagePath) as? Data else {
-            return UIImage(named: "ImageTest")!
-        }
-        
-        return UIImage(data: imageData) ?? UIImage(named: "ImageTest")!
+        return localRepository.getImageFrom(imagePath: imagePath) ?? UIImage(named: "ImageTest")!
     }
     
     private func deleteImage(of path: String, completion: @escaping (Result<Bool, ImagesRepositoryErrors>) -> ()) {
-        UserDefaults.standard.removeObject(forKey: path)
+        localRepository.deleteImageFrom(imagePath: path)
         let imageRef = storageRoot.child(path)
         imageRef.delete { error in
             if let error = error {
@@ -101,10 +89,10 @@ class ImagesRepository {
             return
         }
         
-//        if let storedImage = try? UserDefaults.standard.getObject(forKey: path, castTo: Data.self) {
-//            completion(.success(UIImage(data: storedImage)!))
-//            return
-//        }
+        if let image = localRepository.getImageFrom(imagePath: path) {
+            completion(.success(image))
+            return
+        }
         
         let imageRef = storageRoot.child(path)
         
@@ -117,7 +105,7 @@ class ImagesRepository {
                 DispatchQueue.main.async { [weak self] in
                     let image = UIImage(data: imageData!)!
                     self!.cache.setObject(image, forKey: path as NSString)
-                    UserDefaults.standard.setValue(imageData,forKey: path)
+                    self!.localRepository.save(imageData: imageData!, on: path)
                     completion(.success(image))
                 }
             }
@@ -129,7 +117,7 @@ class ImagesRepository {
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
-        UserDefaults.standard.setValue(data,forKey: imagePath)
+        localRepository.save(imageData: data, on: imagePath)
         
         let uploadProgressTask = imageRef.putData(data, metadata: metadata) { (_, error) in
             if let errorMessage = error?.localizedDescription {

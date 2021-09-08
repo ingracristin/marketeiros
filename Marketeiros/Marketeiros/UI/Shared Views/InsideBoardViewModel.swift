@@ -187,6 +187,7 @@ class InsideBoardViewModel: ObservableObject {
     func getAllPosts() {
         //self.states.isLoading.toggle()
         self.states.igAccount = self.states.board.instagramAccount
+        self.states.imagesUrls = ImagesLocalRepository.shared.getImagesUrls(from: "instagramUrlsFrom=\(self.states.board.instagramAccount)").map({ImageUrl(imageUrl: $0)})
         BoardsRepository.current.getAllItens(of: self.states.board, on: .posts,ofItemType: Post.self) { result in
             self.states.isLoading.toggle()
             switch result {
