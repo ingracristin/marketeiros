@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileListCellView: View {
+    @EnvironmentObject var insideViewModel: InsideBoardViewModel
     @State var board: Board
     @State var image: UIImage!
     
@@ -56,7 +57,7 @@ struct ProfileListCellView: View {
             Spacer()
             NavigationLink(destination: EditProfileView(board: board, callback: {newBoard in
                 self.board = newBoard
-            })) {
+            }).environmentObject(insideViewModel)) {
                 Image(systemName: "pencil.circle")
                     .foregroundColor(Color(UIColor.appLightBlue))
             }

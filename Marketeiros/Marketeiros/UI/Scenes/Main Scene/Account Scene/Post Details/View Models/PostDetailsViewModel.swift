@@ -161,13 +161,13 @@ class PostDetailsViewModel: ObservableObject {
     }
     
     func deletePost() {
+        UserNotificationService.shared.deleteNotificationWith(uids: [self.post.uid])
         BoardsRepository.current.delete(item: post, to: board, on: .posts) { [weak self] result in
             switch result {
             case .failure(_):
                 print("")
             case .success(_):
                 if let self = self {
-                    UserNotificationService.shared.deleteNotificationWith(uids: [self.post.uid])
                     ImagesRepository.current.deleteImage(of: self.post, ofBoard: self.board) { _ in}
                 }
             }

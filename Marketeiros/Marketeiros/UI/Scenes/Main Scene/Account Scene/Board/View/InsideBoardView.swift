@@ -102,7 +102,7 @@ struct InsideBoardView: View {
                             Button(action: {
                               selectedIndex = 2
                             }, label: {
-                                Text(NSLocalizedString("Ideação", comment: ""))
+                                Text(NSLocalizedString("ideas", comment: ""))
                                     .font(Font.custom("cocon-bold",size: 18))
                                     .bold()
                                     .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
@@ -221,7 +221,7 @@ struct InsideBoardView: View {
                 })
             }
         } sheet: {
-            ProfileSheet(boards: viewModel.bindings.boards, board: viewModel.bindings.board, okButtonCallback: {toggleBottomSheet()})
+            ProfileSheet(boards: viewModel.bindings.boards, board: viewModel.bindings.board, okButtonCallback: {toggleBottomSheet()}).environmentObject(viewModel)
         }
     }
 }

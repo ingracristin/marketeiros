@@ -42,7 +42,7 @@ class InsideBoardViewModel: ObservableObject {
         var board: Board = Board.init(
             uid: "",
             imagePath: "",
-            title: "Plani Board",
+            title: "Plani Profile",
             description: "",
             instagramAccount: "",
             ownerUid: "",
@@ -185,7 +185,7 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func getAllPosts() {
-        //self.states.isLoading.toggle()
+        LocalRepository.shared.saveCurrent(board: self.states.board)
         self.states.igAccount = self.states.board.instagramAccount
         self.states.imagesUrls = ImagesLocalRepository.shared.getImagesUrls(from: "instagramUrlsFrom=\(self.states.board.instagramAccount)").map({ImageUrl(imageUrl: $0)})
         BoardsRepository.current.getAllItens(of: self.states.board, on: .posts,ofItemType: Post.self) { result in
@@ -201,10 +201,43 @@ class InsideBoardViewModel: ObservableObject {
         }
     }
     
-    func deleteBoard(completion: @escaping (Bool) -> ()) {
-        let uids = posts.map {$0.uid}
+    func delete(board: Board, completion: @escaping (Bool) -> ()) {
+        if board.uid == states.board.uid {
+            let uids = posts.map {$0.uid}
+            deleteSelected(board: board, andPostsWith: uids, completion: completion)
+            
+            if let randomBoard = self.states.boards.randomElement() {
+                self.bindings.board.wrappedValue = randomBoard
+            } else {
+                self.bindings.board.wrappedValue = Board.init(
+                    uid: "",
+                    imagePath: "",
+                    title: "Plani Board",
+                    description: "",
+                    instagramAccount: "",
+                    ownerUid: "",
+                    colaboratorsUids: [],
+                    postsGridUid: "",
+                    ideasGridUid: "",
+                    moodGridUid: "")
+            }
+        } else {
+            BoardsRepository.current.getAllItens(of: board, on: .posts, ofItemType: Post.self) { result in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    completion(false)
+                case .success(let deletePosts):
+                    let uids = deletePosts.map {$0.uid}
+                    self.deleteSelected(board: board, andPostsWith: uids, completion: completion)
+                }
+            }
+        }
+    }
+    
+    private func deleteSelected(board: Board, andPostsWith uids: [String], completion: @escaping (Bool) -> ()) {
         UserNotificationService.shared.deleteNotificationWith(uids: uids)
-        BoardsRepository.current.delete(board: self.states.board) { result in
+        BoardsRepository.current.delete(board: board) { result in
             switch result {
             case .failure(_):
                 completion(false)
@@ -212,5 +245,6 @@ class InsideBoardViewModel: ObservableObject {
                 completion(true)
             }
         }
+        self.states.boards.removeAll {$0.uid == board.uid}
     }
 }

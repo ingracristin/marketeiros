@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileSheet: View {
     @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    @EnvironmentObject var insideViewModel: InsideBoardViewModel
     @Binding var boards: [Board]
     @Binding var board: Board
     var okButtonCallback: () -> ()
@@ -48,9 +49,9 @@ struct ProfileSheet: View {
                         ProfileListCellView(board: board)
                             .padding(.vertical)
                             .onTapGesture {
-                                LocalRepository.shared.saveCurrent(board: board)
+                                //LocalRepository.shared.saveCurrent(board: board)
                                 self.board = board
-                            }
+                            }.environmentObject(insideViewModel)
                         Rectangle()
                             .frame(height: 0.5)
                             .foregroundColor(Color("DividerColor"))
