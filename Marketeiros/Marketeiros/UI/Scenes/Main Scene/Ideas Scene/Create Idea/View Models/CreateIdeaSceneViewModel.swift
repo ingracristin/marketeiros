@@ -69,7 +69,7 @@ class CreateIdeaSceneViewModel: ObservableObject {
         states.okButtonShowing = value
     }
     
-    func saveIdea() {
+    func saveIdea(finish: @escaping () -> ()) {
         var idea = Idea(
             uid: "",
             icon: "",
@@ -77,12 +77,15 @@ class CreateIdeaSceneViewModel: ObservableObject {
             pasteUid: states.paste.uid,
             title: states.title,
             description: states.description)
-        
+        print("tá salvando")
         BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
-        
+        print("salvou")
         if let callback = completion {
             callback(idea)
         }
+        
+        print("chamou o finish")
+        finish()
     }
 
     func togglePasteSheet() {
