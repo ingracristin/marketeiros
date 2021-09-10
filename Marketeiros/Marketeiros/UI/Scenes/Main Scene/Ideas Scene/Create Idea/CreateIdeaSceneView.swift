@@ -143,8 +143,10 @@ struct CreateIdeaSceneView: View {
                                 HStack(spacing:20) {
                                     if viewModel.states.okButtonShowing {
                                         Button {
-                                            viewModel.saveIdea()
-                                            self.presentationMode.wrappedValue.dismiss()
+                                            viewModel.saveIdea(finish: {
+                                                self.presentationMode.wrappedValue.dismiss()
+                                            })
+                    
                                         } label: {
                                             Text("ok")
                                                 .fontWeight(.semibold)

@@ -97,6 +97,7 @@
 		AEAB4EF126CFE96600918DE5 /* EmptyScheduledPostsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB4EF026CFE96600918DE5 /* EmptyScheduledPostsCard.swift */; };
 		AEB7B6AD26BD15C800850114 /* SharePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B6AA26BD15C800850114 /* SharePostView.swift */; };
 		AEB7B6AE26BD15C800850114 /* SharePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */; };
+		AEC2785626EAEFA4002052FA /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2785526EAEFA4002052FA /* CustomNavBar.swift */; };
 		AEC80ED5269C15180091F229 /* EditIdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED4269C15180091F229 /* EditIdeaView.swift */; };
 		AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */; };
 		AEC80EDB269C48AC0091F229 /* EditPasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC80EDA269C48AC0091F229 /* EditPasteView.swift */; };
@@ -233,6 +234,7 @@
 		AEAB4EF026CFE96600918DE5 /* EmptyScheduledPostsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScheduledPostsCard.swift; sourceTree = "<group>"; };
 		AEB7B6AA26BD15C800850114 /* SharePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePostView.swift; sourceTree = "<group>"; };
 		AEB7B6AC26BD15C800850114 /* SharePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePostViewModel.swift; sourceTree = "<group>"; };
+		AEC2785526EAEFA4002052FA /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		AEC80ED4269C15180091F229 /* EditIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaView.swift; sourceTree = "<group>"; };
 		AEC80ED7269C15350091F229 /* EditIdeaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaViewModel.swift; sourceTree = "<group>"; };
 		AEC80EDA269C48AC0091F229 /* EditPasteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasteView.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
 				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
 				AE9E77FD26E28D9A009BE6B7 /* IdeasBottomSheetView.swift */,
+				AEC2785526EAEFA4002052FA /* CustomNavBar.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -1035,6 +1038,7 @@
 				AE3EB5D526976CDC0093AF7C /* SearchView.swift in Sources */,
 				EF2D050626935FF200B9D7E5 /* MoodBoardView.swift in Sources */,
 				EF2D04FB2693491000B9D7E5 /* MoodBoardItemDetailsView.swift in Sources */,
+				AEC2785626EAEFA4002052FA /* CustomNavBar.swift in Sources */,
 				AE8A520C268B8D9F00E14EBD /* ImagePicker.swift in Sources */,
 				AECFA5F326DF28E400728494 /* AddProfileViewModel.swift in Sources */,
 				AE8A5208268B834000E14EBD /* ViewExtension.swift in Sources */,
