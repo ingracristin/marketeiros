@@ -11,7 +11,6 @@ struct IdeaView: View {
     @StateObject var viewModel: IdeaViewModel
     @State var newPasteSheetIsShowing = false
     @State var sort: String = ""
-    //@State var filteredIdeas = [Idea]()
     
     let layout = [
         GridItem(.fixed(UIScreen.main.bounds.size.height * 0.2093),spacing: 5),
@@ -38,7 +37,6 @@ struct IdeaView: View {
                         Spacer()
                         Menu {
                             Picker(selection: $sort, label: Text("Sorting options")) {
-                                
                                 Text(NSLocalizedString("allcards", comment: "")).tag("todos")
                                 ForEach(viewModel.states.pastes, id: \.uid) { paste in
                                     Text(paste.title).tag(paste.title)
@@ -142,9 +140,7 @@ struct IdeaView: View {
                                         .padding(.vertical, 10)
                                     })
                                 ForEach(viewModel.states.filteredIdeas, id: \.uid) { idea in
-                                    NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.states.pastes.first(where: { paste in
-                                        paste.uid == idea.pasteUid
-                                    }) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
+                                    NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.getPasteBy(uid: idea.pasteUid) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
                                         ZStack {
                                             Rectangle()
                                                 .foregroundColor(Color("IdeaViewColor"))
@@ -157,13 +153,13 @@ struct IdeaView: View {
                                                             .foregroundColor(Color("CardFIlterBackgroundColor"))
                                                             .cornerRadius(3)
                                                             //.shadow(radius: 6, x: 2, y: 4)
-                                                        Text(viewModel.states.pastes.first(where: { paste -> Bool in
-                                                            paste.uid == idea.pasteUid
-                                                        })?.title ?? "")
+                                                        Text(viewModel.getPasteBy(uid: idea.pasteUid)?.title ?? "")
                                                             .font(.custom("SF Pro Display", size: 8))
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
-                                                    }.padding(.init(top: 15, leading: 15, bottom: 5, trailing: 5))
+                                                    }
+                                                    .padding(.init(top: 15, leading: 15, bottom: 5, trailing: 5))
+                                                    .isHidden(viewModel.getPasteBy(uid: idea.pasteUid) == nil)
                                                     Spacer()
                                                 }
                                                 HStack {

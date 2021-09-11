@@ -29,6 +29,26 @@ struct EditIdeaView: View {
     var body: some View {
         IdeasBottomSheetView(offset: $offset, isCollpsed: $isCollpsed) {
             VStack {
+                CustomNavBar(title:NSLocalizedString("editIdea", comment: ""), backButtonAction: {
+                    presentationMode.wrappedValue.dismiss()
+                }, trailing: {
+                    Menu(content: {
+                        Button {
+                            viewModel.updateIdea()
+                            callback?(viewModel.idea)
+                            presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Label(NSLocalizedString("save", comment: ""), systemImage: "square.and.arrow.down")
+                        }
+                        Button {
+                            viewModel.setErrorAlertIsShowing(true)
+                        } label: {
+                            Label(NSLocalizedString("delIdea", comment: ""), systemImage: "trash")
+                        }
+                    }, label: {
+                        Image(systemName: "ellipsis.circle")
+                    })
+                })
                 Button(action: {
                     toggleBottomSheet()
                     //viewModel.togglePasteSheet()
@@ -48,6 +68,7 @@ struct EditIdeaView: View {
                     .foregroundColor(Color(UIColor.lightGray))
                     .font(Font.sfProDisplaySemiBold(sized: 14))
             }.padding()
+            Spacer()
         } sheet: {
             ScrollView(.vertical, showsIndicators: false) {
                 HStack {
@@ -95,39 +116,14 @@ struct EditIdeaView: View {
             .padding()
             .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.systemBackground)))
         }
-        .navigationBarTitle(NSLocalizedString("createIdea", comment: ""), displayMode: .inline)
-        .navigationBarItems(
-            trailing: Menu(content: {
-               /* Button {
-                    viewModel.updateIdea()
-                    callback?(viewModel.idea)
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Label(NSLocalizedString("save", comment: ""), systemImage: "square.and.arrow.down")
-                }*/
-                Button {
-                    viewModel.setErrorAlertIsShowing(true)
-                } label: {
-                    Label(NSLocalizedString("delIdea", comment: ""), systemImage: "trash")
-                }
-            }, label: {
-                Image(systemName: "ellipsis.circle")
-            })
-            .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
-                Alert(title: Text(viewModel.states.errorMessage), primaryButton: .default(Text(NSLocalizedString("yes", comment: "")), action: {
-                    viewModel.deleteIdea()
-                    callback?(nil)
-                    presentationMode.wrappedValue.dismiss()
-                }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
-            })
-               
-//            trailing: Button("Salvar", action: {
-//                viewModel.updateIdea()
-//                callback?(viewModel.idea)
-//                presentationMode.wrappedValue.dismiss()
-//        })
-        
-        )
+        .navigationBarHidden(true)
+        .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
+            Alert(title: Text(viewModel.states.errorMessage), primaryButton: .default(Text(NSLocalizedString("yes", comment: "")), action: {
+                viewModel.deleteIdea()
+                callback?(nil)
+                presentationMode.wrappedValue.dismiss()
+            }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
+        })
     }
 }
 

@@ -19,6 +19,7 @@ class IdeaViewModel: ObservableObject {
     struct States {
         var pastes = [Paste]()
         var ideas = [Idea]()
+        var pastesUidsDict: [String:Paste] = [:]
         var filteredIdeas = [Idea]()
     }
     
@@ -28,6 +29,10 @@ class IdeaViewModel: ObservableObject {
     
     func resetFilter() {
         states.filteredIdeas = states.ideas
+    }
+    
+    func getPasteBy(uid: String) -> Paste? {
+        self.states.pastesUidsDict[uid]
     }
     
     func getPastes() {
@@ -87,9 +92,15 @@ class IdeaViewModel: ObservableObject {
             case .success(let pastes):
                 if let self = self {
                     self.states.pastes = pastes
+                    var newDict: [String:Paste] = [:]
+                    for paste in pastes {
+                        newDict[paste.uid] = paste
+                    }
+                    self.states.pastesUidsDict = newDict
                 }
             }
         }
+        
         BoardsRepository.current.setListener(on: .ideas, of: self.board, ofItemType: Idea.self) {[weak self] result in
             switch result {
             case .failure(let error):

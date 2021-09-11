@@ -29,6 +29,21 @@ struct CreateIdeaSceneView: View {
     var body: some View {
         IdeasBottomSheetView(offset: $offset, isCollpsed: $isCollpsed) {
             VStack {
+                CustomNavBar(title: NSLocalizedString("createIdea", comment: ""), backButtonAction: {
+                    presentationMode.wrappedValue.dismiss()
+                }, trailing: {
+                    if viewModel.states.okButtonShowing {
+                        Button {
+                            viewModel.saveIdea(finish: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            })
+    
+                        } label: {
+                            Text("ok")
+                                .fontWeight(.semibold)
+                        }
+                    }
+                })
                 HStack {
                     Button(action: {
                         UIApplication.shared.endEditing()
@@ -65,6 +80,7 @@ struct CreateIdeaSceneView: View {
                             viewModel.setDescriptionwith(text: "")
                         }
                     }
+                Spacer()
             }.padding()
         } sheet: {
             ScrollView(.vertical, showsIndicators: false) {
@@ -106,14 +122,10 @@ struct CreateIdeaSceneView: View {
                                 .background(Color(#colorLiteral(red: 0.997802794, green: 0.2306014299, blue: 0.1866784096, alpha: 1)))
                             }
                             
-                            
-                            
-                            
                             Button(action: {
                                 viewModel.select(paste: paste)
                             }) {
                                 HStack {
-                                    
                                     Text(paste.title)
                                     Spacer()
                                     if (viewModel.states.paste.uid == paste.uid) {
@@ -132,45 +144,23 @@ struct CreateIdeaSceneView: View {
                     }
                 }
             }
+            .navigationBarHidden(true)
             .padding(.horizontal,20)
             .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color("ModalSheetColor")))
-            
-            
-            
         }
-        .navigationBarTitle(NSLocalizedString("ideas", comment: ""),displayMode: .inline)
-        .navigationBarItems(trailing:
-                                HStack(spacing:20) {
-                                    if viewModel.states.okButtonShowing {
-                                        Button {
-                                            viewModel.saveIdea(finish: {
-                                                self.presentationMode.wrappedValue.dismiss()
-                                            })
-                    
-                                        } label: {
-                                            Text("ok")
-                                                .fontWeight(.semibold)
-                                        }
-                                    }
-                                }
-        )
-        
-        
     }
+    
     func onChanged(value: DragGesture.Value){
-        
         if value.translation.width < 0{
             if(isSwipped){
                 pasteOffset = value.translation.width - 90
             }else{
                 pasteOffset = value.translation.width
             }
-            
         }
     }
     
-    func onEnd(value: DragGesture.Value){
-        
+    func onEnd(value: DragGesture.Value) {
         withAnimation(.easeOut){
             if(value.translation.width < 0){
                 if(-value.translation.width > UIScreen.main.bounds.width / 2){
@@ -187,7 +177,6 @@ struct CreateIdeaSceneView: View {
                 pasteOffset = 0
             }
         }
-        
     }
 }
 
