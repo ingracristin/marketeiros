@@ -13,11 +13,13 @@ class EditIdeaViewModel: ObservableObject {
     var paste: Paste
     var idea: Idea
     var board: Board
+    var pastes: [Paste]
     
-    init(board: Board, paste: Paste, idea: Idea) {
+    init(board: Board, paste: Paste, pastes: [Paste], idea: Idea) {
         self.idea = idea
         self.paste = paste
         self.board = board
+        self.pastes = pastes
         self.states.title = idea.title
         self.states.description = idea.description
         self.states.paste = paste
@@ -25,8 +27,8 @@ class EditIdeaViewModel: ObservableObject {
     
     struct States {
         var title = ""
-        var description = "Descrição"
-        var paste: Paste!
+        var description = ""
+        var paste: Paste = Paste(uid: "none", title: "none", icon: "none")
         var pasteSheetShowing = false
         var errorAlertIsShowing = false
         var errorMessage = ""
@@ -78,6 +80,7 @@ class EditIdeaViewModel: ObservableObject {
     func updateIdea() {
         idea.title = states.title
         idea.description = states.description
+        idea.pasteUid = states.paste.uid
         
         BoardsRepository.current.update(item: &idea, to: board, on: .ideas)
     }

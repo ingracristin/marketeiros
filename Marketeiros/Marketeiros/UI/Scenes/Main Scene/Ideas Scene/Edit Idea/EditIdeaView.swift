@@ -13,6 +13,8 @@ struct EditIdeaView: View {
     var callback: ((Idea?) -> ())?
     @State var offset: CGFloat = 0
     @State var isCollpsed: Bool = true
+    @State var pasteOffset: CGFloat = 0
+    @State var isSwipped: Bool = false
     
     func toggleBottomSheet() {
         withAnimation {
@@ -21,8 +23,8 @@ struct EditIdeaView: View {
         }
     }
     
-    init(board: Board, paste: Paste, idea: Idea, callback: ((Idea?) -> ())?) {
-        self.viewModel = EditIdeaViewModel(board: board, paste: paste, idea: idea)
+    init(board: Board, paste: Paste, pastes: [Paste],idea: Idea, callback: ((Idea?) -> ())?) {
+        self.viewModel = EditIdeaViewModel(board: board, paste: paste, pastes: pastes, idea: idea)
         self.callback = callback
     }
     
@@ -91,30 +93,46 @@ struct EditIdeaView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                     }
-                }.padding(.bottom)
-                VStack {
-                    ForEach(Array(arrayLiteral: viewModel.paste), id:\.uid) { paste in
-                        Button(action: {
-                            viewModel.select(paste: paste)
-                        }) {
-                            VStack {
-                                /*HStack {
-                                    Image(systemName: "folder")
+                }.padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
+                VStack(spacing: 0){
+                    ForEach(viewModel.pastes, id:\.uid) { paste in
+                        ZStack {
+                            HStack(spacing: 0){
+                                Spacer()
+                                Button(action: {}) {
+                                    Image(systemName: "square.and.pencil")
+                                        .foregroundColor(.white)
+                                }.frame(width: UIScreen.main.bounds.size.width * 0.144, height: UIScreen.main.bounds.size.height * 0.0566)
+                                .background(Color(#colorLiteral(red: 0.2733859122, green: 0.3903551698, blue: 0.9017891288, alpha: 1)))
+                                Button(action: {}) {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.white)
+                                }.frame(width: UIScreen.main.bounds.size.width * 0.144, height: UIScreen.main.bounds.size.height * 0.0566)
+                                .background(Color(#colorLiteral(red: 0.997802794, green: 0.2306014299, blue: 0.1866784096, alpha: 1)))
+                            }
+
+                            Button(action: {
+                                viewModel.select(paste: paste)
+                            }) {
+                                HStack {
                                     Text(paste.title)
                                     Spacer()
-                                    if (viewModel.states.paste.uid == paste.uid) {
+                                    if viewModel.states.paste.uid == paste.uid {
                                         Image(systemName:"checkmark")
                                     }
                                 }
+                                .frame(height: UIScreen.main.bounds.size.height * 0.0566)
+                                .background(Color("ModalSheetColor"))
                                 .foregroundColor(Color(UIColor.navBarTitleColor))
-                                Divider()*/
-                            }
-                        }.padding()
+                            }.offset(x: pasteOffset)
+                            .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
+                        }.frame(height: UIScreen.main.bounds.size.height * 0.0566)
+                        Divider()
                     }
                 }
             }
-            .padding()
-            .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color(UIColor.systemBackground)))
+            .padding(.horizontal,20)
+            .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color("ModalSheetColor")))
         }
         .navigationBarHidden(true)
         .alert(isPresented: viewModel.bindings.errorAlertIsShowing, content: {
@@ -125,12 +143,42 @@ struct EditIdeaView: View {
             }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
         })
     }
+    
+    
+    func onChanged(value: DragGesture.Value){
+        if value.translation.width < 0{
+            if(isSwipped){
+                pasteOffset = value.translation.width - 90
+            }else{
+                pasteOffset = value.translation.width
+            }
+        }
+    }
+    
+    func onEnd(value: DragGesture.Value) {
+        withAnimation(.easeOut){
+            if(value.translation.width < 0){
+                if(-value.translation.width > UIScreen.main.bounds.width / 2){
+                    pasteOffset = -1000
+                }else if(-pasteOffset > 50){
+                    isSwipped = true
+                    pasteOffset = -90
+                }else{
+                    isSwipped = false
+                    pasteOffset = 0
+                }
+            }else{
+                isSwipped = false
+                pasteOffset = 0
+            }
+        }
+    }
 }
 
 struct EditIdeaView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            EditIdeaView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), paste: .init(uid: "", title: "teu cu", icon: ""), idea: .T(uid: "", icon: "", tag: "", pasteUid: "", title: "", description: ""), callback: nil)
+            EditIdeaView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), paste: .init(uid: "", title: "teu cu", icon: ""), pastes: [], idea: .T(uid: "", icon: "", tag: "", pasteUid: "", title: "", description: ""), callback: nil)
         }
     }
 }

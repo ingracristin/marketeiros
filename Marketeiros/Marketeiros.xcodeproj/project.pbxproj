@@ -557,6 +557,7 @@
 				AE3EB5D026976CDC0093AF7C /* SearchView.swift */,
 				AE3EB5D126976CDC0093AF7C /* EditSheet.swift */,
 				AE3EB5D226976CDC0093AF7C /* RenameSheet.swift */,
+				AE3EB5DD26976CE60093AF7C /* CreatePasteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -581,7 +582,6 @@
 		AE3EB5DC26976CE60093AF7C /* CreatePasteScene */ = {
 			isa = PBXGroup;
 			children = (
-				AE3EB5DD26976CE60093AF7C /* CreatePasteView.swift */,
 			);
 			path = CreatePasteScene;
 			sourceTree = "<group>";

@@ -108,6 +108,7 @@
 "createIdeaClik" = "Crie um clicando em ''Adicionar ideia''";
 "allCards" = "Todos os cartões";
 "createFilter" = "Criar filtro";
+"editIdea" = "Editar Ideia";
 
 //MoodBoard View
 "emptyMessage" = "Seu moodboard está meio vazio...";
@@ -218,3 +219,5 @@
 "allcards" = "Todos os cartões";
 "createFilter" = "Criar filtro";
 "profileName" = "Nome do Perfil";
+"newFilter" = "Novo Filtro";
+"filterName" = "Nome do Filtro";

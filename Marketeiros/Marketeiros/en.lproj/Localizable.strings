@@ -109,6 +109,7 @@
 "createIdeaClik" = "Create one by clicking on ''Add idea''";
 "allCards" = "All cards";
 "createFilter" = "Create filter";
+"editIdea" = "Edit Idea";
 
 
 //MoodBoard View
@@ -216,3 +217,5 @@
 
 "allcards" = "All cards";
 "createFilter" = "Create Filter";
+"newFilter" = "New Filter";
+"filterName" = "Filter Name";

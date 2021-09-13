@@ -18,13 +18,13 @@ class CreateIdeaSceneViewModel: ObservableObject {
         self.pastes = pastes
         self.board = board
         self.completion = completion
-        self.states.paste = (pastes.count == 1) ? pastes.first : Paste(uid: "none", title: "none", icon: "none")
+        self.states.paste = Paste(uid: "none", title: "none", icon: "none")
     }
     
     struct States {
         var title = ""
         var description = NSLocalizedString("descriptionIdea", comment: "")
-        var paste: Paste!
+        var paste: Paste = Paste(uid: "none", title: "none", icon: "none")
         var pasteSheetShowing = false
         var okButtonShowing = false
     }
@@ -77,14 +77,13 @@ class CreateIdeaSceneViewModel: ObservableObject {
             pasteUid: states.paste.uid,
             title: states.title,
             description: states.description)
-        print("tá salvando")
+
         BoardsRepository.current.add(item: &idea, to: board, on: .ideas)
-        print("salvou")
+
         if let callback = completion {
             callback(idea)
         }
-        
-        print("chamou o finish")
+
         finish()
     }
 

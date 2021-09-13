@@ -18,8 +18,8 @@ struct IdeaView: View {
     ]
     
     var body: some View {
-        ZStack(){
-            if(viewModel.states.ideas.isEmpty){
+        ZStack {
+            if viewModel.states.ideas.isEmpty {
                 Image("BgIdea")
                     .resizable()
                     .frame(width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height * 0.6724)
@@ -28,7 +28,7 @@ struct IdeaView: View {
         
             GeometryReader { reader in
                 VStack(alignment: .leading) {
-                    HStack(){
+                    HStack {
                         Text(NSLocalizedString("ideaCard", comment: ""))
                             .font(.system(size: 24))
                             .fontWeight(.semibold)
@@ -47,21 +47,19 @@ struct IdeaView: View {
                         label: {
                             Label {
                                 Text("")
-                                    
                             } icon: {
                                 Image(systemName: "slider.horizontal.3")
-                                     
                                     .frame(width: UIScreen.main.bounds.size.height * 0.04)
-                                     .foregroundColor(Color("NavBarTitle"))
+                                    .foregroundColor(Color("NavBarTitle"))
                                     .aspectRatio(contentMode: .fit)
                             }
                         }
                     }
                     
-                    if(viewModel.states.ideas.isEmpty){
-                        VStack(){
+                    if viewModel.states.ideas.isEmpty {
+                        VStack {
                             Spacer()
-                            HStack(){
+                            HStack {
                                 Spacer()
                                 NavigationLink(
                                     destination: CreateIdeaSceneView(board: viewModel.board, pastes: viewModel.states.pastes, completion: nil),
@@ -80,14 +78,12 @@ struct IdeaView: View {
                                                     .fontWeight(.regular)
                                             }
         //                                    .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
-                                            
                                         }
                                         .padding(.horizontal, 40)
                                         .padding(.vertical, 60)
                                         .background(Color("IdeaViewColor"))
                                         .cornerRadius(22)
                                         .shadow(radius: 6, x: 2, y: 4)
-                                        
                                     })
                                
                                 Spacer()
@@ -108,7 +104,7 @@ struct IdeaView: View {
                             Spacer()
                         }
 
-                    }else{
+                    } else {
                         ScrollView(showsIndicators: false) {
                             LazyVGrid(columns: layout, spacing: 0) {
                                 NavigationLink(
@@ -131,7 +127,6 @@ struct IdeaView: View {
                                                     .fontWeight(.regular)
                                             }
                                             .frame(width: UIScreen.main.bounds.size.width * 0.4293, height: UIScreen.main.bounds.size.width * 0.4293, alignment: .center)
-                                            
                                         }
                                         .background(Color("IdeaViewColor"))
                                         .cornerRadius(22)
@@ -140,28 +135,25 @@ struct IdeaView: View {
                                         .padding(.vertical, 10)
                                     })
                                 ForEach(viewModel.states.filteredIdeas, id: \.uid) { idea in
-                                    NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.getPasteBy(uid: idea.pasteUid) ?? Paste(uid: "none", title: "none", icon: "none"), idea: idea, callback: nil)) {
+                                    NavigationLink(destination: EditIdeaView(board: viewModel.board, paste: viewModel.getPasteBy(uid: idea.pasteUid) ?? Paste(uid: "none", title: "none", icon: "none"), pastes: viewModel.states.pastes, idea: idea, callback: nil)) {
                                         ZStack {
                                             Rectangle()
                                                 .foregroundColor(Color("IdeaViewColor"))
                                                 .cornerRadius(22)
                                             VStack(alignment: .leading,spacing: 5) {
                                                 HStack(alignment: .firstTextBaseline){
-                                                    ZStack(alignment:.center){
-                                                        Rectangle()
-                                                            .frame(width: 60, height:  15)
-                                                            .foregroundColor(Color("CardFIlterBackgroundColor"))
-                                                            .cornerRadius(3)
-                                                            //.shadow(radius: 6, x: 2, y: 4)
                                                         Text(viewModel.getPasteBy(uid: idea.pasteUid)?.title ?? "")
-                                                            .font(.custom("SF Pro Display", size: 8))
+                                                            .font(.custom("SF Pro Display", size: 12))
                                                             .fontWeight(.regular)
-                                                            .foregroundColor(.white)
-                                                    }
-                                                    .padding(.init(top: 15, leading: 15, bottom: 5, trailing: 5))
-                                                    .isHidden(viewModel.getPasteBy(uid: idea.pasteUid) == nil)
+                                                            .foregroundColor(Color("AppCalendarCellColor"))
+                                                            .padding(3)
+                                                            .background(Rectangle()
+                                                                            .foregroundColor(Color("CardFIlterBackgroundColor"))
+                                                                            .cornerRadius(3))
+                                                            .isHidden(viewModel.getPasteBy(uid: idea.pasteUid) == nil)
                                                     Spacer()
                                                 }
+                                                .padding(.init(top: 15, leading: 15, bottom: 5, trailing: 5))
                                                 HStack {
                                                     Text(idea.title)
                                                         .foregroundColor(Color("UserProfileColor"))

@@ -24,7 +24,7 @@ class IdeaViewModel: ObservableObject {
     }
     
     func filterIdeas(by query: String) {
-        states.filteredIdeas = states.ideas.filter({$0.title == query})
+        states.filteredIdeas = states.ideas.filter({ $0.pasteUid == query})
     }
     
     func resetFilter() {

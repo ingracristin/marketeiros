@@ -56,30 +56,30 @@ struct PastesDetailsView: View {
             ScrollView() {
                 LazyVGrid(columns: layout, spacing: 15) {
                     ForEach(0..<viewModel.ideas.count, id: \.self) { index in
-                        NavigationLink(
-                            destination: EditIdeaView(board: viewModel.board, paste: viewModel.paste, idea: viewModel.ideas[index],callback: { idea in
-                                if let idea = idea {
-                                    self.viewModel.ideas[index] = idea
-                                } else {
-                                    self.viewModel.ideas.remove(at: index)
-                                }
-                            }),
-                            label: {
-                                ZStack {
-                                    Rectangle()
-                                        .foregroundColor(Color("IdeaViewColor"))
-                                        .cornerRadius(22)
-                                    VStack(spacing: 5) {
-                                        Text(viewModel.ideas[index].title)
-                                            .foregroundColor(Color("UserProfileColor"))
-                                            .fontWeight(.semibold)
-                                    }
-                                    .frame(width: 170, height: 170, alignment: .center)
-                                    
-                                }
-                                .background(Color("IdeaViewColor"))
-                                .cornerRadius(22)
-                        })
+//                        NavigationLink(
+//                            destination: EditIdeaView(board: viewModel.board, paste: viewModel.paste, pastes: <#[Paste]#>, idea: viewModel.ideas[index],callback: { idea in
+//                                if let idea = idea {
+//                                    self.viewModel.ideas[index] = idea
+//                                } else {
+//                                    self.viewModel.ideas.remove(at: index)
+//                                }
+//                            }),
+//                            label: {
+//                                ZStack {
+//                                    Rectangle()
+//                                        .foregroundColor(Color("IdeaViewColor"))
+//                                        .cornerRadius(22)
+//                                    VStack(spacing: 5) {
+//                                        Text(viewModel.ideas[index].title)
+//                                            .foregroundColor(Color("UserProfileColor"))
+//                                            .fontWeight(.semibold)
+//                                    }
+//                                    .frame(width: 170, height: 170, alignment: .center)
+//                                    
+//                                }
+//                                .background(Color("IdeaViewColor"))
+//                                .cornerRadius(22)
+//                        })
                     }
                 }
             }

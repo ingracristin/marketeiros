@@ -22,7 +22,7 @@ struct CreatePasteView: View {
                         .foregroundColor(.red)
                 }
                 Spacer()
-                Text(NSLocalizedString("newPaste", comment: ""))
+                Text(NSLocalizedString("newFilter", comment: ""))
                     .font(Font.sfProDisplaySemiBold(sized: 18))
                     .foregroundColor(Color(UIColor.navBarTitleColor))
                 Spacer()
@@ -38,13 +38,12 @@ struct CreatePasteView: View {
             }.padding(.vertical)
             
             VStack(spacing:5) {
-                TextField(NSLocalizedString("folderName", comment: ""), text: $title)
+                TextField(NSLocalizedString("filterName", comment: ""), text: $title)
                 Divider()
             }
             Spacer()
         }
         .padding()
-        .navigationTitle(NSLocalizedString("createIdea", comment: ""))
         .cornerRadius(50)
     }
 }

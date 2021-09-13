@@ -23,7 +23,7 @@ struct CreateIdeaSceneView: View {
     }
     
     init(board: Board, pastes: [Paste], completion: ((Idea) -> ())?) {
-        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes, completion:completion)
+        self.viewModel = CreateIdeaSceneViewModel(board: board, pastes: pastes, completion: completion)
     }
     
     var body: some View {
@@ -128,17 +128,15 @@ struct CreateIdeaSceneView: View {
                                 HStack {
                                     Text(paste.title)
                                     Spacer()
-                                    if (viewModel.states.paste.uid == paste.uid) {
+                                    if viewModel.states.paste.uid == paste.uid {
                                         Image(systemName:"checkmark")
                                     }
                                 }
                                 .frame(height: UIScreen.main.bounds.size.height * 0.0566)
                                 .background(Color("ModalSheetColor"))
                                 .foregroundColor(Color(UIColor.navBarTitleColor))
-                                
                             }.offset(x: pasteOffset)
                             .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
-                            
                         }.frame(height: UIScreen.main.bounds.size.height * 0.0566)
                         Divider()
                     }
