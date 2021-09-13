@@ -88,7 +88,7 @@ struct InsideBoardView: View {
                         Button(action: {
                             selectedIndex = 1
                         }, label: {
-                            Text("Calendar")
+                            Text(NSLocalizedString("calendar", comment: ""))
                                 .font(Font.custom("cocon-bold",size: 18))
                                 .bold()
                                 .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
