@@ -224,6 +224,7 @@ struct InsideBoardView: View {
         } sheet: {
             ProfileSheet(boards: viewModel.bindings.boards, board: viewModel.bindings.board, okButtonCallback: {toggleBottomSheet()}).environmentObject(viewModel)
         }
+        .loadingView(text: .constant("aaaaa"), isPresenting: viewModel.bindings.isLoading, alert: LoadingPhotosView(isShowing: viewModel.bindings.isLoading))
     }
 }
 

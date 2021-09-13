@@ -93,6 +93,7 @@ class InsideBoardViewModel: ObservableObject {
             get: {self.states.board},
             set: {
                 self.states.board = $0
+                self.states.isLoading.toggle()
                 self.getAllPosts()
             }),
         imagesUrls: Binding(
@@ -192,7 +193,6 @@ class InsideBoardViewModel: ObservableObject {
             self.states.isLoading.toggle()
             switch result {
             case .failure(let message):
-                self.states.isLoading.toggle()
                 self.states.errorAlertIsShowing.toggle()
                 self.states.errorMessage = message.localizedDescription
             case .success(let postsList):

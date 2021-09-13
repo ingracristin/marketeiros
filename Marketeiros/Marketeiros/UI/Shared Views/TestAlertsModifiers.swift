@@ -24,7 +24,7 @@ struct testErrorView: View {
             
            Spacer()
         }
-        .customErrorView(text: .constant("aaaaa"), isPresenting: $isShowing, alert: LoadingPhotosView(isShowing: $isShowing))
+        .loadingView(text: .constant("aaaaa"), isPresenting: $isShowing, alert: LoadingPhotosView(isShowing: $isShowing))
     }
 }
 
