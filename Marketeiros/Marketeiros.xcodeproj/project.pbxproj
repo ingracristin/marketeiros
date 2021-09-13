@@ -71,6 +71,8 @@
 		AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5DD26976CE60093AF7C /* CreatePasteView.swift */; };
 		AE3EB5E226976D090093AF7C /* DeviceDataPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5E126976D090093AF7C /* DeviceDataPersistenceService.swift */; };
 		AE3EB5E4269770860093AF7C /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5E3269770860093AF7C /* AuthenticationView.swift */; };
+		AE42A4C726EFA5C200768FBF /* CustomAlertsModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */; };
+		AE42A4C926EFA5F900768FBF /* TestAlertsModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */; };
 		AE562EEC26CC0DC600B49226 /* ScheduledPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */; };
 		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
 		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
@@ -207,6 +209,8 @@
 		AE3EB5DD26976CE60093AF7C /* CreatePasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasteView.swift; sourceTree = "<group>"; };
 		AE3EB5E126976D090093AF7C /* DeviceDataPersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDataPersistenceService.swift; sourceTree = "<group>"; };
 		AE3EB5E3269770860093AF7C /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertsModifiers.swift; sourceTree = "<group>"; };
+		AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAlertsModifiers.swift; sourceTree = "<group>"; };
 		AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledPostDetails.swift; sourceTree = "<group>"; };
 		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
 		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
@@ -492,6 +496,8 @@
 				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
 				AE9E77FD26E28D9A009BE6B7 /* IdeasBottomSheetView.swift */,
 				AEC2785526EAEFA4002052FA /* CustomNavBar.swift */,
+				AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */,
+				AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -1081,6 +1087,7 @@
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				AE3EB5DF26976CE60093AF7C /* CreateIdeaSceneView.swift in Sources */,
 				7913D51C26C40DFA008EA7C1 /* ErrorMissingInformation.swift in Sources */,
+				AE42A4C726EFA5C200768FBF /* CustomAlertsModifiers.swift in Sources */,
 				AE380BE626E05B2900487D3C /* EditProfileView.swift in Sources */,
 				795AB138267A30A3006308B5 /* BoardView.swift in Sources */,
 				AE5D3223269542FC002BD62F /* SignInViewModel.swift in Sources */,
@@ -1120,6 +1127,7 @@
 				AEC80ED8269C15350091F229 /* EditIdeaViewModel.swift in Sources */,
 				AE119B5E268EC0B400327D39 /* PostDetailsView.swift in Sources */,
 				AE6C8BAB26D88ED7003D2940 /* ProfileSheet.swift in Sources */,
+				AE42A4C926EFA5F900768FBF /* TestAlertsModifiers.swift in Sources */,
 				AE3079F926D0BA7C0081948E /* LocalRepository.swift in Sources */,
 				793F904026D7EA7A00436B44 /* Error6charecterPasswd.swift in Sources */,
 				AE3EB5E026976CE60093AF7C /* CreatePasteView.swift in Sources */,

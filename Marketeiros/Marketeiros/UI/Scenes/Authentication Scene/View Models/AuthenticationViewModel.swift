@@ -100,7 +100,7 @@ class AuthenticationViewModel: ObservableObject {
         let name = states.name
         let username = states.username
         
-        if(states.password.count < 6){
+        if states.password.count < 6 {
             states.isLess6Char.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
                 self.states.isLess6Char.toggle()
@@ -110,15 +110,13 @@ class AuthenticationViewModel: ObservableObject {
         }
         
         if name.isEmpty ||
-           username.isEmpty ||
             states.email.isEmpty ||
-           states.password.isEmpty ||
-           states.email.isEmpty {
-           
-            states.isLoading.toggle()
-            states.errorText = NSLocalizedString("All fields must be filled in correctly.", comment: "")
-            states.existError.toggle()
-            return
+            states.password.isEmpty ||
+            states.confirmPassword.isEmpty {
+                states.isLoading.toggle()
+                states.errorText = NSLocalizedString("All fields must be filled in correctly.", comment: "")
+                states.existError.toggle()
+                return
         }
         
         if states.password != states.confirmPassword {
@@ -127,8 +125,6 @@ class AuthenticationViewModel: ObservableObject {
             states.existError.toggle()
             return
         }
-        
-        
         
         AuthService.current.createUserWithEmailAndPassword(email: states.email, password: states.password, name: states.name) { [weak self] result in
             switch result {
@@ -177,6 +173,9 @@ class AuthenticationViewModel: ObservableObject {
                     self?.states.isLoading.toggle()
                     self?.states.existError.toggle()
                 case .success(_):
+                    if let self = self {
+                        self.states.isLoggedIn.toggle()
+                    }
                     var  board = Board.init(
                         uid: "",
                         imagePath: "",
