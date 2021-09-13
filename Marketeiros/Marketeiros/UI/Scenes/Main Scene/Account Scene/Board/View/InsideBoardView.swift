@@ -32,7 +32,7 @@ struct InsideBoardView: View {
     var body: some View {
         BottomSheetView(offset: $offset, isCollpsed: $isCollpsed) {
             GeometryReader() { reader in
-                let cellWidth: CGFloat = (reader.size.width) / 3
+                let cellWidth: CGFloat = ((reader.size.width) / 3) - 1
                             
                 let layout = [
                     GridItem(.fixed(cellWidth), spacing: 1),
