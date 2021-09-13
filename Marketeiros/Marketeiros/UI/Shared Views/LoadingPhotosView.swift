@@ -31,8 +31,7 @@ struct LoadingPhotosView: View {
         .background(Color("loadingsBgColor"))
         .cornerRadius(10)
         .shadow(radius: 6, x: 2, y: 4)
-        .opacity(self.isShowing ? 1 : 0)
-        
+        //+.opacity(self.isShowing ? 1 : 0)
     }
 }
 

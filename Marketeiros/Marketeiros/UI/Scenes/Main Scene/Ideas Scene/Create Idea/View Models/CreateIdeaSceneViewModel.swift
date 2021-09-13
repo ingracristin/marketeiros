@@ -10,7 +10,7 @@ import SwiftUI
 
 class CreateIdeaSceneViewModel: ObservableObject {
     @Published private(set) var states = States()
-    var pastes: [Paste]
+    @Published var pastes: [Paste]
     var board: Board
     var completion: ((Idea) -> ())?
     

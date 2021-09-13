@@ -14,6 +14,7 @@ struct CreateIdeaSceneView: View {
     @State var isCollpsed: Bool = true
     @State var pasteOffset: CGFloat = 0
     @State var isSwipped: Bool = false
+    @State var newPasteSheetIsShowing = false
     
     func toggleBottomSheet() {
         withAnimation {
@@ -98,7 +99,7 @@ struct CreateIdeaSceneView: View {
                         .foregroundColor(Color(UIColor.navBarTitleColor))
                     Spacer()
                     Button(action: {
-                        viewModel.togglePasteSheet()
+                        newPasteSheetIsShowing.toggle()
                     }) {
                         Image(systemName: "plus")
                             .resizable()
@@ -145,7 +146,13 @@ struct CreateIdeaSceneView: View {
             .navigationBarHidden(true)
             .padding(.horizontal,20)
             .background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).foregroundColor(Color("ModalSheetColor")))
+            
         }
+        .sheet(isPresented: $newPasteSheetIsShowing, content: {
+            CreatePasteView(board: viewModel.board, callback: { paste in
+                viewModel.pastes.append(paste)
+            })
+        })
     }
     
     func onChanged(value: DragGesture.Value){

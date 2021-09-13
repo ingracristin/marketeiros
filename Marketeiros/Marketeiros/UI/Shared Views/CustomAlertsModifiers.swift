@@ -27,12 +27,14 @@ struct ErrorViewModifier<AlertView: View>: ViewModifier {
         ZStack {
             content
                 .blur(radius: self.isShowing ? 5 : 0)
-            alert
-                .onTapGesture {
-                    withAnimation {
-                        isShowing.toggle()
+            if isShowing {
+                alert
+                    .onTapGesture {
+                        withAnimation {
+                            isShowing.toggle()
+                        }
                     }
-                }
+            }
         }
     }
 }
@@ -46,12 +48,9 @@ struct LoadingViewModifier<AlertView: View>: ViewModifier {
             content
                 .disabled(self.isShowing)
                 .blur(radius: self.isShowing ? 5 : 0)
-//                .onTapGesture {
-//                    withAnimation {
-//                        isShowing.toggle()
-//                    }
-//                }
-            alert
+            if isShowing {
+                alert
+            }
         }
     }
 }

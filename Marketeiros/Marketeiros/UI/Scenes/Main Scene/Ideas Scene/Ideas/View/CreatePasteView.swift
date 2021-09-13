@@ -11,6 +11,7 @@ struct CreatePasteView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var title: String = ""
     var board: Board
+    var callback: ((Paste) -> Void)?
     
     var body: some View {
         VStack(spacing: 20){
@@ -29,8 +30,8 @@ struct CreatePasteView: View {
                 Button(action: {
                     var paste = Paste(uid: "", title: title, icon: "none")
                     BoardsRepository.current.add(item: &paste, to: board, on: .pastes)
+                    callback?(paste)
                     presentationMode.wrappedValue.dismiss()
-
                 }) {
                     Text(NSLocalizedString("save", comment: ""))
                         .foregroundColor(Color(UIColor.navBarItemsColor))
@@ -50,6 +51,6 @@ struct CreatePasteView: View {
 
 struct CreatePasteView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePasteView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""))
+        CreatePasteView(board: .init(uid: "_guicf", imagePath: "", title: "", description: "", instagramAccount: "", ownerUid: "", colaboratorsUids: [""], postsGridUid: "", ideasGridUid: "", moodGridUid: ""), callback: nil)
     }
 }

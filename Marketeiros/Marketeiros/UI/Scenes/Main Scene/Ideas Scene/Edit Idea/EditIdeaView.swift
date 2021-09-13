@@ -15,6 +15,7 @@ struct EditIdeaView: View {
     @State var isCollpsed: Bool = true
     @State var pasteOffset: CGFloat = 0
     @State var isSwipped: Bool = false
+    @State var newPasteSheetIsShowing = false
     
     func toggleBottomSheet() {
         withAnimation {
@@ -87,7 +88,7 @@ struct EditIdeaView: View {
                         .foregroundColor(Color(UIColor.navBarTitleColor))
                     Spacer()
                     Button(action: {
-                        viewModel.togglePasteSheet()
+                        newPasteSheetIsShowing.toggle()
                     }) {
                         Image(systemName: "plus")
                             .resizable()
@@ -142,9 +143,14 @@ struct EditIdeaView: View {
                 presentationMode.wrappedValue.dismiss()
             }), secondaryButton: .cancel(Text(NSLocalizedString("no", comment: ""))))
         })
+        .sheet(isPresented: $newPasteSheetIsShowing, content: {
+            CreatePasteView(board: viewModel.board, callback: { paste in
+                viewModel.pastes.append(paste)
+            })
+        })
     }
     
-    
+
     func onChanged(value: DragGesture.Value){
         if value.translation.width < 0{
             if(isSwipped){
