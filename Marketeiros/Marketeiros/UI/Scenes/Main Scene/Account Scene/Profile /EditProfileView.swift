@@ -115,7 +115,6 @@ struct EditProfileView: View {
                     }
                     .foregroundColor(.red)
                     .padding()
-                    
                 }
             }
             .padding(.horizontal,20)

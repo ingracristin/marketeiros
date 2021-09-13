@@ -63,7 +63,7 @@ struct InsideBoardView: View {
                         BoardImageView(board: viewModel.bindings.board)
                     }
                     .padding(.horizontal, 20)
-                    .padding(.vertical)
+                    .padding(.vertical,30)
                     .onTapGesture {
                         toggleBottomSheet()
                     }
@@ -185,7 +185,8 @@ struct InsideBoardView: View {
                                 })
                             }
                             .padding(.horizontal,20)
-                            .padding(.vertical, 30)
+                            .padding(.bottom, 40)
+                            .padding(.top,20)
                             .background(Color("ToolBarColor"))
                         }
                     }

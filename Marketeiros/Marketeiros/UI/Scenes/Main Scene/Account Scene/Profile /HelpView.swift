@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HelpView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     let urlSup = URL(string:"https://planiapp.wixsite.com/plani")
     
     var body: some View {
@@ -19,7 +19,11 @@ struct HelpView: View {
                 .ignoresSafeArea()
                 .frame( height: UIScreen.main.bounds.size.height * 0.66, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             VStack(spacing: 20){
-                
+                CustomNavBar(title: NSLocalizedString("help", comment: ""), backButtonAction: {
+                    presentationMode.wrappedValue.dismiss()
+                }, trailing: {
+                    EmptyView()
+                })
                 Button(action: {
                     UIApplication.shared.open(urlSup!)
                 }){
@@ -44,13 +48,11 @@ struct HelpView: View {
                             .foregroundColor(Color("AppLightBlue"))
                     }.foregroundColor(Color("NavBarTitle"))
                 }
-                
-                
                 Spacer()
-            }.padding()
+            }
+            .navigationBarHidden(false)
+            .padding()
             .navigationBarTitle(NSLocalizedString("help", comment: ""), displayMode: .inline)
-    
-            
         }
     }
 }

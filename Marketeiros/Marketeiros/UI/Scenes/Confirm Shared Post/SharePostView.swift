@@ -51,15 +51,6 @@ struct SharePostView: View {
                     .foregroundColor(Color("postText"))
                 Spacer()
             }
-            
-//            HStack {
-//                Text("#danca #conceito #verde")
-//                    .multilineTextAlignment(.leading)
-//                    .font(.custom("SF Pro Display", size: 14))
-//                    .foregroundColor(Color("postText"))
-//                    .padding(.leading,3)
-//                Spacer()
-//            }
             .padding(.bottom)
             
             HStack {

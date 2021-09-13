@@ -51,6 +51,7 @@ struct ProfileSheet: View {
                             .onTapGesture {
                                 //LocalRepository.shared.saveCurrent(board: board)
                                 self.board = board
+                                self.okButtonCallback()
                             }.environmentObject(insideViewModel)
                         Rectangle()
                             .frame(height: 0.5)
@@ -91,23 +92,19 @@ struct ProfileSheet: View {
                     Spacer()
                     
                     HStack {
-                        Button(action: {
-                            
-                        }, label: {
-                            Text(NSLocalizedString("terms", comment: ""))
+                        NavigationLink(destination: AboutView()) {
+                            Text(NSLocalizedString("about", comment: ""))
                                 .font(Font.sfProDisplayRegular(sized: 18))
                                 .foregroundColor(.gray)
-                        })
+                        }
+
                         Spacer()
-                        Button(action: {
-                            
-                        }, label: {
+                        NavigationLink(destination: HelpView()) {
                             Text(NSLocalizedString("help", comment: ""))
                                 .font(Font.sfProDisplayRegular(sized: 18))
                                 .foregroundColor(.gray)
-                        })
+                        }
                     }
-                    //.padding(.horizontal)
                     .padding(.bottom)
                 }.padding()
             }
@@ -128,7 +125,6 @@ struct ProfileSheet_Previews: PreviewProvider {
                             [.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: ""),
                             ]), board: .constant(.init(uid: UUID().uuidString, imagePath: "", title: "Inspector", description: "", instagramAccount: "inspector", ownerUid: "", colaboratorsUids: [], postsGridUid: "", ideasGridUid: "", moodGridUid: "")), okButtonCallback: {})
                 .ignoresSafeArea()
-                //.background(CornerShapeView(corners: [.topLeft,.topRight], radius: 30).accentColor(.red))
                 .frame(height: 400)
                 .padding(.horizontal,1)
         }.ignoresSafeArea()

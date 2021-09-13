@@ -724,6 +724,8 @@
 				793F903D26D7E8AC00436B44 /* AddProfileView.swift */,
 				AE6C8BA626D88ED7003D2940 /* ProfileListCellView.swift */,
 				AE380BE526E05B2900487D3C /* EditProfileView.swift */,
+				EFF910EC2695F88400D16D0D /* AboutView.swift */,
+				EF8646C026974BAC0037DAB1 /* HelpView.swift */,
 			);
 			path = "Profile ";
 			sourceTree = "<group>";
@@ -888,9 +890,7 @@
 			children = (
 				EFF910E52695DBFB00D16D0D /* ProfileView.swift */,
 				EFF910E92695EDF300D16D0D /* NotificationsDetailsView.swift */,
-				EFF910EC2695F88400D16D0D /* AboutView.swift */,
 				EFF910EF2695FB2100D16D0D /* UserDetailsView.swift */,
-				EF8646C026974BAC0037DAB1 /* HelpView.swift */,
 			);
 			path = ProfileMvp;
 			sourceTree = "<group>";

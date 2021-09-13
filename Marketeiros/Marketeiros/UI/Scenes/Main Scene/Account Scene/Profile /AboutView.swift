@@ -9,7 +9,7 @@ import SwiftUI
 import StoreKit
 
 struct AboutView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     let urlTerms = URL(string:"https://planiapp.wixsite.com/plani/terms-and-conditions")
     let url = URL(string:"https://planiapp.wixsite.com/plani")
     
@@ -21,6 +21,11 @@ struct AboutView: View {
             .ignoresSafeArea()
              .frame( height: UIScreen.main.bounds.size.height * 0.66, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             VStack(spacing: 20){
+                CustomNavBar(title: NSLocalizedString("about", comment: ""), backButtonAction: {
+                    presentationMode.wrappedValue.dismiss()
+                }, trailing: {
+                    EmptyView()
+                })
                 Button(action: {
                     UIApplication.shared.open(urlTerms!)
                 }){
@@ -63,16 +68,14 @@ struct AboutView: View {
                         .font(.custom("SF Pro Display", size: 20, relativeTo: .headline))
                         .foregroundColor(.gray)
                     Spacer()
-                    Text("1.0")
+                    Text("2.0")
                         .foregroundColor(.gray)
                 }
                 Spacer()
-                
-                
+
             }.padding()
             .navigationBarTitle(NSLocalizedString("about", comment: ""), displayMode: .inline)
-            .foregroundColor(Color("NavBarTitle"))
-            
+            .foregroundColor(Color("NavBarTitle"))   
         }
     }
 }

@@ -71,7 +71,6 @@ struct AddProfileView: View {
                         }
                     })
                     
-                    
                     Spacer()
                 }
                 
@@ -94,7 +93,7 @@ struct AddProfileView: View {
                     .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 0))
                     .background(Color("TextField2"))
                     .cornerRadius(8)
-                
+                Spacer()
             }
         }
         .padding(.horizontal,20)

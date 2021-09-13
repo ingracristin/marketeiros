@@ -15,7 +15,7 @@ struct CalendarPageView: View {
     @State var weekNotifications = [Int:[ScheduledNotification]]()
     @State var scheduledDates = [Date]()
     @Binding var board: Board
-    let aux : CGFloat = UIScreen.main.bounds.height * 0.35
+    let aux : CGFloat = UIScreen.main.bounds.height * 0.33
     
     func getWeekNotifications(of date: Date) -> [Int:[ScheduledNotification]] {
         var ntf: [Int:[ScheduledNotification]] = [:]

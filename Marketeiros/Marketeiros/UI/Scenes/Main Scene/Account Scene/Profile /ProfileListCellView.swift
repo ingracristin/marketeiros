@@ -55,7 +55,7 @@ struct ProfileListCellView: View {
                     .foregroundColor(Color("captionMessageColor"))
             }
             Spacer()
-            NavigationLink(destination: EditProfileView(board: board, callback: {newBoard in
+            NavigationLink(destination: EditProfileView(board: board, callback: { newBoard in
                 self.board = newBoard
             }).environmentObject(insideViewModel)) {
                 Image(systemName: "pencil.circle")
