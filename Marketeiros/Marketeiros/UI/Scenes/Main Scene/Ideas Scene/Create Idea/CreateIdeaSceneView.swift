@@ -108,19 +108,19 @@ struct CreateIdeaSceneView: View {
                 VStack(spacing: 0){
                     ForEach(viewModel.pastes, id:\.uid) { paste in
                         ZStack {
-                            HStack(spacing: 0){
-                                Spacer()
-                                Button(action: {}) {
-                                    Image(systemName: "square.and.pencil")
-                                        .foregroundColor(.white)
-                                }.frame(width: UIScreen.main.bounds.size.width * 0.144, height: UIScreen.main.bounds.size.height * 0.0566)
-                                .background(Color(#colorLiteral(red: 0.2733859122, green: 0.3903551698, blue: 0.9017891288, alpha: 1)))
-                                Button(action: {}) {
-                                    Image(systemName: "trash")
-                                        .foregroundColor(.white)
-                                }.frame(width: UIScreen.main.bounds.size.width * 0.144, height: UIScreen.main.bounds.size.height * 0.0566)
-                                .background(Color(#colorLiteral(red: 0.997802794, green: 0.2306014299, blue: 0.1866784096, alpha: 1)))
-                            }
+//                            HStack(spacing: 0){
+//                                Spacer()
+//                                Button(action: {}) {
+//                                    Image(systemName: "square.and.pencil")
+//                                        .foregroundColor(.white)
+//                                }.frame(width: UIScreen.main.bounds.size.width * 0.144, height: UIScreen.main.bounds.size.height * 0.0566)
+//                                .background(Color(#colorLiteral(red: 0.2733859122, green: 0.3903551698, blue: 0.9017891288, alpha: 1)))
+//                                Button(action: {}) {
+//                                    Image(systemName: "trash")
+//                                        .foregroundColor(.white)
+//                                }.frame(width: UIScreen.main.bounds.size.width * 0.144, height: UIScreen.main.bounds.size.height * 0.0566)
+//                                .background(Color(#colorLiteral(red: 0.997802794, green: 0.2306014299, blue: 0.1866784096, alpha: 1)))
+//                            }
                             
                             Button(action: {
                                 viewModel.select(paste: paste)
@@ -135,8 +135,8 @@ struct CreateIdeaSceneView: View {
                                 .frame(height: UIScreen.main.bounds.size.height * 0.0566)
                                 .background(Color("ModalSheetColor"))
                                 .foregroundColor(Color(UIColor.navBarTitleColor))
-                            }.offset(x: pasteOffset)
-                            .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
+                            }//.offset(x: pasteOffset)
+                           // .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
                         }.frame(height: UIScreen.main.bounds.size.height * 0.0566)
                         Divider()
                     }

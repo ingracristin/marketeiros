@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PostsGridCellView: View {
     var post: Post
+  
     var board: Board
     var height: CGFloat
     var width: CGFloat
@@ -17,8 +18,10 @@ struct PostsGridCellView: View {
     var body: some View {
         ZStack(alignment:.topTrailing){
             FirebaseImage(post: post, board: board, widthImg: width, heightImg: height, averageColorOn: $averageColorOn) {
-                Rectangle()
-                    .foregroundColor(Color(UIColor.emptyCellGridColor))
+                
+                    Rectangle()
+                        .foregroundColor(Color(UIColor.emptyCellGridColor))
+                    
                 
             } image: {
                 Image(uiImage: $0)
