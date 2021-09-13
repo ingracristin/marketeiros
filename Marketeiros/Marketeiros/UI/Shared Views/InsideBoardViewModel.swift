@@ -11,18 +11,6 @@ import SwiftUI
 class InsideBoardViewModel: ObservableObject {
     @Published var posts = [Post]()
     @Published private(set) var states = States()
-//    @Published private(set) var board: Board = Board.init(
-//        uid: "",
-//        imagePath: "",
-//        title: "Plani Board",
-//        description: "",
-//        instagramAccount: "",
-//        ownerUid: "",
-//        colaboratorsUids: [],
-//        postsGridUid: "",
-//        ideasGridUid: "",
-//        moodGridUid: "")
-    //@Published private(set) var boards = [Board]()
     var changesCallback: (Board) -> ()
     
     var screenNavTitle: String {
@@ -93,7 +81,6 @@ class InsideBoardViewModel: ObservableObject {
             get: {self.states.board},
             set: {
                 self.states.board = $0
-                self.states.isLoading.toggle()
                 self.getAllPosts()
             }),
         imagesUrls: Binding(
@@ -106,6 +93,7 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func change(board: Board) {
+        //self.states.isLoading.toggle()
         self.states.board = board
         changesCallback(board)
     }
@@ -186,6 +174,9 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func getAllPosts() {
+        if !states.isLoading {
+            states.isLoading.toggle()
+        }
         LocalRepository.shared.saveCurrent(board: self.states.board)
         self.states.igAccount = self.states.board.instagramAccount
         self.states.imagesUrls = ImagesLocalRepository.shared.getImagesUrls(from: "instagramUrlsFrom=\(self.states.board.instagramAccount)").map({ImageUrl(imageUrl: $0)})

@@ -26,11 +26,6 @@ struct ErrorViewModifier<AlertView: View>: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             content
-                .onTapGesture {
-                    withAnimation {
-                        isShowing.toggle()
-                    }
-                }
                 .blur(radius: self.isShowing ? 5 : 0)
             alert
                 .onTapGesture {
@@ -51,11 +46,11 @@ struct LoadingViewModifier<AlertView: View>: ViewModifier {
             content
                 .disabled(self.isShowing)
                 .blur(radius: self.isShowing ? 5 : 0)
-                .onTapGesture {
-                    withAnimation {
-                        isShowing.toggle()
-                    }
-                }
+//                .onTapGesture {
+//                    withAnimation {
+//                        isShowing.toggle()
+//                    }
+//                }
             alert
         }
     }

@@ -201,14 +201,11 @@ struct InsideBoardView: View {
                        // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                     }
                 }
-                .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
-                    EditBoardView(board: viewModel.states.board) { board in
-                        viewModel.change(board: board)
-                    }
-                })
-    //            .navigationBarItems(trailing:BoardMenuButton(editAction: {viewModel.toggleEditBoardSheet()}, deleteAction: {
-    //                viewModel.setErrorAlertIsShowing(true)
-    //            }))
+//                .sheet(isPresented: viewModel.bindings.editBoardIsShowing, content: {
+//                    EditBoardView(board: viewModel.states.board) { board in
+//                        viewModel.change(board: board)
+//                    }
+//                })
                 .navigationBarHidden(true)
                 .onAppear {
                     viewModel.loadUserData()
