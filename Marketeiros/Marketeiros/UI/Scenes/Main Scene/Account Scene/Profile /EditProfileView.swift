@@ -111,11 +111,12 @@ struct EditProfileView: View {
                             })
                         }, label: {
                             Text(NSLocalizedString("delete", comment: ""))
-                        })
+                        }).disabled(insideViewModel.states.boards.count == 1)
                         Spacer()
                     }
                     .foregroundColor(.red)
                     .padding()
+                    .isHidden(insideViewModel.states.boards.count == 1)
                 }
             }
             .padding(.horizontal,20)

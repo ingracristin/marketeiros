@@ -16,7 +16,7 @@ struct AuthenticationView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Error6charecterPasswd(isShowing: viewModel.bindings.isLess6char){
+       // Error6charecterPasswd(isShowing: viewModel.bindings.isLess6char){
             LoadingView(isShowing: viewModel.bindings.isLoading) {
                 ScrollView {
                     VStack(spacing: 20){
@@ -121,7 +121,7 @@ struct AuthenticationView: View {
                 }
             }
         }
-    }
+    
 }
 
 struct AuthenticationView_Previews: PreviewProvider {

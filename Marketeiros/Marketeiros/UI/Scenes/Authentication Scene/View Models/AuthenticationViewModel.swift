@@ -101,11 +101,13 @@ class AuthenticationViewModel: ObservableObject {
         let username = states.username
         
         if states.password.count < 6 {
-            states.isLess6Char.toggle()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
-                self.states.isLess6Char.toggle()
-            }
+//            states.isLess6Char.toggle()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+//                self.states.isLess6Char.toggle()
+//            }
             states.isLoading.toggle()
+            states.errorText = NSLocalizedString("All fields must be filled in correctly.", comment: "")
+            states.existError.toggle()
             return
         }
         
@@ -173,9 +175,9 @@ class AuthenticationViewModel: ObservableObject {
                     self?.states.isLoading.toggle()
                     self?.states.existError.toggle()
                 case .success(_):
-                    if let self = self {
-                        self.states.isLoggedIn.toggle()
-                    }
+//                    if let self = self {
+//                        self.states.isLoggedIn.toggle()
+//                    }
                     var  board = Board.init(
                         uid: "",
                         imagePath: "",
