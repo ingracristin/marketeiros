@@ -179,7 +179,7 @@ class AuthenticationViewModel: ObservableObject {
                     var  board = Board.init(
                         uid: "",
                         imagePath: "",
-                        title: "Plani Board",
+                        title: "Empty Profile",
                         description: "",
                         instagramAccount: "",
                         ownerUid: user.uid,

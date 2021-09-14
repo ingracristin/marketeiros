@@ -56,6 +56,11 @@ struct ProfileListCellView: View {
             }
             Spacer()
             NavigationLink(destination: EditProfileView(board: board, callback: { newBoard in
+                //insideViewModel.change(board: newBoard)
+                if insideViewModel.states.board.uid == newBoard.uid {
+                    insideViewModel.states.board = newBoard
+                    LocalRepository.shared.saveCurrent(board: newBoard)
+                }
                 self.board = newBoard
             }).environmentObject(insideViewModel)) {
                 Image(systemName: "pencil.circle")

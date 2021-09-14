@@ -99,7 +99,7 @@ class EditProfileViewModel : ObservableObject {
         states.errorAlertIsShowing = value
     }
     
-    func saveChangesToBoard() {
+    func saveChangesToBoard(completion: @escaping () -> ()) {
         board.title = states.title
         board.description = states.description
         board.instagramAccount = states.instragramAccount.replacingOccurrences(of: " ", with: "")
@@ -122,11 +122,13 @@ class EditProfileViewModel : ObservableObject {
                     case .success(_):
                         if let self = self {
                             self.callback(self.board)
+                            completion()
                         }
                     }
                 }
             } else {
                 self.callback(self.board)
+                completion()
             }
         }
     }

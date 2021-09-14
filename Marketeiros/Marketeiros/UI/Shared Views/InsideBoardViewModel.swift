@@ -10,12 +10,14 @@ import SwiftUI
 
 class InsideBoardViewModel: ObservableObject {
     @Published var posts = [Post]()
-    @Published private(set) var states = States()
+    @Published var states = States()
     var changesCallback: (Board) -> ()
     
     var screenNavTitle: String {
         let title = self.states.board.instagramAccount.removeCharactersContained(in: "@")
         return (title.isEmpty) ? "@username" : "@\(title)"
+        
+        
     }
     
     struct States {
@@ -30,10 +32,10 @@ class InsideBoardViewModel: ObservableObject {
         var board: Board = Board.init(
             uid: "",
             imagePath: "",
-            title: "Plani Profile",
+            title: "",
             description: "",
             instagramAccount: "",
-            ownerUid: "",
+            ownerUid: AuthService.current.user?.uid ?? "",
             colaboratorsUids: [],
             postsGridUid: "",
             ideasGridUid: "",
@@ -93,9 +95,7 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func change(board: Board) {
-        //self.states.isLoading.toggle()
-        self.states.board = board
-        changesCallback(board)
+        self.bindings.board.wrappedValue = board
     }
     
     func toggleAddPostView() {
@@ -137,7 +137,7 @@ class InsideBoardViewModel: ObservableObject {
                     self.states.board = Board.init(
                         uid: "",
                         imagePath: "",
-                        title: "Plani Board",
+                        title: "Empty Profile",
                         description: "",
                         instagramAccount: "",
                         ownerUid: user.uid,
@@ -203,10 +203,10 @@ class InsideBoardViewModel: ObservableObject {
                 self.bindings.board.wrappedValue = Board.init(
                     uid: "",
                     imagePath: "",
-                    title: "Plani Board",
+                    title: "Empty Profile",
                     description: "",
                     instagramAccount: "",
-                    ownerUid: "",
+                    ownerUid: AuthService.current.user?.uid ?? "",
                     colaboratorsUids: [],
                     postsGridUid: "",
                     ideasGridUid: "",

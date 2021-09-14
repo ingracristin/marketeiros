@@ -18,7 +18,7 @@ struct EditProfileView: View {
     }
     
     var body: some View {
-        LoadingView(isShowing: $isLoading) {
+//        LoadingView(isShowing: $isLoading) {
             ProgressBarView(isShowing: viewModel.bindings.alertViewShowing, value: viewModel.bindings.percentage) {
                 VStack(alignment: .leading){
                     HStack{
@@ -36,8 +36,9 @@ struct EditProfileView: View {
                             .fontWeight(.semibold)
                         Spacer()
                         Button(action: {
-                            viewModel.saveChangesToBoard()
-                            presentationMode.wrappedValue.dismiss()
+                            viewModel.saveChangesToBoard(completion: {
+                                presentationMode.wrappedValue.dismiss()
+                            })
                         }, label: {
                             Text(NSLocalizedString("save", comment: ""))
                                 .foregroundColor(Color("SheetButton"))
@@ -125,7 +126,7 @@ struct EditProfileView: View {
                 Alert(title: Text(NSLocalizedString("Error", comment: "")), message: Text(viewModel.states.errorMessage), dismissButton: .cancel())
             })
         }
-    }
+    
 }
 
 struct EditProfileView_Previews: PreviewProvider {
