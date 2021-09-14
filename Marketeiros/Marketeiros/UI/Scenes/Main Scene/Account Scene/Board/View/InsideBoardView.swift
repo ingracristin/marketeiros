@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 struct InsideBoardView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: InsideBoardViewModel
-    @State var selectedIndex = 0
+//    @State var selectedIndex = 0
     @State var averageColorOn = false
     @State private var dragging: Post?
     @State var offset: CGFloat = 0
@@ -72,44 +72,44 @@ struct InsideBoardView: View {
                     ZStack {
                         HStack {
                             Button(action: {
-                                selectedIndex = 0
+                                viewModel.states.selectedIndex = 0
                             }, label: {
                                 Text("Grid")
                                     .font(Font.custom("cocon-bold",size: 18))
                                     .bold()
-                                    .foregroundColor((selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
+                                    .foregroundColor((viewModel.states.selectedIndex == 0) ? .white : Color(UIColor.unselectedColor))
                                     .fixedSize(horizontal: false, vertical: true)
                             })
                             .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                            .background((selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                            .background((viewModel.states.selectedIndex == 0) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                             .cornerRadius(13)
                             Spacer()
                         }
                         Button(action: {
-                            selectedIndex = 1
+                            viewModel.states.selectedIndex = 1
                         }, label: {
                             Text(NSLocalizedString("calendar", comment: ""))
                                 .font(Font.custom("cocon-bold",size: 18))
                                 .bold()
-                                .foregroundColor((selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
+                                .foregroundColor((viewModel.states.selectedIndex == 1) ? .white : Color(UIColor.unselectedColor))
                                 .fixedSize(horizontal: false, vertical: true)
                         })
                         .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                        .background((selectedIndex == 1) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                        .background((viewModel.states.selectedIndex == 1) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                         .cornerRadius(13)
                         HStack {
                             Spacer()
                             Button(action: {
-                              selectedIndex = 2
+                                viewModel.states.selectedIndex = 2
                             }, label: {
                                 Text(NSLocalizedString("ideas", comment: ""))
                                     .font(Font.custom("cocon-bold",size: 18))
                                     .bold()
-                                    .foregroundColor((selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
+                                    .foregroundColor((viewModel.states.selectedIndex == 2) ? .white : Color(UIColor.unselectedColor))
                                     .fixedSize(horizontal: false, vertical: true)
                             })
                             .padding(.init(top: 1, leading: 12, bottom: 1, trailing: 12))
-                            .background((selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
+                            .background((viewModel.states.selectedIndex == 2) ? Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)).frame(width: reader.size.width/3) : Color(.clear).frame(width: reader.size.width/3))
                             .cornerRadius(13)
                         }
                     }
@@ -120,7 +120,7 @@ struct InsideBoardView: View {
                         EmptyView()
                     }
                 
-                    if (selectedIndex == 0) {
+                    if (viewModel.states.selectedIndex == 0) {
                         ZStack {
                         ScrollView(){
                             LazyVGrid(columns: layout, spacing: 1) {
@@ -192,11 +192,11 @@ struct InsideBoardView: View {
                     }
                     //.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                         
-                    } else if (selectedIndex == 1) {
+                    } else if (viewModel.states.selectedIndex == 1) {
                         CalendarPageView(board: viewModel.bindings.board)
                            // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
-                    } else if (selectedIndex == 2) {
+                    } else if (viewModel.states.selectedIndex == 2) {
                         IdeaView(viewModel: .init(board: viewModel.states.board))
                        // .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                     }

@@ -21,29 +21,34 @@ struct EditProfileView: View {
 //        LoadingView(isShowing: $isLoading) {
             ProgressBarView(isShowing: viewModel.bindings.alertViewShowing, value: viewModel.bindings.percentage) {
                 VStack(alignment: .leading){
-                    HStack{
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Text(NSLocalizedString("cancelBtn", comment: ""))
-                                .foregroundColor(Color(#colorLiteral(red: 0.8705882353, green: 0.3647058824, blue: 0.3647058824, alpha: 1)))
-                                .font(.body)
-                        })
-                        Spacer()
-                        Text(NSLocalizedString("editProfile", comment: ""))
-                            .foregroundColor(Color("NavBarTitle"))
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Spacer()
-                        Button(action: {
-                            viewModel.saveChangesToBoard(completion: {
+                    ZStack {
+                        HStack {
+                            Spacer()
+                            Text(NSLocalizedString("editProfile", comment: ""))
+                                .foregroundColor(Color("NavBarTitle"))
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            Spacer()
+                        }
+                        HStack{
+                            Button(action: {
                                 presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Text(NSLocalizedString("cancelBtn", comment: ""))
+                                    .foregroundColor(Color(#colorLiteral(red: 0.8705882353, green: 0.3647058824, blue: 0.3647058824, alpha: 1)))
+                                    .font(.body)
                             })
-                        }, label: {
-                            Text(NSLocalizedString("save", comment: ""))
-                                .foregroundColor(Color("SheetButton"))
-                                .font(.body)
-                        })
+                            Spacer()
+                            Button(action: {
+                                viewModel.saveChangesToBoard(completion: {
+                                    presentationMode.wrappedValue.dismiss()
+                                })
+                            }, label: {
+                                Text(NSLocalizedString("save", comment: ""))
+                                    .foregroundColor(Color("SheetButton"))
+                                    .font(.body)
+                            })
+                        }
                     }
                     HStack(){
                         Spacer()

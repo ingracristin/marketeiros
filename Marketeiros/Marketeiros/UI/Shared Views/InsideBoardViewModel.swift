@@ -117,13 +117,16 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func loadUserData() {
-        self.states.isLoading.toggle()
+        if self.states.selectedIndex == 0 {
+            self.states.isLoading = true
+        }
+
         getAllBoards()
     }
     
     func getAllBoards() {
         guard let user = AuthService.current.user else {
-            self.states.isLoading.toggle()
+            self.states.isLoading = false
             self.states.errorAlertIsShowing.toggle()
             self.states.errorMessage = "No user Logged In"
             return
@@ -136,7 +139,7 @@ class InsideBoardViewModel: ObservableObject {
             switch result {
             case.failure(let message):
                 if let self = self {
-                    self.states.isLoading.toggle()
+                    self.states.isLoading = false
                     self.states.errorAlertIsShowing.toggle()
                     self.states.errorMessage = message.localizedDescription
                     self.states.board = Board.init(
@@ -179,14 +182,14 @@ class InsideBoardViewModel: ObservableObject {
     }
     
     func getAllPosts() {
-        if !states.isLoading {
+        if !states.isLoading && states.selectedIndex == 0 {
             states.isLoading.toggle()
         }
         LocalRepository.shared.saveCurrent(board: self.states.board)
         self.states.igAccount = self.states.board.instagramAccount
         self.states.imagesUrls = ImagesLocalRepository.shared.getImagesUrls(from: "instagramUrlsFrom=\(self.states.board.instagramAccount)").map({ImageUrl(imageUrl: $0)})
         BoardsRepository.current.getAllItens(of: self.states.board, on: .posts,ofItemType: Post.self) { result in
-            self.states.isLoading.toggle()
+            self.states.isLoading = false
             switch result {
             case .failure(let message):
                 self.states.errorAlertIsShowing.toggle()

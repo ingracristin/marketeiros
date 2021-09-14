@@ -15,29 +15,34 @@ struct CreatePasteView: View {
     
     var body: some View {
         VStack(spacing: 20){
-            HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text(NSLocalizedString("cancel", comment: ""))
-                        .foregroundColor(.red)
+            ZStack {
+                HStack {
+                    Spacer()
+                    Text(NSLocalizedString("newFilter", comment: ""))
+                        .font(Font.sfProDisplaySemiBold(sized: 18))
+                        .foregroundColor(Color(UIColor.navBarTitleColor))
+                    Spacer()
                 }
-                Spacer()
-                Text(NSLocalizedString("newFilter", comment: ""))
-                    .font(Font.sfProDisplaySemiBold(sized: 18))
-                    .foregroundColor(Color(UIColor.navBarTitleColor))
-                Spacer()
-                Button(action: {
-                    var paste = Paste(uid: "", title: title, icon: "none")
-                    BoardsRepository.current.add(item: &paste, to: board, on: .pastes)
-                    callback?(paste)
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text(NSLocalizedString("save", comment: ""))
-                        .foregroundColor(Color(UIColor.navBarItemsColor))
-                }
-            }.padding(.vertical)
-            
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(NSLocalizedString("cancel", comment: ""))
+                            .foregroundColor(.red)
+                    }
+                    Spacer()
+                    Button(action: {
+                        var paste = Paste(uid: "", title: title, icon: "none")
+                        BoardsRepository.current.add(item: &paste, to: board, on: .pastes)
+                        callback?(paste)
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text(NSLocalizedString("save", comment: ""))
+                            .foregroundColor(Color(UIColor.navBarItemsColor))
+                    }
+                }.padding(.vertical)
+            }
+                
             VStack(spacing:5) {
                 TextField(NSLocalizedString("filterName", comment: ""), text: $title)
                 Divider()

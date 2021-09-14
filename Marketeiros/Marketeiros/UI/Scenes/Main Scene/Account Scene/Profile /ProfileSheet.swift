@@ -89,7 +89,7 @@ struct ProfileSheet: View {
                     }
                     .foregroundColor(.red)
                     
-                    Spacer()
+//                    Spacer()
                     
                     HStack {
                         NavigationLink(destination: AboutView()) {
