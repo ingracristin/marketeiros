@@ -221,3 +221,5 @@
 "profileName" = "Nome do Perfil";
 "newFilter" = "Novo Filtro";
 "filterName" = "Nome do Filtro";
+
+"emptyProfile" = "Adicione seu feed do Instagram editando seu Perfil clicando no @username e/ou planeje um post clicando em 'Novo";

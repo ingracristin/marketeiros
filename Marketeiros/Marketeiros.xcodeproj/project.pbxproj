@@ -73,6 +73,7 @@
 		AE3EB5E4269770860093AF7C /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EB5E3269770860093AF7C /* AuthenticationView.swift */; };
 		AE42A4C726EFA5C200768FBF /* CustomAlertsModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */; };
 		AE42A4C926EFA5F900768FBF /* TestAlertsModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */; };
+		AE520BCF26F07B6F00D429A6 /* EmptyProfileAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE520BCE26F07B6F00D429A6 /* EmptyProfileAlert.swift */; };
 		AE562EEC26CC0DC600B49226 /* ScheduledPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */; };
 		AE590B8726779E2B000101AF /* SocialNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8626779E2B000101AF /* SocialNetworkService.swift */; };
 		AE590B8926779E7F000101AF /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE590B8826779E7F000101AF /* UserNotificationService.swift */; };
@@ -211,6 +212,7 @@
 		AE3EB5E3269770860093AF7C /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertsModifiers.swift; sourceTree = "<group>"; };
 		AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAlertsModifiers.swift; sourceTree = "<group>"; };
+		AE520BCE26F07B6F00D429A6 /* EmptyProfileAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyProfileAlert.swift; sourceTree = "<group>"; };
 		AE562EEB26CC0DC600B49226 /* ScheduledPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledPostDetails.swift; sourceTree = "<group>"; };
 		AE590B8626779E2B000101AF /* SocialNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetworkService.swift; sourceTree = "<group>"; };
 		AE590B8826779E7F000101AF /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
@@ -472,32 +474,21 @@
 		AE37BC312683BA8700258D8B /* Shared Views */ = {
 			isa = PBXGroup;
 			children = (
+				AE520BD026F07B7B00D429A6 /* Custom Alerts */,
 				AE37BC322683BA9C00258D8B /* AsyncImage.swift */,
 				AE37BC342683BC4800258D8B /* UserProfileGridView.swift */,
 				AE37BC362683BC9A00258D8B /* TestViewModel.swift */,
 				AE37BC382683BCE000258D8B /* IgWebView.swift */,
-				AE8A5209268B8C7100E14EBD /* BlurView.swift */,
 				AE8A520B268B8D9F00E14EBD /* ImagePicker.swift */,
 				AE119B61268EC0FC00327D39 /* FirebaseImage.swift */,
-				AED48458269D5EE700890E91 /* ProgressBar.swift */,
-				AED48456269D5EE100890E91 /* LoadingView.swift */,
-				AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */,
 				AE3EB5C326976C7E0093AF7C /* HalfModalView.swift */,
-				AED4845C269D69D600890E91 /* ProgressBarView.swift */,
 				AE66B14F26B77176007518AC /* BoardMenuButton.swift */,
 				AECFA5F426DF294D00728494 /* BoardImageView.swift */,
 				AECB11A526BA35220007BB2C /* CornerShapeView.swift */,
-				795E180626BC3CC400EEE63B /* ErrorMessage.swift */,
-				795E180226BC253900EEE63B /* LoadingPhotosView.swift */,
-				795E180426BC3B5D00EEE63B /* LoadingPost.swift */,
-				7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */,
-				793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */,
 				AE6C8BA526D88ED7003D2940 /* BottomSheetView.swift */,
 				AE6C8BA426D88ED7003D2940 /* TestProfileSheet.swift */,
 				AE9E77FD26E28D9A009BE6B7 /* IdeasBottomSheetView.swift */,
 				AEC2785526EAEFA4002052FA /* CustomNavBar.swift */,
-				AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */,
-				AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -590,6 +581,42 @@
 			children = (
 			);
 			path = CreatePasteScene;
+			sourceTree = "<group>";
+		};
+		AE520BD026F07B7B00D429A6 /* Custom Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				AE42A4C626EFA5C200768FBF /* CustomAlertsModifiers.swift */,
+				AE520BD226F07B9E00D429A6 /* User Feedback */,
+				AE520BD126F07B8B00D429A6 /* Errors */,
+			);
+			path = "Custom Alerts";
+			sourceTree = "<group>";
+		};
+		AE520BD126F07B8B00D429A6 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				795E180626BC3CC400EEE63B /* ErrorMessage.swift */,
+				793F903F26D7EA7A00436B44 /* Error6charecterPasswd.swift */,
+				7913D51B26C40DFA008EA7C1 /* ErrorMissingInformation.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		AE520BD226F07B9E00D429A6 /* User Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				795E180226BC253900EEE63B /* LoadingPhotosView.swift */,
+				795E180426BC3B5D00EEE63B /* LoadingPost.swift */,
+				AED48458269D5EE700890E91 /* ProgressBar.swift */,
+				AED4845A269D5EEF00890E91 /* ActivityIndicator.swift */,
+				AED4845C269D69D600890E91 /* ProgressBarView.swift */,
+				AED48456269D5EE100890E91 /* LoadingView.swift */,
+				AE8A5209268B8C7100E14EBD /* BlurView.swift */,
+				AE520BCE26F07B6F00D429A6 /* EmptyProfileAlert.swift */,
+				AE42A4C826EFA5F900768FBF /* TestAlertsModifiers.swift */,
+			);
+			path = "User Feedback";
 			sourceTree = "<group>";
 		};
 		AE590B8326779DA4000101AF /* Domain */ = {
@@ -1083,6 +1110,7 @@
 				79747F60269348B7004BAAC9 /* LoginView.swift in Sources */,
 				AE247DE626AB12AC0059CBEB /* MonthPicker.swift in Sources */,
 				AE119B62268EC0FD00327D39 /* FirebaseImage.swift in Sources */,
+				AE520BCF26F07B6F00D429A6 /* EmptyProfileAlert.swift in Sources */,
 				AEAB4EF126CFE96600918DE5 /* EmptyScheduledPostsCard.swift in Sources */,
 				792CCD27267CE79300E5BDE9 /* NewBoardSheet.swift in Sources */,
 				AE3EB5DF26976CE60093AF7C /* CreateIdeaSceneView.swift in Sources */,

@@ -41,6 +41,7 @@ class InsideBoardViewModel: ObservableObject {
             ideasGridUid: "",
             moodGridUid: "")
         var imagesUrls = [ImageUrl]()
+        var emptyProfile = false
     }
     
     var bindings: (
@@ -53,7 +54,8 @@ class InsideBoardViewModel: ObservableObject {
         igAccount: Binding<String>,
         boards: Binding<[Board]>,
         board: Binding<Board>,
-        imagesUrls: Binding<[ImageUrl]>)
+        imagesUrls: Binding<[ImageUrl]>,
+        emptyProfile: Binding<Bool>)
      {(
         selectedIndex: Binding(
             get: {self.states.selectedIndex},
@@ -87,7 +89,10 @@ class InsideBoardViewModel: ObservableObject {
             }),
         imagesUrls: Binding(
             get: {self.states.imagesUrls},
-            set: {self.states.imagesUrls = $0})
+            set: {self.states.imagesUrls = $0}),
+        emptyProfile: Binding(
+            get: {self.states.emptyProfile},
+            set: {self.states.emptyProfile = $0})
     )}
     
     init(changesCallback: @escaping (Board) -> ()) {
@@ -188,6 +193,11 @@ class InsideBoardViewModel: ObservableObject {
                 self.states.errorMessage = message.localizedDescription
             case .success(let postsList):
                 self.posts = postsList
+                if postsList.isEmpty && self.states.board.instagramAccount.isEmpty {
+                    self.states.emptyProfile = true
+                } else {
+                    self.states.emptyProfile = false
+                }
             }
         }
     }

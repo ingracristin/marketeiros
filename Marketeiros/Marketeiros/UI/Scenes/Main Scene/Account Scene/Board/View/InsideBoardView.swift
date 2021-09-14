@@ -163,7 +163,7 @@ struct InsideBoardView: View {
                             
                             IgWebView(igUser: viewModel.bindings.igAccount, imagesUrls: viewModel.bindings.imagesUrls)
                                 .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        }
+                        }.loadingView(text: .constant("aaaaa"), isPresenting: viewModel.bindings.emptyProfile, alert: EmptyProfileAlert(isShowing: viewModel.bindings.emptyProfile))
                             
                         VStack(spacing:0){
                             Spacer()

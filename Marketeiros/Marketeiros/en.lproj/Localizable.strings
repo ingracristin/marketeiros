@@ -219,3 +219,7 @@
 "createFilter" = "Create Filter";
 "newFilter" = "New Filter";
 "filterName" = "Filter Name";
+
+
+//
+"emptyProfile" = "Add your Instagram feed by editing your Profile by clicking @username and/or plan a post by clicking 'New'";

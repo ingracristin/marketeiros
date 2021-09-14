@@ -19,6 +19,12 @@ extension View {
     }
 }
 
+extension View {
+    func emptyProfileAlert<T: View>(text: Binding<String>, isPresenting: Binding<Bool>, alert: T) -> some View {
+        self.modifier(ErrorViewModifier(isShowing: isPresenting, alert: alert))
+    }
+}
+
 struct ErrorViewModifier<AlertView: View>: ViewModifier {
     @Binding var isShowing: Bool
     let alert: AlertView
