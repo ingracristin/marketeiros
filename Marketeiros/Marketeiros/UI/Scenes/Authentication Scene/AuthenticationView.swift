@@ -16,7 +16,7 @@ struct AuthenticationView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-       // Error6charecterPasswd(isShowing: viewModel.bindings.isLess6char){
+        Error6charecterPasswd(isShowing: viewModel.bindings.isLess6char){
             LoadingView(isShowing: viewModel.bindings.isLoading) {
                 ScrollView {
                     VStack(spacing: 20){
@@ -67,8 +67,10 @@ struct AuthenticationView: View {
                         //
                         //                        .frame(width: UIScreen.main.bounds.size.width * 0.8826, height: UIScreen.main.bounds.size.height * 0.0677, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
-                        .signInWithAppleButtonStyle(colorScheme == .dark ? .black : .whiteOutline)
-                        .border(colorScheme == .dark ? Color.white : Color.black.opacity(0))
+                        .signInWithAppleButtonStyle(
+                            colorScheme == .dark ? .white : .black
+                        )
+                        //.border(colorScheme == .dark ? Color.white : Color.black.opacity(0))
                         .cornerRadius(colorScheme == .dark ? 8 : 0)
                         
                         
@@ -121,7 +123,7 @@ struct AuthenticationView: View {
                 }
             }
         }
-    
+    }
 }
 
 struct AuthenticationView_Previews: PreviewProvider {
