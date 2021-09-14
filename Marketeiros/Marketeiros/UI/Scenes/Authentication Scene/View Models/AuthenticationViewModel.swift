@@ -106,7 +106,7 @@ class AuthenticationViewModel: ObservableObject {
 //                self.states.isLess6Char.toggle()
 //            }
             states.isLoading.toggle()
-            states.errorText = NSLocalizedString("All fields must be filled in correctly.", comment: "")
+            states.errorText = NSLocalizedString("The password must be 6 characters long or more.", comment: "")
             states.existError.toggle()
             return
         }

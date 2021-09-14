@@ -72,7 +72,7 @@ struct RegisterView: View {
             .padding(.init(top: 5, leading: 20, bottom: 5, trailing: 20))
             .background(Color(#colorLiteral(red: 0.2572367191, green: 0.3808146715, blue: 0.9349743724, alpha: 1)))
             .cornerRadius(20)
-            
+            Spacer().frame(height: 35)
         }
     }
 }
